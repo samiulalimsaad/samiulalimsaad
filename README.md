@@ -1,20 +1,19 @@
 ![I am a Web Developer](https://scontent.fdac27-1.fna.fbcdn.net/v/t1.6435-9/p720x720/85144436_2473923272735673_1861800999203635200_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=e3f864&_nc_ohc=T7A6fSa2sCcAX8UOJ7f&_nc_ht=scontent.fdac27-1.fna&oh=f34bbb5cd62d9cf2f33672ca930f857c&oe=6150A406)
 
-<!-- <hr/> -->
-<br/>
 
-<h1 align="left" style="display: flex; justify-content: space-between"> Samiul Alim
-
+# Samiul Alim
+	
 ![Profile views](https://gpvc.arturio.dev/samiulalimsaad)
 
-</h1>
+## Connect with me
 
+---
+<br/>
 <!-- src="https://img.icons8.com/color/48/000000/twitter--v2.png" -->
 <p align="left" style="display: flex; justify-content: space-around">
 <a href="https://fb.com/samiulalimsaad" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="samiulalimsaad" height="30" width="40" /></a> <a href="https://m.me/samiulalimsaad" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/messenger.svg" alt="samiulalimsaad" height="30" width="40" /></a> <a href="https://twitter.com/samiulalimsaad" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="samiulalimsaad" height="30" width="40" /></a> <a href="https://linkedin.com/in/samiulalimsaad" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="samiulalimsaad" height="30" width="40" /></a> <a href="https://github.com/samiulalimsaad" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="samiulalimsaad" height="30" width="40" /></a> <a href="live:.cid.35878dd2e5892b42" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/skype.svg" alt="samiulalimsaad" height="30" width="40" /></a> <a href="/portfolio-saadraj.vercel.app" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/rss.svg" alt="https://portfolio-saadraj.vercel.app" height="30" width="40" /></a>
 </p>
 
-<br/>
 <br/>
 
 ## I am a Web Developer
@@ -43,11 +42,10 @@
 
 
 <br/>
-<br/>
 
 <h2 align="left">Languages and Tools:</h2>
 
-<hr/>
+---
 
 <br />
 <p align="left" style="display: flex; justify-content: space-between">
@@ -69,14 +67,11 @@
             />
 <img align="center" src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="arduino" width="40" height="40"
             />
-<img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"
-            />
-        </p>
-<br />
+<img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/>
+</p>
 
-<hr/>
+<br/>
 
-<br />
 <p align="left" style="display: flex; justify-content: space-between">
 <img align="center" src="https://cdn.worldvectorlogo.com/logos/next-js.svg" alt="nextjs" width="40" height="40"
             />
@@ -103,9 +98,6 @@
         </p>
 <br />
 
-<hr/>
-
-<br />
 <p align="left" style="display: flex; justify-content: space-between">
 <img align="center" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"
             />
@@ -147,9 +139,7 @@
 ![Github activity graph](https://activity-graph.herokuapp.com/graph?username=samiulalimsaad&theme=rogue&area=true&bg_color=011627&color=21C7A8&line=FF009D&point=00ffff&area_color=00FFFF)
 
 <br/>
-<br/>
 <hr/>
-<br/>
 <br/>
 
 ![GitHub metrics](https://metrics.lecoq.io/samiulalimsaad)
