@@ -1,4 +1,3 @@
-![I am a Web Developer](https://scontent.fdac27-1.fna.fbcdn.net/v/t1.6435-9/p720x720/85144436_2473923272735673_1861800999203635200_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=e3f864&_nc_ohc=T7A6fSa2sCcAX8UOJ7f&_nc_ht=scontent.fdac27-1.fna&oh=f34bbb5cd62d9cf2f33672ca930f857c&oe=6150A406)
 
 # Samiul Alim
 
