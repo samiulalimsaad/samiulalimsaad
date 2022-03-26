@@ -1,4 +1,4 @@
-![Github Banner](https://scontent.fdac27-1.fna.fbcdn.net/v/t1.6435-9/p720x720/85144436_2473923272735673_1861800999203635200_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=e3f864&_nc_ohc=qXG6ZmbLMIIAX9PHgsD&_nc_ht=scontent.fdac27-1.fna&oh=00_AT8nRQ22Nk9lm0o4ZQLHCbjrVg2CPxqgU1kJFxaaZ5iXzw&oe=621A5986)
+![Github Banner](https://pbs.twimg.com/profile_banners/773723329089896448/1623519576/600x200)
 
 # Samiul Alim
 
