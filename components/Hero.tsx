@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import SamiulAlim from "../images/samiul-alim.svg";
+
 const Hero = () => {
     return (
         <div
@@ -29,7 +30,7 @@ const Hero = () => {
                         university life. I dream of being an expert software
                         engineer or a web developer so that I can build
                         professional & helpful software or web application that
-                        has Lite Media (January 22) business value.
+                        has business value.
                     </p>
                     <div className="flex justify-center sm:justify-start">
                         <Link href="/contact" passHref>
