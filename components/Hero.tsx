@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import SamiulAlim from "../images/samiul-alim.svg";
 
@@ -10,32 +9,34 @@ const Hero = () => {
             style={{ background: `url(hero-space.png)` }}
         >
             <div className="flex-col justify-between hero-content lg:flex-row-reverse">
-                <div className="block w-full">
+                <div className="aspect-square">
                     <Image
                         src={SamiulAlim}
                         alt="Samiul Alim"
-                        layout="responsive"
+                        // layout="responsive"
                         height={1240}
                         width={1240}
-                        className="max-w-sm rounded-lg shadow-2xl"
+                        className="max-w-sm rounded-full"
                     />
                 </div>
-                <div>
-                    <h1 className="font-bold text-center text-8xl sm:text-left">
+                <div className="block w-full">
+                    <h1 className="text-5xl font-bold text-center lg:text-8xl sm:text-left xl:text-7xl md:text-6xl">
                         Samiul Alim
                     </h1>
-                    <p className="py-6 text-xl text-center sm:text-left sm:w-10/12">
-                        I have been very passionate about computers,
-                        programming, and software development since my
-                        university life. I dream of being an expert software
-                        engineer or a web developer so that I can build
-                        professional & helpful software or web application that
-                        has business value.
+                    <h3 className="py-6 text-xl font-semibold text-center xl:text-3xl md:text-2xl sm:text-left">
+                        I build things for the web.
+                    </h3>
+                    <p className="py-6 text-base text-center md:text-xl sm:text-left sm:w-10/12">
+                        I&apos;m a software engineer specializing in building
+                        (and occasionally designing) exceptional digital
+                        experiences. Currently, I&apos;m focused on building
+                        accessible, human-centered products at Upstatement.
                     </p>
+
                     <div className="flex justify-center sm:justify-start">
-                        <Link href="/contact" passHref>
-                            <a className="btn btn-primary">Hire Me</a>
-                        </Link>
+                        <a href="#contact" className="btn btn-primary">
+                            Hire Me
+                        </a>
                     </div>
                 </div>
             </div>

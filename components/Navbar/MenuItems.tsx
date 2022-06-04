@@ -14,6 +14,10 @@ const menuItems = [
         path: "#skills",
     },
     {
+        name: "Education",
+        path: "#education",
+    },
+    {
         name: "Contact",
         path: "#contact",
     },

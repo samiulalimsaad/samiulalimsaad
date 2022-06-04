@@ -10,9 +10,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <meta name="description" content="Samiul Alim Saad Portfolio" />
                 <link rel="icon" href="/samiul-alim.ico" />
             </Head>
-            <header>
-                <Navbar />
-            </header>
+
+            <Navbar />
             <main>
                 <Component {...pageProps} />
             </main>
