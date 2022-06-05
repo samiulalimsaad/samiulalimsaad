@@ -27,7 +27,9 @@ const Experience = () => {
         >
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-900/80 hero">
                 <div>
-                    <h2 className="my-8 text-6xl font-black">Experience</h2>
+                    <h2 className="my-8 text-6xl font-black text-center">
+                        Experience
+                    </h2>
                     <div className="divider"></div>
                     <div>
                         <ul className="steps steps-vertical">
