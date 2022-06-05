@@ -1,11 +1,14 @@
 import Image from "next/image";
 import React from "react";
-import SamiulAlim from "../images/samiul-alim.svg";
+import SamiulAlim from "../../images/samiul-alim.png";
+
+const base64 =
+    "iVBORw0KGgoAAAANSUhEUgAABNgAAATQCAMAAAAWOwgjAAADAFBMVEUAAAAKEzENGDwLFTUQIU8PHUYRHD4PHkkFCyYTJFQZO4MLGEANHUoULGwKEzAUKGEQIE4SJVkPIVMPGjoMGD8MG";
 
 const Hero = () => {
     return (
         <div
-            className="min-h-screen hero"
+            className="min-h-screen hero bg-[url('/hero-space.png')]"
             style={{ background: `url(hero-space.png)` }}
         >
             <div className="flex-col justify-between hero-content lg:flex-row-reverse">
@@ -13,9 +16,9 @@ const Hero = () => {
                     <Image
                         src={SamiulAlim}
                         alt="Samiul Alim"
-                        // layout="responsive"
                         height={1240}
                         width={1240}
+                        placeholder="blur"
                         className="max-w-sm rounded-full"
                     />
                 </div>
