@@ -4,7 +4,10 @@ import MenuItems from "./MenuItems";
 
 const Navbar = () => {
     return (
-        <header className="sticky top-0 navbar bg-base-100 z-[999]">
+        <header
+            className="sticky top-0 navbar bg-base-100 z-[999]"
+            data-aos="fade-up"
+        >
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -43,7 +46,7 @@ const Navbar = () => {
                     </a>
                 </Link>
             </div>
-            <div className="hidden navbar-end lg:flex">
+            <div className="hidden navbar-end lg:flex" data-aos="fade-left">
                 <ul className="p-0 menu menu-horizontal">
                     <MenuItems />
                 </ul>

@@ -14,8 +14,13 @@ const Skill = () => {
                     </h2>
                     <div className="w-2/3 mx-auto">
                         <ul className="flex flex-wrap justify-center">
-                            {skills.map((skill) => (
-                                <li key={skill}>
+                            {skills.map((skill, i) => (
+                                <li
+                                    key={skill}
+                                    data-aos="flip-left"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="3000"
+                                >
                                     <h3 className="p-2 m-1 text-3xl rounded-xl bg-slate-900/60">
                                         {skill}
                                     </h3>

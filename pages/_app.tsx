@@ -1,9 +1,20 @@
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
-
+// ..
 function MyApp({ Component, pageProps }: AppProps) {
+    useEffect(() => {
+        AOS.init({
+            easing: "ease-out-cubic",
+            once: true,
+            offset: 50,
+        });
+    }, []);
+
     return (
         <>
             <Head>

@@ -27,7 +27,7 @@ const MenuItems = () => {
     return (
         <>
             {menuItems.map((v) => (
-                <li key={v.name}>
+                <li key={v.name} data-aos="zoom-in">
                     <a href={v.path}>{v.name}</a>
                 </li>
             ))}

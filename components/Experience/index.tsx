@@ -33,10 +33,12 @@ const Experience = () => {
                     <div className="divider"></div>
                     <div>
                         <ul className="steps steps-vertical">
-                            {experiences.map((experience) => (
+                            {experiences.map((experience, i) => (
                                 <li
                                     key={experience.company}
                                     className="step step-primary"
+                                    data-aos="fade-up"
+                                    data-aos-duration={i + 1 * 1000}
                                 >
                                     <div className="my-8 text-left">
                                         <h3 className="text-3xl">
