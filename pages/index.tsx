@@ -9,9 +9,9 @@ const Home: NextPage = () => {
     return (
         <div>
             <Hero />
+            <Projects />
             <Experience />
             <Skill />
-            <Projects />
             <Footer />
         </div>
     );
