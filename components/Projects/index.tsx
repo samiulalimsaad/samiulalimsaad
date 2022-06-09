@@ -1,5 +1,6 @@
 import React from "react";
-import Project from "./Project";
+import { projects } from "./projects";
+import Temp from "./Temp";
 
 const Projects = () => {
     return (
@@ -12,8 +13,10 @@ const Projects = () => {
                     <h2 className="my-8 text-6xl font-black text-center">
                         Projects
                     </h2>
-                    <div className="w-2/3 mx-auto">
-                        <Project />
+                    <div className="grid justify-between w-11/12 grid-cols-3 gap-4 mx-auto">
+                        {projects.slice(0, 3).map((v) => (
+                            <Temp key={Date.now()} project={v} />
+                        ))}
                     </div>
                 </div>
             </div>
