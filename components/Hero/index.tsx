@@ -47,12 +47,27 @@ const Hero = () => {
                     </p>
 
                     <div
-                        className="flex justify-center sm:justify-start"
+                        className="flex justify-center gap-4 sm:justify-start"
                         data-aos="zoom-in"
                         data-aos-duration="3000"
                     >
                         <a href="#contact" className="btn btn-primary">
                             Hire Me
+                        </a>
+                        <a
+                            href="https://drive.google.com/file/d/1ZtcoHzmc2DGqJOYZG3dMjHK970_POjsK/view?usp=sharing"
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={() =>
+                                !window.open(
+                                    "https://drive.google.com/file/d/1ZtcoHzmc2DGqJOYZG3dMjHK970_POjsK/view?usp=sharing",
+                                    "somesite",
+                                    "width=800, height=1200"
+                                )
+                            }
+                            className="bg-pink-700 btn hover:bg-pink-900"
+                        >
+                            Resume
                         </a>
                     </div>
                 </div>
