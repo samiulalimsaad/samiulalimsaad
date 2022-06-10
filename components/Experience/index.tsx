@@ -1,4 +1,5 @@
-import React from "react";
+import Image from "next/image";
+import Exp from "../../images/sections/exp.svg";
 
 const experiences = [
     {
@@ -23,49 +24,60 @@ const Experience = () => {
     return (
         <section
             id="experiences"
-            className="min-h-screen hero bg-[url('/exp.png')] relative"
+            className="min-h-screen hero bg-[url('/exp.png')]"
         >
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-900/80 hero">
-                <div>
-                    <h2 className="my-8 text-6xl font-black text-center">
-                        Experience
-                    </h2>
-                    <div className="divider"></div>
-                    <div>
-                        <ul className="steps steps-vertical">
-                            {experiences.map((experience, i) => (
-                                <li
-                                    key={experience.company}
-                                    className="step step-primary"
-                                    data-aos="fade-up"
-                                    data-aos-duration={i + 1 * 1000}
-                                >
-                                    <div className="my-8 text-left">
-                                        <h3 className="text-3xl">
-                                            {experience.designation}
-                                        </h3>
-                                        <p className="text-xl">
-                                            at <span>{experience.company}</span>
-                                            , <span>{experience.location}</span>{" "}
-                                            {experience.jobType && (
+            <div className="w-full h-full mx-auto bg-slate-900/60">
+                <h2 className="my-8 text-6xl font-black text-center">
+                    Experience
+                </h2>
+                <div className="divider"></div>
+                <div className="flex-col justify-between mx-auto hero-content lg:flex-row">
+                    <div className="animate-pulse">
+                        <Image src={Exp} alt="Exp" className="w-48 sm:w-96" />
+                    </div>
+                    <div className="p-10 ">
+                        <div>
+                            <ul className="steps steps-vertical">
+                                {experiences.map((experience, i) => (
+                                    <li
+                                        key={experience.company}
+                                        className="step step-primary"
+                                        data-aos="fade-up"
+                                        data-aos-duration={i + 1 * 1000}
+                                    >
+                                        <div className="my-8 text-left">
+                                            <h3 className="text-3xl">
+                                                {experience.designation}
+                                            </h3>
+                                            <p className="text-xl">
+                                                at{" "}
                                                 <span>
-                                                    ({experience.jobType})
+                                                    {experience.company}
                                                 </span>
-                                            )}
-                                        </p>
-                                        <p className="my-2">
-                                            <span className="p-2 rounded-xl bg-slate-900/60">
-                                                {experience.dateFrom}
-                                            </span>{" "}
-                                            -{" "}
-                                            <span className="p-2 rounded-xl bg-slate-900/60">
-                                                {experience.dateTo}
-                                            </span>
-                                        </p>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
+                                                ,{" "}
+                                                <span>
+                                                    {experience.location}
+                                                </span>{" "}
+                                                {experience.jobType && (
+                                                    <span>
+                                                        ({experience.jobType})
+                                                    </span>
+                                                )}
+                                            </p>
+                                            <p className="my-2">
+                                                <span className="p-2 rounded-xl bg-slate-900/60">
+                                                    {experience.dateFrom}
+                                                </span>{" "}
+                                                -{" "}
+                                                <span className="p-2 rounded-xl bg-slate-900/60">
+                                                    {experience.dateTo}
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
