@@ -1,17 +1,17 @@
-import React from "react";
 import { skills } from "./skills";
 
 const Skill = () => {
     return (
         <section
             id="skills"
-            className="min-h-screen hero bg-[url('/skill.png')] relative"
+            className="min-h-screen hero bg-[url('/skill.png')]"
         >
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 to-slate-900/50 hero">
+            <div className="w-full h-full py-20 mx-auto bg-slate-900/20">
                 <div>
                     <h2 className="my-8 text-6xl font-black text-center">
                         Skills
                     </h2>
+                    <div className="divider"></div>
                     <div className="w-2/3 mx-auto">
                         <ul className="flex flex-wrap justify-center">
                             {skills.map((skill, i) => (
