@@ -1,10 +1,13 @@
 import Image from "next/image";
-import React from "react";
 import { projectInterface } from "./projects";
 
 const Temp = ({ project }: { project: projectInterface }) => {
     return (
-        <div className="shadow-xl card lg:card-sides bg-base-100 glass">
+        <div
+            className="shadow-xl card lg:card-sides bg-base-100 glass"
+            data-aos="flip-left"
+            data-aos-duration="3000"
+        >
             <figure>
                 <Image src={project.image} alt="Album" />
             </figure>

@@ -26,13 +26,13 @@ const Experience = () => {
             id="experiences"
             className="min-h-screen hero bg-[url('/exp.png')]"
         >
-            <div className="w-full h-full mx-auto bg-slate-900/60">
+            <div className="w-full h-full py-20 mx-auto bg-slate-900/60">
                 <h2 className="my-8 text-6xl font-black text-center">
                     Experience
                 </h2>
                 <div className="divider"></div>
                 <div className="flex-col justify-between mx-auto hero-content lg:flex-row">
-                    <div className="animate-pulse">
+                    <div data-aos="zoom-out-down" data-aos-duration="3000">
                         <Image src={Exp} alt="Exp" className="w-48 sm:w-96" />
                     </div>
                     <div className="p-10 ">
