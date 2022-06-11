@@ -1,5 +1,3 @@
-import React from "react";
-
 const menuItems = [
     {
         name: "Projects",
@@ -20,6 +18,10 @@ const menuItems = [
     {
         name: "Contact",
         path: "#contact",
+    },
+    {
+        name: "Blogs",
+        path: "#blogs",
     },
 ];
 

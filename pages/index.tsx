@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Blog from "../components/Blogs";
 import Experience from "../components/Experience";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
             <Projects />
             <Experience />
             <Skill />
+            <Blog />
             <Footer />
         </div>
     );
