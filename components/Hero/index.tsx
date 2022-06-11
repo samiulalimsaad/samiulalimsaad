@@ -5,7 +5,7 @@ const Hero = () => {
     return (
         <div
             className="min-h-screen hero bg-[url('/hero-space.png')]"
-            // data-aos="fade-down"
+            data-aos="fade-down"
         >
             <div className="flex items-center justify-center w-full h-full mx-auto hover:backdrop-blur-sm">
                 <div className="flex-col justify-between w-full h-full hero-content lg:flex-row-reverse hover:backdrop-blur-sm">
