@@ -20,6 +20,10 @@ const menuItems = [
         path: "#contact",
     },
     {
+        name: "About",
+        path: "#about",
+    },
+    {
         name: "Blogs",
         path: "#blogs",
     },
