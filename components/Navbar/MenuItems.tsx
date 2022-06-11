@@ -16,16 +16,16 @@ const menuItems = [
         path: "#education",
     },
     {
-        name: "Contact",
-        path: "#contact",
-    },
-    {
         name: "About",
         path: "#about",
     },
     {
         name: "Blogs",
         path: "#blogs",
+    },
+    {
+        name: "Contact",
+        path: "#contact",
     },
 ];
 
