@@ -26,7 +26,7 @@ const Experience = () => {
             id="experiences"
             className="min-h-screen hero bg-[url('/exp.png')]"
         >
-            <div className="w-full h-full py-20 mx-auto bg-slate-900/60">
+            <div className="w-full h-full py-20 mx-auto bg-slate-900/60 hover:backdrop-blur-sm">
                 <h2 className="my-8 text-6xl font-black text-center">
                     Experience
                 </h2>
