@@ -1,66 +1,70 @@
-/* eslint-disable @next/next/no-img-element */
-import React from "react";
+import Image from "next/image";
+import { projectInterface } from "./projects";
 
-const Project = () => {
+const Project = ({
+    project,
+    index,
+}: {
+    project: projectInterface;
+    index: number;
+}) => {
+    const previous = index - 1 === 0 ? 6 : index - 1;
+    const next = index + 1 === 7 ? 1 : index + 1;
+    console.log({ previous, index, next });
     return (
-        <div className="w-full carousel">
-            <div id="slide1" className="relative w-full carousel-item">
-                <img
-                    src="https://api.lorem.space/image/car?w=800&h=200&hash=8B7BCDC2"
-                    className="w-full"
-                />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide4" className="btn btn-circle">
+        <>
+            <div
+                id={`slide${index}`}
+                className="relative w-full mt-20 carousel-item"
+            >
+                <div
+                    className="shadow-xl card lg:card-sides bg-base-100 glass"
+                    // data-aos="flip-left"
+                    // data-aos-duration="3000"
+                >
+                    <figure>
+                        <Image src={project.image} alt="Album" />
+                    </figure>
+                    <div className="card-body">
+                        <h2 className="card-title">
+                            {project.name} - {index}
+                        </h2>
+                        <div className="text-justify">
+                            {project.shortDescription}
+                        </div>
+                        <div className="flex justify-between">
+                            {project.tools.map((v) => (
+                                <p
+                                    key={v}
+                                    className="flex justify-center p-2 m-1 text-xs rounded-xl bg-slate-900/60 hover:bg-slate-900/90"
+                                >
+                                    {v}
+                                </p>
+                            ))}
+                        </div>
+                        <div className="justify-end card-actions">
+                            <button className="btn btn-primary">Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="absolute flex justify-between transform -translate-y-1/4 left-5 right-5 top-1/4">
+                    <a
+                        href={`#slide${previous}`}
+                        className="btn btn-circle bg-slate-900/20 border-slate-900/20 "
+                        onClick={() => console.log({ previous, index })}
+                    >
                         ❮
                     </a>
-                    <a href="#slide2" className="btn btn-circle">
+                    <a
+                        href={`#slide${next}`}
+                        className="btn btn-circle bg-slate-900/20 border-slate-900/20 "
+                        onClick={() => console.log({ next, index })}
+                    >
                         ❯
                     </a>
                 </div>
             </div>
-            <div id="slide2" className="relative w-full carousel-item">
-                <img
-                    src="https://api.lorem.space/image/car?w=800&h=200&hash=500B67FB"
-                    className="w-full"
-                />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide1" className="btn btn-circle">
-                        ❮
-                    </a>
-                    <a href="#slide3" className="btn btn-circle">
-                        ❯
-                    </a>
-                </div>
-            </div>
-            <div id="slide3" className="relative w-full carousel-item">
-                <img
-                    src="https://api.lorem.space/image/car?w=800&h=200&hash=A89D0DE6"
-                    className="w-full"
-                />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide2" className="btn btn-circle">
-                        ❮
-                    </a>
-                    <a href="#slide4" className="btn btn-circle">
-                        ❯
-                    </a>
-                </div>
-            </div>
-            <div id="slide4" className="relative w-full carousel-item">
-                <img
-                    src="https://api.lorem.space/image/car?w=800&h=200&hash=225E6693"
-                    className="w-full"
-                />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide3" className="btn btn-circle">
-                        ❮
-                    </a>
-                    <a href="#slide1" className="btn btn-circle">
-                        ❯
-                    </a>
-                </div>
-            </div>
-        </div>
+        </>
     );
 };
 
