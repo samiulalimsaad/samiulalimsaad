@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BiLinkExternal } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
 import { FaServer } from "react-icons/fa";
@@ -65,7 +66,9 @@ const Temp = ({
                             <BiLinkExternal className="w-6 h-6 text-blue-500 duration-500 hover:text-blue-600" />
                         </a>
                     </div>
-                    <button className="btn btn-primary">Details</button>
+                    <Link href={`project/${index}/detail`}>
+                        <a className="btn btn-primary">Details</a>
+                    </Link>
                 </div>
             </div>
         </div>

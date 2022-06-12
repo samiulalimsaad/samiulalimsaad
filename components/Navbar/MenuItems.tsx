@@ -1,31 +1,33 @@
+import Link from "next/link";
+
 const menuItems = [
     {
         name: "Projects",
-        path: "#projects",
+        path: "/#projects",
     },
     {
         name: "Experiences",
-        path: "#experiences",
+        path: "/#experiences",
     },
     {
         name: "Skills",
-        path: "#skills",
+        path: "/#skills",
     },
     {
         name: "Education",
-        path: "#education",
+        path: "/#education",
     },
     {
         name: "About",
-        path: "#about",
+        path: "/#about",
     },
     {
         name: "Blogs",
-        path: "#blogs",
+        path: "/#blogs",
     },
     {
         name: "Contact",
-        path: "#contact",
+        path: "/#contact",
     },
 ];
 
@@ -34,7 +36,7 @@ const MenuItems = () => {
         <>
             {menuItems.map((v) => (
                 <li key={v.name} data-aos="zoom-in">
-                    <a href={v.path}>{v.name}</a>
+                    <Link href={v.path}>{v.name}</Link>
                 </li>
             ))}
         </>
