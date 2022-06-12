@@ -17,13 +17,18 @@ const Footer = () => {
                             <Image src={Saad} alt="Samiul Alim" />
                         </div>
                     </div>
-                    <p data-aos="zoom-in-right">
-                        Samiul ALim
-                        <br />
-                        Web Developer since 2020
-                    </p>
+                    <div data-aos="zoom-in-right">
+                        <div className="grid h-16 place-items-center">
+                            Samiul ALim
+                            <br />
+                            Web Developer
+                        </div>
+                        <div className="badge badge-primary">
+                            from {new Date().getFullYear() - 2020} years
+                        </div>
+                    </div>
                 </div>
-                <div>
+                <div className="flex justify-center w-full">
                     <SocialLinks />
                 </div>
             </div>
