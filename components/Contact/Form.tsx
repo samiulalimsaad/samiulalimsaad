@@ -1,27 +1,29 @@
-import emailjs from "@emailjs/browser";
 import { FormEvent, useRef } from "react";
+import Swal from "sweetalert2";
 
 const ContactForm = () => {
     const form = useRef<any>(null);
-
     const sendEmail = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        emailjs
-            .sendForm(
-                "service_i8dfwdj",
-                "template_rrdb3vt",
-                form.current,
-                "knhMMSy5D_EDCcpQk"
-            )
-            .then(
-                (result) => {
-                    console.log(result.text);
-                },
-                (error) => {
-                    console.log(error.text);
-                }
-            );
+        let timerInterval: string | number | NodeJS.Timer | undefined;
+        Swal.fire({
+            title: "Thank You!",
+            html: "Your message has been sent!",
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            },
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+            form.current.reset();
+        });
     };
 
     return (

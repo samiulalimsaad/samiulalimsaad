@@ -16,13 +16,15 @@
         "react": "18.1.0",
         "react-dom": "18.1.0",
         "react-icons": "^4.4.0",
-        "react-tsparticles": "^2.0.6"
+        "react-tsparticles": "^2.0.6",
+        "sweetalert2": "^11.4.17"
     },
     "devDependencies": {
         "@types/aos": "^3.0.4",
         "@types/node": "17.0.38",
         "@types/react": "18.0.10",
         "@types/react-dom": "18.0.5",
+        "@types/sweetalert": "^2.0.4",
         "autoprefixer": "^10.4.7",
         "eslint": "8.16.0",
         "eslint-config-next": "12.1.6",
