@@ -31,12 +31,14 @@ const Temp = ({
                 >
                     {project.name} - {index}
                 </h2>
-                <div className="text-justify">{project.shortDescription}</div>
-                <div className="flex flex-wrap justify-between cursor-vertical-text">
+                <div className="prose text-justify prose-stone">
+                    {project.shortDescription}
+                </div>
+                <div className="flex flex-wrap justify-between prose cursor-vertical-text prose-stone">
                     {project.tools.map((v) => (
                         <p
                             key={v}
-                            className="flex justify-center p-2 m-1 text-xs rounded-xl bg-slate-900/60 hover:bg-slate-900/90"
+                            className="flex justify-center p-2 m-1 text-xs rounded-xl bg-slate-900/60 hover:bg-slate-900/90 "
                         >
                             {v}
                         </p>

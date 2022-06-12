@@ -15,7 +15,7 @@ const About = () => {
                 </h2>
                 <div className="divider"></div>
                 <div className="flex items-center justify-center w-2/3 h-full mx-auto">
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col prose prose-stone">
                         <p
                             className="text-2xl leading-relaxed text-center"
                             data-aos="flip-left"

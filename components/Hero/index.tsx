@@ -38,7 +38,7 @@ const Hero = () => {
                         <h3 className="py-6 text-xl font-semibold text-center xl:text-3xl md:text-2xl sm:text-left">
                             I build things for the web.
                         </h3>
-                        <p className="py-6 text-base text-center md:text-xl sm:text-left sm:w-10/12">
+                        <p className="py-6 text-base prose text-center md:text-xl sm:text-left sm:w-10/12 lg:prose-xl">
                             I dream to be an expert software engineer. In-depth
                             knowledge of Node JS, React, NextJS, and MongoDB. 2
                             years of experience efficiently coding websites and
