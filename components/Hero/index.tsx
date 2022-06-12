@@ -1,12 +1,13 @@
 import Image from "next/image";
 import SamiulAlim from "../../images/samiul-alim.png";
+import SocialLinks from "../SocialLinks";
 
 const Hero = () => {
     return (
         <div
             className="min-h-screen hero bg-[url('/hero-space.png')]"
             data-aos="fade-down"
-            data-aos-anchor-placement="center-bottom"
+            data-aos-anchor-placement="top-bottom"
         >
             <div className="flex items-center justify-center w-full h-full mx-auto hover:backdrop-blur-sm">
                 <div className="flex-col justify-between w-full h-full hero-content lg:flex-row-reverse hover:backdrop-blur-sm">
@@ -73,6 +74,14 @@ const Hero = () => {
                             >
                                 Resume
                             </a>
+                        </div>
+                        <div
+                            className="flex justify-center gap-4 mt-10 sm:justify-start"
+                            data-aos="zoom-in"
+                            data-aos-duration="2000"
+                            data-aos-anchor-placement="center-bottom"
+                        >
+                            <SocialLinks />
                         </div>
                     </div>
                 </div>
