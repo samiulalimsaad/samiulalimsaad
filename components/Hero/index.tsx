@@ -6,13 +6,15 @@ const Hero = () => {
         <div
             className="min-h-screen hero bg-[url('/hero-space.png')]"
             data-aos="fade-down"
+            data-aos-anchor-placement="center-bottom"
         >
             <div className="flex items-center justify-center w-full h-full mx-auto hover:backdrop-blur-sm">
                 <div className="flex-col justify-between w-full h-full hero-content lg:flex-row-reverse hover:backdrop-blur-sm">
                     <div
                         className="aspect-square"
                         data-aos="zoom-in"
-                        data-aos-duration="3000"
+                        data-aos-duration="2000"
+                        data-aos-anchor-placement="center-bottom"
                     >
                         <Image
                             src={SamiulAlim}
@@ -26,7 +28,8 @@ const Hero = () => {
                     <div
                         className="block w-full"
                         data-aos="zoom-in"
-                        data-aos-duration="3000"
+                        data-aos-duration="2000"
+                        data-aos-anchor-placement="center-bottom"
                     >
                         <h1 className="text-5xl font-bold text-center lg:text-8xl sm:text-left xl:text-7xl md:text-6xl">
                             Samiul Alim
@@ -49,7 +52,8 @@ const Hero = () => {
                         <div
                             className="flex justify-center gap-4 sm:justify-start"
                             data-aos="zoom-in"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
+                            data-aos-anchor-placement="center-bottom"
                         >
                             <a href="#contact" className="btn btn-primary">
                                 Hire Me

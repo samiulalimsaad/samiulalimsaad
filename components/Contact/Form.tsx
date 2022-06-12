@@ -25,7 +25,12 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="flex items-center justify-center h-full mx-auto sm:w-1/2">
+        <div
+            className="flex items-center justify-center h-full mx-auto sm:w-1/2"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-anchor-placement="center-bottom"
+        >
             <form ref={form} onSubmit={sendEmail} className="w-full space-y-4">
                 <div className="form-control">
                     <label>Name</label>

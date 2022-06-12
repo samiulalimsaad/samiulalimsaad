@@ -27,12 +27,21 @@ const Experience = () => {
             className="min-h-screen hero bg-[url('/exp.png')]"
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/60 hover:backdrop-blur-sm">
-                <h2 className="my-8 text-6xl font-black text-center">
+                <h2
+                    className="my-8 text-6xl font-black text-center"
+                    data-aos="zoom-in-down"
+                    data-aos-duration="2000"
+                    data-aos-anchor-placement="center-bottom"
+                >
                     Experience
                 </h2>
                 <div className="divider"></div>
                 <div className="flex-col justify-between mx-auto hero-content lg:flex-row">
-                    <div data-aos="zoom-out-down" data-aos-duration="3000">
+                    <div
+                        data-aos="zoom-out-down"
+                        data-aos-duration="2000"
+                        data-aos-anchor-placement="center-bottom"
+                    >
                         <Image src={Exp} alt="Exp" className="w-48 sm:w-96" />
                     </div>
                     <div className="p-10 ">
@@ -43,6 +52,7 @@ const Experience = () => {
                                         key={experience.company}
                                         className="step step-primary"
                                         data-aos="fade-up"
+                                        data-aos-anchor-placement="center-bottom"
                                         data-aos-duration={i + 1 * 1000}
                                     >
                                         <div className="my-8 text-left">

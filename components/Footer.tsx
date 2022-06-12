@@ -11,7 +11,7 @@ const Footer = () => {
                         <div
                             className="w-16 rounded-full"
                             data-aos="flip-left"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
                         >
                             <Image src={Saad} alt="Samiul Alim" />
                         </div>
@@ -29,7 +29,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-left"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
                         >
                             <BsGithub className="w-6 h-6 duration-500 hover:text-green-500" />
                         </a>
@@ -38,7 +38,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-right"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
                         >
                             <BsLinkedin className="w-6 h-6 duration-500 hover:text-blue-500" />
                         </a>
@@ -47,7 +47,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-up"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
                         >
                             <BsFacebook className="w-6 h-6 duration-500 hover:text-sky-300" />
                         </a>
@@ -56,7 +56,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-down"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
                         >
                             <BsMessenger className="w-6 h-6 duration-500 hover:text-pink-500" />
                         </a>

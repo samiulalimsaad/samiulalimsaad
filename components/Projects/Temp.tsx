@@ -16,13 +16,19 @@ const Temp = ({
         <div
             className="shadow-xl card lg:card-sides bg-base-100 glass"
             data-aos="flip-left"
-            data-aos-duration="3000"
+            data-aos-duration="2000"
+            data-aos-anchor-placement="center-bottom"
         >
             <figure>
                 <Image src={project.image} alt="Album" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">
+                <h2
+                    className="card-title"
+                    data-aos="zoom-in-down"
+                    data-aos-duration="2000"
+                    data-aos-anchor-placement="center-bottom"
+                >
                     {project.name} - {index}
                 </h2>
                 <div className="text-justify">{project.shortDescription}</div>
@@ -43,7 +49,8 @@ const Temp = ({
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-left"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
+                            data-aos-anchor-placement="center-bottom"
                         >
                             <BsGithub className="w-6 h-6 text-green-500 duration-500 hover:text-green-600" />
                         </a>
@@ -52,7 +59,8 @@ const Temp = ({
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-right"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
+                            data-aos-anchor-placement="center-bottom"
                         >
                             <FaServer className="w-6 h-6 duration-500 text-sky-500 hover:text-sky-600" />
                         </a>
@@ -61,12 +69,13 @@ const Temp = ({
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-right"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
+                            data-aos-anchor-placement="center-bottom"
                         >
                             <BiLinkExternal className="w-6 h-6 text-blue-500 duration-500 hover:text-blue-600" />
                         </a>
                     </div>
-                    <Link href={`project/${index}/detail`}>
+                    <Link href={`/project/${index}/detail`}>
                         <a className="btn btn-primary">Details</a>
                     </Link>
                 </div>

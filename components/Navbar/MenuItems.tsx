@@ -35,7 +35,11 @@ const MenuItems = () => {
     return (
         <>
             {menuItems.map((v) => (
-                <li key={v.name} data-aos="zoom-in">
+                <li
+                    key={v.name}
+                    data-aos="zoom-in"
+                    data-aos-anchor-placement="center-bottom"
+                >
                     <Link href={v.path}>{v.name}</Link>
                 </li>
             ))}

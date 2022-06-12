@@ -8,7 +8,12 @@ const Projects = () => {
             className="min-h-fit hero bg-[url('/project.png')] overflow-hidden"
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/60 hover:backdrop-blur-sm">
-                <h2 className="my-8 text-6xl font-black text-center">
+                <h2
+                    className="my-8 text-6xl font-black text-center"
+                    data-aos="zoom-in-down"
+                    data-aos-duration="2000"
+                    data-aos-anchor-placement="center-bottom"
+                >
                     Projects
                 </h2>
                 <div className="divider"></div>
@@ -17,7 +22,8 @@ const Projects = () => {
                         <div
                             className="bg-slate-50 rounded-3xl"
                             data-aos="zoom-out-down"
-                            data-aos-duration="3000"
+                            data-aos-duration="2000"
+                            data-aos-anchor-placement="center-bottom"
                         >
                             <Image
                                 src={project}

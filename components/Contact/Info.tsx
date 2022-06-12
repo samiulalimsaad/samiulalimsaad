@@ -5,7 +5,12 @@ import { MdEmail } from "react-icons/md";
 
 const ContactInfo = () => {
     return (
-        <div className="flex flex-col justify-center space-y-4 sm:w-1/2">
+        <div
+            className="flex flex-col justify-center space-y-4 sm:w-1/2"
+            data-aos="flip-up"
+            data-aos-duration="2000"
+            data-aos-anchor-placement="center-bottom"
+        >
             <h3 className="text-3xl">Samiul Alim</h3>
             <a
                 href="mailto:samiulalimsaad@gmail.com"

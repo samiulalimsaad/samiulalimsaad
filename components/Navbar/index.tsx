@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import MenuItems from "./MenuItems";
 
 const Navbar = () => {
@@ -7,6 +6,7 @@ const Navbar = () => {
         <header
             className="sticky top-0 navbar bg-base-100 z-[999]"
             data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
         >
             <div className="navbar-start">
                 <div className="dropdown">
@@ -46,7 +46,11 @@ const Navbar = () => {
                     </a>
                 </Link>
             </div>
-            <div className="hidden navbar-end lg:flex" data-aos="fade-left">
+            <div
+                className="hidden navbar-end lg:flex"
+                data-aos="fade-left"
+                data-aos-anchor-placement="center-bottom"
+            >
                 <ul className="p-0 menu menu-horizontal">
                     <MenuItems />
                 </ul>

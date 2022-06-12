@@ -19,14 +19,20 @@ const Project = ({
             >
                 <div
                     className="shadow-xl card lg:card-sides bg-base-100 glass"
-                    // data-aos="flip-left"
-                    // data-aos-duration="3000"
+                    data-aos="flip-left"
+                    data-aos-duration="2000"
+                    data-aos-anchor-placement="center-bottom"
                 >
                     <figure>
                         <Image src={project.image} alt="Album" />
                     </figure>
                     <div className="card-body">
-                        <h2 className="card-title">
+                        <h2
+                            className="card-title"
+                            data-aos="zoom-in-down"
+                            data-aos-duration="2000"
+                            data-aos-anchor-placement="center-bottom"
+                        >
                             {project.name} - {index}
                         </h2>
                         <div className="text-justify">

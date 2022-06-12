@@ -8,7 +8,12 @@ const Contact = () => {
             className="min-h-screen hero bg-[url('/contact.svg')]"
         >
             <div className="w-full h-full pt-20 pb-32 mx-auto bg-slate-900/80 hover:backdrop-blur-sm">
-                <h2 className="my-8 text-6xl font-black text-center">
+                <h2
+                    className="my-8 text-6xl font-black text-center"
+                    data-aos="zoom-in-down"
+                    data-aos-duration="2000"
+                    data-aos-anchor-placement="center-bottom"
+                >
                     Contact Me
                 </h2>
                 <div className="divider"></div>

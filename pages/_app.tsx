@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </Head>
 
             <Navbar />
-            <main>
+            <main className="w-full overflow-y-hidden">
                 <Component {...pageProps} />
             </main>
         </>
