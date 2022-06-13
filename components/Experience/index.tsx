@@ -53,7 +53,7 @@ const Experience = () => {
                                         className="step step-primary"
                                         data-aos="fade-up"
                                         data-aos-anchor-placement="center-bottom"
-                                        data-aos-duration={i + 1 * 1000}
+                                        data-aos-duration="3000"
                                     >
                                         <div className="my-8 text-left">
                                             <h3 className="text-3xl">

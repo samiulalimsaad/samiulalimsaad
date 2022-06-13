@@ -17,17 +17,17 @@ const Skill = () => {
                 </h2>
                 <div className="divider"></div>
                 <div className="w-2/3 mx-auto">
-                    <ul className="flex flex-wrap justify-center ">
+                    <ul className="flex flex-wrap justify-center cursor-vertical-text">
                         {skills.map((skill, i) => (
                             <li
                                 key={skill}
-                                className="text-center"
+                                className="flex justify-center p-2 m-1 rounded-xl bg-slate-900/60 hover:bg-slate-900/90 hover:animate-pulse"
                                 data-aos="flip-left"
                                 data-aos-easing="ease-out-cubic"
                                 data-aos-duration="2000"
                                 data-aos-anchor-placement="center-bottom"
                             >
-                                <h3 className="p-2 m-1 sm:text-3xl rounded-xl bg-slate-900/60">
+                                <h3 className="duration-1000 sm:p-2 sm:m-1 sm:text-3xl ">
                                     {skill}
                                 </h3>
                             </li>
