@@ -9,6 +9,8 @@ const SocialLinks = () => {
                 target="_blank"
                 className="flex items-center duration-500 hover:text-red-500"
                 rel="noreferrer"
+                data-aos="flip-left"
+                data-aos-duration="2000"
             >
                 <MdEmail className="w-6 h-6" />
             </a>

@@ -31,11 +31,11 @@ const Temp = ({
                 >
                     {project.name} - {index}
                 </h2>
-                <div className="prose text-justify prose-stone">
-                    {project.shortDescription}
+                <div className="prose prose-stone">
+                    {project.description.join(", ")}
                 </div>
                 <div className="flex flex-wrap justify-between prose cursor-vertical-text prose-stone">
-                    {project.tools.map((v) => (
+                    {project.tools.slice(0, 6).map((v) => (
                         <p
                             key={v}
                             className="flex justify-center p-2 m-1 text-xs rounded-xl bg-slate-900/60 hover:bg-slate-900/90 "
@@ -47,7 +47,7 @@ const Temp = ({
                 <div className="items-center justify-between card-actions">
                     <div className="flex items-center justify-between gap-2">
                         <a
-                            href="https://www.github.com/samiulalimsaad"
+                            href={project.githubFrontEnd}
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-left"
@@ -57,7 +57,7 @@ const Temp = ({
                             <BsGithub className="w-6 h-6 text-green-500 duration-500 hover:text-green-600" />
                         </a>
                         <a
-                            href="https://www.linkedin.com/in/samiulalimsaad"
+                            href={project.githubBackEnd}
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-right"
@@ -67,7 +67,7 @@ const Temp = ({
                             <FaServer className="w-6 h-6 duration-500 text-sky-500 hover:text-sky-600" />
                         </a>
                         <a
-                            href="https://www.linkedin.com/in/samiulalimsaad"
+                            href={project.live}
                             target="_blank"
                             rel="noreferrer"
                             data-aos="flip-right"
