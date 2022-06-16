@@ -20,7 +20,12 @@ const Temp = ({
             data-aos-anchor-placement="center-bottom"
         >
             <figure>
-                <Image src={project.image} alt="Album" />
+                <Image
+                    src={project.image}
+                    alt="Album"
+                    width={800}
+                    height={400}
+                />
             </figure>
             <div className="card-body">
                 <h2
