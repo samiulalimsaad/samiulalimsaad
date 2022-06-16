@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nc from "next-connect";
 import connectDB from "../../backend/Database";
+import { ProjectModal } from "../../backend/Models/Projects.model";
 
 const handler = nc<NextApiRequest, NextApiResponse>({
     onError: (err, req: NextApiRequest, res: NextApiResponse, next) => {
@@ -10,18 +11,13 @@ const handler = nc<NextApiRequest, NextApiResponse>({
     onNoMatch: (req, res) => {
         res.status(404).end("Page is not found");
     },
-})
-    .get((req, res) => {
-        res.send("Hello world");
-    })
-    .post((req, res) => {
-        res.json({ hello: "world" });
-    })
-    .put(async (req, res) => {
-        res.end("async/await is also supported!");
-    })
-    .patch(async (req, res) => {
-        throw new Error("Throws me around! Error can be caught and handled.");
-    });
+}).get(async (req, res) => {
+    try {
+        const projects = await ProjectModal.find({});
+        res.json({ projects });
+    } catch (error) {
+        res.send(error);
+    }
+});
 
 export default connectDB(handler);
