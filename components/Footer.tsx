@@ -4,7 +4,7 @@ import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
     return (
-        <footer className="min-h-fit hero bg-[url('/footer.png')]">
+        <footer className="min-h-fit hero bg-[url('/footer.png')] bg-fixed">
             <div className="items-center justify-between p-10 px-20 footer text-neutral-content">
                 <div className="flex items-center">
                     <div className="avatar">

@@ -4,7 +4,7 @@ const GithubStats = () => {
     return (
         <section
             id="GithubStats"
-            className="min-h-screen hero bg-[url('/GithubStats.png')]"
+            className="min-h-screen hero bg-[url('/GithubStats.png')] bg-fixed"
         >
             <div className="w-full h-full p-2 py-20 mx-auto bg-slate-900/90 hover:backdrop-blur-sm">
                 <h2

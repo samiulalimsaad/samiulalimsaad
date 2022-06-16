@@ -2,7 +2,7 @@ const About = () => {
     return (
         <section
             id="about"
-            className="min-h-screen hero bg-[url('/about.png')]"
+            className="min-h-screen hero bg-[url('/about.png')] bg-fixed"
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/90 hover:backdrop-blur-sm">
                 <h2

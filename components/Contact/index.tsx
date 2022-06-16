@@ -5,7 +5,7 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className="min-h-screen hero bg-[url('/contact.svg')]"
+            className="min-h-screen hero bg-[url('/contact.svg')] bg-fixed"
         >
             <div className="w-full h-full pt-20 pb-32 mx-auto bg-slate-900/80 hover:backdrop-blur-sm">
                 <h2

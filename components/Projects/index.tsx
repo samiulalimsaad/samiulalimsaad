@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { projectInterface } from "../../backend/interfaces/Project.interface";
 import Temp from "./Temp";
 
 const Projects = () => {
@@ -13,7 +14,7 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="min-h-fit hero bg-[url('/project.png')] overflow-hidden"
+            className="min-h-fit hero bg-[url('/project.png')] overflow-hidden bg-fixed"
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/60 hover:backdrop-blur-sm">
                 <h2
@@ -42,8 +43,8 @@ const Projects = () => {
                     </div> */}
                     <div className="grid gap-4 lg:grid-cols-3">
                         {/* <div className="w-full carousel"> */}
-                        {projects.slice(0, 6).map((v, i) => (
-                            <Temp key={i} project={v} index={i + 1} />
+                        {projects.slice(0, 6).map((v: projectInterface) => (
+                            <Temp key={v._id} project={v} />
                         ))}
                     </div>
                 </div>

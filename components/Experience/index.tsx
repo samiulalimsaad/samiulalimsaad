@@ -24,7 +24,7 @@ const Experience = () => {
     return (
         <section
             id="experiences"
-            className="min-h-screen hero bg-[url('/exp.png')]"
+            className="min-h-screen hero bg-[url('/exp.png')] bg-fixed"
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/60 hover:backdrop-blur-sm">
                 <h2
