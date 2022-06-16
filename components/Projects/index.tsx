@@ -1,7 +1,15 @@
-import { projects } from "./projects";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Temp from "./Temp";
 
 const Projects = () => {
+    const [projects, setProjects] = useState([]);
+    useEffect(() => {
+        axios
+            .get("/api/projects")
+            .then(({ data }) => setProjects(data.projects));
+    }, []);
+
     return (
         <section
             id="projects"
