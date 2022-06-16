@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nc from "next-connect";
-import connectDB from "../../backend/Database";
-import { ProjectModal } from "../../backend/Models/Projects.model";
+import connectDB from "../../../backend/Database";
+import { ProjectModal } from "../../../backend/Models/Projects.model";
 
 const handler = nc<NextApiRequest, NextApiResponse>({
     onError: (err, req: NextApiRequest, res: NextApiResponse, next) => {
