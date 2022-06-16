@@ -6,7 +6,6 @@ import { projectInterface } from "../../../backend/interfaces/Project.interface"
 
 const Detail = () => {
     const router = useRouter();
-    console.log(router);
 
     const [project, setProject] = useState<projectInterface>();
     const [isLoading, setIsLoading] = useState(true);
@@ -27,12 +26,15 @@ const Detail = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="items-center justify-center py-10 text-center hero-content text-neutral-content">
                 <div className="space-y-8">
-                    <Image
-                        src={project?.image || "/projects.png"}
-                        alt={project?.name}
-                        width={1200}
-                        height={600}
-                    />
+                    <figure>
+                        <Image
+                            className="rounded-md"
+                            src={project?.image || "/projects.png"}
+                            alt={project?.name}
+                            width={1200}
+                            height={600}
+                        />
+                    </figure>
                     <h1 className="mb-5 text-5xl font-bold">{project?.name}</h1>
                     <p className="mb-5">{project?.description}</p>
                 </div>

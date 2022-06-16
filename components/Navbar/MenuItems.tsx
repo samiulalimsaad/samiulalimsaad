@@ -31,10 +31,10 @@ const menuItems = [
     },
 ];
 
-const MenuItems = () => {
-    return (
-        <>
-            {menuItems.map((v) => (
+const MenuItems = () => (
+    <>
+        {menuItems.map((v) => {
+            return (
                 <li
                     key={v.name}
                     data-aos="zoom-in"
@@ -42,9 +42,9 @@ const MenuItems = () => {
                 >
                     <Link href={v.path}>{v.name}</Link>
                 </li>
-            ))}
-        </>
-    );
-};
+            );
+        })}
+    </>
+);
 
 export default MenuItems;
