@@ -1,6 +1,8 @@
 import { StaticImageData } from "next/image";
+import { Key } from "react";
 
 export interface projectInterface {
+    _id: Key | null | undefined;
     shortDescription: string;
     name: string;
     time: string;
