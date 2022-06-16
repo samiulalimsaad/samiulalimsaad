@@ -1,9 +1,3 @@
-import { StaticImageData } from "next/image";
-import ec360 from "../../images/sites/Home-EC-360.png";
-import warehouse from "../../images/sites/Home-Smartphone-Warehouse.png";
-import liteMedia from "../../images/sites/Lite-Media.png";
-import { skills } from "../Skill/skills";
-
 export const projects: projectInterface[] = [
     {
         name: "Lite Media",
@@ -16,7 +10,7 @@ export const projects: projectInterface[] = [
             "Firebase for storing images, authentication, and real-time database, FireStore",
             "Python with Docker",
         ],
-        image: liteMedia,
+        image: "/images/sites/Lite-Media.png",
         tools: [
             "Nextjs",
             "typescript",
@@ -47,8 +41,8 @@ export const projects: projectInterface[] = [
             "Mongoose ORM, MongoDB with ExpressJS",
             "Stripe for payment",
         ],
-        image: ec360,
-        tools: skills.slice(0, 6),
+        image: "/images/sites/Home-EC-360.png",
+        tools: ["React.JS", "Next.JS", "VueJS", "HTML", "CSS", "daisyui"],
         githubFrontEnd: "https://github.com/samiulalimsaad/ec-360",
         githubBackEnd: "https://github.com/samiulalimsaad/ec-360-backend",
         live: "https://ec-360.web.app",
@@ -63,8 +57,8 @@ export const projects: projectInterface[] = [
             "Firebase authentication",
             "Mongoose ORM for MongoDB with ExpressJS",
         ],
-        image: warehouse,
-        tools: skills.slice(0, 6),
+        image: "/images/sites/Home-Smartphone-Warehouse.png",
+        tools: ["React.JS", "Next.JS", "VueJS", "HTML", "CSS", "daisyui"],
         githubFrontEnd:
             "https://github.com/samiulalimsaad/smartphone-warehouse",
         githubBackEnd:
@@ -78,7 +72,7 @@ export interface projectInterface {
     name: string;
     time: string;
     description: string[];
-    image: StaticImageData;
+    image: string;
     tools: string[];
     githubFrontEnd: string;
     githubBackEnd: string;

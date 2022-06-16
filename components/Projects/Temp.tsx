@@ -3,15 +3,9 @@ import Link from "next/link";
 import { BiLinkExternal } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
 import { FaServer } from "react-icons/fa";
-import { projectInterface } from "./projects";
+import { projectInterface } from "../../backend/interfaces/Project.interface";
 
-const Temp = ({
-    project,
-    index,
-}: {
-    project: projectInterface;
-    index: number;
-}) => {
+const Temp = ({ project }: { project: projectInterface }) => {
     return (
         <div
             className="shadow-xl card lg:card-sides bg-base-100 glass"
@@ -34,7 +28,7 @@ const Temp = ({
                     data-aos-duration="2000"
                     data-aos-anchor-placement="center-bottom"
                 >
-                    {project.name} - {index}
+                    {project.name}
                 </h2>
                 <div className="prose prose-stone">
                     {project.description.join(", ")}
@@ -82,7 +76,7 @@ const Temp = ({
                             <BiLinkExternal className="w-6 h-6 text-blue-500 duration-500 hover:text-blue-600" />
                         </a>
                     </div>
-                    <Link href={`/project/${index}/detail`}>
+                    <Link href={`/project/${project._id}/detail`}>
                         <a className="btn btn-primary">Details</a>
                     </Link>
                 </div>
