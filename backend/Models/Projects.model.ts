@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { projectInterface } from "../interfaces/Project.interface";
 const { model, Schema } = mongoose;
-const orderSchema = new Schema<projectInterface>(
+const ProjectModalSchema = new Schema<projectInterface>(
     {
         shortDescription: String,
         name: String,
@@ -16,4 +16,4 @@ const orderSchema = new Schema<projectInterface>(
     { timestamps: true }
 );
 
-export const Order = model("Order", orderSchema);
+export const ProjectModal = model("Project", ProjectModalSchema);
