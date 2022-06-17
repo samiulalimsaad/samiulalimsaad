@@ -1,25 +1,37 @@
-import { FormEvent, useRef } from "react";
+import axios from "axios";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import Swal from "sweetalert2";
+import { emailValidationSchema } from "../../backend/validations/mail.validation";
+import { emailInterface } from "../../interfaces/Email.interface";
+
+const initialValue: any = {
+    name: "",
+    email: "",
+    message: "",
+};
 
 const ContactForm = () => {
-    const form = useRef<any>(null);
-    const sendEmail = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        let timerInterval: string | number | NodeJS.Timer | undefined;
-        Swal.fire({
-            title: "Thank You!",
-            html: "Your message has been sent!",
-            timer: 4000,
-            timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading();
-            },
-            willClose: () => {
-                clearInterval(timerInterval);
-            },
-        }).then((result) => {
-            form.current.reset();
-        });
+    const sendEmail = async (value: emailInterface) => {
+        try {
+            let timerInterval: string | number | NodeJS.Timer | undefined;
+
+            await axios.post("/api/email", value);
+
+            await Swal.fire({
+                title: "Thank You!",
+                html: "Your message has been sent!",
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                },
+            });
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
@@ -29,42 +41,65 @@ const ContactForm = () => {
             data-aos-duration="2000"
             data-aos-anchor-placement="center-bottom"
         >
-            <form ref={form} onSubmit={sendEmail} className="w-full space-y-4">
-                <div className="form-control">
-                    <label>Name</label>
-                    <input
-                        type="text"
-                        name="user_name"
-                        className="w-full input input-bordered input-primary"
-                        placeholder="Your Name"
-                    />
-                </div>
-                <div className="form-control">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        name="user_email"
-                        className="w-full input input-bordered input-primary"
-                        placeholder="Your email"
-                    />
-                </div>
-                <div className="form-control">
-                    <label>Message</label>
-                    <textarea
-                        name="message"
-                        rows={3}
-                        className="w-full textarea textarea-bordered textarea-primary"
-                        placeholder="Your Message...."
-                    />
-                </div>
-                <div className="form-control">
-                    <input
-                        type="submit"
-                        value="Send"
-                        className="w-full btn btn-info"
-                    />
-                </div>
-            </form>
+            <Formik
+                initialValues={initialValue}
+                validationSchema={emailValidationSchema}
+                onSubmit={sendEmail}
+            >
+                {({ isSubmitting, isValid }) => (
+                    <Form className="w-full space-y-4">
+                        <div className="form-control">
+                            <label htmlFor="name">Name</label>
+                            <Field
+                                type="text"
+                                id="name"
+                                name="name"
+                                className="w-full my-2 input input-bordered input-primary"
+                                placeholder="Your Name"
+                            />
+                            <div className="text-error">
+                                <ErrorMessage name="name" />
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="email">Email</label>
+                            <Field
+                                type="email"
+                                id="email"
+                                name="email"
+                                className="w-full my-2 input input-bordered input-primary"
+                                placeholder="Your email"
+                            />
+                            <div className="text-error">
+                                <ErrorMessage name="email" />
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="message">Message</label>
+                            <Field
+                                as="textarea"
+                                id="message"
+                                name="message"
+                                rows={3}
+                                className="w-full my-2 textarea textarea-bordered textarea-primary"
+                                placeholder="Your Message...."
+                            />
+                            <div className="text-error">
+                                <ErrorMessage name="message" />
+                            </div>
+                        </div>
+                        <div className="form-control">
+                            <button
+                                type="submit"
+                                className="w-full btn btn-info"
+                                disabled={isSubmitting || !isValid}
+                            >
+                                Send
+                            </button>
+                        </div>
+                    </Form>
+                )}
+            </Formik>
         </div>
     );
 };
