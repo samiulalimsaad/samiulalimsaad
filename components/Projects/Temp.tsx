@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BiLinkExternal } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
 import { FaServer } from "react-icons/fa";
-import { projectInterface } from "../../backend/interfaces/Project.interface";
+import { projectInterface } from "../../interfaces/Project.interface";
 
 const Temp = ({ project }: { project: projectInterface }) => (
     <div

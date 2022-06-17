@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { projectInterface } from "../../backend/interfaces/Project.interface";
+import { projectInterface } from "../../interfaces/Project.interface";
 import Temp from "./Temp";
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
+    const [error, setError] = useState("");
     useEffect(() => {
         axios
             .get("/api/projects")
-            .then(({ data }) => setProjects(data.projects));
+            .then(({ data }) => setProjects(data.projects))
+            .catch((err) => setError(err.message));
     }, []);
 
     return (
@@ -41,12 +43,20 @@ const Projects = () => {
                             />
                         </div>
                     </div> */}
-                    <div className="grid gap-4 lg:grid-cols-3">
-                        {/* <div className="w-full carousel"> */}
-                        {projects.slice(0, 6).map((v: projectInterface) => (
-                            <Temp key={v._id} project={v} />
-                        ))}
-                    </div>
+                    {error ? (
+                        <div className="flex items-center justify-center h-full">
+                            {error}
+                        </div>
+                    ) : (
+                        <div className="grid gap-4 lg:grid-cols-3">
+                            {/* <div className="w-full carousel"> */}
+                            {projects
+                                ?.slice(0, 6)
+                                ?.map((v: projectInterface) => (
+                                    <Temp key={v._id} project={v} />
+                                ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
