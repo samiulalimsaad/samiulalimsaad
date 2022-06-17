@@ -1,9 +1,10 @@
 import axios from "axios";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { projectInterface } from "../../interfaces/Project.interface";
 import Temp from "./Temp";
 
-const Projects = () => {
+const Projects = ({ all }: { all?: Boolean }) => {
     const [projects, setProjects] = useState([]);
     const [error, setError] = useState("");
     useEffect(() => {
@@ -50,14 +51,25 @@ const Projects = () => {
                     ) : (
                         <div className="grid gap-4 lg:grid-cols-3">
                             {/* <div className="w-full carousel"> */}
-                            {projects
-                                ?.slice(0, 6)
-                                ?.map((v: projectInterface) => (
-                                    <Temp key={v._id} project={v} />
-                                ))}
+                            {all
+                                ? projects?.map((v: projectInterface) => (
+                                      <Temp key={v._id} project={v} />
+                                  ))
+                                : projects
+                                      ?.slice(0, 6)
+                                      ?.map((v: projectInterface) => (
+                                          <Temp key={v._id} project={v} />
+                                      ))}
                         </div>
                     )}
                 </div>
+                {!all && (
+                    <div className="flex items-center justify-center">
+                        <Link href="/projects" passHref>
+                            <a className="btn btn-info">See All Projects</a>
+                        </Link>
+                    </div>
+                )}
             </div>
         </section>
     );

@@ -70,7 +70,7 @@ const Temp = ({ project }: { project: projectInterface }) => (
                         <BiLinkExternal className="w-6 h-6 text-blue-500 duration-500 hover:text-blue-600" />
                     </a>
                 </div>
-                <Link href={`/project/${project._id}/detail`}>
+                <Link href={`/projects/${project._id}/detail`}>
                     <a className="btn btn-primary">Details</a>
                 </Link>
             </div>
