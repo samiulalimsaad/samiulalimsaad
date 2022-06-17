@@ -49,16 +49,18 @@ const Temp = ({ project }: { project: projectInterface }) => (
                     >
                         <BsGithub className="w-6 h-6 text-green-500 duration-500 hover:text-green-600" />
                     </a>
-                    <a
-                        href={project.githubBackEnd}
-                        target="_blank"
-                        rel="noreferrer"
-                        data-aos="flip-right"
-                        data-aos-duration="2000"
-                        data-aos-anchor-placement="center-bottom"
-                    >
-                        <FaServer className="w-6 h-6 duration-500 text-sky-500 hover:text-sky-600" />
-                    </a>
+                    {project.githubBackEnd && (
+                        <a
+                            href={project.githubBackEnd}
+                            target="_blank"
+                            rel="noreferrer"
+                            data-aos="flip-right"
+                            data-aos-duration="2000"
+                            data-aos-anchor-placement="center-bottom"
+                        >
+                            <FaServer className="w-6 h-6 duration-500 text-sky-500 hover:text-sky-600" />
+                        </a>
+                    )}
                     <a
                         href={project.live}
                         target="_blank"

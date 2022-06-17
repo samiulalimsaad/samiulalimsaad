@@ -64,7 +64,7 @@ const Projects = ({ all }: { all?: Boolean }) => {
                     )}
                 </div>
                 {!all && (
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center mt-8">
                         <Link href="/projects" passHref>
                             <a className="btn btn-info">See All Projects</a>
                         </Link>

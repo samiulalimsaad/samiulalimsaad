@@ -15,7 +15,7 @@ const Skill = () => (
                 Skills
             </h2>
             <div className="divider"></div>
-            <div className="w-2/3 mx-auto">
+            <div className="mx-auto w-12/12">
                 <ul className="flex flex-wrap justify-center cursor-vertical-text">
                     {skills.map((skill, i) => (
                         <li
