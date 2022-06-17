@@ -3,7 +3,7 @@ import nc from "next-connect";
 import * as nodemailer from "nodemailer";
 import connectDB from "../../backend/Database";
 import { EmailModal } from "../../backend/Models/Main.model";
-import { mailValidationSchema } from "../../backend/validations/mail.validation";
+import { emailValidationSchema } from "../../backend/validations/mail.validation";
 // create a transporter for send mail
 const transporter = nodemailer.createTransport({
     service: "SendinBlue", // no need to set host or port etc.
@@ -32,7 +32,7 @@ const handler = nc<NextApiRequest, NextApiResponse>({
     })
     .post(async (req, res) => {
         try {
-            const data = mailValidationSchema.validateSync(req.body);
+            const data = emailValidationSchema.validateSync(req.body);
             const mail = new EmailModal(data);
             await mail.save();
 
@@ -43,7 +43,7 @@ const handler = nc<NextApiRequest, NextApiResponse>({
                 subject: "Mail from portfolio",
                 html: `
                 <div>
-                    <h3>Hi I'm ${mail.email},</h3>
+                    <h3>Hi, this is ${mail.name} from your portfolio</h3>
                     <p>${mail.message}</p>
                 </div>
             `,
