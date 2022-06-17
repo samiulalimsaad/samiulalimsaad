@@ -21,35 +21,44 @@ const handler = nc<NextApiRequest, NextApiResponse>({
     onNoMatch: (req, res) => {
         res.status(404).end("Page is not found");
     },
-}).post(async (req, res) => {
-    try {
-        const data = mailValidationSchema.validateSync(req.body);
-        const mail = new EmailModal(data);
-        await mail.save();
+})
+    .get(async (req, res) => {
+        try {
+            const mail = await EmailModal.find({});
+            res.json({ mail });
+        } catch (error) {
+            res.send(error);
+        }
+    })
+    .post(async (req, res) => {
+        try {
+            const data = mailValidationSchema.validateSync(req.body);
+            const mail = new EmailModal(data);
+            await mail.save();
 
-        // mail options
-        const mailOptions = {
-            to: "samiulalimsaad@gmail.com",
-            from: mail.email,
-            subject: "Mail from portfolio",
-            html: `
+            // mail options
+            const mailOptions = {
+                to: "samiulalimsaad@gmail.com",
+                from: mail.email,
+                subject: "Mail from portfolio",
+                html: `
                 <div>
                     <h3>Hi I'm ${mail.email},</h3>
                     <p>${mail.message}</p>
                 </div>
             `,
-        };
+            };
 
-        // send mail
-        await transporter
-            .sendMail(mailOptions)
-            .then(() => console.log("Successfully sent"))
-            .catch((err: any) => console.log("Failed ", err));
+            // send mail
+            await transporter
+                .sendMail(mailOptions)
+                .then(() => console.log("Successfully sent"))
+                .catch((err: any) => console.log("Failed ", err));
 
-        res.status(200).json({ message: "Inserted", success: true, mail });
-    } catch (error) {
-        res.send(error);
-    }
-});
+            res.status(200).json({ message: "Inserted", success: true, mail });
+        } catch (error) {
+            res.send(error);
+        }
+    });
 
 export default connectDB(handler);
