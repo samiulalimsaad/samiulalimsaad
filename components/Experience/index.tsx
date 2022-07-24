@@ -3,12 +3,20 @@ import Exp from "../../images/sections/exp.svg";
 
 const experiences = [
     {
+        designation: "Backend Developer",
+        company: "Macroman Solution",
+        location: "Rajshahi",
+        jobType: "",
+        dateFrom: "July 2022",
+        dateTo: "Now",
+    },
+    {
         designation: "Intern Developer",
         company: "Macroman Solution",
         location: "Rajshahi",
         jobType: "",
         dateFrom: "Feb 2022",
-        dateTo: "Now",
+        dateTo: "June 2022",
     },
     {
         designation: "Internship",
@@ -49,7 +57,7 @@ const Experience = () => {
                             <ul className="steps steps-vertical">
                                 {experiences.map((experience, i) => (
                                     <li
-                                        key={experience.company}
+                                        key={experience.dateFrom}
                                         className="step step-primary"
                                         data-aos="fade-up"
                                         data-aos-anchor-placement="center-bottom"
