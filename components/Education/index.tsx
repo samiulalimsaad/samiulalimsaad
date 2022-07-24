@@ -1,3 +1,5 @@
+import Educations from "./Educations";
+
 const Education = () => (
     <section
         id="education"
@@ -13,10 +15,11 @@ const Education = () => (
                 Education
             </h2>
             <div className="divider"></div>
-            <div className="flex items-center justify-center w-2/3 h-full mx-auto">
-                <h3 className="text-2xl font-bold animate-pulse sm:text-4xl">
+            <div className="flex items-center justify-center mx-auto sm:w-2/3">
+                {/* <h3 className="text-2xl font-bold animate-pulse sm:text-4xl">
                     Coming Soon...
-                </h3>
+                </h3> */}
+                <Educations />
             </div>
         </div>
     </section>
