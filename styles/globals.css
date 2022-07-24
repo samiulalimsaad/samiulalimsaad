@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .steps .step:after {
+        height: 3rem;
+        width: 3rem;
+    }
+}
 @layer base {
     ::-webkit-scrollbar {
         width: 12px;
