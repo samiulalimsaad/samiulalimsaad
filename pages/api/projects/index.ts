@@ -13,7 +13,7 @@ const handler = nc<NextApiRequest, NextApiResponse>({
     },
 }).get(async (req, res) => {
     try {
-        const projects = await ProjectModal.find({});
+        const projects = await ProjectModal.find({}).sort({ priority: -1 });
         res.json({ projects });
     } catch (error) {
         res.send(error);

@@ -23,6 +23,7 @@ const nextConfig = {
             "activity-graph.herokuapp.com",
             "metrics.lecoq.io",
             "github-readme-streak-stats.herokuapp.com",
+            "firebasestorage.googleapis.com",
         ],
     },
 };
