@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import axios from "axios";
 import About from "../components/About";
 import Blog from "../components/Blogs";
 import Contact from "../components/Contact";
@@ -8,12 +8,13 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skill from "../components/Skill";
+import { projectInterface } from "../interfaces/Project.interface";
 
-const Home: NextPage = () => {
+const Home = ({ projects }: { projects: projectInterface[] }) => {
     return (
         <div>
             <Hero />
-            <Projects />
+            <Projects projects={projects} />
             <Experience />
             <Skill />
             <Education />
@@ -25,5 +26,16 @@ const Home: NextPage = () => {
         </div>
     );
 };
+
+// This function gets called at build time
+export async function getStaticProps() {
+    const { data } = await axios.get(
+        "https://samiulalimsaad.vercel.app/api/projects"
+    );
+    const { projects } = data;
+    return {
+        props: { projects },
+    };
+}
 
 export default Home;

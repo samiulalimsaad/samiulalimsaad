@@ -1,19 +1,14 @@
-import axios from "axios";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { projectInterface } from "../../interfaces/Project.interface";
 import Temp from "./Temp";
 
-const Projects = ({ all }: { all?: Boolean }) => {
-    const [projects, setProjects] = useState([]);
-    const [error, setError] = useState("");
-    useEffect(() => {
-        axios
-            .get("/api/projects")
-            .then(({ data }) => setProjects(data.projects))
-            .catch((err) => setError(err.message));
-    }, []);
-
+const Projects = ({
+    all,
+    projects,
+}: {
+    all?: Boolean;
+    projects: projectInterface[];
+}) => {
     return (
         <section
             id="projects"
@@ -44,24 +39,24 @@ const Projects = ({ all }: { all?: Boolean }) => {
                             />
                         </div>
                     </div> */}
-                    {error ? (
+                    {/* {error ? (
                         <div className="flex items-center justify-center h-full">
                             {error}
                         </div>
-                    ) : (
-                        <div className="grid gap-4 lg:grid-cols-3">
-                            {/* <div className="w-full carousel"> */}
-                            {all
-                                ? projects?.map((v: projectInterface) => (
+                    ) : ( */}
+                    <div className="grid gap-4 lg:grid-cols-3">
+                        {/* <div className="w-full carousel"> */}
+                        {all
+                            ? projects?.map((v: projectInterface) => (
+                                  <Temp key={v._id} project={v} />
+                              ))
+                            : projects
+                                  ?.slice(0, 6)
+                                  ?.map((v: projectInterface) => (
                                       <Temp key={v._id} project={v} />
-                                  ))
-                                : projects
-                                      ?.slice(0, 6)
-                                      ?.map((v: projectInterface) => (
-                                          <Temp key={v._id} project={v} />
-                                      ))}
-                        </div>
-                    )}
+                                  ))}
+                    </div>
+                    {/* )} */}
                 </div>
                 {!all && (
                     <div className="flex items-center justify-center mt-8">

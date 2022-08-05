@@ -1,23 +1,8 @@
 import axios from "axios";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { projectInterface } from "../../../interfaces/Project.interface";
 
-const Detail = () => {
-    const router = useRouter();
-
-    const [project, setProject] = useState<projectInterface>();
-    const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
-        axios.get(`/api/projects/${router.query.id}`).then(({ data }) => {
-            setProject(data.projects);
-            setIsLoading(false);
-        });
-    }, [router.query.id]);
-
-    if (isLoading) return "loading...";
-
+const Detail = ({ project }: { project: projectInterface }) => {
     return (
         <div
             // style={{ "var(--image-url)": project?.image }}
@@ -42,5 +27,30 @@ const Detail = () => {
         </div>
     );
 };
+
+// This function gets called at build time
+export async function getStaticPaths() {
+    const { data } = await axios.get(
+        "https://samiulalimsaad.vercel.app/api/projects"
+    );
+    const { projects } = data;
+
+    const paths = projects.map((project: projectInterface) => ({
+        params: { id: project._id },
+    }));
+    return { paths, fallback: false };
+}
+
+// This also gets called at build time
+export async function getStaticProps(ctx: any) {
+    const { data } = await axios.get(
+        `https://samiulalimsaad.vercel.app/api/projects/${ctx.params.id}`
+    );
+    const { projects } = data;
+    return {
+        props: { project: projects },
+        revalidate: 30, // In seconds
+    };
+}
 
 export default Detail;
