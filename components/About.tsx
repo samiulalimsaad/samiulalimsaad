@@ -22,8 +22,8 @@ const About = () => (
                         data-aos-duration="2000"
                     >
                         I&apos;m Samiul Alim. I&apos;m from Rajshahi,
-                        Bangladesh. I completed my BSc graduation in CSE from
-                        North Bengal International University.
+                        Bangladesh. I have completed my BSc graduation in CSE
+                        from North Bengal International University.
                     </p>
                     <p
                         className="text-2xl leading-relaxed text-center"

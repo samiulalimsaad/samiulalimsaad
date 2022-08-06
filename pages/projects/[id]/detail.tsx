@@ -49,7 +49,7 @@ export async function getStaticProps(ctx: any) {
     const { projects } = data;
     return {
         props: { project: projects },
-        revalidate: 30, // In seconds
+        // revalidate: 30, // In seconds
     };
 }
 
