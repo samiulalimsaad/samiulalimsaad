@@ -23,7 +23,7 @@ const ContactForm = () => {
                 timer: 4000,
                 timerProgressBar: true,
                 didOpen: () => {
-                    Swal.showLoading();
+                    Swal.showLoading(null);
                 },
                 willClose: () => {
                     clearInterval(timerInterval);
