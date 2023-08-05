@@ -40,7 +40,7 @@ const MenuItems = () => (
                     data-aos="zoom-in"
                     data-aos-anchor-placement="center-bottom"
                 >
-                    <Link href={v.path}>{v.name}</Link>
+                    <Link href={v.path} legacyBehavior>{v.name}</Link>
                 </li>
             );
         })}

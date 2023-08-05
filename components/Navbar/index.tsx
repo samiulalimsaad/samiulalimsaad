@@ -32,15 +32,18 @@ const Navbar = () => (
                     <MenuItems />
                 </ul>
             </div>
-            <Link href="/" passHref>
-                <a className="hidden text-xl normal-case sm:flex btn btn-ghost">
+            <Link
+                href="/"
+                passHref
+                className="hidden text-xl normal-case sm:flex btn btn-ghost">
+                
                     Samiul Alim
-                </a>
+                
             </Link>
         </div>
         <div className="navbar-end lg:hidden">
-            <Link href="/" passHref>
-                <a className="text-xl normal-case btn btn-ghost">Samiul Alim</a>
+            <Link href="/" passHref className="text-xl normal-case btn btn-ghost">
+                Samiul Alim
             </Link>
         </div>
         <div
