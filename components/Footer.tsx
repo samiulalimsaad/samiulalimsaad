@@ -20,10 +20,10 @@ const Footer = () => (
                     <div className="grid h-16 place-items-center">
                         Samiul ALim
                         <br />
-                        Web Developer
+                        Software Developer
                     </div>
                     <div className="badge badge-primary">
-                        from {new Date().getFullYear() - 2020} years
+                        from {new Date().getFullYear() - 2021} years
                     </div>
                 </div>
             </div>

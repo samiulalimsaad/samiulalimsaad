@@ -3,7 +3,15 @@ import Exp from "../../images/sections/exp.svg";
 
 const experiences = [
     {
-        designation: "Intern Developer",
+        designation: "Instructor",
+        company: "Programming Hero",
+        location: "Dhaka",
+        jobType: "Remote",
+        dateFrom: "Feb 2023",
+        dateTo: "now",
+    },
+    {
+        designation: "Intern FullStack Developer",
         company: "Macroman Solution",
         location: "Rajshahi",
         jobType: "",

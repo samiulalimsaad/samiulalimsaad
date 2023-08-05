@@ -1,4 +1,5 @@
 import { BsFacebook, BsGithub, BsLinkedin, BsMessenger } from "react-icons/bs";
+import { IoLogoWhatsapp } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 
 const SocialLinks = () => (
@@ -48,6 +49,15 @@ const SocialLinks = () => (
             data-aos-duration="2000"
         >
             <BsMessenger className="w-6 h-6 duration-500 hover:text-pink-500" />
+        </a>
+        <a
+            href="https://wa.me/8801715378032"
+            target="_blank"
+            rel="noreferrer"
+            data-aos="flip-down"
+            data-aos-duration="2000"
+        >
+            <IoLogoWhatsapp className="w-6 h-6 duration-500 hover:text-pink-500" />
         </a>
     </div>
 );

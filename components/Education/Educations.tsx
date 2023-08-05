@@ -1,5 +1,13 @@
 const educations = [
     {
+        degree: "Master's of Science",
+        subject: "Computer Science & Engineering (CSE)",
+        institute: "Rajshahi University",
+        year: "2023",
+        className: "step-success",
+        animation: "fade-down",
+    },
+    {
         degree: "Bachelor of Science",
         subject: "Computer Science & Engineering (CSE)",
         institute: "North Bengal International University",
