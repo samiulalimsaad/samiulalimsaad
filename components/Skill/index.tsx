@@ -1,3 +1,4 @@
+import Container from "../utils/Container";
 import { skills } from "./skills";
 
 const Skill = () => (
@@ -15,8 +16,8 @@ const Skill = () => (
                 Skills
             </h2>
             <div className="divider"></div>
-            <div className="mx-auto w-12/12">
-                <ul className="flex flex-wrap justify-center cursor-vertical-text">
+            <Container>
+                <ul className="flex flex-wrap justify-between text-justify cursor-vertical-text">
                     {skills.map((skill, i) => (
                         <li
                             key={skill}
@@ -32,7 +33,7 @@ const Skill = () => (
                         </li>
                     ))}
                 </ul>
-            </div>
+            </Container>
         </div>
     </section>
 );
