@@ -9,7 +9,7 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skill from "../components/Skill";
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
     title: "Samiul Alim",
     description:
         "I dream to be an expert software engineer. In-depth knowledge of Node JS, React, NextJS, and MongoDB. 2 years of experience efficiently coding websites and applications using modern JavaScript, Typescript, back-end, and front-end developer. Building state-of-the-art, easy-to-use, user-friendly websites and applications is truly a passion, and I am confident I would be an excellent addition to your organization.",
@@ -114,10 +114,9 @@ export const metaData: Metadata = {
 };
 
 // This function gets called at build time
-export async function getData() {
+async function getData() {
     const res = await fetch("https://samiulalimsaad.vercel.app/api/projects");
     const { projects } = await res.json();
-    console.log(projects);
     return projects;
 }
 

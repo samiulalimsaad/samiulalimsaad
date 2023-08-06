@@ -11,9 +11,11 @@ const withMDX = require("@next/mdx")({
 });
 
 const nextConfig = {
+    output: "export",
     reactStrictMode: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     images: {
+        unoptimized: true,
         domains: [
             "pbs.twimg.com",
             "gpvc.arturio.dev",

@@ -24,7 +24,7 @@ const Hero = () => (
                             src={SamiulAlim}
                             alt="Samiul Alim"
                             placeholder="blur"
-                            className="max-w-xl rounded-full drop-shadow-md"
+                            className="rounded-full sm:max-w-xl drop-shadow-md"
                         />
                     </div>
                     <div
