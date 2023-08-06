@@ -5,7 +5,7 @@ const About = () => (
     >
         <div className="w-full h-full py-40 mx-auto bg-slate-900/90 backdrop-blur-sm">
             <h2
-                className="my-8 text-6xl font-black text-center"
+                className="my-8 text-6xl font-black text-center drop-shadow-md"
                 data-aos="zoom-in-down"
                 data-aos-duration="2000"
                 data-aos-anchor-placement="center-bottom"
@@ -16,7 +16,7 @@ const About = () => (
             <div className="flex items-center justify-center w-2/3 h-full mx-auto">
                 <div className="flex flex-col prose prose-stone">
                     <p
-                        className="text-2xl leading-relaxed text-center"
+                        className="text-2xl leading-relaxed text-justify"
                         data-aos="flip-left"
                         data-aos-easing="ease-out-cubic"
                         data-aos-duration="2000"
@@ -26,7 +26,7 @@ const About = () => (
                         from North Bengal International University.
                     </p>
                     <p
-                        className="text-2xl leading-relaxed text-center"
+                        className="text-2xl leading-relaxed text-justify"
                         data-aos="flip-right"
                         data-aos-easing="ease-out-cubic"
                         data-aos-duration="2000"
@@ -37,7 +37,7 @@ const About = () => (
                         Development as a back-end and a front-end developer.
                     </p>
                     <p
-                        className="text-2xl leading-relaxed text-center"
+                        className="text-2xl leading-relaxed text-justify"
                         data-aos="flip-left"
                         data-aos-easing="ease-out-cubic"
                         data-aos-duration="2000"

@@ -17,12 +17,12 @@ const Footer = () => (
                     </div>
                 </div>
                 <div data-aos="zoom-in-right">
-                    <div className="grid h-16 place-items-center">
+                    <div className="grid h-16 font-semibold place-items-center drop-shadow-md">
                         Samiul ALim
                         <br />
                         Software Developer
                     </div>
-                    <div className="badge badge-primary">
+                    <div className="font-semibold badge badge-primary drop-shadow-md">
                         from {new Date().getFullYear() - 2021} years
                     </div>
                 </div>

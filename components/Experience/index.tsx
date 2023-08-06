@@ -37,7 +37,7 @@ const Experience = () => {
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/60 backdrop-blur-sm">
                 <h2
-                    className="my-8 text-6xl font-black text-center"
+                    className="my-8 text-6xl font-black text-center drop-shadow-md"
                     data-aos="zoom-in-down"
                     data-aos-duration="2000"
                     data-aos-anchor-placement="center-bottom"
@@ -68,8 +68,8 @@ const Experience = () => {
                                         data-aos-anchor-placement="center-bottom"
                                         data-aos-duration="3000"
                                     >
-                                        <div className="my-8 text-left">
-                                            <h3 className="text-3xl">
+                                        <div className="my-4 ml-2 space-y-2 text-left">
+                                            <h3 className="text-3xl font-semibold drop-shadow-md">
                                                 {experience.designation}
                                             </h3>
                                             <p className="text-xl">
@@ -87,7 +87,7 @@ const Experience = () => {
                                                     </span>
                                                 )}
                                             </p>
-                                            <p className="my-2">
+                                            <p className="my-2 space-y-2">
                                                 <span className="p-2 rounded-xl bg-slate-900/60">
                                                     {experience.dateFrom}
                                                 </span>{" "}

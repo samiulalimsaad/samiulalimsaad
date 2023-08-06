@@ -16,7 +16,7 @@ const Projects = ({
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/60 backdrop-blur-sm">
                 <h2
-                    className="my-8 text-6xl font-black text-center"
+                    className="my-8 text-6xl font-black text-center drop-shadow-md"
                     data-aos="zoom-in-down"
                     data-aos-duration="2000"
                     data-aos-anchor-placement="center-bottom"

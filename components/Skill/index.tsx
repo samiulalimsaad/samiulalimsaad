@@ -6,9 +6,9 @@ const Skill = () => (
         id="skills"
         className="min-h-screen hero bg-[url('/skill.png')] bg-fixed"
     >
-        <div className="w-full h-full py-20 mx-auto bg-slate-900/20 backdrop-blur-sm">
+        <div className="w-full h-full mx-auto bg-slate-900/20 backdrop-blur-sm">
             <h2
-                className="my-8 text-6xl font-black text-center"
+                className="my-8 text-6xl font-black text-center drop-shadow-md"
                 data-aos="zoom-in-down"
                 data-aos-duration="2000"
                 data-aos-anchor-placement="center-bottom"
@@ -17,7 +17,7 @@ const Skill = () => (
             </h2>
             <div className="divider"></div>
             <Container>
-                <ul className="flex flex-wrap justify-between text-justify cursor-vertical-text">
+                <ul className="flex flex-wrap justify-between mt-20 text-justify cursor-vertical-text">
                     {skills.map((skill, i) => (
                         <li
                             key={skill}

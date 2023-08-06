@@ -55,8 +55,12 @@ const Educations = () => {
                         data-aos-duration="3000"
                     >
                         <div className="mt-8 space-x-4 space-y-2 text-xl">
-                            <h3 className="text-warning">{v.subject}</h3>
-                            <h4 className="text-success">{v?.degree}</h4>
+                            <h3 className="font-semibold text-success">
+                                {v?.degree}
+                            </h3>
+                            <h4 className="text-warning drop-shadow-md">
+                                {v.subject}
+                            </h4>
                             <h5 className="text-info">{v.institute}</h5>
                         </div>
                     </li>
