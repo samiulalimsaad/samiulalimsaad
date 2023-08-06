@@ -13,7 +13,7 @@ const experiences = [
         dateTo: "now",
     },
     {
-        designation: "Intern FullStack Developer",
+        designation: "FullStack Developer (Intern)",
         company: "Macroman Solution",
         location: "Rajshahi",
         jobType: "",
@@ -58,9 +58,14 @@ const Experience = () => {
                                         className="p-2 step step-success"
                                     >
                                         <div className="my-4 ml-2 space-y-2 text-left">
-                                            <h3 className="text-3xl font-semibold drop-shadow-md">
+                                            <ColoringTitle
+                                                as="h3"
+                                                fontSize="xl"
+                                                justify="start"
+                                                classes="!py-0"
+                                            >
                                                 {experience.designation}
-                                            </h3>
+                                            </ColoringTitle>
                                             <p className="text-xl">
                                                 at{" "}
                                                 <span>

@@ -41,7 +41,7 @@ const MenuItems = () => (
                         href={v.path}
                         className="rounded-none hover:rounded-none"
                     >
-                        <ColoringTitle as="span" fontSize="xs" classes="py-0">
+                        <ColoringTitle as="span" fontSize="xs" classes="!py-0">
                             {v.name}
                         </ColoringTitle>
                     </Link>
