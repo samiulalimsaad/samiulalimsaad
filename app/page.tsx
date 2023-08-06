@@ -1,10 +1,9 @@
 import { Metadata } from "next";
 import About from "../components/About";
 import Blog from "../components/Blogs";
-import Educations from "../components/Education/Educations";
+import Education from "../components/Education";
 import Experience from "../components/Experience";
 import Footer from "../components/Footer";
-import GithubStats from "../components/GithubStats";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skill from "../components/Skill";
@@ -130,10 +129,10 @@ const Home = async () => {
             <Projects projects={projects} />
             <Experience />
             <Skill />
-            <Educations />
+            <Education />
             <About />
             <Blog />
-            <GithubStats />
+            {/* <GithubStats /> */}
             {/* <Contact /> */}
             <Footer />
         </>
