@@ -124,7 +124,6 @@ export async function getData() {
 const Home = async () => {
     const projects = await getData();
 
-    console.log(projects);
     return (
         <>
             <Hero />
