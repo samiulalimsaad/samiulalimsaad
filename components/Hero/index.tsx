@@ -11,11 +11,11 @@ const Hero = () => (
         data-aos="fade-down"
         data-aos-anchor-placement="top-bottom"
     >
-        <div className="flex items-center justify-center w-full h-full mx-auto duration-500 hover:backdrop-blur-sm">
+        <div className="flex items-center justify-center w-full h-full py-10 mx-auto duration-500 sm:hover:backdrop-blur-sm backdrop-blur-sm sm:backdrop-blur-none sm:py-0">
             <Container>
-                <div className="flex flex-col items-center justify-between w-full h-full lg:flex-row-reverse hover:backdrop-blur-sm">
+                <div className="flex flex-col items-center justify-between w-full h-full lg:flex-row-reverse ">
                     <div
-                        className="aspect-square"
+                        className="flex items-center justify-center aspect-square"
                         data-aos="zoom-in"
                         data-aos-duration="2000"
                         data-aos-anchor-placement="center-bottom"
@@ -24,7 +24,7 @@ const Hero = () => (
                             src={SamiulAlim}
                             alt="Samiul Alim"
                             placeholder="blur"
-                            className="rounded-full sm:max-w-xl drop-shadow-md"
+                            className=" sm:max-w-xl drop-shadow-md"
                         />
                     </div>
                     <div
@@ -39,7 +39,7 @@ const Hero = () => (
                         <h3 className="py-6 text-xl font-semibold text-center xl:text-3xl md:text-2xl sm:text-left drop-shadow-md">
                             I build things for the web.
                         </h3>
-                        <p className="py-6 text-base prose text-center md:text-xl sm:text-left sm:w-10/12 prose-stone drop-shadow-md">
+                        <p className="py-6 text-base leading-8 prose text-justify md:text-xl sm:text-left sm:w-10/12 prose-stone drop-shadow-md text-slate-300">
                             I dream to be an expert software engineer. In-depth
                             knowledge of Node JS, React, NextJS, and MongoDB. 2
                             years of experience efficiently coding websites and
