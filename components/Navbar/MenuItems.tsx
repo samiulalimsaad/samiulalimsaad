@@ -40,7 +40,10 @@ const MenuItems = () => (
                     data-aos="zoom-in"
                     data-aos-anchor-placement="center-bottom"
                 >
-                    <Link href={v.path} className="hover:rounded-none">
+                    <Link
+                        href={v.path}
+                        className="rounded-none hover:rounded-none"
+                    >
                         {v.name}
                     </Link>
                 </li>
