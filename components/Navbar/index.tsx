@@ -3,7 +3,7 @@ import MenuItems from "./MenuItems";
 
 const Navbar = () => (
     <header
-        className="sticky top-0 navbar bg-base-100 z-[999]"
+        className="sticky top-0 navbar bg-base-100 z-[999] drop-shadow-md"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
     >
@@ -35,14 +35,17 @@ const Navbar = () => (
             <Link
                 href="/"
                 passHref
-                className="hidden text-xl normal-case sm:flex btn btn-ghost">
-                
-                    Samiul Alim
-                
+                className="hidden text-xl normal-case sm:flex btn btn-ghost hover:rounded-none"
+            >
+                Samiul Alim
             </Link>
         </div>
         <div className="navbar-end lg:hidden">
-            <Link href="/" passHref className="text-xl normal-case btn btn-ghost">
+            <Link
+                href="/"
+                passHref
+                className="text-xl normal-case btn btn-ghost"
+            >
                 Samiul Alim
             </Link>
         </div>
