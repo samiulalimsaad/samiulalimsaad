@@ -60,7 +60,11 @@ const Projects = ({
                 </div>
                 {!all && (
                     <div className="flex items-center justify-center mt-8">
-                        <Link href="/projects" passHref className="btn btn-info">
+                        <Link
+                            href="/projects"
+                            passHref
+                            className="btn btn-info"
+                        >
                             See All Projects
                         </Link>
                     </div>
