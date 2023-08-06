@@ -48,7 +48,7 @@ const SocialLinks = () => (
             data-aos="flip-down"
             data-aos-duration="2000"
         >
-            <BsMessenger className="w-6 h-6 duration-500 hover:text-pink-500" />
+            <BsMessenger className="w-6 h-6 duration-500 hover:text-sky-500" />
         </a>
         <a
             href="https://wa.me/8801715378032"
@@ -57,7 +57,7 @@ const SocialLinks = () => (
             data-aos="flip-down"
             data-aos-duration="2000"
         >
-            <IoLogoWhatsapp className="w-6 h-6 duration-500 hover:text-pink-500" />
+            <IoLogoWhatsapp className="w-6 h-6 duration-500 hover:text-teal-500" />
         </a>
     </div>
 );
