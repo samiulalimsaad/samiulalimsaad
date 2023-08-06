@@ -14,7 +14,7 @@ const Projects = ({
             id="projects"
             className="min-h-fit hero bg-[url('/project.png')] overflow-hidden bg-fixed"
         >
-            <div className="w-full h-full py-20 mx-auto bg-slate-900/60 hover:backdrop-blur-sm">
+            <div className="w-full h-full py-20 mx-auto bg-slate-900/60 backdrop-blur-sm">
                 <h2
                     className="my-8 text-6xl font-black text-center"
                     data-aos="zoom-in-down"
