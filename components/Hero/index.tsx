@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import SamiulAlim from "../../images/samiul-alim.png";
 import SocialLinks from "../SocialLinks";
+import ResumeButton from "./ResumeButton";
 
 const Hero = () => (
     <div
@@ -54,24 +56,10 @@ const Hero = () => (
                         data-aos-duration="2000"
                         data-aos-anchor-placement="center-bottom"
                     >
-                        <a href="#contact" className="btn btn-primary">
+                        <Link href="#contact" className="btn btn-primary">
                             Hire Me
-                        </a>
-                        <a
-                            href="https://drive.google.com/file/d/1ZtcoHzmc2DGqJOYZG3dMjHK970_POjsK/view?usp=sharing"
-                            target="_blank"
-                            rel="noreferrer"
-                            onClick={() =>
-                                !window.open(
-                                    "https://drive.google.com/file/d/1ZtcoHzmc2DGqJOYZG3dMjHK970_POjsK/view?usp=sharing",
-                                    "somesite",
-                                    "width=800, height=1200"
-                                )
-                            }
-                            className="bg-pink-700 btn hover:bg-pink-900"
-                        >
-                            Resume
-                        </a>
+                        </Link>
+                        <ResumeButton />
                     </div>
                     <div
                         className="flex justify-center gap-4 mt-10 sm:justify-start"
