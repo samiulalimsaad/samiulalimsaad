@@ -4,12 +4,7 @@ const Blog = () => (
         className="min-h-screen hero bg-[url('/blogs.png')] bg-fixed"
     >
         <div className="w-full h-full py-20 mx-auto bg-slate-900/70 backdrop-blur-sm">
-            <h2
-                className="my-8 text-6xl font-black text-center drop-shadow-md"
-                data-aos="zoom-in-down"
-                data-aos-duration="2000"
-                data-aos-anchor-placement="center-bottom"
-            >
+            <h2 className="my-8 text-6xl font-black text-center drop-shadow-md">
                 Blogs
             </h2>
             <div className="divider"></div>

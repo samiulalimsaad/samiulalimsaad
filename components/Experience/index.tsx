@@ -36,22 +36,13 @@ const Experience = () => {
             className="min-h-screen hero bg-[url('/exp.png')] bg-fixed"
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/60 backdrop-blur-sm">
-                <h2
-                    className="my-8 text-6xl font-black text-center drop-shadow-md"
-                    data-aos="zoom-in-down"
-                    data-aos-duration="2000"
-                    data-aos-anchor-placement="center-bottom"
-                >
+                <h2 className="my-8 text-6xl font-black text-center drop-shadow-md">
                     Experience
                 </h2>
                 <div className="divider"></div>
                 <Container>
                     <div className="flex flex-col items-center justify-between gap-20 lg:flex-row">
-                        <div
-                            data-aos="zoom-out-down"
-                            data-aos-duration="2000"
-                            data-aos-anchor-placement="center-bottom"
-                        >
+                        <div>
                             <Image
                                 src={Exp}
                                 alt="Exp"
@@ -64,9 +55,6 @@ const Experience = () => {
                                     <li
                                         key={experience.dateFrom}
                                         className="p-2 step step-success"
-                                        data-aos="fade-up"
-                                        data-aos-anchor-placement="center-bottom"
-                                        data-aos-duration="3000"
                                     >
                                         <div className="my-4 ml-2 space-y-2 text-left">
                                             <h3 className="text-3xl font-semibold drop-shadow-md">

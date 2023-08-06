@@ -9,8 +9,6 @@ const SocialLinks = () => (
             target="_blank"
             className="flex items-center duration-500 hover:text-red-500"
             rel="noreferrer"
-            data-aos="flip-left"
-            data-aos-duration="2000"
         >
             <MdEmail className="w-6 h-6" />
         </a>
@@ -18,8 +16,6 @@ const SocialLinks = () => (
             href="https://www.github.com/samiulalimsaad"
             target="_blank"
             rel="noreferrer"
-            data-aos="flip-left"
-            data-aos-duration="2000"
         >
             <BsGithub className="w-6 h-6 duration-500 hover:text-green-500" />
         </a>
@@ -27,8 +23,6 @@ const SocialLinks = () => (
             href="https://www.linkedin.com/in/samiulalimsaad"
             target="_blank"
             rel="noreferrer"
-            data-aos="flip-right"
-            data-aos-duration="2000"
         >
             <BsLinkedin className="w-6 h-6 duration-500 hover:text-sky-600" />
         </a>
@@ -36,27 +30,13 @@ const SocialLinks = () => (
             href="https://www.facebook.com/samiulalimsaad"
             target="_blank"
             rel="noreferrer"
-            data-aos="flip-up"
-            data-aos-duration="2000"
         >
             <BsFacebook className="w-6 h-6 duration-500 hover:text-blue-600" />
         </a>
-        <a
-            href="https://m.me/samiulalimsaad"
-            target="_blank"
-            rel="noreferrer"
-            data-aos="flip-down"
-            data-aos-duration="2000"
-        >
+        <a href="https://m.me/samiulalimsaad" target="_blank" rel="noreferrer">
             <BsMessenger className="w-6 h-6 duration-500 hover:text-sky-500" />
         </a>
-        <a
-            href="https://wa.me/8801715378032"
-            target="_blank"
-            rel="noreferrer"
-            data-aos="flip-down"
-            data-aos-duration="2000"
-        >
+        <a href="https://wa.me/8801715378032" target="_blank" rel="noreferrer">
             <IoLogoWhatsapp className="w-6 h-6 duration-500 hover:text-teal-500" />
         </a>
     </div>

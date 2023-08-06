@@ -4,12 +4,7 @@ import { FaFacebookMessenger } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const ContactInfo = () => (
-    <div
-        className="flex flex-col justify-center space-y-4 sm:w-1/2"
-        data-aos="flip-up"
-        data-aos-duration="2000"
-        data-aos-anchor-placement="center-bottom"
-    >
+    <div className="flex flex-col justify-center space-y-4 sm:w-1/2">
         <h3 className="text-4xl">Samiul Alim</h3>
         <p className="flex items-center">
             <a

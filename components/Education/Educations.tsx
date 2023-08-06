@@ -50,9 +50,6 @@ const Educations = () => {
                         key={v.degree}
                         data-content={v.year}
                         className={`step ${v.className}`}
-                        data-aos={v.animation}
-                        data-aos-anchor-placement="center-bottom"
-                        data-aos-duration="3000"
                     >
                         <div className="mt-8 space-x-4 space-y-2 text-xl">
                             <h3 className="font-semibold text-success">

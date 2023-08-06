@@ -7,12 +7,7 @@ const GithubStats = () => (
     >
         <div className="hero-overlay bg-slate-900/90 hover:backdrop-blur-sm"></div>
         <div className="w-full h-full p-2 py-40 mx-auto">
-            <h2
-                className="my-8 text-5xl font-black text-center"
-                data-aos="zoom-in-down"
-                data-aos-duration="2000"
-                data-aos-anchor-placement="center-bottom"
-            >
+            <h2 className="my-8 text-5xl font-black text-center">
                 Github Stats
             </h2>
             <div className="divider"></div>
@@ -26,9 +21,6 @@ const GithubStats = () => (
                                     alt="Top Langs"
                                     height={200}
                                     width={280}
-                                    data-aos="flip-down"
-                                    data-aos-duration="2000"
-                                    data-aos-anchor-placement="center-bottom"
                                 />
                             </figure>
                             <figure className="w-full">
@@ -37,9 +29,6 @@ const GithubStats = () => (
                                     alt="GitHub stats"
                                     height={200}
                                     width={280}
-                                    data-aos="flip-up"
-                                    data-aos-duration="2000"
-                                    data-aos-anchor-placement="center-bottom"
                                 />
                             </figure>
                         </div>
@@ -49,9 +38,6 @@ const GithubStats = () => (
                                 alt="Github activity graph"
                                 height={250}
                                 width={600}
-                                data-aos="flip-up"
-                                data-aos-duration="2000"
-                                data-aos-anchor-placement="center-bottom"
                             />
                         </figure>
                     </div>
@@ -61,9 +47,6 @@ const GithubStats = () => (
                             alt="GitHub metrics"
                             height={1000}
                             width={1200}
-                            data-aos="flip-down"
-                            data-aos-duration="2000"
-                            data-aos-anchor-placement="center-bottom"
                         />
                     </figure>
                 </div>

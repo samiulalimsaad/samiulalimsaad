@@ -25,7 +25,7 @@ const ContactForm = () => {
                 timer: 4000,
                 timerProgressBar: true,
                 didOpen: () => {
-                    Swal.showLoading(null);
+                    Swal.showLoading(undefined);
                 },
                 willClose: () => {
                     clearInterval(timerInterval);
@@ -37,12 +37,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div
-            className="flex items-center justify-center h-full mx-auto sm:w-1/2"
-            data-aos="fade-up"
-            data-aos-duration="2000"
-            data-aos-anchor-placement="center-bottom"
-        >
+        <div className="flex items-center justify-center h-full mx-auto sm:w-1/2">
             <Formik
                 initialValues={initialValue}
                 validationSchema={emailValidationSchema}

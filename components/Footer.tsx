@@ -7,16 +7,11 @@ const Footer = () => (
         <div className="items-center justify-between p-10 px-20 footer text-neutral-content">
             <div className="flex items-center">
                 <div className="avatar">
-                    <div
-                        className="w-16 rounded-full"
-                        data-aos="flip-left"
-                        data-aos-duration="2000"
-                        data-aos-anchor-placement="top-bottom"
-                    >
+                    <div className="w-16 rounded-full">
                         <Image src={Saad} alt="Samiul Alim" />
                     </div>
                 </div>
-                <div data-aos="zoom-in-right">
+                <div>
                     <div className="grid h-16 font-semibold place-items-center drop-shadow-md">
                         Samiul ALim
                         <br />

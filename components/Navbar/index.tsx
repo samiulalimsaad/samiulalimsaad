@@ -1,12 +1,15 @@
 import Link from "next/link";
+import ColoringTitle from "../utils/ColoringTitle";
 import MenuItems from "./MenuItems";
 
+const siteTitle = (
+    <Link href="/" passHref className="text-xl font-semibold normal-case">
+        <ColoringTitle as="span">Samiul Alim</ColoringTitle>
+    </Link>
+);
+
 const Navbar = () => (
-    <header
-        className="sticky top-0 navbar bg-base-100 z-[999] drop-shadow-md"
-        data-aos="fade-up"
-        data-aos-anchor-placement="center-bottom"
-    >
+    <header className="sticky top-0 navbar glass btn-active backdrop-blur-3xl z-[999] bg-base-100">
         <div className="navbar-start">
             <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,28 +35,10 @@ const Navbar = () => (
                     <MenuItems />
                 </ul>
             </div>
-            <Link
-                href="/"
-                passHref
-                className="hidden text-xl normal-case sm:flex btn btn-ghost hover:rounded-none"
-            >
-                Samiul Alim
-            </Link>
+            <div className="hidden sm:flex">{siteTitle}</div>
         </div>
-        <div className="navbar-end lg:hidden">
-            <Link
-                href="/"
-                passHref
-                className="text-xl normal-case btn btn-ghost"
-            >
-                Samiul Alim
-            </Link>
-        </div>
-        <div
-            className="hidden navbar-end lg:flex"
-            data-aos="fade-left"
-            data-aos-anchor-placement="center-bottom"
-        >
+        <div className="navbar-end lg:hidden">{siteTitle}</div>
+        <div className="hidden navbar-end lg:flex">
             <ul className="p-0 menu menu-horizontal">
                 <MenuItems />
             </ul>

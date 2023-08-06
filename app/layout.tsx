@@ -1,4 +1,3 @@
-import AOSInit from "../components/AOSInit";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 
@@ -13,9 +12,7 @@ export default function RootLayout({
         <html lang="en" className="scroll-smooth">
             <body>
                 <Navbar />
-                <main className="w-full overflow-y-hidden">
-                    <AOSInit>{children}</AOSInit>
-                </main>
+                <main className="w-full overflow-y-hidden">{children}</main>
             </body>
         </html>
     );

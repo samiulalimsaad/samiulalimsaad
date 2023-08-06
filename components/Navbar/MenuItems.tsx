@@ -35,11 +35,7 @@ const MenuItems = () => (
     <>
         {menuItems.map((v) => {
             return (
-                <li
-                    key={v.name}
-                    data-aos="zoom-in"
-                    data-aos-anchor-placement="center-bottom"
-                >
+                <li key={v.name}>
                     <Link
                         href={v.path}
                         className="rounded-none hover:rounded-none"

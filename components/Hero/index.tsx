@@ -6,20 +6,11 @@ import Container from "../utils/Container";
 import ResumeButton from "./ResumeButton";
 
 const Hero = () => (
-    <div
-        className="min-h-screen hero bg-[url('/hero-space.png')]"
-        data-aos="fade-down"
-        data-aos-anchor-placement="top-bottom"
-    >
+    <div className="min-h-screen hero bg-[url('/hero-space.png')]">
         <div className="flex items-center justify-center w-full h-full py-10 mx-auto duration-500 sm:hover:backdrop-blur-sm backdrop-blur-sm sm:backdrop-blur-none sm:py-0">
             <Container>
                 <div className="flex flex-col items-center justify-between w-full h-full lg:flex-row-reverse ">
-                    <div
-                        className="flex items-center justify-center aspect-square"
-                        data-aos="zoom-in"
-                        data-aos-duration="2000"
-                        data-aos-anchor-placement="center-bottom"
-                    >
+                    <div className="flex items-center justify-center aspect-square">
                         <Image
                             src={SamiulAlim}
                             alt="Samiul Alim"
@@ -27,12 +18,7 @@ const Hero = () => (
                             className=" sm:max-w-xl drop-shadow-md"
                         />
                     </div>
-                    <div
-                        className="block w-full"
-                        data-aos="zoom-in"
-                        data-aos-duration="2000"
-                        data-aos-anchor-placement="center-bottom"
-                    >
+                    <div className="block w-full">
                         <h1 className="text-5xl font-bold text-center lg:text-8xl sm:text-left xl:text-7xl md:text-6xl drop-shadow-md">
                             Samiul Alim
                         </h1>
@@ -51,23 +37,13 @@ const Hero = () => (
                             your organization.
                         </p>
 
-                        <div
-                            className="flex justify-center gap-4 sm:justify-start"
-                            data-aos="zoom-in"
-                            data-aos-duration="2000"
-                            data-aos-anchor-placement="center-bottom"
-                        >
+                        <div className="flex justify-center gap-4 sm:justify-start">
                             <Link href="#contact" className="btn btn-primary">
                                 Hire Me
                             </Link>
                             <ResumeButton />
                         </div>
-                        <div
-                            className="flex justify-center gap-4 mt-10 sm:justify-start"
-                            data-aos="zoom-in"
-                            data-aos-duration="2000"
-                            data-aos-anchor-placement="center-bottom"
-                        >
+                        <div className="flex justify-center gap-4 mt-10 sm:justify-start">
                             <SocialLinks />
                         </div>
                     </div>
