@@ -24,6 +24,7 @@ const nextConfig = {
             "metrics.lecoq.io",
             "github-readme-streak-stats.herokuapp.com",
             "firebasestorage.googleapis.com",
+            "github-readme-stats.vercel.app",
         ],
     },
 };
