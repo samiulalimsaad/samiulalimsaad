@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import About from "../components/About";
 import Blog from "../components/Blogs";
+import Contact from "../components/Contact";
 import Education from "../components/Education";
 import Experience from "../components/Experience";
 import Footer from "../components/Footer";
@@ -133,7 +134,7 @@ const Home = async () => {
             <About />
             <Blog />
             {/* <GithubStats /> */}
-            {/* <Contact /> */}
+            <Contact />
             <Footer />
         </>
     );
