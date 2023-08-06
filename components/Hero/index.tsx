@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SamiulAlim from "../../images/samiul-alim.png";
 import SocialLinks from "../SocialLinks";
+import ColoringTitle from "../utils/ColoringTitle";
 import Container from "../utils/Container";
 import ResumeButton from "./ResumeButton";
 
@@ -19,9 +20,9 @@ const Hero = () => (
                         />
                     </div>
                     <div className="block w-full">
-                        <h1 className="text-5xl font-bold text-center lg:text-8xl sm:text-left xl:text-7xl md:text-6xl drop-shadow-md">
+                        <ColoringTitle fontSize="5xl" as="h1" justify="start">
                             Samiul Alim
-                        </h1>
+                        </ColoringTitle>
                         <h3 className="py-6 text-xl font-semibold text-center xl:text-3xl md:text-2xl sm:text-left drop-shadow-md">
                             I build things for the web.
                         </h3>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projectInterface } from "../../interfaces/Project.interface";
+import ColoringTitle from "../utils/ColoringTitle";
 import Container from "../utils/Container";
 import Temp from "./Temp";
 
@@ -16,9 +17,9 @@ const Projects = ({
             className="min-h-fit hero bg-[url('/project.png')] overflow-hidden bg-fixed"
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/60 backdrop-blur-sm">
-                <h2 className="my-8 text-6xl font-black text-center drop-shadow-md">
+                <ColoringTitle as="h2" fontSize="5xl">
                     Projects
-                </h2>
+                </ColoringTitle>
                 <div className="divider"></div>
                 <Container>
                     <div className="grid gap-4 lg:grid-cols-3">

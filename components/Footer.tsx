@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Saad from "../images/samiul-alim.png";
 import SocialLinks from "./SocialLinks";
+import ColoringTitle from "./utils/ColoringTitle";
 
 const Footer = () => (
     <footer className="min-h-fit hero bg-[url('/footer.png')] bg-fixed">
@@ -12,11 +13,15 @@ const Footer = () => (
                     </div>
                 </div>
                 <div>
-                    <div className="grid h-16 font-semibold place-items-center drop-shadow-md">
+                    <ColoringTitle
+                        as="div"
+                        fontSize="xs"
+                        classes="grid h-16 font-semibold place-items-center drop-shadow-md"
+                    >
                         Samiul ALim
                         <br />
                         Software Developer
-                    </div>
+                    </ColoringTitle>
                     <div className="font-semibold badge badge-primary drop-shadow-md">
                         from {new Date().getFullYear() - 2021} years
                     </div>

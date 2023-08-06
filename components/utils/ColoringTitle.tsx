@@ -77,7 +77,7 @@ const ColoringTitle = ({
     const Tag = as;
     return (
         <Tag
-            className={`flex py-4 items-center w-full !text-transparent capitalize bg-clip-text bg-gradient-to-r from-accent to-secondary hover:to-accent hover:from-secondary duration-500 drop-shadow-md drop-shadow-success/50 ${horizontalAlignment} ${fortSize} ${classes}`}
+            className={`flex py-4 items-center w-full !text-transparent capitalize bg-clip-text bg-gradient-to-r from-accent to-secondary hover:to-accent hover:from-secondary duration-500 drop-shadow-md drop-shadow-success/50 font-semibold ${horizontalAlignment} ${fortSize} ${classes}`}
         >
             {children}
         </Tag>

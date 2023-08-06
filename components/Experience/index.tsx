@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Exp from "../../images/sections/exp.svg";
+import ColoringTitle from "../utils/ColoringTitle";
 import Container from "../utils/Container";
 
 const experiences = [
@@ -36,9 +37,9 @@ const Experience = () => {
             className="min-h-screen hero bg-[url('/exp.png')] bg-fixed"
         >
             <div className="w-full h-full py-20 mx-auto bg-slate-900/60 backdrop-blur-sm">
-                <h2 className="my-8 text-6xl font-black text-center drop-shadow-md">
+                <ColoringTitle as="h2" fontSize="5xl">
                     Experience
-                </h2>
+                </ColoringTitle>
                 <div className="divider"></div>
                 <Container>
                     <div className="flex flex-col items-center justify-between gap-20 lg:flex-row">

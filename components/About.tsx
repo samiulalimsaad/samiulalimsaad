@@ -1,3 +1,4 @@
+import ColoringTitle from "./utils/ColoringTitle";
 import Container from "./utils/Container";
 
 const About = () => (
@@ -6,9 +7,9 @@ const About = () => (
         className="min-h-screen hero bg-[url('/about.png')] bg-fixed"
     >
         <div className="w-full h-full py-40 mx-auto bg-slate-900/90 backdrop-blur-sm">
-            <h2 className="my-8 text-6xl font-black text-center drop-shadow-md">
+            <ColoringTitle as="h2" fontSize="5xl">
                 About
-            </h2>
+            </ColoringTitle>
             <div className="divider"></div>
             <Container>
                 <div className="flex items-center justify-center h-full mx-auto sm:w-2/3">

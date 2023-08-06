@@ -1,3 +1,4 @@
+import ColoringTitle from "../utils/ColoringTitle";
 import Container from "../utils/Container";
 import { skills } from "./skills";
 
@@ -6,10 +7,10 @@ const Skill = () => (
         id="skills"
         className="min-h-screen hero bg-[url('/skill.png')] bg-fixed"
     >
-        <div className="w-full h-full mx-auto bg-slate-900/20 backdrop-blur-sm">
-            <h2 className="my-8 text-6xl font-black text-center drop-shadow-md">
+        <div className="w-full h-full pt-10 mx-auto bg-slate-900/20 backdrop-blur-sm">
+            <ColoringTitle as="h2" fontSize="5xl">
                 Skills
-            </h2>
+            </ColoringTitle>
             <div className="divider"></div>
             <Container>
                 <ul className="flex flex-wrap justify-between mt-20 text-justify cursor-vertical-text">
