@@ -27,13 +27,14 @@ const Hero = () => (
                         >
                             Samiul Alim
                         </ColoringTitle>
-                        <h3 className="py-6 text-xl font-semibold text-center xl:text-3xl md:text-2xl sm:text-left drop-shadow-md">
+                        <h2 className="py-6 text-xl font-semibold text-center xl:text-3xl md:text-2xl sm:text-left drop-shadow-md">
                             I build things for the web.
-                        </h3>
-                        <p className="py-6 text-base leading-8 prose text-justify md:text-xl sm:text-left sm:w-10/12 prose-stone drop-shadow-md text-slate-300">
+                        </h2>
+                        <p className="py-6 text-base !leading-[1.8] prose text-justify md:text-xl sm:text-left sm:w-10/12 prose-stone drop-shadow-md text-slate-300">
                             I dream to be an expert software engineer. In-depth
-                            knowledge of Node JS, React, NextJS, and MongoDB. 2
-                            years of experience efficiently coding websites and
+                            knowledge of Node JS, React, NextJS, and MongoDB.{" "}
+                            {new Date().getFullYear() - 2021} years of
+                            experience efficiently coding websites and
                             applications using modern JavaScript, Typescript,
                             back-end, and front-end developer. Building
                             state-of-the-art, easy-to-use, user-friendly
