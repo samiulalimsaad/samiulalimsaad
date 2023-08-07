@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { projectInterface } from "./projects";
+import { projectInterface } from "../../interfaces/Project.interface";
 
 const Project = ({
     project,
