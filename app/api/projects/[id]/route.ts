@@ -8,8 +8,6 @@ export async function GET(
 ) {
     connectDB();
 
-    const projects = await ProjectModal.findById(params.id).sort({
-        priority: -1,
-    });
-    return NextResponse.json({ projects });
+    const project = await ProjectModal.findById(params.id);
+    return NextResponse.json({ project });
 }
