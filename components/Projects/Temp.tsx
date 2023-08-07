@@ -7,8 +7,8 @@ import { projectInterface } from "../../interfaces/Project.interface";
 
 const Temp = ({ project }: { project: projectInterface }) => (
     <div className="shadow-xl card lg:card-sides bg-base-100 glass">
-        <figure>
-            <Image src={project.image} alt="Album" width={800} height={400} />
+        <figure className="h-[15rem] glass">
+            <Image src={project.image} alt="Album" width={800} height={600} />
         </figure>
         <div className="card-body">
             <h2 className="card-title">{project.name}</h2>
