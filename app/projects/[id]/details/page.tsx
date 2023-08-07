@@ -1,4 +1,15 @@
 import Image from "next/image";
+import { projectInterface } from "../../../../interfaces/Project.interface";
+
+export async function generateStaticParams() {
+    const { projects } = await fetch(
+        "https://samiulalimsaad.vercel.app/api/projects"
+    ).then((res) => res.json());
+
+    return projects?.map((project: projectInterface) => ({
+        slug: project._id,
+    }));
+}
 
 async function getStaticData(id: string) {
     console.log(`https://samiulalimsaad.vercel.app/api/projects/${id}`);

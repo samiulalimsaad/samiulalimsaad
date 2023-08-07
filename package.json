@@ -25,6 +25,7 @@
         "react-dom": "18.2.0",
         "react-icons": "^4.10.1",
         "react-tsparticles": "^2.12.1",
+        "sharp": "^0.32.4",
         "sweetalert2": "^11.7.20",
         "yup": "^1.2.0"
     },

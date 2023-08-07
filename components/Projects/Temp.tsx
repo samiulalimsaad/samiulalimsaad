@@ -48,7 +48,7 @@ const Temp = ({ project }: { project: projectInterface }) => (
                     </a>
                 </div>
                 <Link
-                    href={`/projects/${project._id}/detail`}
+                    href={`/projects/${project._id}/details`}
                     className="btn btn-primary"
                 >
                     Details
