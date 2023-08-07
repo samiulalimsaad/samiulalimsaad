@@ -1,8 +1,18 @@
-import axios from "axios";
 import Image from "next/image";
-import { projectInterface } from "../../../interfaces/Project.interface";
 
-const Detail = ({ project }: { project: projectInterface }) => {
+async function getStaticData(id: string) {
+    console.log(`https://samiulalimsaad.vercel.app/api/projects/${id}`);
+    const res = await fetch(
+        `https://samiulalimsaad.vercel.app/api/projects/${id}`
+    );
+    const { project } = await res.json();
+    console.log({ project });
+    return project;
+}
+
+const DetailsPage = async ({ params }: { params: { id: string } }) => {
+    const project = await getStaticData(params.id);
+
     return (
         <div
             // style={{ "var(--image-url)": project?.image }}
@@ -28,29 +38,4 @@ const Detail = ({ project }: { project: projectInterface }) => {
     );
 };
 
-// This function gets called at build time
-export async function getStaticPaths() {
-    const { data } = await axios.get(
-        "https://samiulalimsaad.vercel.app/api/projects"
-    );
-    const { projects } = data;
-
-    const paths = projects.map((project: projectInterface) => ({
-        params: { id: project._id },
-    }));
-    return { paths, fallback: false };
-}
-
-// This also gets called at build time
-export async function getStaticProps(ctx: any) {
-    const { data } = await axios.get(
-        `https://samiulalimsaad.vercel.app/api/projects/${ctx.params.id}`
-    );
-    const { projects } = data;
-    return {
-        props: { project: projects },
-        // revalidate: 30, // In seconds
-    };
-}
-
-export default Detail;
+export default DetailsPage;
