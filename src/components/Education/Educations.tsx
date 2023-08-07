@@ -3,7 +3,7 @@ const educations = [
         degree: "Master's of Science",
         subject: "Computer Science & Engineering (CSE)",
         institute: "Rajshahi University",
-        year: "2023",
+        year: "Now",
         className: "step-success",
         animation: "fade-down",
     },

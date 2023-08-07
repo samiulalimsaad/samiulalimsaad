@@ -10,7 +10,7 @@ const experiences = [
         location: "Dhaka",
         jobType: "Remote",
         dateFrom: "Feb 2023",
-        dateTo: "now",
+        dateTo: "Now",
     },
     {
         designation: "FullStack Developer (Intern)",

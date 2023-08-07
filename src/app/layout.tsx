@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 
@@ -13,6 +14,7 @@ export default function RootLayout({
             <body>
                 <Navbar />
                 <main className="w-full overflow-y-hidden">{children}</main>
+                <Footer />
             </body>
         </html>
     );

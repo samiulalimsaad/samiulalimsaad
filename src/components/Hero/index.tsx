@@ -20,7 +20,11 @@ const Hero = () => (
                         />
                     </div>
                     <div className="block w-full">
-                        <ColoringTitle fontSize="5xl" as="h1" justify="start">
+                        <ColoringTitle
+                            fontSize="5xl"
+                            as="h1"
+                            classes="justify-center sm:justify-start"
+                        >
                             Samiul Alim
                         </ColoringTitle>
                         <h3 className="py-6 text-xl font-semibold text-center xl:text-3xl md:text-2xl sm:text-left drop-shadow-md">

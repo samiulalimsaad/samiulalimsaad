@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ColoringTitle from "../utils/ColoringTitle";
 
 const menuItems = [
     {
@@ -39,11 +38,9 @@ const MenuItems = () => (
                 <li key={v.name}>
                     <Link
                         href={v.path}
-                        className="rounded-none hover:rounded-none"
+                        className="font-semibold rounded-none hover:rounded-none"
                     >
-                        <ColoringTitle as="span" fontSize="xs" classes="!py-0">
-                            {v.name}
-                        </ColoringTitle>
+                        {v.name}
                     </Link>
                 </li>
             );

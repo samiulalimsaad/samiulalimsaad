@@ -18,11 +18,11 @@ const Footer = () => (
                         fontSize="xs"
                         classes="grid h-16 font-semibold place-items-center drop-shadow-md"
                     >
-                        Samiul ALim
+                        Samiul Alim
                         <br />
                         Software Developer
                     </ColoringTitle>
-                    <div className="font-semibold badge badge-primary drop-shadow-md">
+                    <div className="text-xs font-semibold badge badge-primary drop-shadow-md">
                         from {new Date().getFullYear() - 2021} years
                     </div>
                 </div>
