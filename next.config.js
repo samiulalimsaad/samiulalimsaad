@@ -17,6 +17,7 @@ const nextConfig = {
     images: {
         // unoptimized: true,
         domains: [
+            "img.shields.io",
             "pbs.twimg.com",
             "gpvc.arturio.dev",
             "github-profile-trophy.vercel.app",

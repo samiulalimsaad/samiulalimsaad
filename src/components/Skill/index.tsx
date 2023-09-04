@@ -1,6 +1,9 @@
 import ColoringTitle from "../utils/ColoringTitle";
 import Container from "../utils/Container";
-import { skills } from "./skills";
+import SkillContainer from "./Skill";
+import { skillSet } from "./skills";
+
+const height = 20;
 
 const Skill = () => (
     <section
@@ -13,18 +16,15 @@ const Skill = () => (
             </ColoringTitle>
             <div className="divider"></div>
             <Container>
-                <ul className="flex flex-wrap justify-between mt-20 text-justify cursor-vertical-text">
-                    {skills.map((skill, i) => (
-                        <li
-                            key={skill}
-                            className="flex justify-center p-2 m-1 rounded-none bg-slate-900/60 hover:bg-slate-900/90 hover:animate-pulse"
-                        >
-                            <h3 className="duration-1000 sm:p-2 sm:m-1 sm:text-3xl ">
-                                {skill}
-                            </h3>
-                        </li>
+                <div className="space-y-12">
+                    {skillSet.map((skills) => (
+                        <SkillContainer
+                            key={skills.title}
+                            height={height}
+                            skillSet={skills}
+                        />
                     ))}
-                </ul>
+                </div>
             </Container>
         </div>
     </section>
