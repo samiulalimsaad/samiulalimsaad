@@ -8,7 +8,12 @@ interface MyImageProps {
 const MyImage = ({ height, src, alt }: MyImageProps) => {
     return (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} height={height} className="hover:scale-105" alt={alt} />
+        <img
+            src={src}
+            height={height}
+            className="duration-300 hover:scale-105"
+            alt={alt}
+        />
     );
 };
 
