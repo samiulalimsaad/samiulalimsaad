@@ -7,7 +7,9 @@ const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
 
 export async function POST(req: NextRequest) {
     const { message, email, name } = await req.json(); // Get the message from the form
-    const discordMessage = `<@${DISCORD_MENTION_ID}> you got a message from \nname: **${name}** \nemail: **${email}**\nmessage: \`${message}\``;
+    const timestamp = new Date().toLocaleString();
+
+    const discordMessage = `<@${DISCORD_MENTION_ID}> you got a message at \`${timestamp}\` from\nname: **${name}**\nemail: **${email}**\nmessage: \`${message}\``;
 
     let res;
 
