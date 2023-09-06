@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import ColoringTitle from "./utils/ColoringTitle";
 
 const Blog = () => (
@@ -11,9 +12,13 @@ const Blog = () => (
             </ColoringTitle>
             <div className="divider"></div>
             <div className="flex items-center justify-center w-2/3 h-full mx-auto">
-                <h3 className="text-2xl font-bold animate-pulse sm:text-4xl">
-                    Coming Soon...
-                </h3>
+                <div>
+                    <img
+                        src="https://github-read-medium-git-main.pahlevikun.vercel.app/latest?limit=4&username=@samiulalimsaad"
+                        alt="Layout with last medium posts"
+                        height="400"
+                    />
+                </div>
             </div>
         </div>
     </section>

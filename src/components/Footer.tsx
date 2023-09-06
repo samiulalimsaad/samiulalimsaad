@@ -23,7 +23,7 @@ const Footer = () => (
                         Software Developer
                     </ColoringTitle>
                     <div className="text-xs font-semibold badge badge-primary drop-shadow-md">
-                        from {new Date().getFullYear() - 2021} years
+                        {new Date().getFullYear() - 2021} years
                     </div>
                 </div>
             </div>
