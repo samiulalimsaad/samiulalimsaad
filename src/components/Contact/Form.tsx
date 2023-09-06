@@ -17,7 +17,7 @@ const ContactForm = () => {
         try {
             let timerInterval: string | number | NodeJS.Timer | undefined;
 
-            await axios.post("/api/email", value);
+            const res = await axios.post("/api/messages", value);
 
             await Swal.fire({
                 title: "Thank You!",
