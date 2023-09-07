@@ -34,7 +34,7 @@ const ContactForm = () => {
                     clearInterval(timerInterval);
                 },
             });
-            if (!!res.data.success) resetForm();
+            if (res.data.success) resetForm();
         } catch (error) {
             console.error(error);
         }

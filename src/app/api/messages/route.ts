@@ -60,7 +60,5 @@ export async function POST(req: NextRequest) {
         console.error(error);
         res = { message: "Failed to send message to Discord.", success: false };
     }
-    return NextResponse.json({
-        message: res,
-    });
+    return NextResponse.json(res);
 }
