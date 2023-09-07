@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 import Swal from "sweetalert2";
 import { emailValidationSchema } from "../../backend/validations/mail.validation";
 import { emailInterface } from "../../interfaces/Email.interface";
@@ -13,7 +13,10 @@ const initialValue: any = {
 };
 
 const ContactForm = () => {
-    const sendEmail = async (value: emailInterface) => {
+    const sendEmail = async (
+        value: emailInterface,
+        { resetForm }: FormikHelpers<emailInterface>
+    ) => {
         try {
             let timerInterval: string | number | NodeJS.Timer | undefined;
 
@@ -31,6 +34,7 @@ const ContactForm = () => {
                     clearInterval(timerInterval);
                 },
             });
+            if (!!res.data.success) resetForm();
         } catch (error) {
             console.error(error);
         }
