@@ -12,12 +12,10 @@ export async function generateStaticParams() {
 }
 
 async function getStaticData(id: string) {
-    console.log(`https://samiulalimsaad.vercel.app/api/projects/${id}`);
     const res = await fetch(
         `https://samiulalimsaad.vercel.app/api/projects/${id}`
     );
     const { project } = await res.json();
-    console.log({ project });
     return project;
 }
 

@@ -10,7 +10,6 @@ const Project = ({
 }) => {
     const previous = index - 1 === 0 ? 6 : index - 1;
     const next = index + 1 === 7 ? 1 : index + 1;
-    console.log({ previous, index, next });
     return (
         <>
             <div
@@ -47,14 +46,14 @@ const Project = ({
                     <a
                         href={`#slide${previous}`}
                         className="btn btn-circle bg-slate-900/20 border-slate-900/20 "
-                        onClick={() => console.log({ previous, index })}
+                        // onClick={() => console.log({ previous, index })}
                     >
                         ❮
                     </a>
                     <a
                         href={`#slide${next}`}
                         className="btn btn-circle bg-slate-900/20 border-slate-900/20 "
-                        onClick={() => console.log({ next, index })}
+                        // onClick={() => console.log({ next, index })}
                     >
                         ❯
                     </a>
