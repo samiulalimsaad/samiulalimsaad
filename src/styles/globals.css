@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .steps .step:after {
+        height: 3rem;
+        width: 3rem;
+    }
+}
+@layer base {
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 16px;
+        /* display: none; */
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        background: theme(colors.slate.400);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: theme(colors.slate.700);
+        border-radius: 100vh;
+        border: 3px solid theme(colors.slate.500);
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: theme(colors.slate.800);
+    }
+}
