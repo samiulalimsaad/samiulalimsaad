@@ -2,8 +2,10 @@
 
 import axios from "axios";
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
+import { useEffect } from "react";
 import Swal from "sweetalert2";
 import { emailValidationSchema } from "../../backend/validations/mail.validation";
+import { visitorCount } from "../../backend/visitorCount";
 import { emailInterface } from "../../interfaces/Email.interface";
 
 const initialValue: any = {
@@ -13,6 +15,14 @@ const initialValue: any = {
 };
 
 const ContactForm = () => {
+    useEffect(() => {
+        fetch(
+            "http://ip-api.com/json?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query"
+        )
+            .then((res) => res.json())
+            .then(visitorCount);
+    }, []);
+
     const sendEmail = async (
         value: emailInterface,
         { resetForm }: FormikHelpers<emailInterface>

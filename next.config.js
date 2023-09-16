@@ -11,7 +11,9 @@ const withMDX = require("@next/mdx")({
 });
 
 const nextConfig = {
-    // output: "export",
+    experimental: {
+        serverActions: true,
+    },
     reactStrictMode: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     images: {
