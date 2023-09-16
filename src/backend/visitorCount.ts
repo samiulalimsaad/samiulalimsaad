@@ -4,7 +4,7 @@ let visitor = "";
 
 const DISCORD_MENTION_ID = process.env.DISCORD_MENTION_ID;
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
-const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
+const DISCORD_CHANNEL_ID2 = process.env.DISCORD_CHANNEL_ID2;
 
 export async function visitorCount(data: any = {}) {
     const {
@@ -38,7 +38,7 @@ export async function visitorCount(data: any = {}) {
 
     if (visitor !== JSON.stringify(discordMessage)) {
         visitor = JSON.stringify(discordMessage);
-        await fetch(DISCORD_CHANNEL_ID!, {
+        await fetch(DISCORD_CHANNEL_ID2!, {
             method: "POST",
             body: JSON.stringify({ content: discordMessage }),
             headers: {
