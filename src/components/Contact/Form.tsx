@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { emailValidationSchema } from "../../backend/validations/mail.validation";
 import { visitorCount } from "../../backend/visitorCount";
 import { emailInterface } from "../../interfaces/Email.interface";
+import { firebaseApp } from "../firebase/init";
 
 const URL = process.env.URL;
 
@@ -18,10 +19,8 @@ const initialValue: any = {
 
 const ContactForm = () => {
     useEffect(() => {
-        fetch(URL!)
-            .then((res) => res.json())
-            .then(visitorCount)
-            .catch(visitorCount);
+        firebaseApp;
+        visitorCount();
     }, []);
 
     const sendEmail = async (
