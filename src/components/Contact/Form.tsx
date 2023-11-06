@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Swal from "sweetalert2";
 import { emailValidationSchema } from "../../backend/validations/mail.validation";
 import { visitorCount } from "../../backend/visitorCount";
@@ -16,9 +16,13 @@ const initialValue: any = {
 };
 
 const ContactForm = () => {
+    const shouldCall = useRef(true);
     useEffect(() => {
         firebaseApp;
-        visitorCount();
+        if (shouldCall.current) {
+            visitorCount();
+            shouldCall.current = false;
+        }
     }, []);
 
     const sendEmail = async (
