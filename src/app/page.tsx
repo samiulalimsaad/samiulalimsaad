@@ -1,3 +1,4 @@
+import { getProjects } from "../backend/services/project.service";
 import About from "../components/About";
 import Blog from "../components/Blogs";
 import Contact from "../components/Contact";
@@ -7,13 +8,13 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skill from "../components/Skill";
 import { metadataForHomePage } from "./metadataForHomePage";
+import { viewport as viewportHomePage } from "./viewport";
 
 export const metadata = metadataForHomePage;
-export const viewport = metadataForHomePage;
+export const viewport = viewportHomePage;
 // This function gets called at build time
 async function getData() {
-    const res = await fetch("https://samiulalimsaad.vercel.app/api/projects");
-    const { projects } = await res.json();
+    const projects = await getProjects();
     return projects;
 }
 

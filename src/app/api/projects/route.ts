@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-import connectDB from "../../../backend/Database";
-import { ProjectModal } from "../../../backend/Models/Projects.model";
+import { getProjects } from "../../../backend/services/project.service";
 
 export async function GET(request: Request) {
-    await connectDB();
-    const projects = await ProjectModal.find({}).sort({ priority: -1 });
+    const projects = await getProjects();
     return NextResponse.json({ projects });
 }
