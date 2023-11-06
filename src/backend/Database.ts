@@ -5,7 +5,7 @@ const connectDB = async () => {
     if (mongoose.connections[0].readyState) {
         console.log("new connection established for database");
     }
-    await mongoose.connect(process.env.DATABASE_URL as string);
+    await mongoose.connect(process.env.NEXT_APP_DATABASE_URL as string);
 };
 
 export default connectDB;

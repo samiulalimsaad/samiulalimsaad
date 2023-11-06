@@ -9,8 +9,6 @@ import { visitorCount } from "../../backend/visitorCount";
 import { emailInterface } from "../../interfaces/Email.interface";
 import { firebaseApp } from "../firebase/init";
 
-const URL = process.env.URL;
-
 const initialValue: any = {
     name: "",
     email: "",

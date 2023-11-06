@@ -9,22 +9,22 @@ import { getPerformance } from "firebase/performance";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    projectId: process.env.PROJECT_ID,
-    storageBucket: process.env.STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID,
-    measurementId: process.env.MEASUREMENT_ID,
+    apiKey: process.env.NEXT_APP_API_KEY,
+    authDomain: process.env.NEXT_APP_AUTH_DOMAIN,
+    projectId: process.env.NEXT_APP_PROJECT_ID,
+    storageBucket: process.env.NEXT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_APP_APP_ID,
+    measurementId: process.env.NEXT_APP_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
 isSupported().then((yes) => {
-    yes && process.env.NODE_ENV === "production"
+    yes && process.env.NEXT_APP_NODE_ENV === "production"
         ? getAnalytics(firebaseApp)
         : null;
-    yes && process.env.NODE_ENV === "production"
+    yes && process.env.NEXT_APP_NODE_ENV === "production"
         ? getPerformance(firebaseApp)
         : null;
 });

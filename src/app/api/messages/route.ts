@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { getLocation } from "../../../components/utils/getLocation";
 import { parseUserAgent } from "../../../components/utils/parseUserAgent";
 
-const DISCORD_MENTION_ID = process.env.DISCORD_MENTION_ID;
-const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
-const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
+const DISCORD_MENTION_ID = process.env.NEXT_APP_DISCORD_MENTION_ID;
+const DISCORD_TOKEN = process.env.NEXT_APP_DISCORD_TOKEN;
+const DISCORD_CHANNEL_ID = process.env.NEXT_APP_DISCORD_CHANNEL_ID;
 
 export async function POST(req: NextRequest) {
     const { message, email, name } = await req.json(); // Get the message from the form
