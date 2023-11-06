@@ -1,15 +1,14 @@
 import { Metadata } from "next";
 
 export const metadataForHomePage: Metadata = {
+    metadataBase: new URL("https://acme.com"),
     title: "Samiul Alim",
     description:
         "I dream to be an expert software engineer. In-depth knowledge of Node JS, React, NextJS, and MongoDB. 2 years of experience efficiently coding websites and applications using modern JavaScript, Typescript, back-end, and front-end developer. Building state-of-the-art, easy-to-use, user-friendly websites and applications is truly a passion, and I am confident I would be an excellent addition to your organization.",
     abstract:
         "I dream to be an expert software engineer. In-depth knowledge of Node JS, React, NextJS, and MongoDB. 2 years of experience efficiently coding websites and applications using modern JavaScript, Typescript, back-end, and front-end developer. Building state-of-the-art, easy-to-use, user-friendly websites and applications is truly a passion, and I am confident I would be an excellent addition to your organization.",
     icons: [{ rel: "icon", url: "/samiul-alim.ico" }],
-    viewport: { width: "device-width", initialScale: 1 },
     category: "portfolio",
-    colorScheme: "dark",
     creator: "Samiul Alim",
     robots: {
         index: true,
@@ -85,6 +84,7 @@ export const metadataForHomePage: Metadata = {
     ],
     openGraph: {
         type: "website",
+        locale: "en_US",
         url: "https://github.com/samiulalimsaad",
         title: "Samiul Alim",
         description:
@@ -102,4 +102,15 @@ export const metadataForHomePage: Metadata = {
     },
     publisher: "Samiul Alim",
     referrer: "origin",
+    verification: {
+        google: "google",
+        yandex: "yandex",
+        yahoo: "yahoo",
+        other: {
+            me: [
+                "samiulalimsaad@gmail.com",
+                "https://samiulalimsaad.vercel.app",
+            ],
+        },
+    },
 };
