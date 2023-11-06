@@ -1,5 +1,3 @@
-"use server";
-
 const DISCORD_MENTION_ID = process.env.DISCORD_MENTION_ID;
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const DISCORD_CHANNEL_ID2 = process.env.DISCORD_CHANNEL_ID2;
