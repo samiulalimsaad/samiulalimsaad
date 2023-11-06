@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "../../../../backend/Database";
-import { ProjectModal } from "../../../../backend/Models/Projects.model";
+import { getSingleProject } from "../../../../backend/services/project.service";
 
 export async function GET(
     req: Request,
@@ -8,6 +8,6 @@ export async function GET(
 ) {
     connectDB();
 
-    const project = await ProjectModal.findById(params.id);
+    const project = await getSingleProject(params.id);
     return NextResponse.json({ project });
 }

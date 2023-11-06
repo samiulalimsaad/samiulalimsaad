@@ -1,21 +1,19 @@
 import Image from "next/image";
+import {
+    getProjects,
+    getSingleProject,
+} from "../../../../backend/services/project.service";
 import { projectInterface } from "../../../../interfaces/Project.interface";
 
 export async function generateStaticParams() {
-    const { projects } = await fetch(
-        "https://samiulalimsaad.vercel.app/api/projects"
-    ).then((res) => res.json());
-
+    const projects = await getProjects();
     return projects?.map((project: projectInterface) => ({
         slug: project._id,
     }));
 }
 
 async function getStaticData(id: string) {
-    const res = await fetch(
-        `https://samiulalimsaad.vercel.app/api/projects/${id}`
-    );
-    const { project } = await res.json();
+    const project = await getSingleProject(id);
     return project;
 }
 
@@ -34,7 +32,7 @@ const DetailsPage = async ({ params }: { params: { id: string } }) => {
                         <Image
                             className="rounded-md"
                             src={project?.image || "/projects.png"}
-                            alt={project?.name}
+                            alt={project?.name!}
                             width={1200}
                             height={600}
                         />
