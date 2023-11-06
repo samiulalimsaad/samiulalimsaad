@@ -9,6 +9,7 @@ import Skill from "../components/Skill";
 import { metadataForHomePage } from "./metadataForHomePage";
 
 export const metadata = metadataForHomePage;
+export const viewport = metadataForHomePage;
 // This function gets called at build time
 async function getData() {
     const res = await fetch("https://samiulalimsaad.vercel.app/api/projects");

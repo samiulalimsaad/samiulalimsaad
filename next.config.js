@@ -1,24 +1,11 @@
 /** @type {import('next').NextConfig} */
 
-const withMDX = require("@next/mdx")({
-    extension: /\.mdx?$/,
-    options: {
-        remarkPlugins: [],
-        rehypePlugins: [],
-        // If you use `MDXProvider`, uncomment the following line.
-        // providerImportSource: "@mdx-js/react",
-    },
-});
-
 const nextConfig = {
-    experimental: {
-        serverActions: true,
-    },
+    experimental: {},
     reactStrictMode: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     images: {
-        // unoptimized: true,
-        domains: [
+        remotePatterns: [
             "img.shields.io",
             "pbs.twimg.com",
             "gpvc.arturio.dev",
@@ -30,8 +17,13 @@ const nextConfig = {
             "github-readme-streak-stats.herokuapp.com",
             "firebasestorage.googleapis.com",
             "github-readme-stats.vercel.app",
-        ],
+        ].map((domain) => ({
+            protocol: "https",
+            hostname: domain,
+            port: "",
+            pathname: "/**",
+        })),
     },
 };
 
-module.exports = withMDX(nextConfig);
+module.exports = nextConfig;
