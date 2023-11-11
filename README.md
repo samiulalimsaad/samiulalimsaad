@@ -30,41 +30,44 @@
 
 ###
 
-<h1 align="center">hey there 👋</h1>
+<h1 align="center">Hey there 👋</h1>
 
 ###
 
 <h3 align="left">👩‍💻  About Me</h3>
 
-###
+<br/>
 
+<ol>
 <p align="left">I'm <strong>Samiul Alim</strong> from Bangladesh.</p>
 
-###
+<br/>
 
-<p align="left">- I have been very passionate about computers, programming, and web development since university.</p>
+<p align="left">I have been very passionate about computers, programming, and web development since university.</p>
 
-###
+<br/>
 
-<p align="left">- I dream of being an expert software engineer or a web developer to build professional and valuable software or web applications that have business value.</p>
+<p align="left">I dream of being an expert software engineer or a web developer to build professional and valuable software or web applications that have business value.</p>
 
-###
+<br/>
 
-<p align="left">- I have 2 years of experience in Web Development as a backend and front-end developer.</p>
+<p align="left">I have 2 years of experience in Web Development as a backend and front-end developer.</p>
 
-###
+<br/>
 
-<p align="left">- Excellent reputation for resolving problems and improving customer satisfaction.</p>
+<p align="left">Excellent reputation for resolving problems and improving customer satisfaction.</p>
 
-###
+<br/>
 
-<p align="left">- In-depth knowledge of MongoDB. Skillful in creating servers and databases for functionality and designing and developing APIs.</p>
+<p align="left">In-depth knowledge of MongoDB. Skillful in creating servers and databases for functionality and designing and developing APIs.</p>
 
-###
+</ol>
+
+<br/>
 
 <h3 align="left">🛠 Language and tools (Advanced)</h3>
 
-###
+<br/>
 
 <div align="left">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge" height="20" alt="javascript logo"  />
@@ -133,11 +136,11 @@
   <img src="https://img.shields.io/badge/Prisma-2D3748?logo=prisma&logoColor=white&style=for-the-badge" height="20" alt="prisma logo"  />
 </div>
 
-###
+<br/>
 
 <h3 align="left">🛠 Language and tools (Proficient)</h3>
 
-###
+<br/>
 
 <div align="left">
   <img src="https://img.shields.io/badge/Anaconda-44A833?logo=anaconda&logoColor=white&style=for-the-badge" height="20" alt="anaconda logo"  />
@@ -171,11 +174,11 @@
   <img src="https://img.shields.io/badge/Adobe XD-FF61F6?logo=adobexd&logoColor=black&style=for-the-badge" height="20" alt="xd logo"  />
 </div>
 
-###
+<br/>
 
 <h3 align="left">🛠 Language and tools (Familiar)</h3>
 
-###
+<br/>
 
 <div align="left">
   <img src="https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white&style=for-the-badge" height="20" alt="flutter logo"  />
@@ -201,7 +204,7 @@
   <img src="https://img.shields.io/badge/Symfony-000000?logo=symfony&logoColor=white&style=for-the-badge" height="20" alt="symfony logo"  />
 </div>
 
-###
+<br/>
 
 <h3 align="left">🔥   My Stats :</h3>
 
@@ -217,5 +220,3 @@
 <img src="https://github-readme-stats.vercel.app/api?username=samiulalimsaad&show_icons=true&count_private=true&theme=outrun" width="32%" alt="GitHub stats"  />
 
 </div>
-
-###
