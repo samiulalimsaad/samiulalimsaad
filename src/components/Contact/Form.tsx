@@ -30,7 +30,7 @@ const ContactForm = () => {
         { resetForm }: FormikHelpers<emailInterface>
     ) => {
         try {
-            let timerInterval: string | number | NodeJS.Timer | undefined;
+            let timerInterval: number;
 
             const res = await axios.post("/api/messages", value);
 
