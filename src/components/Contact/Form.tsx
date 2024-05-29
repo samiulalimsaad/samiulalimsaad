@@ -19,7 +19,7 @@ const ContactForm = () => {
     const shouldCall = useRef(true);
     useEffect(() => {
         firebaseApp;
-        if (shouldCall.current) {
+        if (shouldCall.current && process.env.NODE_ENV === "production") {
             visitorCount();
             shouldCall.current = false;
         }
