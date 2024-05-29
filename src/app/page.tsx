@@ -1,6 +1,7 @@
+import { getBlogs } from "../backend/services/blog.service";
 import { getProjects } from "../backend/services/project.service";
 import About from "../components/About";
-import Blog from "../components/Blogs";
+import Blogs from "../components/Blogs";
 import Contact from "../components/Contact";
 import Education from "../components/Education";
 import Experience from "../components/Experience";
@@ -14,12 +15,12 @@ export const metadata = metadataForHomePage;
 export const viewport = viewportHomePage;
 // This function gets called at build time
 async function getData() {
-    const projects = await getProjects();
-    return projects;
+    const [projects, blogs] = await Promise.all([getProjects(), getBlogs()]);
+    return { projects, blogs };
 }
-
+getBlogs();
 const Home = async () => {
-    const projects = await getData();
+    const { projects, blogs } = await getData();
 
     return (
         <>
@@ -29,7 +30,7 @@ const Home = async () => {
             <Skill />
             <Education />
             <About />
-            <Blog />
+            <Blogs blogs={blogs} />
             {/* <GithubStats /> */}
             <Contact />
         </>
