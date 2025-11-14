@@ -39,27 +39,23 @@
 <br/>
 
 <ol>
-<p align="left">I'm <strong>Samiul Alim</strong> from Bangladesh.</p>
+<p align="left">I'm <strong>Samiul Alim</strong>, a Software Engineer &amp; Fullstack Web Developer from Bangladesh.</p>
 
 <br/>
 
-<p align="left">I have been very passionate about computers, programming, and web development since university.</p>
+<p align="left">I have been passionate about computers, programming, and web development since my university days at <strong>North Bengal International University</strong>.</p>
 
 <br/>
 
-<p align="left">I dream of being an expert software engineer or a web developer to build professional and valuable software or web applications that have business value.</p>
+<p align="left">With 2+ years of experience in both back-end and front-end web development, I focus on building modern, scalable web applications using <strong>Next.js</strong>, <strong>React</strong>, <strong>Node.js</strong>, and <strong>MongoDB</strong>.</p>
 
 <br/>
 
-<p align="left">I have 2 years of experience in Web Development as a backend and front-end developer.</p>
+<p align="left">I enjoy solving real-world problems and creating elegant, practical solutions that deliver real business value.</p>
 
 <br/>
 
-<p align="left">Excellent reputation for resolving problems and improving customer satisfaction.</p>
-
-<br/>
-
-<p align="left">In-depth knowledge of MongoDB. Skillful in creating servers and databases for functionality and designing and developing APIs.</p>
+<p align="left">I have strong experience designing REST APIs, working with databases, and shipping production-ready features end to end.</p>
 
 </ol>
 
