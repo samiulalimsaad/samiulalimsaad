@@ -1,4 +1,4 @@
-import { projects } from "@/components/sections/projects";
+import { projects } from "@/lib/projects";
 import Image from "next/image";
 
 export default function AllProjectsPage() {
