@@ -105,8 +105,8 @@ export default function Hero() {
                 <div className="flex-1 flex justify-center md:justify-end">
                     <div className="relative">
                         <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-cyan-300 via-indigo-300 to-sky-200 opacity-70 blur-md" />
-                        <div className="relative rounded-3xl bg-white/80 p-5 shadow-xl backdrop-blur">
-                            <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-full border-4 border-white shadow-md sm:h-72 sm:w-72">
+                        <div className="relative rounded-3xl bg-white/80 p-5 backdrop-blur">
+                            <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-full border-4 border-white sm:h-72 sm:w-72">
                                 <Image
                                     src="/avatars/samiul-alim.png"
                                     width={300}
