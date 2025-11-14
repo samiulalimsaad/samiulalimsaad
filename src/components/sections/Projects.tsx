@@ -1,13 +1,9 @@
-"use client";
-
 import { projects } from "@/components/sections/projects";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
 
 export default function Projects() {
-    const [showAll, setShowAll] = useState(false);
     const featured = projects.slice(0, 3);
-    const more = projects.slice(3);
 
     return (
         <section
@@ -20,7 +16,7 @@ export default function Projects() {
                         Projects
                     </span>
                 </h2>
-                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                <p className="mx-auto max-w-2xl text-center text-sm sm:text-base text-zinc-600">
                     A selection of recent work showcasing fullstack development,
                     integrations, and modern UI.
                 </p>
@@ -31,27 +27,14 @@ export default function Projects() {
                     ))}
                 </div>
 
-                {more.length > 0 && (
-                    <div className="mt-10 space-y-4">
-                        <div className="flex items-center justify-between">
-                            <h3 className="text-sm font-semibold uppercase tracking-wide text-cyan-600">
-                                More projects
-                            </h3>
-                            <button
-                                type="button"
-                                onClick={() => setShowAll((v) => !v)}
-                                className="text-xs font-medium text-cyan-700 underline-offset-2 hover:underline"
-                            >
-                                {showAll ? "Show less" : "Show all"}
-                            </button>
-                        </div>
-                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                            {(showAll ? more : more.slice(0, 3)).map((p) => (
-                                <ProjectCard key={p.name} project={p} />
-                            ))}
-                        </div>
-                    </div>
-                )}
+                <div className="mt-4 mb-10 flex justify-center">
+                    <Link
+                        href="/projects"
+                        className="inline-flex items-center rounded-full border border-cyan-100 bg-white/80 px-4 py-1 text-xs font-medium text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50/60"
+                    >
+                        View all projects
+                    </Link>
+                </div>
             </div>
         </section>
     );
