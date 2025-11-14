@@ -12,7 +12,7 @@ export default function Home() {
             <Education />
             <Skills />
             <Projects />
-            <div className="w-full flex justify-center py-10 bg-white dark:bg-zinc-950">
+            <div className="w-full flex justify-center py-10 bg-white">
                 <SocialLinks size={36} />
             </div>
         </>

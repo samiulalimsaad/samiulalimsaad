@@ -98,7 +98,7 @@ const skillSet = [
 ];
 export default function Skills() {
     return (
-        <section id="skills" className="w-full py-20 bg-white dark:bg-zinc-950">
+        <section id="skills" className="w-full py-20 bg-white">
             <div className="max-w-4xl mx-auto px-6 sm:px-0">
                 <h2 className="text-3xl sm:text-4xl mb-10 font-bold text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-cyan-400 text-center py-4">
                     Skills
@@ -106,7 +106,7 @@ export default function Skills() {
                 <div className="flex flex-col gap-10">
                     {skillSet.map((set, idx) => (
                         <div key={idx}>
-                            <h3 className="text-xl font-semibold mb-4 text-cyan-600 dark:text-indigo-400">
+                            <h3 className="text-xl font-semibold mb-4 text-cyan-600">
                                 {set.title}
                             </h3>
                             <div className="flex flex-wrap gap-4">
@@ -118,7 +118,7 @@ export default function Skills() {
                                         width={110}
                                         height={40}
                                         title={skill.alt}
-                                        className="h-10 shadow hover:scale-110 transition-transform rounded-lg bg-linear-to-br from-zinc-100 via-cyan-50 to-indigo-50 dark:from-zinc-800 dark:to-zinc-950 p-1"
+                                        className="h-10 shadow hover:scale-110 transition-transform rounded-lg bg-linear-to-br from-zinc-100 via-cyan-50 to-indigo-50 p-1"
                                     />
                                 ))}
                             </div>

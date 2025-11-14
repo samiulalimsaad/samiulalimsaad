@@ -38,10 +38,7 @@ const projects = [
 ];
 export default function Projects() {
     return (
-        <section
-            id="projects"
-            className="w-full py-20 bg-zinc-50 dark:bg-zinc-900"
-        >
+        <section id="projects" className="w-full py-20 bg-zinc-50">
             <div className="max-w-6xl mx-auto px-6 sm:px-0">
                 <h2 className="text-3xl sm:text-4xl mb-10 font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-indigo-400 text-center py-4">
                     Projects
@@ -50,7 +47,7 @@ export default function Projects() {
                     {projects.map((p, i) => (
                         <div
                             key={i}
-                            className="rounded-xl bg-white dark:bg-zinc-800 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden"
+                            className="rounded-xl bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden"
                         >
                             <Image
                                 src={p.image}
@@ -60,17 +57,17 @@ export default function Projects() {
                                 className="h-56 w-full object-cover"
                             />
                             <div className="flex-1 flex flex-col p-6">
-                                <h3 className="text-2xl font-bold mb-1 text-indigo-700 dark:text-cyan-300">
+                                <h3 className="text-2xl font-bold mb-1 text-indigo-700">
                                     {p.name}
                                 </h3>
-                                <p className="text-sm text-zinc-700 dark:text-zinc-200 mb-3">
+                                <p className="text-sm text-zinc-700 mb-3">
                                     {p.description}
                                 </p>
                                 <div className="flex flex-wrap gap-2 mb-3">
                                     {p.stack.map((s, idx) => (
                                         <span
                                             key={idx}
-                                            className="text-xs px-3 py-1 rounded-full font-medium bg-cyan-100 dark:bg-zinc-700 text-cyan-700 dark:text-cyan-200 border border-cyan-200 dark:border-zinc-600"
+                                            className="text-xs px-3 py-1 rounded-full font-medium bg-cyan-100 text-cyan-700 border border-cyan-200"
                                         >
                                             {s}
                                         </span>
