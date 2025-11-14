@@ -1,42 +1,14 @@
+"use client";
+
+import { projects } from "@/lib/projects";
 import Image from "next/image";
-const projects = [
-    {
-        name: "SmartPhone-Warehouse",
-        image: "/projects/Home-Smartphone-Warehouse.png",
-        description:
-            "Python with Docker. ReactJS w/Router, Tailwind, Firebase, Express, MongoDB.",
-        stack: ["ReactJS", "NextJS", "VueJS", "HTML", "CSS", "DaisyUI"],
-        github: "https://github.com/samiulalimsaad/smartphone-warehouse",
-        live: "https://smartphone-warehouse-saad.web.app",
-    },
-    {
-        name: "Todo App (React)",
-        image: "/projects/Home-Toto-App.png",
-        description: "Docker, React, Stripe, Express, MongoDB, Firebase.",
-        stack: ["ReactJS", "DaisyUI", "ExpressJS", "JavaScript", "TailwindCSS"],
-        github: "https://github.com/samiulalimsaad/todo-app-react",
-        live: "https://todo-app-react-taupe.vercel.app",
-    },
-    {
-        name: "Lite Media",
-        image: "/projects/Lite-Media.png",
-        description:
-            "Next.js, TypeScript, Context API, MongoDB, Firebase, Python, Docker.",
-        stack: [
-            "NextJS",
-            "TypeScript",
-            "Context-API",
-            "Mongoose ORM",
-            "Firebase Auth",
-            "MongoDB",
-            "FireStore",
-            "Docker",
-        ],
-        github: "https://github.com/samiulalimsaad/final-project",
-        live: "https://light-media.vercel.app",
-    },
-];
+import { useState } from "react";
+
 export default function Projects() {
+    const [showAll, setShowAll] = useState(false);
+    const featured = projects.slice(0, 3);
+    const more = projects.slice(3);
+
     return (
         <section
             id="projects"
@@ -52,61 +24,91 @@ export default function Projects() {
                     A selection of recent work showcasing fullstack development,
                     integrations, and modern UI.
                 </p>
+
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {projects.map((p, i) => (
-                        <div
-                            key={i}
-                            className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 shadow-md backdrop-blur-sm transition hover:-translate-y-2 hover:shadow-2xl"
-                        >
-                            <div className="overflow-hidden">
-                                <Image
-                                    src={p.image}
-                                    alt={p.name}
-                                    width={360}
-                                    height={216}
-                                    className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                />
-                            </div>
-                            <div className="flex flex-1 flex-col p-6">
-                                <h3 className="mb-1 text-xl sm:text-2xl font-bold text-indigo-700">
-                                    {p.name}
-                                </h3>
-                                <p className="mb-3 text-sm text-zinc-700">
-                                    {p.description}
-                                </p>
-                                <div className="mb-4 flex flex-wrap gap-2">
-                                    {p.stack.map((s, idx) => (
-                                        <span
-                                            key={idx}
-                                            className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
-                                        >
-                                            {s}
-                                        </span>
-                                    ))}
-                                </div>
-                                <div className="mt-auto flex gap-3">
-                                    <a
-                                        href={p.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-zinc-900 text-white hover:bg-zinc-700 transition"
-                                    >
-                                        GitHub
-                                    </a>
-                                    <a
-                                        href={p.live}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-cyan-600 text-white hover:bg-cyan-900 transition"
-                                    >
-                                        Live Demo
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    {featured.map((p) => (
+                        <ProjectCard key={p.name} project={p} />
                     ))}
                 </div>
+
+                {more.length > 0 && (
+                    <div className="mt-10 space-y-4">
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-sm font-semibold uppercase tracking-wide text-cyan-600">
+                                More projects
+                            </h3>
+                            <button
+                                type="button"
+                                onClick={() => setShowAll((v) => !v)}
+                                className="text-xs font-medium text-cyan-700 underline-offset-2 hover:underline"
+                            >
+                                {showAll ? "Show less" : "Show all"}
+                            </button>
+                        </div>
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                            {(showAll ? more : more.slice(0, 3)).map((p) => (
+                                <ProjectCard key={p.name} project={p} />
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
+    );
+}
+
+type ProjectCardProps = {
+    project: (typeof projects)[number];
+};
+
+function ProjectCard({ project }: ProjectCardProps) {
+    return (
+        <div className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 shadow-md backdrop-blur-sm transition hover:-translate-y-2 hover:shadow-2xl">
+            <div className="overflow-hidden">
+                <Image
+                    src={project.image}
+                    alt={project.name}
+                    width={360}
+                    height={216}
+                    className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+                <h3 className="mb-1 text-xl sm:text-2xl font-bold text-indigo-700">
+                    {project.name}
+                </h3>
+                <p className="mb-3 text-sm text-zinc-700">
+                    {project.description}
+                </p>
+                <div className="mb-4 flex flex-wrap gap-2">
+                    {project.stack.map((s) => (
+                        <span
+                            key={s}
+                            className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
+                        >
+                            {s}
+                        </span>
+                    ))}
+                </div>
+                <div className="mt-auto flex gap-3">
+                    <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-zinc-900 text-white hover:bg-zinc-700 transition"
+                    >
+                        GitHub
+                    </a>
+                    <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-cyan-600 text-white hover:bg-cyan-900 transition"
+                    >
+                        Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
     );
 }
