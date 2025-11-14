@@ -1,6 +1,6 @@
 "use client";
 
-import { projects } from "@/lib/projects";
+import { projects } from "@/components/sections/projects";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -77,22 +77,29 @@ function ProjectCard({ project }: ProjectCardProps) {
                 <h3 className="mb-1 text-xl sm:text-2xl font-bold text-indigo-700">
                     {project.name}
                 </h3>
-                <p className="mb-3 text-sm text-zinc-700">
-                    {project.description}
+                <p className="mb-2 text-sm text-zinc-700">
+                    {project.shortDescription}
                 </p>
+                {project.description && project.description.length > 0 && (
+                    <ul className="mb-3 list-disc space-y-1 pl-5 text-xs text-zinc-600">
+                        {project.description.map((line) => (
+                            <li key={line}>{line}</li>
+                        ))}
+                    </ul>
+                )}
                 <div className="mb-4 flex flex-wrap gap-2">
-                    {project.stack.map((s) => (
+                    {project.tools.map((tool) => (
                         <span
-                            key={s}
+                            key={tool}
                             className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
                         >
-                            {s}
+                            {tool}
                         </span>
                     ))}
                 </div>
                 <div className="mt-auto flex gap-3">
                     <a
-                        href={project.github}
+                        href={project.githubFrontEnd}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-zinc-900 text-white hover:bg-zinc-700 transition"
