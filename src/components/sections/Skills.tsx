@@ -134,6 +134,7 @@ export default function Skills() {
                                             height={42}
                                             title={skill.alt}
                                             className="h-10 w-full rounded-lg bg-white object-contain transition-transform duration-200 hover:scale-105"
+                                            unoptimized
                                         />
                                     </div>
                                 ))}

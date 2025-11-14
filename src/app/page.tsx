@@ -13,7 +13,7 @@ export default function Home() {
             <Education />
             <Skills />
             <Projects />
-            <div className="w-full bg-gradient-to-b from-white via-sky-50/70 to-indigo-50/60 py-10 px-4">
+            <div className="w-full bg-linear-to-b from-white via-sky-50/70 to-indigo-50/60 py-10 px-4">
                 <div className="mx-auto flex max-w-3xl items-center justify-center rounded-3xl border border-white/70 bg-white/80 p-6 shadow-xl backdrop-blur-sm">
                     <SocialLinks size={32} />
                 </div>
