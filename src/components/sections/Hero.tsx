@@ -1,26 +1,32 @@
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Image from "next/image";
 
 const socials = [
     {
         href: "https://github.com/samiulalimsaad",
-        icon: "/socials/github.svg",
+        Icon: Github,
         label: "GitHub",
     },
     {
         href: "https://www.linkedin.com/in/samiulalimsaad",
-        icon: "/socials/linkedin.svg",
+        Icon: Linkedin,
         label: "LinkedIn",
     },
     {
         href: "https://twitter.com/samiulalimsaad",
-        icon: "/socials/twitter.svg",
+        Icon: Twitter,
         label: "Twitter",
+    },
+    {
+        href: "mailto:samiulalimsaad@gmail.com",
+        Icon: Mail,
+        label: "Email",
     },
 ];
 
 export default function Hero() {
     return (
-        <section className="relative flex min-h-[80vh] items-center justify-center bg-gradient-to-b from-sky-50 via-white to-indigo-50 px-4">
+        <section className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4">
             <div className="absolute inset-x-0 top-20 -z-10 flex justify-center">
                 <div className="h-64 w-64 rounded-full bg-cyan-200/30 blur-3xl" />
             </div>
@@ -34,7 +40,7 @@ export default function Hero() {
                         <span className="block text-zinc-900">
                             Hi, I&apos;m
                         </span>
-                        <span className="bg-gradient-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
                             Samiul Alim
                         </span>
                     </h1>
@@ -60,13 +66,13 @@ export default function Hero() {
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a
                             href="#projects"
-                            className="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white shadow-md transition hover:from-cyan-600 hover:to-indigo-600"
+                            className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white shadow-md shadow-cyan-200/70 transition hover:shadow-lg hover:shadow-cyan-300/80"
                         >
                             View Projects
                         </a>
                         <a
                             href="#about"
-                            className="inline-flex items-center rounded-full border border-zinc-200 bg-white/70 px-6 py-2 text-sm font-semibold text-zinc-800 shadow-sm transition hover:border-cyan-300 hover:text-cyan-700"
+                            className="inline-flex items-center rounded-full border border-cyan-100 bg-white/80 px-6 py-2 text-sm font-semibold text-cyan-700 shadow-sm transition hover:border-cyan-300 hover:bg-cyan-50/60"
                         >
                             About Me
                         </a>
@@ -81,39 +87,34 @@ export default function Hero() {
                             Based in Bangladesh
                         </div>
                     </div>
+                    <div className="mt-4 flex items-center gap-3">
+                        {socials.map(({ href, Icon, label }) => (
+                            <a
+                                key={href}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={label}
+                                className="flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-cyan-500 to-indigo-500 text-white shadow-md shadow-cyan-200/70 transition hover:scale-110 hover:shadow-lg hover:shadow-cyan-300/80"
+                            >
+                                <Icon size={16} />
+                            </a>
+                        ))}
+                    </div>
                 </div>
                 <div className="flex-1 flex justify-center md:justify-end">
                     <div className="relative">
-                        <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-cyan-300 via-indigo-300 to-sky-200 opacity-70 blur-md" />
-                        <div className="relative rounded-3xl bg-white/80 p-4 shadow-xl backdrop-blur">
-                            <div className="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border-4 border-white shadow-md sm:h-44 sm:w-44">
+                        <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-cyan-300 via-indigo-300 to-sky-200 opacity-70 blur-md" />
+                        <div className="relative rounded-3xl bg-white/80 p-5 shadow-xl backdrop-blur">
+                            <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-full border-4 border-white shadow-md sm:h-72 sm:w-72">
                                 <Image
                                     src="/avatars/samiul-alim.png"
-                                    width={176}
-                                    height={176}
+                                    width={300}
+                                    height={300}
                                     alt="Samiul Alim"
                                     className="h-full w-full object-cover"
                                     priority
                                 />
-                            </div>
-                            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-                                {socials.map((s) => (
-                                    <a
-                                        key={s.href}
-                                        href={s.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label={s.label}
-                                        className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-indigo-500 text-white shadow-md transition hover:scale-110"
-                                    >
-                                        <Image
-                                            src={s.icon}
-                                            alt={s.label}
-                                            width={20}
-                                            height={20}
-                                        />
-                                    </a>
-                                ))}
                             </div>
                         </div>
                     </div>
