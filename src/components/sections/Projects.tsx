@@ -38,42 +38,53 @@ const projects = [
 ];
 export default function Projects() {
     return (
-        <section id="projects" className="w-full py-20 bg-zinc-50">
-            <div className="max-w-6xl mx-auto px-6 sm:px-0">
-                <h2 className="text-3xl sm:text-4xl mb-10 font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-600 to-indigo-400 text-center py-4">
-                    Projects
+        <section
+            id="projects"
+            className="w-full bg-gradient-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4"
+        >
+            <div className="mx-auto w-full max-w-6xl">
+                <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
+                    <span className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                        Projects
+                    </span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                    A selection of recent work showcasing fullstack development,
+                    integrations, and modern UI.
+                </p>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {projects.map((p, i) => (
                         <div
                             key={i}
-                            className="rounded-xl bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden"
+                            className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 shadow-md backdrop-blur-sm transition hover:-translate-y-2 hover:shadow-2xl"
                         >
-                            <Image
-                                src={p.image}
-                                alt={p.name}
-                                width={360}
-                                height={216}
-                                className="h-56 w-full object-cover"
-                            />
-                            <div className="flex-1 flex flex-col p-6">
-                                <h3 className="text-2xl font-bold mb-1 text-indigo-700">
+                            <div className="overflow-hidden">
+                                <Image
+                                    src={p.image}
+                                    alt={p.name}
+                                    width={360}
+                                    height={216}
+                                    className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                            </div>
+                            <div className="flex flex-1 flex-col p-6">
+                                <h3 className="mb-1 text-xl sm:text-2xl font-bold text-indigo-700">
                                     {p.name}
                                 </h3>
-                                <p className="text-sm text-zinc-700 mb-3">
+                                <p className="mb-3 text-sm text-zinc-700">
                                     {p.description}
                                 </p>
-                                <div className="flex flex-wrap gap-2 mb-3">
+                                <div className="mb-4 flex flex-wrap gap-2">
                                     {p.stack.map((s, idx) => (
                                         <span
                                             key={idx}
-                                            className="text-xs px-3 py-1 rounded-full font-medium bg-cyan-100 text-cyan-700 border border-cyan-200"
+                                            className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
                                         >
                                             {s}
                                         </span>
                                     ))}
                                 </div>
-                                <div className="mt-auto flex gap-4">
+                                <div className="mt-auto flex gap-3">
                                     <a
                                         href={p.github}
                                         target="_blank"

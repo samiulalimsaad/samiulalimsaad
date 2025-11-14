@@ -98,28 +98,44 @@ const skillSet = [
 ];
 export default function Skills() {
     return (
-        <section id="skills" className="w-full py-20 bg-white">
-            <div className="max-w-4xl mx-auto px-6 sm:px-0">
-                <h2 className="text-3xl sm:text-4xl mb-10 font-bold text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-cyan-400 text-center py-4">
-                    Skills
+        <section
+            id="skills"
+            className="w-full bg-gradient-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4"
+        >
+            <div className="mx-auto w-full max-w-5xl">
+                <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
+                    <span className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                        Skills
+                    </span>
                 </h2>
-                <div className="flex flex-col gap-10">
+                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                    Technologies and tools I use to design, build, and ship
+                    modern web applications.
+                </p>
+                <div className="grid gap-8 md:grid-cols-3">
                     {skillSet.map((set, idx) => (
-                        <div key={idx}>
-                            <h3 className="text-xl font-semibold mb-4 text-cyan-600">
+                        <div
+                            key={idx}
+                            className="flex flex-col gap-4 rounded-2xl border border-white/70 bg-white/80 p-5 shadow-md backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-xl"
+                        >
+                            <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">
                                 {set.title}
                             </h3>
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex flex-wrap gap-3">
                                 {set.skills.map((skill) => (
-                                    <Image
+                                    <div
                                         key={skill.alt}
-                                        src={skill.src}
-                                        alt={skill.alt}
-                                        width={110}
-                                        height={40}
-                                        title={skill.alt}
-                                        className="h-10 shadow hover:scale-110 transition-transform rounded-lg bg-linear-to-br from-zinc-100 via-cyan-50 to-indigo-50 p-1"
-                                    />
+                                        className="overflow-hidden rounded-xl bg-gradient-to-br from-zinc-50 via-cyan-50/60 to-indigo-50/70 p-[2px] shadow-sm"
+                                    >
+                                        <Image
+                                            src={skill.src}
+                                            alt={skill.alt}
+                                            width={120}
+                                            height={42}
+                                            title={skill.alt}
+                                            className="h-10 w-full rounded-lg bg-white object-contain transition-transform duration-200 hover:scale-105"
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         </div>
