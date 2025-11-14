@@ -1,0 +1,131 @@
+import Image from "next/image";
+const skillSet = [
+    {
+        title: "🛠 Advanced",
+        skills: [
+            {
+                src: "https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge",
+                alt: "JavaScript",
+            },
+            {
+                src: "https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge",
+                alt: "TypeScript",
+            },
+            {
+                src: "https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white&style=for-the-badge",
+                alt: "NodeJS",
+            },
+            {
+                src: "https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black&style=for-the-badge",
+                alt: "React",
+            },
+            {
+                src: "https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white&style=for-the-badge",
+                alt: "NextJS",
+            },
+            {
+                src: "https://img.shields.io/badge/Tailwind CSS-06B6D4?logo=tailwindcss&logoColor=black&style=for-the-badge",
+                alt: "Tailwind CSS",
+            },
+            {
+                src: "https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=white&style=for-the-badge",
+                alt: "Redux",
+            },
+            {
+                src: "https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white&style=for-the-badge",
+                alt: "MongoDB",
+            },
+            {
+                src: "https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black&style=for-the-badge",
+                alt: "Firebase",
+            },
+            {
+                src: "https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white&style=for-the-badge",
+                alt: "GitHub",
+            },
+            {
+                src: "https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white&style=for-the-badge",
+                alt: "Docker",
+            },
+        ],
+    },
+    {
+        title: "🛠 Proficient",
+        skills: [
+            {
+                src: "https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=white&style=for-the-badge",
+                alt: "Bootstrap",
+            },
+            {
+                src: "https://img.shields.io/badge/Django-092E20?logo=django&logoColor=white&style=for-the-badge",
+                alt: "Django",
+            },
+            {
+                src: "https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white&style=for-the-badge",
+                alt: "Go",
+            },
+            {
+                src: "https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white&style=for-the-badge",
+                alt: "Flask",
+            },
+            {
+                src: "https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=white&style=for-the-badge",
+                alt: "C++",
+            },
+        ],
+    },
+    {
+        title: "🛠 Familiar",
+        skills: [
+            {
+                src: "https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white&style=for-the-badge",
+                alt: "Flutter",
+            },
+            {
+                src: "https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=white&style=for-the-badge",
+                alt: "GraphQL",
+            },
+            {
+                src: "https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=white&style=for-the-badge",
+                alt: "Jest",
+            },
+            {
+                src: "https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white&style=for-the-badge",
+                alt: "NestJS",
+            },
+        ],
+    },
+];
+export default function Skills() {
+    return (
+        <section id="skills" className="w-full py-20 bg-white dark:bg-zinc-950">
+            <div className="max-w-4xl mx-auto px-6 sm:px-0">
+                <h2 className="text-3xl sm:text-4xl mb-10 font-bold text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-cyan-400 text-center py-4">
+                    Skills
+                </h2>
+                <div className="flex flex-col gap-10">
+                    {skillSet.map((set, idx) => (
+                        <div key={idx}>
+                            <h3 className="text-xl font-semibold mb-4 text-cyan-600 dark:text-indigo-400">
+                                {set.title}
+                            </h3>
+                            <div className="flex flex-wrap gap-4">
+                                {set.skills.map((skill) => (
+                                    <Image
+                                        key={skill.alt}
+                                        src={skill.src}
+                                        alt={skill.alt}
+                                        width={110}
+                                        height={40}
+                                        title={skill.alt}
+                                        className="h-10 shadow hover:scale-110 transition-transform rounded-lg bg-linear-to-br from-zinc-100 via-cyan-50 to-indigo-50 dark:from-zinc-800 dark:to-zinc-950 p-1"
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
