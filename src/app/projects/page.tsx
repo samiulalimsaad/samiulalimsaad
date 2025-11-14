@@ -1,5 +1,5 @@
-import { getProjects } from "../../backend/services/project.service";
-import Projects from "../../components/Projects";
+import { getProjects } from "@/backend/services/project.service";
+import Projects from "@/components/Projects";
 
 async function getStaticData() {
     const projects = await getProjects();

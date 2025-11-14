@@ -1,13 +1,13 @@
-import { getBlogs } from "../backend/services/blog.service";
-import { getProjects } from "../backend/services/project.service";
-import About from "../components/About";
-import Blogs from "../components/Blogs";
-import Contact from "../components/Contact";
-import Education from "../components/Education";
-import Experience from "../components/Experience";
-import Hero from "../components/Hero";
-import Projects from "../components/Projects";
-import Skill from "../components/Skill";
+import { getBlogs } from "@/backend/services/blog.service";
+import { getProjects } from "@/backend/services/project.service";
+import About from "@/components/About";
+import Blogs from "@/components/Blogs";
+import Contact from "@/components/Contact";
+import Education from "@/components/Education";
+import Experience from "@/components/Experience";
+import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
+import Skill from "@/components/Skill";
 import { metadataForHomePage } from "./metadataForHomePage";
 import { viewport as viewportHomePage } from "./viewport";
 

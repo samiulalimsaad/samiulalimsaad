@@ -1,5 +1,5 @@
-import ColoringTitle from "./utils/ColoringTitle";
-import Container from "./utils/Container";
+import ColoringTitle from "@/components/utils/ColoringTitle";
+import Container from "@/components/utils/Container";
 
 const About = () => (
     <section

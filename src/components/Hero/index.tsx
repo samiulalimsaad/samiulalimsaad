@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import SamiulAlim from "../../images/samiul-alim.png";
-import SocialLinks from "../SocialLinks";
-import ColoringTitle from "../utils/ColoringTitle";
-import Container from "../utils/Container";
+import SamiulAlim from "@/images/samiul-alim.png";
+import SocialLinks from "@/components/SocialLinks";
+import ColoringTitle from "@/components/utils/ColoringTitle";
+import Container from "@/components/utils/Container";
 import ResumeButton from "./ResumeButton";
 
 const Hero = () => (
