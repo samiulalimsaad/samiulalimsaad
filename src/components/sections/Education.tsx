@@ -23,21 +23,15 @@ const educations = [
         institute: "Rajshahi Adarsha High School",
         year: "2014",
     },
-    {
-        degree: "Junior School Certificate (JSC)",
-        subject: "",
-        institute: "Rajshahi Adarsha High School",
-        year: "2011",
-    },
 ];
 export default function Education() {
     return (
         <section
             id="education"
-            className="w-full bg-linear-to-b from-white via-indigo-50/50 to-sky-50/60 py-20 px-4"
+            className="w-full bg-linear-to-b from-white via-indigo-50/50 to-sky-50/60 py-20 px-4 "
         >
-            <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
+            <div className="mx-auto w-full max-w-4xl border border-gray-200 rounded-3xl ">
+                <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2 py-8">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         Education
                     </span>
