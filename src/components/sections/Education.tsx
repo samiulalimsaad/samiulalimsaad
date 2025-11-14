@@ -34,11 +34,11 @@ export default function Education() {
     return (
         <section
             id="education"
-            className="w-full bg-gradient-to-b from-white via-indigo-50/50 to-sky-50/60 py-20 px-4"
+            className="w-full bg-linear-to-b from-white via-indigo-50/50 to-sky-50/60 py-20 px-4"
         >
             <div className="mx-auto w-full max-w-4xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
-                    <span className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                    <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         Education
                     </span>
                 </h2>
@@ -49,7 +49,7 @@ export default function Education() {
                     <ol className="relative ml-4 border-s border-indigo-200">
                         {educations.map((e, i) => (
                             <li key={i} className="mb-8 ms-6 last:mb-0">
-                                <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-indigo-500 text-xs font-semibold text-white shadow-md">
+                                <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-br from-cyan-500 to-indigo-500 text-xs font-semibold text-white shadow-md">
                                     {educations.length - i}
                                 </span>
                                 <div className="rounded-2xl bg-white/90 p-4 shadow-sm">

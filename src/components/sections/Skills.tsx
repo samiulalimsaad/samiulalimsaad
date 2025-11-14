@@ -100,11 +100,11 @@ export default function Skills() {
     return (
         <section
             id="skills"
-            className="w-full bg-gradient-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4"
+            className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4"
         >
             <div className="mx-auto w-full max-w-5xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
-                    <span className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                    <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         Skills
                     </span>
                 </h2>
@@ -125,7 +125,7 @@ export default function Skills() {
                                 {set.skills.map((skill) => (
                                     <div
                                         key={skill.alt}
-                                        className="overflow-hidden rounded-xl bg-gradient-to-br from-zinc-50 via-cyan-50/60 to-indigo-50/70 p-[2px] shadow-sm"
+                                        className="overflow-hidden rounded-xl bg-linear-to-br from-zinc-50 via-cyan-50/60 to-indigo-50/70 p-0.5 shadow-sm"
                                     >
                                         <Image
                                             src={skill.src}

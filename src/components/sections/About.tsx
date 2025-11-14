@@ -2,13 +2,13 @@ export default function About() {
     return (
         <section
             id="about"
-            className="w-full bg-gradient-to-b from-white via-sky-50/60 to-indigo-50/40 py-20 px-4"
+            className="w-full bg-linear-to-b from-white via-sky-50/60 to-indigo-50/40 py-20 px-4"
         >
             <div className="mx-auto flex w-full max-w-4xl flex-col gap-8 md:flex-row md:items-stretch">
                 <div className="flex-1 flex items-center">
                     <div className="w-full rounded-3xl border border-white/70 bg-white/80 p-8 shadow-xl backdrop-blur-sm">
                         <h2 className="text-center md:text-left text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
-                            <span className="bg-gradient-to-r from-indigo-600 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
+                            <span className="bg-linear-to-r from-indigo-600 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
                                 About Me
                             </span>
                         </h2>

@@ -40,11 +40,11 @@ export default function Projects() {
     return (
         <section
             id="projects"
-            className="w-full bg-gradient-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4"
+            className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4"
         >
             <div className="mx-auto w-full max-w-6xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
-                    <span className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                    <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         Projects
                     </span>
                 </h2>
