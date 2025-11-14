@@ -63,7 +63,7 @@ type ProjectCardProps = {
 
 function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 shadow-md backdrop-blur-sm transition hover:-translate-y-2 hover:shadow-2xl">
+        <div className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 backdrop-blur-sm transition hover:-translate-y-2">
             <div className="overflow-hidden">
                 <Image
                     src={project.image}

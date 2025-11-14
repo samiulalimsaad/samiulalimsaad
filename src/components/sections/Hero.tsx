@@ -32,7 +32,7 @@ export default function Hero() {
             </div>
             <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:text-left">
                 <div className="flex-1 flex flex-col items-center md:items-start gap-5">
-                    <span className="inline-flex items-center rounded-full border border-cyan-200 bg-white/60 px-4 py-1 text-xs font-semibold text-cyan-700 shadow-sm backdrop-blur">
+                    <span className="inline-flex items-center rounded-full border border-cyan-200 bg-white/60 px-4 py-1 text-xs font-semibold text-cyan-700 backdrop-blur">
                         <span className="mr-2 h-2 w-2 rounded-full bg-emerald-400" />
                         Open to opportunities
                     </span>
@@ -66,23 +66,23 @@ export default function Hero() {
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a
                             href="#projects"
-                            className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white shadow-md shadow-cyan-200/70 transition hover:shadow-lg hover:shadow-cyan-300/80"
+                            className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white transition"
                         >
                             View Projects
                         </a>
                         <a
                             href="#about"
-                            className="inline-flex items-center rounded-full border border-cyan-100 bg-white/80 px-6 py-2 text-sm font-semibold text-cyan-700 shadow-sm transition hover:border-cyan-300 hover:bg-cyan-50/60"
+                            className="inline-flex items-center rounded-full border border-cyan-100 bg-white/80 px-6 py-2 text-sm font-semibold text-cyan-700 transition hover:border-cyan-300 hover:bg-cyan-50/60"
                         >
                             About Me
                         </a>
                     </div>
                     <div className="mt-4 flex flex-wrap items-center gap-3">
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600 shadow-sm">
+                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600">
                             <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
                             2+ years experience
                         </div>
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600 shadow-sm">
+                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600">
                             <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
                             Based in Bangladesh
                         </div>
@@ -95,7 +95,7 @@ export default function Hero() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={label}
-                                className="flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-cyan-500 to-indigo-500 text-white shadow-md shadow-cyan-200/70 transition hover:scale-110 hover:shadow-lg hover:shadow-cyan-300/80"
+                                className="flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-cyan-500 to-indigo-500 text-white transition hover:scale-110"
                             >
                                 <Icon size={16} />
                             </a>

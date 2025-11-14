@@ -52,12 +52,9 @@ export default function SocialLinks({ size = 28 }: { size?: number }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="rounded-xl bg-linear-to-br from-indigo-500 to-cyan-400 p-3 transition-transform duration-300 shadow-md hover:scale-110 hover:from-cyan-600 hover:to-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                    className="rounded-xl bg-linear-to-br from-indigo-500 to-cyan-400 p-3 transition-transform duration-300 hover:scale-110 hover:from-cyan-600 hover:to-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-300"
                 >
-                    <Icon
-                        size={size}
-                        className="text-white drop-shadow cursor-pointer"
-                    />
+                    <Icon size={size} className="text-white cursor-pointer" />
                 </a>
             ))}
         </div>
