@@ -3,6 +3,7 @@ import Link from "next/link";
 const navItems = [
     { href: "/", label: "Home", type: "route" as const },
     { href: "/#about", label: "About", type: "hash" as const },
+    { href: "/#experience", label: "Experience", type: "hash" as const },
     { href: "/#education", label: "Education", type: "hash" as const },
     { href: "/#skills", label: "Skills", type: "hash" as const },
     { href: "/#projects", label: "Featured", type: "hash" as const },
