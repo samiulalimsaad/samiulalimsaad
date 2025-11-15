@@ -93,7 +93,7 @@ export default function Experience() {
                         {experiences.map((exp, index) => (
                             <li
                                 key={exp.company + exp.designation}
-                                className="mb-8 ms-6 last:mb-0 animate-card-in"
+                                className="mb-8 ms-6 last:mb-0"
                             >
                                 <span className="absolute -left-4 grid h-8 w-8 place-items-center rounded-full bg-linear-to-br from-cyan-500 to-indigo-500 text-xs font-semibold text-white shadow-sm">
                                     {experiences.length - index}

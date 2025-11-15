@@ -22,15 +22,16 @@ export default function About() {
                                 Samiul Alim
                             </span>{" "}
                             from Bangladesh, a full-stack software engineer with
-                            over {experienceYears} years of hands-on experience
-                            building modern, full-stack web applications. What
-                            started as simple curiosity about how software works
-                            has grown into a focused passion for turning ideas
-                            into reliable, production-ready products.
+                            over {experienceYears} years of experience building
+                            scalable, modern web applications. What started as
+                            curiosity quickly became a focused passion for
+                            crafting products that are not only beautiful on the
+                            surface but robust, maintainable, and ready for
+                            production.
                         </p>
                         <p className="text-base sm:text-lg text-zinc-600 mb-4 leading-relaxed">
-                            I work across the full stack, crafting modern,
-                            user-centric applications with technologies like
+                            I work across the full stack, building user-centric
+                            applications with technologies like
                             <span className="font-semibold text-cyan-700">
                                 {" "}
                                 React
@@ -50,17 +51,28 @@ export default function About() {
                                 {" "}
                                 MongoDB
                             </span>
-                            . I care deeply about clean architecture,
-                            performance, and DX whether I&apos;m designing APIs,
-                            optimizing queries, or refining the UI.
+                            , often paired with tools like Tailwind CSS, ShadCN,
+                            and modern UI libraries to ship fast, accessible
+                            interfaces.
+                        </p>
+                        <p className="text-base sm:text-lg text-zinc-600 mb-4 leading-relaxed">
+                            On the backend and infrastructure side, I design
+                            clean, well-documented REST and GraphQL APIs,
+                            automate deployments with tools like Docker and
+                            GitHub Actions, and use platforms such as Vercel or
+                            Coolify to deliver reliable, production-ready
+                            systems. I care deeply about clean architecture,
+                            performance, and DX whether I&apos;m optimizing
+                            queries, refining the UI, or improving CI/CD
+                            pipelines.
                         </p>
                         <p className="text-base sm:text-lg text-zinc-600 leading-relaxed">
                             I don&apos;t just write code; I solve problems. From
-                            reducing load times and building real-time features
-                            to automating deployments with modern DevOps tools,
-                            my focus is always on creating reliable,
-                            maintainable systems that deliver real business
-                            value.
+                            reducing page load times and building real-time
+                            dashboards to deploying self-hosted platforms, my
+                            focus is always on outcomes that drive real business
+                            value and provide a great experience for both users
+                            and teams.
                         </p>
                     </div>
                 </div>
