@@ -25,10 +25,10 @@ export default function Error({
                 </div>
 
                 <div className="w-full max-w-2xl rounded-3xl border border-gray-200 bg-white/90 p-8 backdrop-blur-sm">
-                    <h1 className="mb-3 text-3xl sm:text-4xl font-semibold text-zinc-900">
+                    <h1 className="mb-3 text-3xl sm:text-4xl font-semibold text-foreground">
                         This section failed to load.
                     </h1>
-                    <p className="mb-6 text-sm sm:text-base text-zinc-600">
+                    <p className="mb-6 text-sm sm:text-base text-foreground/70">
                         An unexpected error occurred while rendering this page.
                         You can try again, or go back and explore the rest of
                         the site.
@@ -44,7 +44,7 @@ export default function Error({
                         </button>
                         <Link
                             href="/"
-                            className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white/80 px-6 py-2.5 text-sm font-medium text-zinc-700 shadow-sm hover:bg-zinc-50"
+                            className="inline-flex items-center justify-center rounded-full border border-foreground/10 bg-white/80 px-6 py-2.5 text-sm font-medium text-foreground shadow-sm hover:bg-foreground/5"
                         >
                             Back to homepage
                         </Link>

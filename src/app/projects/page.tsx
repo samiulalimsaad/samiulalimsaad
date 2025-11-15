@@ -10,7 +10,7 @@ export default function AllProjectsPage() {
                         All Projects
                     </span>
                 </h1>
-                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
                     A complete list of my personal and client projects across
                     web apps, tools, and experiments.
                 </p>
@@ -44,19 +44,19 @@ function ProjectCard({ project }: ProjectCardProps) {
                 />
             </div>
             <div className="flex flex-1 flex-col p-6">
-                <h2 className="mb-1 text-xl sm:text-2xl font-bold text-indigo-700">
+                <h2 className="mb-1 text-xl sm:text-2xl font-bold text-cyan-700">
                     {project.name}
                 </h2>
                 {project.time && (
-                    <p className="mb-1 text-[11px] font-medium uppercase tracking-wide text-zinc-500">
+                    <p className="mb-1 text-[11px] font-medium uppercase tracking-wide text-foreground/60">
                         {project.time}
                     </p>
                 )}
-                <p className="mb-2 text-sm text-zinc-700">
+                <p className="mb-2 text-sm text-foreground/80">
                     {project.shortDescription}
                 </p>
                 {project.description && project.description.length > 0 && (
-                    <ul className="mb-3 list-disc space-y-1 pl-5 text-xs text-zinc-600">
+                    <ul className="mb-3 list-disc space-y-1 pl-5 text-xs text-foreground/70">
                         {project.description.map((line) => (
                             <li key={line}>{line}</li>
                         ))}
@@ -78,7 +78,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                             href={project.githubFrontEnd}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-zinc-900 text-white hover:bg-zinc-700 transition"
+                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
                         >
                             GitHub
                         </a>
@@ -88,7 +88,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                             href={project.githubBackEnd}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-zinc-800 text-white hover:bg-zinc-600 transition"
+                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
                         >
                             Backend
                         </a>
@@ -97,7 +97,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-cyan-600 text-white hover:bg-cyan-900 transition"
+                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
                     >
                         Live Demo
                     </a>

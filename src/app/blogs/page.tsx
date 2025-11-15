@@ -23,7 +23,7 @@ export default async function AllBlogsPage() {
                             All Blogs
                         </span>
                     </h1>
-                    <p className="text-sm sm:text-base text-zinc-600">
+                    <p className="text-sm sm:text-base text-foreground/70">
                         Couldn&apos;t load blog posts from Medium right now.
                         Please try again later or visit my Medium profile
                         directly.
@@ -53,7 +53,7 @@ export default async function AllBlogsPage() {
                         All Blogs
                     </span>
                 </h1>
-                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
                     All of my recent writing from Medium, in one place.
                 </p>
 
@@ -63,10 +63,10 @@ export default async function AllBlogsPage() {
                             key={post.title}
                             className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-6 backdrop-blur-sm shadow-sm transition hover:-translate-y-2 animate-card-in"
                         >
-                            <h2 className="mb-2 line-clamp-2 text-lg sm:text-xl font-semibold text-indigo-700">
+                            <h2 className="mb-2 line-clamp-2 text-lg sm:text-xl font-semibold text-cyan-700">
                                 {post.title}
                             </h2>
-                            <p className="mb-2 text-xs text-zinc-500">
+                            <p className="mb-2 text-xs text-foreground/60">
                                 {formatDate(post.published)}
                             </p>
                             {post.category && post.category.length > 0 && (
@@ -81,7 +81,7 @@ export default async function AllBlogsPage() {
                                     ))}
                                 </div>
                             )}
-                            <p className="mb-4 line-clamp-4 text-sm text-zinc-700">
+                            <p className="mb-4 line-clamp-4 text-sm text-foreground/80">
                                 {post.content
                                     ?.replace(/<[^>]*>/g, " ")
                                     .replace(/\s+/g, " ")

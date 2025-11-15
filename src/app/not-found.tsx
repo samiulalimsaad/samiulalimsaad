@@ -12,10 +12,10 @@ export default function NotFound() {
                 </div>
 
                 <div className="w-full max-w-2xl rounded-3xl border border-gray-200 bg-white/90 p-8 backdrop-blur-sm">
-                    <h1 className="text-3xl sm:text-4xl font-semibold text-zinc-900 mb-3">
+                    <h1 className="text-3xl sm:text-4xl font-semibold text-foreground mb-3">
                         Lost in the layout.
                     </h1>
-                    <p className="text-sm sm:text-base text-zinc-600 mb-6">
+                    <p className="text-sm sm:text-base text-foreground/70 mb-6">
                         The page you&apos;re looking for doesn&apos;t exist or
                         might have been moved. You can head back to the homepage
                         to explore my work, skills, and projects.
@@ -30,7 +30,7 @@ export default function NotFound() {
                         </Link>
                         <Link
                             href="/#contact"
-                            className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white/80 px-6 py-2.5 text-sm font-medium text-zinc-700 shadow-sm hover:bg-zinc-50"
+                            className="inline-flex items-center justify-center rounded-full border border-foreground/10 bg-white/80 px-6 py-2.5 text-sm font-medium text-foreground shadow-sm hover:bg-foreground/5"
                         >
                             Contact me
                         </Link>

@@ -8,13 +8,13 @@ export default function Loading() {
                 </div>
 
                 <div className="w-full max-w-md rounded-3xl border border-white/80 bg-white/90 p-8 shadow-xl backdrop-blur-sm">
-                    <div className="mb-4 flex items-center justify-center gap-2 text-sm font-medium text-zinc-700">
+                    <div className="mb-4 flex items-center justify-center gap-2 text-sm font-medium text-foreground">
                         <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-indigo-50 text-indigo-500">
                             <span className="h-4 w-4 animate-spin rounded-full border-2 border-indigo-500 border-t-transparent" />
                         </span>
                         <span>Getting things ready…</span>
                     </div>
-                    <p className="text-sm text-zinc-600">
+                    <p className="text-sm text-foreground/70">
                         Please hold on for a moment while the content loads.
                     </p>
                 </div>
