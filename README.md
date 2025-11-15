@@ -1,69 +1,39 @@
 <div align="center">
-  <img height="150" src="https://camo.githubusercontent.com/62da68eb62b1e5f175f7d1f0191dd89a653d7908feb22d37d4a0ab07365d6791/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f4d3967624264396e6244724f5475314d71782f67697068792e676966"  />
+
+  <img src="./public/avatars/samiul-alim.png" alt="Samiul Alim" width="120" height="120" style="border-radius:999px;" />
+
+  <h1>Hi, I'm <strong>Samiul Alim</strong> 👋</h1>
+  <p><strong>Fullstack Web Developer · Software Engineer</strong></p>
+
+  <p>
+    I build modern, scalable web applications with <strong>Next.js</strong>,
+    <strong>React</strong>, <strong>Node.js</strong> and <strong>TypeScript</strong>.
+  </p>
+
+  <p>
+    <a href="https://samiulalimsaad.vercel.app" target="_blank">Portfolio</a>
+    ·
+    <a href="https://github.com/samiulalimsaad" target="_blank">GitHub</a>
+    ·
+    <a href="mailto:samiulalimsaad@gmail.com">Email</a>
+  </p>
+
 </div>
 
-<br/>
+---
 
-<div align="center">
-  <a href="https://www.linkedin.com/in/samiulalimsaad" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="20" alt="linkedin logo"  />
-  </a>
-  <a href="https://twitter.com/samiulalimsaad" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="20" alt="twitter logo"  />
-  </a>
-  <a href="https://www.facebook.com/samiulalimsaad" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Facebook&logo=facebook&label=&color=1877F2&logoColor=white&labelColor=&style=for-the-badge" height="20" alt="facebook logo"  />
-  </a>
-  <a href="https://discord.com/channels/@samiulalimsaad" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="20" alt="discord logo"  />
-  </a>
-  <a href="https://wa.me/8801715378032" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Whatsapp&logo=whatsapp&label=&color=25D366&logoColor=white&labelColor=&style=for-the-badge" height="20" alt="whatsapp logo"  />
-  </a>
-  <a href="samiulalimsaad@gmail.com" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="20" alt="gmail logo"  />
-  </a>
-  <a href="https://www.hackerrank.com/samiulalimsaad" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=HackerRank&logo=hackerrank&label=&color=2EC866&logoColor=white&labelColor=&style=for-the-badge" height="20" alt="hackerrank logo"  />
-  </a>
-</div>
+## 👋 About Me
 
-<br/>
+- 🇧🇩  Fullstack engineer from **Bangladesh**.
+- 💻  Comfortable working across frontend, backend, and basic DevOps.
+- 🧠  Enjoy solving real-world problems and designing clean, maintainable
+  architectures.
+- 🌱  Currently deepening my skills in **Next.js**, **DevOps**, and scalable
+  backend design.
 
-<h1 align="center">Hey there 👋</h1>
+---
 
-<br/>
-
-<h3 align="left">👩‍💻  About Me</h3>
-
-<br/>
-
-<ol>
-<p align="left">I'm <strong>Samiul Alim</strong> from Bangladesh.</p>
-
-<br/>
-
-<p align="left">I have been very passionate about computers, programming, and web development since university.</p>
-
-<br/>
-
-<p align="left">I dream of being an expert software engineer or a web developer to build professional and valuable software or web applications that have business value.</p>
-
-<br/>
-
-<p align="left">I have 2 years of experience in Web Development as a backend and front-end developer.</p>
-
-<br/>
-
-<p align="left">Excellent reputation for resolving problems and improving customer satisfaction.</p>
-
-<br/>
-
-<p align="left">In-depth knowledge of MongoDB. Skillful in creating servers and databases for functionality and designing and developing APIs.</p>
-
-</ol>
-
-<br/>
+## 🧩 Tech & Skills
 
 <h3 align="left">🛠 Language and tools (Advanced)</h3>
 
@@ -76,7 +46,6 @@
   <img width="0" />
   <img src="https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white&style=for-the-badge" height="20" alt="nodejs logo"  />
   <img width="0" />
-  <img width="0" />
   <img src="https://img.shields.io/badge/Express-000000?logo=express&logoColor=white&style=for-the-badge" height="20" alt="express logo"  />
   <img width="0" />
   <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black&style=for-the-badge" height="20" alt="react logo"  />
@@ -84,6 +53,10 @@
   <img src="https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white&style=for-the-badge" height="20" alt="nextjs logo"  />
   <img width="0" />
   <img src="https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=white&style=for-the-badge" height="20" alt="redux logo"  />
+  <img width="0" />
+  <img src="https://img.shields.io/badge/Zustand-000000?label=Zustand&style=for-the-badge" height="20" alt="zustand logo"  />
+  <img width="0" />
+  <img src="https://img.shields.io/badge/React_Query-FF4154?label=React%20Query&logo=reactquery&logoColor=white&style=for-the-badge" height="20" alt="react query logo"  />
   <img width="0" />
   <img src="https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white&style=for-the-badge" height="20" alt="mongodb logo"  />
   <img width="0" />
@@ -167,6 +140,10 @@
   <img width="0" />
   <img src="https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white&style=for-the-badge" height="20" alt="go logo"  />
   <img width="0" />
+  <img src="https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=white&style=for-the-badge" height="20" alt="nginx logo"  />
+  <img width="0" />
+  <img src="https://img.shields.io/badge/PM2-2B037A?label=PM2&style=for-the-badge" height="20" alt="pm2 logo"  />
+  <img width="0" />
   <img src="https://img.shields.io/badge/Trello-0052CC?logo=trello&logoColor=white&style=for-the-badge" height="20" alt="trello logo"  />
   <img width="0" />
   <img src="https://img.shields.io/badge/Vue.js-4FC08D?logo=vuedotjs&logoColor=black&style=for-the-badge" height="20" alt="vuejs logo"  />
@@ -204,19 +181,37 @@
   <img src="https://img.shields.io/badge/Symfony-000000?logo=symfony&logoColor=white&style=for-the-badge" height="20" alt="symfony logo"  />
 </div>
 
-<br/>
+---
 
-<h3 align="left">🔥   My Stats :</h3>
+## 📂 Projects
+
+I’ve built projects ranging from e‑commerce platforms and admin dashboards to
+small tools and experiments. A selection of them is pinned on my GitHub
+profile, and more are listed on my portfolio.
+
+---
+
+## 📬 Contact
+
+- Portfolio: <https://samiulalimsaad.vercel.app>
+- GitHub: <https://github.com/samiulalimsaad>
+- LinkedIn: <https://www.linkedin.com/in/samiulalimsaad>
+- X / Twitter: <https://twitter.com/samiulalimsaad>
+- Email: <mailto:samiulalimsaad@gmail.com>
+
+---
+
+## 📊 GitHub Stats
 
 <div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=samiulalimsaad&layout=compact&theme=yeblu" width="32%" alt="Top Langs"  />
-
-<img width="1%" />
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=samiulalimsaad&theme=outrun" width="32%" alt="GitHub streak stats"  />
+<img src="https://github-readme-stats.vercel.app/api?username=samiulalimsaad&show_icons=true&count_private=true&theme=outrun" width="32%" alt="GitHub stats" height="150"  />
 
 <img width="1%" />
-<img src="https://github-readme-stats.vercel.app/api?username=samiulalimsaad&show_icons=true&count_private=true&theme=outrun" width="32%" alt="GitHub stats"  />
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=samiulalimsaad&theme=outrun" width="32%" alt="GitHub streak stats"  height="150" />
+
+<img width="1%" />
+<img src="https://github-readme-stats.vercel.app/api?username=samiulalimsaad&show_icons=true&count_private=true&theme=outrun" width="32%" alt="GitHub stats" height="150"  />
 
 </div>
+

@@ -1,40 +1,23 @@
-import { getBlogs } from "../backend/services/blog.service";
-import { getProjects } from "../backend/services/project.service";
-import About from "../components/About";
-import Blogs from "../components/Blogs";
-import Contact from "../components/Contact";
-import Education from "../components/Education";
-import Experience from "../components/Experience";
-import Hero from "../components/Hero";
-import Projects from "../components/Projects";
-import Skill from "../components/Skill";
-import { metadataForHomePage } from "./metadataForHomePage";
-import { viewport as viewportHomePage } from "./viewport";
+import About from "@/components/sections/About";
+import Blog from "@/components/sections/Blog";
+import Contact from "@/components/sections/Contact";
+import Education from "@/components/sections/Education";
+import Experience from "@/components/sections/Experience";
+import Hero from "@/components/sections/Hero";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
 
-export const metadata = metadataForHomePage;
-export const viewport = viewportHomePage;
-// This function gets called at build time
-async function getData() {
-    const [projects, blogs] = await Promise.all([getProjects(), getBlogs()]);
-    return { projects, blogs };
-}
-getBlogs();
-const Home = async () => {
-    const { projects, blogs } = await getData();
-
+export default function Home() {
     return (
         <>
             <Hero />
-            <Projects projects={projects} />
-            <Experience />
-            <Skill />
-            <Education />
             <About />
-            <Blogs blogs={blogs} />
-            {/* <GithubStats /> */}
+            <Experience />
+            <Education />
+            <Skills />
+            <Projects />
+            <Blog />
             <Contact />
         </>
     );
-};
-
-export default Home;
+}
