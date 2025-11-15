@@ -85,7 +85,7 @@ export default function Experience() {
                         Experience
                     </span>
                 </h2>
-                <p className="mx-auto mb-8 max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                <p className="mx-auto mb-8 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
                     A timeline of real work, real teams, and real impact.
                 </p>
                 <div className="mx-auto flex flex-wrap justify-center gap-2 mb-6">
@@ -128,18 +128,18 @@ export default function Experience() {
                                                 )}
                                             </span>
                                         </div>
-                                        <p className="text-[11px] sm:text-xs text-zinc-500 inline-flex items-center gap-2">
+                                        <p className="text-[11px] sm:text-xs text-foreground/70 inline-flex items-center gap-2">
                                             <span className="inline-flex items-center gap-1">
                                                 <MapPin size={12} />{" "}
                                                 {exp.location}
                                             </span>
                                             {exp.jobMode && (
-                                                <span className="inline-flex items-center gap-1 text-zinc-600">
+                                                <span className="inline-flex items-center gap-1 text-foreground/70">
                                                     • {exp.jobMode}
                                                 </span>
                                             )}
                                         </p>
-                                        <p className="mt-2 text-[11px] sm:text-xs leading-relaxed text-zinc-600">
+                                        <p className="mt-2 text-[11px] sm:text-xs leading-relaxed text-foreground/70">
                                             {exp.description}
                                         </p>
                                     </div>

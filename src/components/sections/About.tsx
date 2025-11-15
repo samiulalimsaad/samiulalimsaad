@@ -16,7 +16,7 @@ export default function About() {
                                 About Me
                             </span>
                         </h2>
-                        <p className="text-base sm:text-lg text-zinc-700 mb-4 leading-relaxed">
+                        <p className="text-base sm:text-lg text-foreground/80 mb-4 leading-relaxed">
                             I&apos;m{" "}
                             <span className="font-semibold bg-linear-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
                                 Samiul Alim
@@ -34,7 +34,7 @@ export default function About() {
                             only beautiful on the surface but robust,
                             maintainable, and ready for production.
                         </p>
-                        <p className="text-base sm:text-lg text-zinc-600 mb-4 leading-relaxed">
+                        <p className="text-base sm:text-lg text-foreground/70 mb-4 leading-relaxed">
                             I work across the full stack, building user-centric
                             applications with technologies like
                             <span className="font-semibold text-cyan-700">
@@ -71,7 +71,7 @@ export default function About() {
                             queries, refining the UI, or improving CI/CD
                             pipelines.
                         </p>
-                        <p className="text-base sm:text-lg text-zinc-600 leading-relaxed">
+                        <p className="text-base sm:text-lg text-foreground/70 leading-relaxed">
                             I don&apos;t just write code; I solve problems. From
                             reducing page load times and building real-time
                             dashboards to deploying self-hosted platforms, my

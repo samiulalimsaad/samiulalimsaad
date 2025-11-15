@@ -17,7 +17,7 @@ export default function Skills() {
                         Skills
                     </span>
                 </h2>
-                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
                     Technologies and tools I use to design, build, and ship
                     modern web applications.
                 </p>
@@ -57,7 +57,7 @@ function SkillCard({ tier, isExpanded, onToggle }: SkillCardProps) {
                     {tier.label}
                 </h3>
                 {tier.description && (
-                    <p className="text-xs sm:text-sm text-zinc-600">
+                    <p className="text-xs sm:text-sm text-foreground/70">
                         {tier.description}
                     </p>
                 )}
@@ -72,7 +72,7 @@ function SkillCard({ tier, isExpanded, onToggle }: SkillCardProps) {
                             {group.items.map((item) => (
                                 <span
                                     key={item}
-                                    className="rounded-full border border-cyan-100 bg-linear-to-r from-cyan-50 via-white to-indigo-50 px-3 py-1 text-[11px] sm:text-xs font-medium text-zinc-800 hover:border-cyan-200"
+                                    className="rounded-full border border-cyan-100 bg-linear-to-r from-cyan-50 via-white to-indigo-50 px-3 py-1 text-[11px] sm:text-xs font-medium text-foreground hover:border-cyan-200"
                                 >
                                     {item}
                                 </span>

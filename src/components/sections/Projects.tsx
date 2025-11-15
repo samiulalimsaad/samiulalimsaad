@@ -16,7 +16,7 @@ export default function Projects() {
                         Projects
                     </span>
                 </h2>
-                <p className="mx-auto max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                <p className="mx-auto max-w-2xl text-center text-sm sm:text-base text-foreground/70">
                     A selection of recent work showcasing fullstack development,
                     integrations, and modern UI.
                 </p>
@@ -60,11 +60,11 @@ function ProjectCard({ project }: ProjectCardProps) {
                 <h3 className="mb-1 text-xl sm:text-2xl font-bold text-indigo-700">
                     {project.name}
                 </h3>
-                <p className="mb-2 text-sm text-zinc-700">
+                <p className="mb-2 text-sm text-foreground/80">
                     {project.shortDescription}
                 </p>
                 {project.description && project.description.length > 0 && (
-                    <ul className="mb-3 list-disc space-y-1 pl-5 text-xs text-zinc-600">
+                    <ul className="mb-3 list-disc space-y-1 pl-5 text-xs text-foreground/70">
                         {project.description.map((line) => (
                             <li key={line}>{line}</li>
                         ))}

@@ -46,14 +46,14 @@ export default function Hero() {
                         Open to opportunities
                     </span>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-                        <span className="block text-zinc-900">
+                        <span className="block text-foreground">
                             Hi, I&apos;m
                         </span>
                         <span className="bg-linear-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
                             Samiul Alim
                         </span>
                     </h1>
-                    <p className="max-w-xl text-sm sm:text-base md:text-lg text-zinc-600">
+                    <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
                         Software Engineer &amp; Fullstack Web Developer
                         specializing in building modern, scalable web
                         applications with{" "}
@@ -82,11 +82,11 @@ export default function Hero() {
                         <ResumeButton />
                     </div>
                     <div className="mt-4 flex flex-wrap items-center gap-3">
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600">
+                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
                             <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
                             {experienceYears}+ years experience
                         </div>
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600">
+                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
                             <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
                             Based in Bangladesh
                         </div>
