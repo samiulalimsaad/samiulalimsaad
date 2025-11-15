@@ -206,7 +206,7 @@ const Contact = () => {
 
                         <button
                             type="submit"
-                            className="btn w-full border-none bg-linear-to-r from-indigo-600 via-cyan-500 to-sky-500 text-white font-semibold text-sm sm:text-[0.95rem] py-2.5 sm:py-3 hover:-translate-y-[1px] active:translate-y-0 transition duration-150 flex items-center justify-center gap-2"
+                            className="btn w-full border-none bg-linear-to-r from-indigo-600 via-cyan-500 to-sky-500 text-white font-semibold text-sm sm:text-[0.95rem] py-2.5 sm:py-3 hover:-translate-y-px active:translate-y-0 transition duration-150 flex items-center justify-center gap-2"
                         >
                             <span>Send Message</span>
                             <span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 border border-white/20">
