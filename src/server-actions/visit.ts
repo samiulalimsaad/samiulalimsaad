@@ -3,13 +3,16 @@ import { ReadonlyHeaders } from "next/dist/server/web/spec-extension/adapters/he
 // Type definition for location data
 interface LocationData {
     ip: string;
+    hostname: string;
     city: string;
     region: string;
     country: string;
-    latitude: number | null;
-    longitude: number | null;
+    loc: string;
+    org: string;
+    postal: string;
     timezone: string;
-    isp: string;
+    readme: string;
+    anycast: boolean;
 }
 
 // Server Action - No HTTP response, just return data
@@ -104,19 +107,22 @@ function getIP(headers: Headers | ReadonlyHeaders): string {
 async function getLocationByIP(ip: string): Promise<LocationData | null> {
     try {
         // Using ipapi.co free service
-        const response = await fetch(`https://ipapi.co/${ip}/json/`);
+        const response = await fetch(`https://ipapi.io/${ip}/json/`);
         if (!response.ok) throw new Error("Location API failed");
 
         const data = await response.json();
         return {
             ip: data.ip || ip,
-            city: data.city || "Unknown",
-            region: data.region || "Unknown",
-            country: data.country_name || "Unknown",
-            latitude: data.latitude || null,
-            longitude: data.longitude || null,
-            timezone: data.timezone || "Unknown",
-            isp: data.org || "Unknown",
+            hostname: data.hostname || "unknown",
+            city: data.city || "unknown",
+            region: data.region || "unknown",
+            country: data.country || "unknown",
+            loc: data.loc || "unknown",
+            org: data.org || "unknown",
+            postal: data.postal || "unknown",
+            timezone: data.timezone || "unknown",
+            readme: data.readme || "unknown",
+            anycast: data.anycast || "unknown",
         };
     } catch (error) {
         console.error("Location fetch error:", error);
