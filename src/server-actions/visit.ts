@@ -25,8 +25,8 @@ export async function trackVisitorVisit(
 
     try {
         const DISCORD_CHANNEL = process.env.DISCORD_PAGE_VISIT_WEBHOOK_URL;
-        const DISCORD_MENTION_ID = process.env.NEXT_APP_DISCORD_MENTION_ID;
-        const DISCORD_TOKEN = process.env.NEXT_APP_DISCORD_TOKEN;
+        const DISCORD_MENTION_ID = process.env.DISCORD_MENTION_ID;
+        const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 
         const timestamp = new Date().toLocaleString("en-US", {
             timeZone: "Asia/Dhaka",
