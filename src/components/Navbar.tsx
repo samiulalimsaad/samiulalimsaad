@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
@@ -19,11 +20,17 @@ export default function Navbar() {
             <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:py-3">
                 {/* Brand */}
                 <Link href="/" className="flex items-center gap-2">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 text-xs font-bold text-white">
-                        SA
-                    </span>
-                    <span className="hidden text-sm font-semibold text-zinc-800 sm:inline">
-                        Samiul Alim
+                    <Image
+                        src="/avatars/samiul-alim.png"
+                        alt="Samiul Alim"
+                        width={32}
+                        height={32}
+                        className="h-8 w-8 rounded-full"
+                    />
+                    <span className="hidden text-sm sm:inline">
+                        <span className="bg-linear-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent font-semibold">
+                            Samiul Alim
+                        </span>
                     </span>
                 </Link>
 
