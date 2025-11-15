@@ -1,4 +1,5 @@
 import About from "@/components/sections/About";
+import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 import Education from "@/components/sections/Education";
 import Hero from "@/components/sections/Hero";
@@ -14,6 +15,7 @@ export default function Home() {
             <Education />
             <Skills />
             <Projects />
+            <Blog />
             <Contact />
             <div className="w-full bg-linear-to-b from-white via-sky-50/70 to-indigo-50/60 py-10 px-4">
                 <div className="mx-auto flex max-w-6xl items-center justify-center rounded-3xl border border-white/70 bg-white/80 p-6 shadow-xl backdrop-blur-sm">
