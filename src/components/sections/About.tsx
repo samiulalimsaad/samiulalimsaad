@@ -1,4 +1,8 @@
+import { getExperienceYears } from "@/lib/utils";
+
 export default function About() {
+    const experienceYears = getExperienceYears();
+
     return (
         <section
             id="about"
@@ -13,28 +17,53 @@ export default function About() {
                             </span>
                         </h2>
                         <p className="text-base sm:text-lg text-zinc-700 mb-4 leading-relaxed">
-                            I’m{" "}
+                            I&apos;m{" "}
                             <span className="font-semibold text-indigo-600">
                                 Samiul Alim
                             </span>{" "}
-                            from Bangladesh. I’ve been passionate about
-                            computers, programming, and web development since my
-                            university days at{" "}
+                            from Bangladesh, a full-stack software engineer with
+                            over {experienceYears} years of hands-on experience
+                            building scalable web applications. My journey
+                            started during my university days at{" "}
                             <span className="font-semibold text-cyan-600">
                                 North Bengal International University
                             </span>
-                            .
+                            , where curiosity for computers and programming
+                            quickly turned into a long-term passion.
                         </p>
                         <p className="text-base sm:text-lg text-zinc-600 mb-4 leading-relaxed">
-                            With over 2 years of experience in both back-end and
-                            front-end web development, I specialize in building
-                            modern, scalable websites and apps using tools like
-                            Node.js, React, Next.js, and MongoDB.
+                            I work across the full stack, crafting modern,
+                            user-centric applications with technologies like
+                            <span className="font-semibold text-cyan-700">
+                                {" "}
+                                React
+                            </span>
+                            ,
+                            <span className="font-semibold text-indigo-700">
+                                {" "}
+                                Next.js
+                            </span>
+                            ,
+                            <span className="font-semibold text-emerald-700">
+                                {" "}
+                                Node.js
+                            </span>
+                            , and
+                            <span className="font-semibold text-sky-700">
+                                {" "}
+                                MongoDB
+                            </span>
+                            . I care deeply about clean architecture,
+                            performance, and DX—whether I&apos;m designing APIs,
+                            optimizing queries, or refining the UI.
                         </p>
                         <p className="text-base sm:text-lg text-zinc-600 leading-relaxed">
-                            I love solving real-world problems and am always
-                            striving to create elegant and innovative solutions
-                            that have tangible business value.
+                            I don&apos;t just write code; I solve problems. From
+                            reducing load times and building real-time features
+                            to automating deployments with modern DevOps tools,
+                            my focus is always on creating reliable,
+                            maintainable systems that deliver real business
+                            value.
                         </p>
                     </div>
                 </div>
