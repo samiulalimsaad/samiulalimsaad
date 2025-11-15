@@ -27,18 +27,20 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop nav (right aligned) */}
-                <ul className="hidden items-center gap-4 text-sm font-medium text-zinc-700 sm:flex">
-                    {navItems.map((item) => (
-                        <li key={item.href}>
-                            <Link
-                                href={item.href}
-                                className="rounded-full px-3 py-1 text-sm transition-colors bg-linear-to-r from-cyan-500 to-indigo-500 text-transparent bg-clip-text"
-                            >
-                                {item.label}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                <div className="hidden items-center gap-4 sm:flex">
+                    <ul className="flex items-center gap-4 text-sm font-medium text-zinc-700">
+                        {navItems.map((item) => (
+                            <li key={item.href}>
+                                <Link
+                                    href={item.href}
+                                    className="rounded-full px-3 py-1 text-sm transition-colors bg-linear-to-r from-cyan-500 to-indigo-500 text-transparent bg-clip-text"
+                                >
+                                    {item.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
                 {/* Mobile hamburger + dropdown (only on small screens) */}
                 <div className="relative flex items-center sm:hidden">
