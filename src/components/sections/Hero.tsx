@@ -1,4 +1,5 @@
 import ResumeButton from "@/components/ResumeButton";
+import { getExperienceYears } from "@/lib/utils";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Image from "next/image";
 
@@ -26,6 +27,8 @@ const socials = [
 ];
 
 export default function Hero() {
+    const experienceYears = getExperienceYears();
+
     return (
         <section className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4">
             <div className="absolute inset-x-0 top-20 -z-10 flex justify-center">
@@ -76,7 +79,7 @@ export default function Hero() {
                     <div className="mt-4 flex flex-wrap items-center gap-3">
                         <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600">
                             <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                            2+ years experience
+                            {experienceYears}+ years experience
                         </div>
                         <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600">
                             <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
