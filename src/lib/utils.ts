@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-const EXPERIENCE_START = new Date("2022-02-01T00:00:00Z");
+const EXPERIENCE_START = new Date("2021-07-01T00:00:00Z");
 
 export function getExperienceYears(from: Date = EXPERIENCE_START): number {
     const now = new Date();
