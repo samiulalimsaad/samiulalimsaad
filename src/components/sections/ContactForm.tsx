@@ -20,7 +20,7 @@ const ContactForm = () => {
 
     return (
         <form
-            className="w-full rounded-3xl bg-white/90 p-8 backdrop-blur-sm border border-gray-200 shadow-md space-y-6"
+            className="w-full rounded-3xl bg-white/90 p-8 backdrop-blur-sm border border-gray-200 space-y-6"
             action={formAction}
         >
             <div className="flex items-center justify-between gap-3 mb-2">
@@ -50,7 +50,7 @@ const ContactForm = () => {
                             name="name"
                             type="text"
                             placeholder="Your full name"
-                            className="input w-full rounded-full border border-zinc-200 bg-zinc-50/80 pl-16 pr-4 py-3 text-sm text-zinc-800 shadow-sm focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                            className="input w-full rounded-full border border-zinc-200 bg-zinc-50/80 pl-16 pr-4 py-3 text-sm text-zinc-800 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200"
                             required
                         />
                     </div>
@@ -73,7 +73,7 @@ const ContactForm = () => {
                             name="email"
                             type="email"
                             placeholder="you@example.com"
-                            className="input w-full rounded-full border border-zinc-200 bg-zinc-50/80 pl-16 pr-4 py-3 text-sm text-zinc-800 shadow-sm focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                            className="input w-full rounded-full border border-zinc-200 bg-zinc-50/80 pl-16 pr-4 py-3 text-sm text-zinc-800 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200"
                             required
                         />
                     </div>
@@ -90,7 +90,7 @@ const ContactForm = () => {
                         name="message"
                         rows={5}
                         placeholder="Tell me briefly what you’d like to work on together..."
-                        className="textarea w-full rounded-2xl border border-zinc-200 bg-zinc-50/80 px-4 py-3.5 text-sm text-zinc-800 shadow-sm focus:border-indigo-400 focus:outline-none focus:ring-indigo-200 resize-none"
+                        className="textarea w-full rounded-2xl border border-zinc-200 bg-zinc-50/80 px-4 py-3.5 text-sm text-zinc-800  focus:border-indigo-400 focus:outline-none focus:ring-indigo-200 resize-none"
                         required
                     />
                     <span className="mt-2 text-xs text-zinc-500">
