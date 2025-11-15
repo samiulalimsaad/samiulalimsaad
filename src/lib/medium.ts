@@ -35,10 +35,7 @@ export async function fetchMediumFeed(): Promise<MediumFeed | null> {
             "https://api.rss2json.com/v1/api.json?rss_url=" +
             encodeURIComponent("https://medium.com/feed/@samiulalimsaad");
 
-        const res = await fetch(url, {
-            // Force server-side fetch and avoid using any client cache
-            cache: "no-store",
-        });
+        const res = await fetch(url);
 
         if (!res.ok) {
             console.error(
