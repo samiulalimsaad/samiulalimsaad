@@ -1,6 +1,7 @@
 "use client";
 
 import {
+    AtSign,
     Facebook,
     Github,
     Linkedin,
@@ -8,6 +9,7 @@ import {
     MessageCircle,
     Phone,
     SendHorizontal,
+    User,
 } from "lucide-react";
 
 const Contact = () => {
@@ -148,9 +150,7 @@ const Contact = () => {
                                 <div className="relative">
                                     <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-zinc-400">
                                         <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-zinc-100">
-                                            <span className="text-[11px] font-semibold text-zinc-500">
-                                                Nm
-                                            </span>
+                                            <User className="h-4 w-4" />
                                         </span>
                                     </span>
                                     <input
@@ -172,7 +172,7 @@ const Contact = () => {
                                 <div className="relative">
                                     <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-zinc-400">
                                         <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-zinc-100">
-                                            @
+                                            <AtSign className="h-4 w-4" />
                                         </span>
                                     </span>
                                     <input
