@@ -16,7 +16,7 @@ export default async function AllBlogsPage() {
 
     if (!feed || posts.length === 0) {
         return (
-            <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4">
+            <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4 animate-section-in">
                 <div className="mx-auto w-full max-w-6xl text-center">
                     <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
                         <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
@@ -46,8 +46,8 @@ export default async function AllBlogsPage() {
     }
 
     return (
-        <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4">
-            <div className="mx-auto w-full max-w-6xl">
+        <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4 animate-section-in">
+            <div className="mx-auto w-full max-w-6xl animate-soft-in">
                 <h1 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         All Blogs
@@ -61,7 +61,7 @@ export default async function AllBlogsPage() {
                     {posts.map((post) => (
                         <article
                             key={post.title}
-                            className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-6 backdrop-blur-sm shadow-sm transition hover:-translate-y-2"
+                            className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-6 backdrop-blur-sm shadow-sm transition hover:-translate-y-2 animate-card-in"
                         >
                             <h2 className="mb-2 line-clamp-2 text-lg sm:text-xl font-semibold text-indigo-700">
                                 {post.title}

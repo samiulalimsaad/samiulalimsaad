@@ -22,7 +22,7 @@ export default async function Blog() {
     return (
         <section
             id="blogs"
-            className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4"
+            className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4 animate-section-in"
         >
             <div className="mx-auto w-full max-w-6xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
@@ -39,7 +39,7 @@ export default async function Blog() {
                     {posts.map((post) => (
                         <article
                             key={post.title}
-                            className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-5 backdrop-blur-sm shadow-sm transition hover:-translate-y-1"
+                            className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-5 backdrop-blur-sm shadow-sm transition hover:-translate-y-1 animate-card-in"
                         >
                             <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-indigo-700">
                                 {post.title}

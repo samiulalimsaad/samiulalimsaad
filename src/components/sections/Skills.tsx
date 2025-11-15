@@ -9,7 +9,7 @@ export default function Skills() {
     return (
         <section
             id="skills"
-            className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4"
+            className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4 animate-section-in"
         >
             <div className="mx-auto w-full max-w-6xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
@@ -51,7 +51,7 @@ function SkillCard({ tier, isExpanded, onToggle }: SkillCardProps) {
     const visibleGroups = isExpanded ? tier.groups : tier.groups.slice(0, 2);
 
     return (
-        <div className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white/80 p-5 backdrop-blur-sm transition hover:-translate-y-1">
+        <div className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white/80 p-5 backdrop-blur-sm transition hover:-translate-y-1 animate-card-in">
             <div className="space-y-1">
                 <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">
                     {tier.label}

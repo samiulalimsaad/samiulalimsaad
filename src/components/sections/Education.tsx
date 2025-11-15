@@ -37,9 +37,9 @@ export default function Education() {
     return (
         <section
             id="education"
-            className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4"
+            className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in"
         >
-            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-white/70 bg-white/80 p-6 sm:p-8 shadow-sm backdrop-blur-sm">
+            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-white/70 bg-white/80 p-6 sm:p-8 shadow-sm backdrop-blur-sm animate-soft-in">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         Education
@@ -50,7 +50,7 @@ export default function Education() {
                     postgraduate studies.
                 </p>
                 <div className="space-y-6">
-                    <div className="relative rounded-3xl border border-white/80 bg-linear-to-br from-white via-cyan-50/60 to-indigo-50/60 p-6 shadow-sm">
+                    <div className="relative rounded-3xl border border-white/80 bg-linear-to-br from-white via-cyan-50/60 to-indigo-50/60 p-6 shadow-sm animate-card-in">
                         <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full border border-indigo-100 bg-white/80 px-3 py-1 text-[11px] font-medium text-indigo-700">
                             <CalendarDays size={12} /> {featured.year}
                         </span>
@@ -78,7 +78,7 @@ export default function Education() {
                         {others.map((e, i) => (
                             <div
                                 key={i}
-                                className="relative rounded-2xl border border-white/80 bg-linear-to-br from-white via-cyan-50/50 to-indigo-50/50 p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                                className="relative rounded-2xl border border-white/80 bg-linear-to-br from-white via-cyan-50/50 to-indigo-50/50 p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md animate-card-in"
                             >
                                 <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-indigo-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-indigo-700">
                                     <CalendarDays size={12} /> {e.year}

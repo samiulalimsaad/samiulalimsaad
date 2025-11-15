@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function AllProjectsPage() {
     return (
-        <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4">
-            <div className="mx-auto w-full max-w-6xl">
+        <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in">
+            <div className="mx-auto w-full max-w-6xl animate-soft-in">
                 <h1 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         All Projects
@@ -33,7 +33,7 @@ type ProjectCardProps = {
 
 function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 backdrop-blur-sm transition hover:-translate-y-2">
+        <div className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 backdrop-blur-sm transition hover:-translate-y-2 animate-card-in">
             <div className="overflow-hidden">
                 <Image
                     src={project.image}

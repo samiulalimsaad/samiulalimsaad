@@ -1,5 +1,5 @@
-import { Briefcase, Building2, CalendarDays, MapPin } from "lucide-react";
 import { getExperienceYears } from "@/lib/utils";
+import { Briefcase, Building2, CalendarDays, MapPin } from "lucide-react";
 const experiences = [
     {
         designation: "Web Developer",
@@ -58,14 +58,16 @@ function formatDuration(from: string, to: string) {
 
 export default function Experience() {
     const roles = experiences.length;
-    const modes = Array.from(new Set(experiences.map((e) => e.jobMode))).filter(Boolean).join(" / ");
+    const modes = Array.from(new Set(experiences.map((e) => e.jobMode)))
+        .filter(Boolean)
+        .join(" / ");
     const years = getExperienceYears();
     return (
         <section
             id="experience"
-            className="w-full bg-linear-to-b from-indigo-50/50 via-white to-sky-50/60 py-20 px-4"
+            className="w-full bg-linear-to-b from-indigo-50/50 via-white to-sky-50/60 py-20 px-4 animate-section-in"
         >
-            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-white/70 bg-white/80 p-6 sm:p-8 shadow-sm backdrop-blur-sm">
+            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-white/70 bg-white/80 p-6 sm:p-8 shadow-sm backdrop-blur-sm animate-soft-in">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         Experience
@@ -89,7 +91,10 @@ export default function Experience() {
                 <div className="rounded-3xl border border-white/70 bg-white/80 p-5 sm:p-6 backdrop-blur-sm">
                     <ol className="relative ml-4 border-s border-indigo-200">
                         {experiences.map((exp, index) => (
-                            <li key={exp.company + exp.designation} className="mb-8 ms-6 last:mb-0">
+                            <li
+                                key={exp.company + exp.designation}
+                                className="mb-8 ms-6 last:mb-0 animate-card-in"
+                            >
                                 <span className="absolute -left-4 grid h-8 w-8 place-items-center rounded-full bg-linear-to-br from-cyan-500 to-indigo-500 text-xs font-semibold text-white shadow-sm">
                                     {experiences.length - index}
                                 </span>
@@ -100,18 +105,26 @@ export default function Experience() {
                                         </h3>
                                         <div className="flex flex-wrap items-center gap-2">
                                             <span className="inline-flex items-center gap-1 rounded-full border border-cyan-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-cyan-700">
-                                                <Building2 size={12} /> {exp.company}
+                                                <Building2 size={12} />{" "}
+                                                {exp.company}
                                             </span>
                                             <span className="inline-flex items-center gap-1 rounded-full border border-indigo-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-indigo-700">
-                                                <CalendarDays size={12} /> {formatDuration(exp.dateFrom, exp.dateTo)}
+                                                <CalendarDays size={12} />{" "}
+                                                {formatDuration(
+                                                    exp.dateFrom,
+                                                    exp.dateTo
+                                                )}
                                             </span>
                                         </div>
                                         <p className="text-[11px] sm:text-xs text-zinc-500 inline-flex items-center gap-2">
                                             <span className="inline-flex items-center gap-1">
-                                                <MapPin size={12} /> {exp.location}
+                                                <MapPin size={12} />{" "}
+                                                {exp.location}
                                             </span>
                                             {exp.jobMode && (
-                                                <span className="inline-flex items-center gap-1 text-zinc-600">• {exp.jobMode}</span>
+                                                <span className="inline-flex items-center gap-1 text-zinc-600">
+                                                    • {exp.jobMode}
+                                                </span>
                                             )}
                                         </p>
                                         <p className="mt-2 text-[11px] sm:text-xs leading-relaxed text-zinc-600">
