@@ -23,13 +23,10 @@ export default function About() {
                             </span>{" "}
                             from Bangladesh, a full-stack software engineer with
                             over {experienceYears} years of hands-on experience
-                            building scalable web applications. My journey
-                            started during my university days at{" "}
-                            <span className="font-semibold text-cyan-600">
-                                North Bengal International University
-                            </span>
-                            , where curiosity for computers and programming
-                            quickly turned into a long-term passion.
+                            building modern, full-stack web applications. What
+                            started as simple curiosity about how software works
+                            has grown into a focused passion for turning ideas
+                            into reliable, production-ready products.
                         </p>
                         <p className="text-base sm:text-lg text-zinc-600 mb-4 leading-relaxed">
                             I work across the full stack, crafting modern,
@@ -54,7 +51,7 @@ export default function About() {
                                 MongoDB
                             </span>
                             . I care deeply about clean architecture,
-                            performance, and DX—whether I&apos;m designing APIs,
+                            performance, and DX whether I&apos;m designing APIs,
                             optimizing queries, or refining the UI.
                         </p>
                         <p className="text-base sm:text-lg text-zinc-600 leading-relaxed">
