@@ -120,7 +120,7 @@ export default function Experience() {
                                                 <Building2 size={12} />{" "}
                                                 {exp.company}
                                             </span>
-                                            <span className="inline-flex items-center gap-1 rounded-full border border-indigo-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-indigo-700">
+                                            <span className="inline-flex items-center gap-1 rounded-full border border-cyan-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-cyan-700">
                                                 <CalendarDays size={12} />{" "}
                                                 {formatDuration(
                                                     exp.dateFrom,

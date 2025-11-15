@@ -45,13 +45,13 @@ export default function Education() {
                         Education
                     </span>
                 </h2>
-                <p className="mx-auto mb-6 max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                <p className="mx-auto mb-6 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
                     A quick snapshot of my academic journey, from school to
                     postgraduate studies.
                 </p>
                 <div className="space-y-6">
                     <div className="relative rounded-3xl border border-white/80 bg-linear-to-br from-white via-cyan-50/60 to-indigo-50/60 p-6 shadow-sm animate-card-in">
-                        <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full border border-indigo-100 bg-white/80 px-3 py-1 text-[11px] font-medium text-indigo-700">
+                        <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full border border-cyan-100 bg-white/80 px-3 py-1 text-[11px] font-medium text-cyan-700">
                             <CalendarDays size={12} /> {featured.year}
                         </span>
                         <div className="flex items-start gap-3">
@@ -67,7 +67,7 @@ export default function Education() {
                                         {featured.subject}
                                     </p>
                                 )}
-                                <p className="text-xs sm:text-sm text-zinc-600">
+                                <p className="text-xs sm:text-sm text-foreground/70">
                                     {featured.institute}
                                 </p>
                             </div>
@@ -80,7 +80,7 @@ export default function Education() {
                                 key={i}
                                 className="relative rounded-2xl border border-white/80 bg-linear-to-br from-white via-cyan-50/50 to-indigo-50/50 p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md animate-card-in"
                             >
-                                <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-indigo-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-indigo-700">
+                                <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-cyan-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-cyan-700">
                                     <CalendarDays size={12} /> {e.year}
                                 </span>
                                 <h4 className="text-base sm:text-lg font-semibold text-cyan-700">

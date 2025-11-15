@@ -30,7 +30,7 @@ export default async function Blog() {
                         Latest from Medium
                     </span>
                 </h2>
-                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-zinc-600">
+                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
                     A few recent articles I&apos;ve written on Medium. For more,
                     visit my full profile.
                 </p>
@@ -44,7 +44,7 @@ export default async function Blog() {
                             <h3 className="mb-2 line-clamp-2 text-lg sm:text-xl font-semibold text-cyan-700">
                                 {post.title}
                             </h3>
-                            <p className="mb-3 text-xs text-zinc-500">
+                            <p className="mb-3 text-xs text-foreground/60">
                                 {formatDate(post.published)}
                             </p>
                             {post.category && post.category.length > 0 && (
@@ -59,7 +59,7 @@ export default async function Blog() {
                                     ))}
                                 </div>
                             )}
-                            <p className="mb-4 line-clamp-3 text-sm text-zinc-700">
+                            <p className="mb-4 line-clamp-3 text-sm text-foreground/80">
                                 {post.content
                                     ?.replace(/<[^>]*>/g, " ")
                                     .replace(/\s+/g, " ")

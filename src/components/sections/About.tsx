@@ -60,7 +60,7 @@ export default function About() {
                             and modern UI libraries to ship fast, accessible
                             interfaces.
                         </p>
-                        <p className="text-base sm:text-lg text-zinc-600 mb-4 leading-relaxed">
+                        <p className="text-base sm:text-lg text-foreground/70 mb-4 leading-relaxed">
                             On the backend and infrastructure side, I design
                             clean, well-documented REST and GraphQL APIs,
                             automate deployments with tools like Docker and
