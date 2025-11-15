@@ -6,7 +6,10 @@ const navItems = [
     { href: "/#education", label: "Education", type: "hash" as const },
     { href: "/#skills", label: "Skills", type: "hash" as const },
     { href: "/#projects", label: "Featured", type: "hash" as const },
+    { href: "/#blogs", label: "Blog", type: "hash" as const },
+    { href: "/#contact", label: "Contact", type: "hash" as const },
     { href: "/projects", label: "All Projects", type: "route" as const },
+    { href: "/blogs", label: "All Blogs", type: "route" as const },
 ] as const;
 
 export default function Navbar() {
