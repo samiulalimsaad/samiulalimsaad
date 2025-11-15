@@ -18,16 +18,21 @@ export default function About() {
                         </h2>
                         <p className="text-base sm:text-lg text-zinc-700 mb-4 leading-relaxed">
                             I&apos;m{" "}
-                            <span className="font-semibold text-indigo-600">
+                            <span className="font-semibold bg-linear-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
                                 Samiul Alim
                             </span>{" "}
                             from Bangladesh, a full-stack software engineer with
                             over {experienceYears} years of experience building
-                            scalable, modern web applications. What started as
-                            curiosity quickly became a focused passion for
-                            crafting products that are not only beautiful on the
-                            surface but robust, maintainable, and ready for
-                            production.
+                            scalable, modern web applications. I also practice
+                            competitive programming as{" "}
+                            <span className="font-semibold text-indigo-600">
+                                samiulalimsaad - Codeforces
+                            </span>
+                            , sharpening my problem-solving and algorithmic
+                            thinking. What started as curiosity quickly became a
+                            focused passion for crafting products that are not
+                            only beautiful on the surface but robust,
+                            maintainable, and ready for production.
                         </p>
                         <p className="text-base sm:text-lg text-zinc-600 mb-4 leading-relaxed">
                             I work across the full stack, building user-centric

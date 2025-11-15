@@ -2,6 +2,18 @@ import { getExperienceYears } from "@/lib/utils";
 import { Briefcase, Building2, CalendarDays, MapPin } from "lucide-react";
 const experiences = [
     {
+        designation: "Competitive Programmer",
+        company: "samiulalimsaad - Codeforces",
+        location: "Online",
+        jobType: "",
+        jobMode: "Remote",
+        dateFrom: "2020",
+        dateTo: "Now",
+        duration: "2020 0 Now",
+        description:
+            "Solving data structures and algorithms problems on Codeforces regularly to sharpen problem-solving skills and stay strong in competitive programming.",
+    },
+    {
         designation: "Web Developer",
         company: "Programming Hero",
         location: "Dhaka",

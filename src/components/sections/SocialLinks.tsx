@@ -1,4 +1,5 @@
 import {
+    Code2,
     Facebook,
     Github,
     Linkedin,
@@ -25,6 +26,11 @@ const socialList = [
         Icon: Twitter,
         href: "https://twitter.com/samiulalimsaad",
         label: "Twitter",
+    },
+    {
+        Icon: Code2,
+        href: "https://codeforces.com/profile/samiulalimsaad",
+        label: "Codeforces",
     },
     {
         Icon: MessageSquareCode,

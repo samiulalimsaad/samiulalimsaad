@@ -1,6 +1,6 @@
 import ResumeButton from "@/components/ResumeButton";
 import { getExperienceYears } from "@/lib/utils";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Code2, Github, Linkedin, Mail, MessageSquareCode } from "lucide-react";
 import Image from "next/image";
 
 const socials = [
@@ -15,9 +15,14 @@ const socials = [
         label: "LinkedIn",
     },
     {
-        href: "https://twitter.com/samiulalimsaad",
-        Icon: Twitter,
-        label: "Twitter",
+        Icon: MessageSquareCode,
+        href: "https://discord.com/users/938388181202653224",
+        label: "Discord",
+    },
+    {
+        href: "https://codeforces.com/profile/samiulalimsaad",
+        Icon: Code2,
+        label: "Codeforces",
     },
     {
         href: "mailto:samiulalimsaad@gmail.com",
