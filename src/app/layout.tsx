@@ -1,4 +1,5 @@
 import FloatingSocialLinks from "@/components/FloatingSocialLinks";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Visitor from "@/components/Visitor";
 import type { Metadata } from "next";
@@ -61,6 +62,7 @@ export default function RootLayout({
             >
                 <Navbar />
                 {children}
+                <Footer />
                 <FloatingSocialLinks />
                 <Visitor />
             </body>
