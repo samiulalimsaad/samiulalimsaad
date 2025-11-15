@@ -38,7 +38,7 @@ export default async function Blog() {
                 <div className="grid gap-6 md:grid-cols-3">
                     {posts.map((post) => (
                         <article
-                            key={post.id}
+                            key={post.title}
                             className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-5 backdrop-blur-sm shadow-sm transition hover:-translate-y-1"
                         >
                             <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-indigo-700">

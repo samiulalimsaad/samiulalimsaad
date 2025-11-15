@@ -60,7 +60,7 @@ export default async function AllBlogsPage() {
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {posts.map((post) => (
                         <article
-                            key={post.id}
+                            key={post.title}
                             className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-6 backdrop-blur-sm shadow-sm transition hover:-translate-y-2"
                         >
                             <h2 className="mb-2 line-clamp-2 text-lg sm:text-xl font-semibold text-indigo-700">
