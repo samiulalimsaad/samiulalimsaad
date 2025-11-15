@@ -2,18 +2,6 @@ import { getExperienceYears } from "@/lib/utils";
 import { Briefcase, Building2, CalendarDays, MapPin } from "lucide-react";
 const experiences = [
     {
-        designation: "Competitive Programmer",
-        company: "samiulalimsaad - Codeforces",
-        location: "Online",
-        jobType: "",
-        jobMode: "Remote",
-        dateFrom: "2020",
-        dateTo: "Now",
-        duration: "2020 0 Now",
-        description:
-            "Solving data structures and algorithms problems on Codeforces regularly to sharpen problem-solving skills and stay strong in competitive programming.",
-    },
-    {
         designation: "Web Developer",
         company: "Programming Hero",
         location: "Dhaka",
@@ -60,6 +48,18 @@ const experiences = [
         duration: "Jul 2021 0 Jan 2022",
         description:
             "Contributed to AI-focused projects remotely, collaborating with an international team and getting exposure to real-world product development workflows.",
+    },
+    {
+        designation: "Competitive Programmer",
+        company: "samiulalimsaad - Codeforces",
+        location: "Online",
+        jobType: "",
+        jobMode: "Remote",
+        dateFrom: "2020",
+        dateTo: "Now",
+        duration: "2020 0 Now",
+        description:
+            "Solving data structures and algorithms problems on Codeforces regularly to sharpen problem-solving skills and stay strong in competitive programming.",
     },
 ];
 
@@ -112,7 +112,7 @@ export default function Experience() {
                                 </span>
                                 <div className="rounded-2xl border border-zinc-100 bg-linear-to-br from-white via-cyan-50/40 to-indigo-50/40 p-4 transition hover:-translate-y-0.5 hover:shadow-md">
                                     <div className="space-y-1">
-                                        <h3 className="text-base sm:text-lg font-semibold text-indigo-700">
+                                        <h3 className="text-base sm:text-lg font-semibold text-cyan-700">
                                             {exp.designation}
                                         </h3>
                                         <div className="flex flex-wrap items-center gap-2">

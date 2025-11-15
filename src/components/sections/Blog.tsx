@@ -41,7 +41,7 @@ export default async function Blog() {
                             key={post.title}
                             className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-5 backdrop-blur-sm shadow-sm transition hover:-translate-y-1 animate-card-in"
                         >
-                            <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-indigo-700">
+                            <h3 className="mb-2 line-clamp-2 text-lg sm:text-xl font-semibold text-cyan-700">
                                 {post.title}
                             </h3>
                             <p className="mb-3 text-xs text-zinc-500">

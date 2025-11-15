@@ -59,7 +59,7 @@ export default function Education() {
                                 <GraduationCap size={18} />
                             </span>
                             <div className="space-y-1">
-                                <h3 className="text-lg sm:text-xl font-semibold text-indigo-700">
+                                <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">
                                     {featured.degree}
                                 </h3>
                                 {featured.subject && (
@@ -83,7 +83,7 @@ export default function Education() {
                                 <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-indigo-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-indigo-700">
                                     <CalendarDays size={12} /> {e.year}
                                 </span>
-                                <h4 className="text-base sm:text-lg font-semibold text-indigo-700">
+                                <h4 className="text-base sm:text-lg font-semibold text-cyan-700">
                                     {e.degree}
                                 </h4>
                                 {e.subject && (

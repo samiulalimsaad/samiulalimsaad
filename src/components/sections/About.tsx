@@ -25,7 +25,7 @@ export default function About() {
                             over {experienceYears} years of experience building
                             scalable, modern web applications. I also practice
                             competitive programming as{" "}
-                            <span className="font-semibold text-indigo-600">
+                            <span className="font-semibold text-cyan-700">
                                 samiulalimsaad - Codeforces
                             </span>
                             , sharpening my problem-solving and algorithmic

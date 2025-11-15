@@ -57,7 +57,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                 />
             </div>
             <div className="flex flex-1 flex-col p-6">
-                <h3 className="mb-1 text-xl sm:text-2xl font-bold text-indigo-700">
+                <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">
                     {project.name}
                 </h3>
                 <p className="mb-2 text-sm text-foreground/80">
@@ -85,7 +85,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                         href={project.githubFrontEnd}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-zinc-900 text-white hover:bg-zinc-700 transition"
+                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
                     >
                         GitHub
                     </a>
@@ -93,7 +93,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-cyan-600 text-white hover:bg-cyan-900 transition"
+                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
                     >
                         Live Demo
                     </a>
