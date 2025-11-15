@@ -1,6 +1,7 @@
 import FloatingSocialLinks from "@/components/FloatingSocialLinks";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ScrollToTop from "@/components/ScrollToTop";
 import Visitor from "@/components/Visitor";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -64,6 +65,7 @@ export default function RootLayout({
                 {children}
                 <Footer />
                 <FloatingSocialLinks />
+                <ScrollToTop />
                 <Visitor />
             </body>
         </html>
