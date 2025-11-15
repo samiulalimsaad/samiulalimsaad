@@ -1,3 +1,4 @@
+import ResumeButton from "@/components/ResumeButton";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Image from "next/image";
 
@@ -65,17 +66,12 @@ export default function Hero() {
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a
-                            href="#projects"
+                            href="#contact"
                             className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white transition"
                         >
-                            View Projects
+                            Hire Me
                         </a>
-                        <a
-                            href="#about"
-                            className="inline-flex items-center rounded-full border border-cyan-100 bg-white/80 px-6 py-2 text-sm font-semibold text-cyan-700 transition hover:border-cyan-300 hover:bg-cyan-50/60"
-                        >
-                            About Me
-                        </a>
+                        <ResumeButton />
                     </div>
                     <div className="mt-4 flex flex-wrap items-center gap-3">
                         <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600">
