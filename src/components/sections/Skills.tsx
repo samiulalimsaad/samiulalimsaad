@@ -11,7 +11,7 @@ export default function Skills() {
             id="skills"
             className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4"
         >
-            <div className="mx-auto w-full max-w-5xl">
+            <div className="mx-auto w-full max-w-6xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         Skills

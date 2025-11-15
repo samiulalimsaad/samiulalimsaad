@@ -30,7 +30,7 @@ export default function Hero() {
             <div className="absolute inset-x-0 top-20 -z-10 flex justify-center">
                 <div className="h-64 w-64 rounded-full bg-cyan-200/30 blur-3xl" />
             </div>
-            <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:text-left">
+            <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:text-left">
                 <div className="flex-1 flex flex-col items-center md:items-start gap-5">
                     <span className="inline-flex items-center rounded-full border border-cyan-200 bg-white/60 px-4 py-1 text-xs font-semibold text-cyan-700 backdrop-blur">
                         <span className="mr-2 h-2 w-2 rounded-full bg-emerald-400" />

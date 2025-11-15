@@ -4,7 +4,7 @@ export default function About() {
             id="about"
             className="w-full bg-linear-to-b from-white via-sky-50/60 to-indigo-50/40 py-20 px-4"
         >
-            <div className="mx-auto flex w-full max-w-4xl flex-col gap-8 md:flex-row md:items-stretch">
+            <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 md:flex-row md:items-stretch">
                 <div className="flex-1 flex items-center">
                     <div className="w-full rounded-3xl bg-white/80 p-8 backdrop-blur-sm border border-gray-200">
                         <h2 className="text-center md:text-left text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
