@@ -4,6 +4,7 @@ import {
     Linkedin,
     Mail,
     MessageCircle,
+    MessageSquareCode,
     Phone,
 } from "lucide-react";
 import ContactForm from "./ContactForm";
@@ -16,8 +17,8 @@ const Contact = () => {
         >
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 md:flex-row md:items-stretch">
                 {/* Contact Info */}
-                <div className="flex-1 flex items-center">
-                    <div className="w-full rounded-3xl bg-white/80 p-8 backdrop-blur-sm border border-gray-200">
+                <div className="flex-1 flex">
+                    <div className="w-full h-full rounded-3xl bg-white/80 p-8 backdrop-blur-sm border border-gray-200">
                         <h2 className="text-center md:text-left text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
                             <span className="bg-linear-to-r from-indigo-600 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
                                 Contact Me
@@ -71,6 +72,19 @@ const Contact = () => {
                             </p>
                             <p className="flex items-center">
                                 <a
+                                    href="https://discord.com/users/938388181202653224"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="flex items-center hover:text-sky-600"
+                                >
+                                    <span className="mr-4">
+                                        <MessageSquareCode className="h-5 w-5" />
+                                    </span>
+                                    discord.com/users/938388181202653224
+                                </a>
+                            </p>
+                            <p className="flex items-center">
+                                <a
                                     href="https://m.me/samiulalimsaad"
                                     target="_blank"
                                     rel="noreferrer"
@@ -113,7 +127,7 @@ const Contact = () => {
                 </div>
 
                 {/* Simple contact form (separate component) */}
-                <div className="flex-1 flex items-center">
+                <div className="flex-1 flex">
                     <ContactForm />
                 </div>
             </div>
