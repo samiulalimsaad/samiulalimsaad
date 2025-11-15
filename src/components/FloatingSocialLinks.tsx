@@ -1,4 +1,5 @@
 import SocialLinks from "@/components/sections/SocialLinks";
+import { Send } from "lucide-react";
 
 export default function FloatingSocialLinks() {
     return (
@@ -19,7 +20,7 @@ export default function FloatingSocialLinks() {
                         className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-linear-to-br from-indigo-500 to-cyan-500 text-white shadow-lg ring-1 ring-indigo-300/70 transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
                     >
                         <span className="sr-only">Toggle social links</span>
-                        <span className="text-sm font-semibold">+</span>
+                        <Send className="h-5 w-5" aria-hidden="true" />
                     </label>
 
                     {/* Sliding panel: hidden by default, visible when checkbox is checked */}
