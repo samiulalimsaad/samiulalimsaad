@@ -1,3 +1,4 @@
+import FloatingSocialLinks from "@/components/FloatingSocialLinks";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -59,6 +60,7 @@ export default function RootLayout({
             >
                 <Navbar />
                 {children}
+                <FloatingSocialLinks />
             </body>
         </html>
     );
