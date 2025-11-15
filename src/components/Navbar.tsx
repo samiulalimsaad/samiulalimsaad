@@ -15,7 +15,7 @@ const navItems = [
 
 export default function Navbar() {
     return (
-        <header className="sticky top-0 z-40 border-b border-white/60 bg-white/80 backdrop-blur-md">
+        <header className="sticky top-0 z-40 border-b border-white/60 bg-white/80 backdrop-blur-md animate-soft-in">
             <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:py-3">
                 {/* Brand */}
                 <Link href="/" className="flex items-center gap-2">
@@ -34,7 +34,7 @@ export default function Navbar() {
                             <li key={item.href}>
                                 <Link
                                     href={item.href}
-                                    className="rounded-full px-3 py-1 text-sm transition-colors bg-linear-to-r from-cyan-500 to-indigo-500 text-transparent bg-clip-text"
+                                    className="rounded-full px-3 py-1 text-sm transition bg-linear-to-r from-cyan-500 to-indigo-500 text-transparent bg-clip-text hover:-translate-y-0.5 hover:brightness-110"
                                 >
                                     {item.label}
                                 </Link>

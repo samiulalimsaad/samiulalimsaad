@@ -30,12 +30,12 @@ export default function Hero() {
     const experienceYears = getExperienceYears();
 
     return (
-        <section className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4">
+        <section className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4 animate-section-in">
             <div className="absolute inset-x-0 top-20 -z-10 flex justify-center">
-                <div className="h-64 w-64 rounded-full bg-cyan-200/30 blur-3xl" />
+                <div className="h-64 w-64 rounded-full bg-cyan-200/30 blur-3xl animate-soft-in" />
             </div>
             <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:text-left">
-                <div className="flex-1 flex flex-col items-center md:items-start gap-5">
+                <div className="flex-1 flex flex-col items-center md:items-start gap-5 animate-soft-in">
                     <span className="inline-flex items-center rounded-full border border-cyan-200 bg-white/60 px-4 py-1 text-xs font-semibold text-cyan-700 backdrop-blur">
                         <span className="mr-2 h-2 w-2 rounded-full bg-emerald-400" />
                         Open to opportunities
@@ -102,9 +102,9 @@ export default function Hero() {
                     </div>
                 </div>
                 <div className="flex-1 flex justify-center md:justify-end">
-                    <div className="relative">
+                    <div className="relative animate-float-slow">
                         <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-cyan-300 via-indigo-300 to-sky-200 opacity-70 blur-md" />
-                        <div className="relative rounded-3xl bg-white/80 p-5 backdrop-blur">
+                        <div className="relative rounded-3xl bg-white/80 p-5 backdrop-blur animate-soft-in">
                             <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-full border-4 border-white sm:h-72 sm:w-72">
                                 <Image
                                     src="/avatars/samiul-alim.png"

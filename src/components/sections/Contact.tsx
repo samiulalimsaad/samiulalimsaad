@@ -13,12 +13,12 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className="w-full bg-linear-to-b from-white via-sky-50/60 to-indigo-50/40 py-20 px-4"
+            className="w-full bg-linear-to-b from-white via-sky-50/60 to-indigo-50/40 py-20 px-4 animate-section-in"
         >
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 md:flex-row md:items-stretch">
                 {/* Contact Info */}
                 <div className="flex-1 flex">
-                    <div className="w-full h-full rounded-3xl bg-white/80 p-8 backdrop-blur-sm border border-gray-200">
+                    <div className="w-full h-full rounded-3xl bg-white/80 p-8 backdrop-blur-sm border border-gray-200 animate-soft-in">
                         <h2 className="text-center md:text-left text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
                             <span className="bg-linear-to-r from-indigo-600 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
                                 Contact Me
@@ -127,7 +127,7 @@ const Contact = () => {
                 </div>
 
                 {/* Simple contact form (separate component) */}
-                <div className="flex-1 flex">
+                <div className="flex-1 flex animate-soft-in">
                     <ContactForm />
                 </div>
             </div>

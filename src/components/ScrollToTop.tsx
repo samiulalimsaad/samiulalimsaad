@@ -28,7 +28,7 @@ const ScrollToTop = () => {
             type="button"
             onClick={handleClick}
             aria-label="Scroll to top"
-            className="fixed bottom-24 right-6 z-40 rounded-full bg-linear-to-br from-indigo-600 via-cyan-500 to-sky-500 p-3 shadow-lg shadow-sky-500/30 transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-300 cursor-pointer"
+            className="fixed bottom-24 right-6 z-40 rounded-full bg-linear-to-br from-indigo-600 via-cyan-500 to-sky-500 p-3 shadow-lg shadow-sky-500/30 transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-300 cursor-pointer animate-soft-in animate-pulse-soft"
         >
             <ArrowUp className="h-5 w-5 text-white" />
         </button>

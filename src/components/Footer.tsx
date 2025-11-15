@@ -3,7 +3,7 @@ import SocialLinks from "@/components/sections/SocialLinks";
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <footer className="w-full bg-linear-to-b from-transparent via-sky-50/60 to-indigo-50/60 border-t border-white/60 mt-10">
+        <footer className="w-full bg-linear-to-b from-transparent via-sky-50/60 to-indigo-50/60 border-t border-white/60 mt-10 animate-soft-in">
             <div className="mx-auto max-w-6xl px-4 py-8">
                 <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                     <div>
