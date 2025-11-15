@@ -1,13 +1,15 @@
-"use client";
+import { trackVisitorVisit } from "@/server-actions/visit";
+import { headers } from "next/headers";
 
-import { useEffect } from "react";
+export default async function Visitor() {
+    const headersList = headers();
+    const result = await trackVisitorVisit(headersList);
 
-export default function Visitor() {
-    useEffect(() => {
-        if (process.env.NODE_ENV === "production") {
-            fetch("/api/visit", { method: "POST" });
-        }
-    }, []);
+    if (result.success) {
+        console.log("Visitor tracked:", result.ip);
+    } else {
+        console.error("Tracking failed:", result.error);
+    }
 
     return null;
 }
