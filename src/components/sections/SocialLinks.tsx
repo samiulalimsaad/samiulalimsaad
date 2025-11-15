@@ -4,6 +4,8 @@ import {
     Linkedin,
     Mail,
     MessageCircle,
+    MessageCircleCode,
+    MessageSquareCode,
     Phone,
     Twitter,
 } from "lucide-react";
@@ -25,6 +27,11 @@ const socialList = [
         label: "Twitter",
     },
     {
+        Icon: MessageSquareCode,
+        href: "https://discord.com/users/938388181202653224",
+        label: "Discord",
+    },
+    {
         Icon: Facebook,
         href: "https://facebook.com/samiulalimsaad",
         label: "Facebook",
@@ -35,7 +42,7 @@ const socialList = [
         label: "Messenger",
     },
     {
-        Icon: MessageCircle,
+        Icon: MessageCircleCode,
         href: "https://wa.me/8801715378032",
         label: "WhatsApp",
     },
