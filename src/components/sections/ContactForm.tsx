@@ -22,7 +22,6 @@ const ContactForm = () => {
         <form
             className="w-full rounded-3xl bg-white/90 p-8 backdrop-blur-sm border border-gray-200 shadow-md space-y-6"
             action={formAction}
-            method="post"
         >
             <div className="flex items-center justify-between gap-3 mb-2">
                 <h3 className="text-lg font-semibold text-zinc-800">
