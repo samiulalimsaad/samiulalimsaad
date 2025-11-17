@@ -1,14 +1,24 @@
+"use client";
+
 import { trackVisitorVisit } from "@/server-actions/visit";
-import { headers } from "next/headers";
+import { useEffect } from "react";
 
 // Create a global variable to track if visitor has been logged
 let visitorLogged = false;
 
-export default async function Visitor() {
-    if (process.env.NODE_ENV === "production" && !visitorLogged) {
-        visitorLogged = true;
-        trackVisitorVisit(headers()); // Call without headers since we're handling it internally
-    }
+export default function Visitor() {
+    console.log(
+        "Visitor component rendered",
+        process.env.NODE_ENV,
+        visitorLogged
+    );
+
+    useEffect(() => {
+        if (!visitorLogged) {
+            visitorLogged = true;
+            trackVisitorVisit();
+        }
+    }, []);
 
     return null;
 }
