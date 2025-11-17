@@ -7,14 +7,8 @@ import { useEffect } from "react";
 let visitorLogged = false;
 
 export default function Visitor() {
-    console.log(
-        "Visitor component rendered",
-        process.env.NODE_ENV,
-        visitorLogged
-    );
-
     useEffect(() => {
-        if (!visitorLogged) {
+        if (process.env.NODE_ENV === "production" && !visitorLogged) {
             visitorLogged = true;
             trackVisitorVisit();
         }
