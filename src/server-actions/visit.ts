@@ -1,4 +1,7 @@
-import { ReadonlyHeaders } from "next/dist/server/web/spec-extension/adapters/headers";
+"use server";
+
+import { detectDevice } from "@/components/utils/detectDevice";
+import { headers } from "next/headers";
 
 // Type definition for location data
 interface LocationData {
@@ -16,16 +19,12 @@ interface LocationData {
 }
 
 // Server Action - No HTTP response, just return data
-export async function trackVisitorVisit(
-    headersPromise: Promise<ReadonlyHeaders>
-): Promise<{
+export async function trackVisitorVisit(): Promise<{
     success: boolean;
     error?: string;
     location?: LocationData | null;
     ip?: string;
 }> {
-    "use server";
-
     try {
         const DISCORD_CHANNEL = process.env.DISCORD_PAGE_VISIT_WEBHOOK_URL;
         const DISCORD_MENTION_ID = process.env.DISCORD_MENTION_ID;
@@ -42,17 +41,30 @@ export async function trackVisitorVisit(
             };
         }
 
-        const headers = await headersPromise; // Await the headers
-        const ip = getIP(headers);
-        const locationData: LocationData | null = await getLocationByIP(ip);
+        const hdrs = await headers(); // Await the headers
+
+        const ip = hdrs.get("x-forwarded-for") || hdrs.get("x-real-ip");
+
+        const { browser, os, type } = detectDevice(
+            hdrs.get("user-agent") || ""
+        );
 
         const content = [
             `<@${DISCORD_MENTION_ID}> a person landed on the site at ${timestamp}`,
-            `Location: ${locationData?.city || "Unknown"}, ${
-                locationData?.country || "Unknown"
-            }`,
             `detected IP: \`${ip}\``,
-            JSON.stringify(locationData, null, 2),
+            `user IP: \`${hdrs.get("x-forwarded-for")}\``,
+            `user IP: \`${hdrs.get("x-real-ip")}\``,
+            `user IP: \`${hdrs.get("cf-connecting-ip")}\``,
+            `user IP: \`${hdrs.get("true-client-ip")}\``,
+            `user IP: \`${hdrs.get("cf-ipcountry")}\``,
+            `user agent: \`${hdrs.get("user-agent")}\``,
+            `user os: \`${os}\``,
+            `user browser: \`${browser}\``,
+            `user device: \`${type}\`,`,
+            `referrer: \`${hdrs.get("referrer")}\``,
+            `user language: \`${hdrs.get("accept-language")}\``,
+            `user timezone: \`${hdrs.get("timezone")}\``,
+            `user country: \`${hdrs.get("country")}\``,
         ].join("\n");
 
         const discordPayload = {
@@ -77,8 +89,6 @@ export async function trackVisitorVisit(
 
         return {
             success: true,
-            location: locationData,
-            ip: ip,
         };
     } catch (error) {
         console.error(error);
@@ -86,46 +96,5 @@ export async function trackVisitorVisit(
             success: false,
             error: "Unexpected server error",
         };
-    }
-}
-
-// Helper function to get client IP from headers
-function getIP(headers: Headers | ReadonlyHeaders): string {
-    const forwarded = headers.get("x-forwarded-for");
-    const realIP = headers.get("x-real-ip");
-    const cfConnectingIP = headers.get("cf-connecting-ip");
-
-    return (
-        forwarded?.split(",")[0]?.trim() ||
-        realIP?.trim() ||
-        cfConnectingIP?.trim() ||
-        "127.0.0.1"
-    );
-}
-
-// Helper function to get location by IP
-async function getLocationByIP(ip: string): Promise<LocationData | null> {
-    try {
-        // Using ipapi.co free service
-        const response = await fetch(`https://ipapi.io/${ip}/json/`);
-        if (!response.ok) throw new Error("Location API failed");
-
-        const data = await response.json();
-        return {
-            ip: data.ip || ip,
-            hostname: data.hostname || "unknown",
-            city: data.city || "unknown",
-            region: data.region || "unknown",
-            country: data.country || "unknown",
-            loc: data.loc || "unknown",
-            org: data.org || "unknown",
-            postal: data.postal || "unknown",
-            timezone: data.timezone || "unknown",
-            readme: data.readme || "unknown",
-            anycast: data.anycast || "unknown",
-        };
-    } catch (error) {
-        console.error("Location fetch error:", error);
-        return null;
     }
 }
