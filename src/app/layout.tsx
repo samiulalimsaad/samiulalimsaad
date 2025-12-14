@@ -1,13 +1,27 @@
-import FloatingSocialLinks from "@/components/FloatingSocialLinks";
-import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import ScrollToTop from "@/components/ScrollToTop";
 import Visitor from "@/components/Visitor";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 import "./globals.css";
+
+// Lazy load non-critical components
+const Footer = dynamic(() => import("@/components/Footer"), {
+    ssr: true,
+});
+
+const FloatingSocialLinks = dynamic(
+    () => import("@/components/FloatingSocialLinks"),
+    {
+        ssr: true,
+    }
+);
+
+const ScrollToTop = dynamic(() => import("@/components/ScrollToTop"), {
+    ssr: true,
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 

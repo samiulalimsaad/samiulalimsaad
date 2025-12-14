@@ -40,6 +40,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                     alt={project.name}
                     width={360}
                     height={216}
+                    loading="lazy"
                     className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
             </div>
