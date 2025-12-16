@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "export": "next export"
+    "dev": "bun run --bun next dev",
+    "build": "bun run --bun next build",
+    "start": "bun run --bun next start",
+    "lint": "bun run --bun next lint",
+    "export": "bun run --bun next export"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
@@ -42,5 +42,8 @@
       "sharp",
       "unrs-resolver"
     ]
-  }
+  },
+  "workspaces": [
+    "."
+  ]
 }
