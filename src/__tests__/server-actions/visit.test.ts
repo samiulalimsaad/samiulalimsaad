@@ -1,215 +1,222 @@
-import { trackVisitorVisit } from '@/server-actions/visit'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { trackVisitorVisit } from "@/server-actions/visit";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-// Mock Next.js headers
-const mockHeaders = vi.fn()
-vi.mock('next/headers', () => ({
-  headers: mockHeaders,
-}))
+const { mockHeaders } = vi.hoisted(() => ({
+    mockHeaders: vi.fn(),
+}));
 
-describe('trackVisitorVisit', () => {
-  const mockFetch = vi.mocked(global.fetch)
+vi.mock("next/headers", () => ({
+    headers: mockHeaders,
+}));
 
-  beforeEach(() => {
-    vi.clearAllMocks()
-    process.env.DISCORD_PAGE_VISIT_WEBHOOK_URL = 'https://discord.com/api/webhooks/visit'
-    process.env.DISCORD_MENTION_ID = '123456789'
-    process.env.DISCORD_TOKEN = 'visit-token'
-  })
+describe("trackVisitorVisit", () => {
+    const mockFetch = vi.fn();
 
-  afterEach(() => {
-    delete process.env.DISCORD_PAGE_VISIT_WEBHOOK_URL
-    delete process.env.DISCORD_MENTION_ID
-    delete process.env.DISCORD_TOKEN
-  })
+    beforeEach(() => {
+        vi.clearAllMocks();
+        process.env.DISCORD_PAGE_VISIT_WEBHOOK_URL =
+            "https://discord.com/api/webhooks/visit";
+        process.env.DISCORD_MENTION_ID = "123456789";
+        process.env.DISCORD_TOKEN = "visit-token";
+        global.fetch = mockFetch as typeof fetch;
+    });
 
-  it('should return error when Discord webhook URL is not configured', async () => {
-    delete process.env.DISCORD_PAGE_VISIT_WEBHOOK_URL
+    afterEach(() => {
+        delete process.env.DISCORD_PAGE_VISIT_WEBHOOK_URL;
+        delete process.env.DISCORD_MENTION_ID;
+        delete process.env.DISCORD_TOKEN;
+    });
 
-    const result = await trackVisitorVisit()
+    it("should return error when Discord webhook URL is not configured", async () => {
+        delete process.env.DISCORD_PAGE_VISIT_WEBHOOK_URL;
 
-    expect(result).toEqual({
-      success: false,
-      error: 'Server is not configured',
-    })
+        const result = await trackVisitorVisit();
 
-    expect(mockFetch).not.toHaveBeenCalled()
-  })
+        expect(result).toEqual({
+            success: false,
+            error: "Server is not configured",
+        });
 
-  it('should successfully track visitor visit', async () => {
-    const mockHeadersInstance = {
-      get: vi.fn((key: string) => {
-        const headers = {
-          'x-forwarded-for': '192.168.1.1',
-          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-          'referrer': 'https://google.com',
-          'accept-language': 'en-US,en;q=0.9',
-          'timezone': 'America/New_York',
-          'country': 'US',
-        }
-        return headers[key as keyof typeof headers] || null
-      }),
-    }
+        expect(mockFetch).not.toHaveBeenCalled();
+    });
 
-    mockHeaders.mockResolvedValue(mockHeadersInstance)
+    it("should successfully track visitor visit", async () => {
+        const mockHeadersInstance = {
+            get: vi.fn((key: string) => {
+                const headers = {
+                    "x-forwarded-for": "192.168.1.1",
+                    "user-agent":
+                        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+                    referrer: "https://google.com",
+                    "accept-language": "en-US,en;q=0.9",
+                    timezone: "America/New_York",
+                    country: "US",
+                };
+                return headers[key as keyof typeof headers] || null;
+            }),
+        };
 
-    mockFetch.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-    } as Response)
+        mockHeaders.mockResolvedValue(mockHeadersInstance);
 
-    const result = await trackVisitorVisit()
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+        } as Response);
 
-    expect(result).toEqual({
-      success: true,
-    })
+        const result = await trackVisitorVisit();
 
-    expect(mockFetch).toHaveBeenCalledWith(
-      'https://discord.com/api/webhooks/visit',
-      expect.objectContaining({
-        method: 'POST',
-        headers: {
-          'Authorization': 'Bot visit-token',
-          'Content-Type': 'application/json',
-        },
-      })
-    )
+        expect(result).toEqual({
+            success: true,
+        });
 
-    const callArgs = mockFetch.mock.calls[0]
-    const body = JSON.parse(callArgs[1]?.body as string)
+        expect(mockFetch).toHaveBeenCalledWith(
+            "https://discord.com/api/webhooks/visit",
+            expect.objectContaining({
+                method: "POST",
+                headers: {
+                    Authorization: "Bot visit-token",
+                    "Content-Type": "application/json",
+                },
+            }),
+        );
 
-    expect(body.content).toContain('<@123456789>')
-    expect(body.content).toContain('192.168.1.1')
-    expect(body.content).toContain('Windows')
-    expect(body.content).toContain('Chrome')
-    expect(body.content).toContain('desktop')
-    expect(body.content).toContain('https://google.com')
-    expect(body.content).toContain('en-US,en;q=0.9')
-  })
+        const callArgs = mockFetch.mock.calls[0];
+        const body = JSON.parse(callArgs[1]?.body as string);
 
-  it('should handle missing headers gracefully', async () => {
-    const mockHeadersInstance = {
-      get: vi.fn(() => null),
-    }
+        expect(body.content).toContain("<@123456789>");
+        expect(body.content).toContain("192.168.1.1");
+        expect(body.content).toContain("Windows");
+        expect(body.content).toContain("Chrome");
+        expect(body.content).toContain("desktop");
+        expect(body.content).toContain("https://google.com");
+        expect(body.content).toContain("en-US,en;q=0.9");
+    });
 
-    mockHeaders.mockResolvedValue(mockHeadersInstance)
+    it("should handle missing headers gracefully", async () => {
+        const mockHeadersInstance = {
+            get: vi.fn(() => null),
+        };
 
-    mockFetch.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-    } as Response)
+        mockHeaders.mockResolvedValue(mockHeadersInstance);
 
-    const result = await trackVisitorVisit()
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+        } as Response);
 
-    expect(result).toEqual({
-      success: true,
-    })
+        const result = await trackVisitorVisit();
 
-    const callArgs = mockFetch.mock.calls[0]
-    const body = JSON.parse(callArgs[1]?.body as string)
+        expect(result).toEqual({
+            success: true,
+        });
 
-    expect(body.content).toContain('`null`')
-    expect(body.content).toContain('user os: `null`')
-    expect(body.content).toContain('user browser: `null`')
-    expect(body.content).toContain('user device: `desktop`')
-  })
+        const callArgs = mockFetch.mock.calls[0];
+        const body = JSON.parse(callArgs[1]?.body as string);
 
-  it('should handle Discord API failure', async () => {
-    const mockHeadersInstance = {
-      get: vi.fn(() => 'test-value'),
-    }
+        expect(body.content).toContain("`null`");
+        expect(body.content).toContain("user os: `null`");
+        expect(body.content).toContain("user browser: `null`");
+        expect(body.content).toContain("user device: `desktop`");
+    });
 
-    mockHeaders.mockResolvedValue(mockHeadersInstance)
+    it("should handle Discord API failure", async () => {
+        const mockHeadersInstance = {
+            get: vi.fn(() => "test-value"),
+        };
 
-    mockFetch.mockResolvedValueOnce({
-      ok: false,
-      status: 500,
-    } as Response)
+        mockHeaders.mockResolvedValue(mockHeadersInstance);
 
-    const result = await trackVisitorVisit()
+        mockFetch.mockResolvedValueOnce({
+            ok: false,
+            status: 500,
+        } as Response);
 
-    expect(result).toEqual({
-      success: false,
-      error: 'Failed to send message',
-    })
-  })
+        const result = await trackVisitorVisit();
 
-  it('should handle network errors', async () => {
-    const mockHeadersInstance = {
-      get: vi.fn(() => 'test-value'),
-    }
+        expect(result).toEqual({
+            success: false,
+            error: "Failed to send message",
+        });
+    });
 
-    mockHeaders.mockResolvedValue(mockHeadersInstance)
+    it("should handle network errors", async () => {
+        const mockHeadersInstance = {
+            get: vi.fn(() => "test-value"),
+        };
 
-    mockFetch.mockRejectedValueOnce(new Error('Network error'))
+        mockHeaders.mockResolvedValue(mockHeadersInstance);
 
-    const result = await trackVisitorVisit()
+        mockFetch.mockRejectedValueOnce(new Error("Network error"));
 
-    expect(result).toEqual({
-      success: false,
-      error: 'Unexpected server error',
-    })
-  })
+        const result = await trackVisitorVisit();
 
-  it('should handle multiple IP headers', async () => {
-    const mockHeadersInstance = {
-      get: vi.fn((key: string) => {
-        const headers = {
-          'x-forwarded-for': '192.168.1.1, 10.0.0.1',
-          'x-real-ip': '192.168.1.2',
-          'cf-connecting-ip': '192.168.1.3',
-          'true-client-ip': '192.168.1.4',
-          'cf-ipcountry': 'US',
-          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        }
-        return headers[key as keyof typeof headers] || null
-      }),
-    }
+        expect(result).toEqual({
+            success: false,
+            error: "Unexpected server error",
+        });
+    });
 
-    mockHeaders.mockResolvedValue(mockHeadersInstance)
+    it("should handle multiple IP headers", async () => {
+        const mockHeadersInstance = {
+            get: vi.fn((key: string) => {
+                const headers = {
+                    "x-forwarded-for": "192.168.1.1, 10.0.0.1",
+                    "x-real-ip": "192.168.1.2",
+                    "cf-connecting-ip": "192.168.1.3",
+                    "true-client-ip": "192.168.1.4",
+                    "cf-ipcountry": "US",
+                    "user-agent":
+                        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                };
+                return headers[key as keyof typeof headers] || null;
+            }),
+        };
 
-    mockFetch.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-    } as Response)
+        mockHeaders.mockResolvedValue(mockHeadersInstance);
 
-    await trackVisitorVisit()
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+        } as Response);
 
-    const callArgs = mockFetch.mock.calls[0]
-    const body = JSON.parse(callArgs[1]?.body as string)
+        await trackVisitorVisit();
 
-    expect(body.content).toContain('detected IP: `192.168.1.1, 10.0.0.1`')
-    expect(body.content).toContain('user IP: `192.168.1.1, 10.0.0.1`')
-    expect(body.content).toContain('user IP: `192.168.1.2`')
-    expect(body.content).toContain('user IP: `192.168.1.3`')
-    expect(body.content).toContain('user IP: `192.168.1.4`')
-    expect(body.content).toContain('user IP: `US`')
-  })
+        const callArgs = mockFetch.mock.calls[0];
+        const body = JSON.parse(callArgs[1]?.body as string);
 
-  it('should include timestamp in Asia/Dhaka timezone', async () => {
-    const mockHeadersInstance = {
-      get: vi.fn(() => 'test'),
-    }
+        expect(body.content).toContain("detected IP: `192.168.1.1, 10.0.0.1`");
+        expect(body.content).toContain("user IP: `192.168.1.1, 10.0.0.1`");
+        expect(body.content).toContain("user IP: `192.168.1.2`");
+        expect(body.content).toContain("user IP: `192.168.1.3`");
+        expect(body.content).toContain("user IP: `192.168.1.4`");
+        expect(body.content).toContain("user IP: `US`");
+    });
 
-    mockHeaders.mockResolvedValue(mockHeadersInstance)
+    it("should include timestamp in Asia/Dhaka timezone", async () => {
+        const mockHeadersInstance = {
+            get: vi.fn(() => "test"),
+        };
 
-    mockFetch.mockResolvedValueOnce({
-      ok: true,
-      status: 200,
-    } as Response)
+        mockHeaders.mockResolvedValue(mockHeadersInstance);
 
-    // Mock Date to ensure consistent timestamp
-    const mockDate = new Date('2024-01-15T10:30:00Z')
-    jest.spyOn(global, 'Date').mockImplementation(() => mockDate as any)
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+        } as Response);
 
-    await trackVisitorVisit()
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date("2024-01-15T10:30:00Z"));
 
-    const callArgs = mockFetch.mock.calls[0]
-    const body = JSON.parse(callArgs[1]?.body as string)
+        await trackVisitorVisit();
 
-    // The timestamp should be formatted for Asia/Dhaka timezone
-    expect(body.content).toContain('at')
+        const callArgs = mockFetch.mock.calls[0];
+        const body = JSON.parse(callArgs[1]?.body as string);
 
-    jest.restoreAllMocks()
-  })
-})
+        expect(body.content).toContain("at");
+        expect(body.content).toContain(
+            "<@123456789> a person landed on the site at",
+        );
+
+        vi.useRealTimers();
+    });
+});
