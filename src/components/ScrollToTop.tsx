@@ -4,14 +4,21 @@ import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
-    const [visible, setVisible] = useState(false);
+    const getScrollOffset = () => {
+        if (typeof window === "undefined") return 0;
+        return window.scrollY ?? window.pageYOffset ?? 0;
+    };
+
+    const [visible, setVisible] = useState(() => getScrollOffset() > 300);
 
     useEffect(() => {
+        if (typeof window === "undefined") return;
+
         const onScroll = () => {
-            const offset = window.scrollY || window.pageYOffset;
-            setVisible(offset > 300);
+            setVisible(getScrollOffset() > 300);
         };
 
+        onScroll();
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
