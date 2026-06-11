@@ -2,7 +2,7 @@ import { getExperienceYears } from "@/lib/utils";
 import { Briefcase, Building2, CalendarDays, MapPin } from "lucide-react";
 const experiences = [
     {
-        designation: "Web Developer",
+        designation: "Web Developer L2",
         company: "Programming Hero",
         location: "Dhaka",
         jobType: "",
@@ -11,7 +11,7 @@ const experiences = [
         dateTo: "Now",
         duration: "Aug 2024 0 Now",
         description:
-            "Building and maintaining production-ready web applications, improving performance, and collaborating closely with designers and instructors to ship new features for learners.",
+            "Architected ph-auth-service, a greenfield multi-tenant OIDC/OAuth2 IAM platform in Go serving three product surfaces. Played a key role in the engineering and evolution of the Programming Hero bootcamp ecosystem, contributing across full-stack development, cloud infrastructure, DevOps, CI/CD, analytics, and platform architecture. Built scalable caching and analytics systems using Redis domain adapters, scoped key builders, TTL-based invalidation, and MongoDB aggregation APIs. Designed a server-side analytics pipeline with dual-container GTM and Meta Conversion API. Delivered 272+ merged PRs across 17 repositories. Orchestrated CI/CD across 8+ repositories with GitHub Actions, Docker build/push workflows, release-please, and Biome quality gates.",
     },
     {
         designation: "Instructor",
@@ -124,7 +124,7 @@ export default function Experience() {
                                                 <CalendarDays size={12} />{" "}
                                                 {formatDuration(
                                                     exp.dateFrom,
-                                                    exp.dateTo
+                                                    exp.dateTo,
                                                 )}
                                             </span>
                                         </div>
