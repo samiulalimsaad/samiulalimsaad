@@ -6,9 +6,13 @@
     "dev": "bun run --bun next dev",
     "build": "bun run --bun next build",
     "start": "bun run --bun next start",
-    "lint": "bun run --bun next lint",
+    "lint": "biome check src/",
+    "lint:fix": "biome check --write src/",
+    "format": "biome format --write src/",
+    "format:check": "biome format src/",
     "test": "vitest run",
-    "export": "bun run --bun next export"
+    "export": "bun run --bun next export",
+    "prepare": "husky"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.20",
@@ -30,6 +34,7 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.5.5",
     "@tailwindcss/postcss": "^4.1.17",
     "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.2",
@@ -37,9 +42,8 @@
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "autoprefixer": "^10.4.22",
-    "baseline-browser-mapping": "^2.11.1",
-    "eslint": "9.39.1",
-    "eslint-config-next": "16.0.7",
+    "baseline-browser-mapping": "latest",
+    "husky": "^9.1.7",
     "jsdom": "^29.1.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
@@ -58,5 +62,13 @@
   },
   "workspaces": [
     "."
-  ]
+  ],
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "biome check --write --no-errors-on-unmatched"
+    ],
+    "src/**/*.css": [
+      "biome format --write"
+    ]
+  }
 }
