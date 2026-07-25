@@ -1,4 +1,4 @@
-import { Building2, CalendarDays, MapPin, Briefcase } from "lucide-react";
+import { Building2, CalendarDays, MapPin } from "lucide-react";
 
 const experiences = [
     {
@@ -9,13 +9,10 @@ const experiences = [
         dateFrom: "Aug 2024",
         dateTo: "Present",
         description: [
-            "Build and maintain three production platform services serving multiple internal product teams: centralized email delivery (PH Mailer), multi-gateway payment processing in Go, and internal operational tooling. These services handle shared infrastructure that individual product teams depend on but shouldn't own.",
-            "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA/OTP, device limits, rate limiting, CSRF/CSP), and integration logic. Collaborative architecture under Senior SWE authority; coordinated two mid-level engineers.",
-            "Led architecture and implementation of a desktop DRM player (Electron) for protected educational video. Key challenge: upstream Chromium changes broke the offline playback model, requiring a mid-project pivot to a hybrid online/offline license strategy.",
-            "Maintained production education platforms (Bootcamp, Skill Mapper): feature development, monitoring, bug fixes, and cross-team coordination.",
-            "Manage UAT environments and deployment pipelines for 30+ projects using Docker, Docker Swarm, and CI/CD automation.",
-            "Maintain 5 production services with 24/7 monitoring and alerting. Handle incident response and production debugging.",
-            "Automated testing and continuous integration pipelines to ensure smooth deployments across multiple product teams.",
+            "Build and maintain three production platform services: centralized email delivery (PH Mailer), multi-gateway payment processing in Go, and internal operational tooling — serving multiple internal product teams.",
+            "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA, device limits, rate limiting, CSP/CSRF), and integration logic. Coordinated two mid-level engineers.",
+            "Led architecture of a desktop DRM player (Electron) for protected educational video. Mid-project pivot when upstream Chromium changes broke offline playback — redesigned to a hybrid online/offline license strategy.",
+            "Manage UAT environments and deployment pipelines for 30+ projects using Docker, Docker Swarm, and CI/CD. Maintain 5 production services with 24/7 monitoring and alerting.",
         ],
     },
     {
@@ -80,9 +77,8 @@ export default function Experience() {
                                         <h3 className="text-base sm:text-lg font-semibold text-cyan-700 inline-flex items-center gap-2 flex-wrap">
                                             {exp.designation}
                                             {index === 0 && (
-                                                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-200">
-                                                    <Briefcase size={10} />
-                                                    Production
+                                                <span className="text-[11px] font-medium text-emerald-600">
+                                                    · Current
                                                 </span>
                                             )}
                                         </h3>
@@ -111,16 +107,14 @@ export default function Experience() {
                                             )}
                                         </p>
                                         <ul className="mt-2 space-y-1 text-[11px] sm:text-xs leading-relaxed text-foreground/70">
-                                            {exp.description.map(
-                                                (line, i) => (
-                                                    <li
-                                                        key={i}
-                                                        className="pl-3 relative before:absolute before:left-0 before:top-[0.4em] before:h-1 before:w-1 before:rounded-full before:bg-cyan-400/60"
-                                                    >
-                                                        {line}
-                                                    </li>
-                                                ),
-                                            )}
+                                            {exp.description.map((line, i) => (
+                                                <li
+                                                    key={i}
+                                                    className="pl-3 relative before:absolute before:left-0 before:top-[0.4em] before:h-1 before:w-1 before:rounded-full before:bg-cyan-400/60"
+                                                >
+                                                    {line}
+                                                </li>
+                                            ))}
                                         </ul>
                                     </div>
                                 </div>
