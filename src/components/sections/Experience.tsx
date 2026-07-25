@@ -35,7 +35,7 @@ const experiences = [
         location: "Remote",
         jobMode: "Part-time / Contract",
         dateFrom: "Aug 2022",
-        dateTo: "Aug 2025",
+        dateTo: "Aug 2024",
         description: [
             "SpeakSail — production language-learning marketplace with paying customers. Multi-instructor booking, course delivery, and payment processing. Serves students and instructors across multiple countries.",
             "Enlightall — production multi-role education marketplace with RBAC, Stripe Checkout, and real-time messaging via Socket.IO.",
