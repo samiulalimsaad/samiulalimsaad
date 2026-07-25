@@ -73,17 +73,14 @@ export default function Experience() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-8 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Industry experience since Jul 2021 · Platform engineering
-                    since Aug 2024 · Remote · Bangladesh
+                    Industry experience since Jul 2021 · Platform engineering since Aug 2024 ·
+                    Remote · Bangladesh
                 </p>
 
                 <div className="rounded-3xl border border-white/70 bg-white/80 p-5 sm:p-6 backdrop-blur-sm">
                     <ol className="relative ml-4 border-s border-indigo-200">
                         {experiences.map((exp, index) => (
-                            <li
-                                key={exp.company + exp.designation}
-                                className="mb-8 ms-6 last:mb-0"
-                            >
+                            <li key={exp.company + exp.designation} className="mb-8 ms-6 last:mb-0">
                                 <span className="absolute -left-4 grid h-8 w-8 place-items-center rounded-full bg-linear-to-br from-cyan-500 to-indigo-500 text-xs font-semibold text-white shadow-sm">
                                     {experiences.length - index}
                                 </span>
@@ -99,21 +96,16 @@ export default function Experience() {
                                         </h3>
                                         <div className="flex flex-wrap items-center gap-2">
                                             <span className="inline-flex items-center gap-1 rounded-full border border-cyan-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-cyan-700">
-                                                <Building2 size={12} />{" "}
-                                                {exp.company}
+                                                <Building2 size={12} /> {exp.company}
                                             </span>
                                             <span className="inline-flex items-center gap-1 rounded-full border border-cyan-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-cyan-700">
                                                 <CalendarDays size={12} />{" "}
-                                                {formatDuration(
-                                                    exp.dateFrom,
-                                                    exp.dateTo,
-                                                )}
+                                                {formatDuration(exp.dateFrom, exp.dateTo)}
                                             </span>
                                         </div>
                                         <p className="text-[11px] sm:text-xs text-foreground/70 inline-flex items-center gap-2">
                                             <span className="inline-flex items-center gap-1">
-                                                <MapPin size={12} />{" "}
-                                                {exp.location}
+                                                <MapPin size={12} /> {exp.location}
                                             </span>
                                             {exp.jobMode && (
                                                 <span className="inline-flex items-center gap-1 text-foreground/70">

@@ -35,10 +35,8 @@ export const detectDevice = (userAgent: string): DeviceInfo => {
     }
 
     // Device Type Detection
-    const mobileRegex =
-        /mobile|phone|android|iphone|ipod|blackberry|iemobile|opera mini/i;
-    const tabletRegex =
-        /tablet|ipad|playbook|silk|android(?!.*mobile)|kindle|gt-p1000|sch-i800/i;
+    const mobileRegex = /mobile|phone|android|iphone|ipod|blackberry|iemobile|opera mini/i;
+    const tabletRegex = /tablet|ipad|playbook|silk|android(?!.*mobile)|kindle|gt-p1000|sch-i800/i;
 
     if (tabletRegex.test(ua)) {
         type = "tablet";

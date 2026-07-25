@@ -1,11 +1,8 @@
 "use client";
 
-import {
-    sendContact,
-    type ContactActionState,
-} from "@/server-actions/sendContact";
 import { AtSign, Loader2, SendHorizontal, User } from "lucide-react";
 import { useActionState } from "react";
+import { type ContactActionState, sendContact } from "@/server-actions/sendContact";
 
 const initialState: ContactActionState = {
     status: "idle",
@@ -13,10 +10,7 @@ const initialState: ContactActionState = {
 };
 
 const ContactForm = () => {
-    const [state, formAction, isPending] = useActionState(
-        sendContact,
-        initialState
-    );
+    const [state, formAction, isPending] = useActionState(sendContact, initialState);
 
     return (
         <form
@@ -24,9 +18,7 @@ const ContactForm = () => {
             action={formAction}
         >
             <div className="flex items-center justify-between gap-3 mb-2">
-                <h3 className="text-lg font-semibold text-zinc-800">
-                    Send me a message
-                </h3>
+                <h3 className="text-lg font-semibold text-zinc-800">Send me a message</h3>
                 <span className="text-xs font-medium uppercase tracking-wide text-indigo-500 bg-indigo-50 px-2 py-1 rounded-full">
                     Typically replies within a day
                 </span>
@@ -35,9 +27,7 @@ const ContactForm = () => {
             <div className="space-y-4">
                 <div className="form-control">
                     <label htmlFor="name" className="label">
-                        <span className="label-text text-sm font-medium text-zinc-700">
-                            Name
-                        </span>
+                        <span className="label-text text-sm font-medium text-zinc-700">Name</span>
                     </label>
                     <div className="relative">
                         <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-zinc-400">
@@ -58,9 +48,7 @@ const ContactForm = () => {
 
                 <div className="form-control">
                     <label htmlFor="email" className="label">
-                        <span className="label-text text-sm font-medium text-zinc-700">
-                            Email
-                        </span>
+                        <span className="label-text text-sm font-medium text-zinc-700">Email</span>
                     </label>
                     <div className="relative">
                         <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-zinc-400">
@@ -104,7 +92,9 @@ const ContactForm = () => {
                     className={`mb-2 text-xs sm:text-sm ${
                         state.status === "success"
                             ? "text-emerald-600"
-                            : "text-red-600"
+                            : state.status === "rate-limited"
+                              ? "text-amber-600"
+                              : "text-red-600"
                     }`}
                 >
                     {state.message}

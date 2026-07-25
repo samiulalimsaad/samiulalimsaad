@@ -1,5 +1,5 @@
-import SocialLinks from "@/components/sections/SocialLinks";
 import Image from "next/image";
+import SocialLinks from "@/components/sections/SocialLinks";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -21,8 +21,7 @@ const Footer = () => {
                             </span>
                         </div>
                         <p className="text-xs text-zinc-500 mt-1">
-                            Backend & Platform Engineer ·
-                            Production Services · Go · TypeScript
+                            Backend & Platform Engineer · Production Services · Go · TypeScript
                         </p>
                         <p className="mt-3 text-xs text-zinc-500">
                             © {currentYear}{" "}

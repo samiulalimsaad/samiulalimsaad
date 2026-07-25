@@ -3,7 +3,11 @@ import ContactForm from "./ContactForm";
 
 const primaryLinks = [
     { Icon: Mail, href: "mailto:samiulalimsaad@gmail.com", label: "samiulalimsaad@gmail.com" },
-    { Icon: Linkedin, href: "https://linkedin.com/in/samiulalimsaad", label: "linkedin.com/in/samiulalimsaad" },
+    {
+        Icon: Linkedin,
+        href: "https://linkedin.com/in/samiulalimsaad",
+        label: "linkedin.com/in/samiulalimsaad",
+    },
     { Icon: Github, href: "https://github.com/samiulalimsaad", label: "github.com/samiulalimsaad" },
 ];
 
@@ -11,7 +15,6 @@ const otherLinks = [
     { label: "Facebook", href: "https://facebook.com/samiulalimsaad" },
     { label: "Discord", href: "https://discord.com/users/938388181202653224" },
     { label: "Messenger", href: "https://m.me/samiulalimsaad" },
-
 ];
 
 const Contact = () => {
@@ -29,8 +32,7 @@ const Contact = () => {
                             </span>
                         </h2>
                         <p className="text-base sm:text-lg text-zinc-700 mb-4 leading-relaxed">
-                            Let&apos;s connect. You can reach me through email,
-                            LinkedIn, or GitHub.
+                            Let&apos;s connect. You can reach me through email, LinkedIn, or GitHub.
                         </p>
                         <div className="space-y-3 text-zinc-700">
                             {primaryLinks.map(({ Icon, href, label }) => (
@@ -51,7 +53,9 @@ const Contact = () => {
 
                             <details className="group mt-4">
                                 <summary className="flex cursor-pointer items-center gap-1 text-xs font-medium text-foreground/50 hover:text-foreground/70 [&::-webkit-details-marker]:hidden">
-                                    <span className="transition group-open:rotate-90 inline-block mr-1">›</span>
+                                    <span className="transition group-open:rotate-90 inline-block mr-1">
+                                        ›
+                                    </span>
                                     More platforms
                                 </summary>
                                 <div className="mt-2 space-y-2 pl-1">

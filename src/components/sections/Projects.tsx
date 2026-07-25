@@ -1,9 +1,9 @@
-import { projects } from "@/lib/projects";
 import Image from "next/image";
 import Link from "next/link";
+import { projects } from "@/lib/projects";
 
 export default function Projects() {
-    const featured = projects.filter(p => p.tier === "featured").slice(0, 6);
+    const featured = projects.filter((p) => p.tier === "featured").slice(0, 6);
 
     return (
         <section
@@ -17,8 +17,8 @@ export default function Projects() {
                     </span>
                 </h2>
                 <p className="mx-auto max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Production systems I build and maintain. Each entry
-                    describes the engineering problem, not just the technology.
+                    Production systems I build and maintain. Each entry describes the engineering
+                    problem, not just the technology.
                 </p>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
@@ -57,12 +57,8 @@ function ProjectCard({ project }: ProjectCardProps) {
                 />
             </div>
             <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">
-                    {project.name}
-                </h3>
-                <p className="mb-2 text-sm text-foreground/80">
-                    {project.shortDescription}
-                </p>
+                <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">{project.name}</h3>
+                <p className="mb-2 text-sm text-foreground/80">{project.shortDescription}</p>
                 {"metrics" in project && project.metrics && project.metrics.length > 0 && (
                     <div className="mb-3 flex flex-wrap gap-1.5">
                         {project.metrics.slice(0, 3).map((m) => (

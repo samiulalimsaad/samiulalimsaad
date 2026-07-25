@@ -1,8 +1,4 @@
-import { getExperienceYears } from "@/lib/utils";
-
 export default function About() {
-    const experienceYears = getExperienceYears();
-
     return (
         <section
             id="about"
@@ -18,39 +14,30 @@ export default function About() {
                 <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
                     <div className="space-y-4 text-base sm:text-lg text-foreground/80 leading-relaxed">
                         <p>
-                            I build platform services that other engineering
-                            teams depend on. My work lives at the intersection
-                            of backend systems, security, and operational
-                            reliability — the parts of software that users never
-                            see but always notice when they break.
+                            I build platform services that other engineering teams depend on. My
+                            work lives at the intersection of backend systems, security, and
+                            operational reliability — the parts of software that users never see but
+                            always notice when they break.
                         </p>
                         <p>
-                            At{" "}
-                            <span className="font-semibold text-cyan-700">
-                                Programming Hero
-                            </span>
-                            , I own production maintenance of the centralized
-                            email platform (PH Mailer), a multi-gateway payment
-                            service in Go, and a multi-tenant auth platform on
-                            ZITADEL. I manage UAT environments and deployment
-                            pipelines, with 5 production services under 24/7
-                            monitoring and alerting. I&apos;ve coordinated
-                            implementation and reviewed work for mid-level
-                            engineers within my scope.
+                            At <span className="font-semibold text-cyan-700">Programming Hero</span>
+                            , I own production maintenance of the centralized email platform (PH
+                            Mailer), a multi-gateway payment service in Go, and a multi-tenant auth
+                            platform on ZITADEL. I manage UAT environments and deployment pipelines,
+                            with 5 production services under 24/7 monitoring and alerting. I&apos;ve
+                            coordinated implementation and reviewed work for mid-level engineers
+                            within my scope.
                         </p>
                         <p>
-                            I care less about collecting frameworks and more
-                            about whether a design stays understandable when the
-                            product and the team change. Clear service
-                            boundaries. Security and authorization treated as
-                            core design, not a bolt-on. Changes that can be
-                            deployed and operated without heroics.
+                            I care less about collecting frameworks and more about whether a design
+                            stays understandable when the product and the team change. Clear service
+                            boundaries. Security and authorization treated as core design, not a
+                            bolt-on. Changes that can be deployed and operated without heroics.
                         </p>
                         <p>
-                            I&apos;m comfortable full-stack when the product
-                            needs it, but my center of gravity is backend and
-                            platform work. I&apos;m open to remote roles and
-                            work well with US and European time zones.
+                            I&apos;m comfortable full-stack when the product needs it, but my center
+                            of gravity is backend and platform work. I&apos;m open to remote roles
+                            and work well with US and European time zones.
                         </p>
                     </div>
 

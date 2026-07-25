@@ -1,24 +1,6 @@
-import { fetchMediumFeed } from "@/lib/medium";
-import Link from "next/link";
+import { BookOpen } from "lucide-react";
 
-function formatDate(dateStr: string) {
-    const date = new Date(dateStr);
-    if (Number.isNaN(date.getTime())) return "";
-    return date.toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-    });
-}
-
-export default async function Blog() {
-    const feed = await fetchMediumFeed();
-    const posts = feed?.items?.slice(0, 3) ?? [];
-
-    if (!feed || posts.length === 0) {
-        return null;
-    }
-
+export default function Blog() {
     return (
         <section
             id="blogs"
@@ -27,69 +9,36 @@ export default async function Blog() {
             <div className="mx-auto w-full max-w-6xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                        Latest from Medium
+                        Writing
                     </span>
                 </h2>
                 <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Articles are in Bengali. For more, visit my full profile.
+                    I write about backend engineering, system design, and operational patterns.
                 </p>
 
-                <div className="grid gap-6 md:grid-cols-3">
-                    {posts.map((post) => (
-                        <article
-                            key={post.title}
-                            className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-5 backdrop-blur-sm shadow-sm transition hover:-translate-y-1 animate-card-in"
-                        >
-                            <h3 className="mb-2 line-clamp-2 text-lg sm:text-xl font-semibold text-cyan-700">
-                                {post.title}
-                            </h3>
-                            <p className="mb-3 text-xs text-foreground/60">
-                                {formatDate(post.published)}
-                            </p>
-                            {post.category && post.category.length > 0 && (
-                                <div className="mb-3 flex flex-wrap gap-2">
-                                    {post.category.slice(0, 3).map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="inline-flex items-center rounded-full bg-cyan-50 px-2 py-0.5 text-[11px] font-medium text-cyan-700 ring-1 ring-cyan-100"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            )}
-                            <p className="mb-4 line-clamp-3 text-sm text-foreground/80">
-                                {post.content
-                                    ?.replace(/<[^>]*>/g, " ")
-                                    .replace(/\s+/g, " ")
-                                    .trim()
-                                    .slice(0, 160) || ""}
-                                {post.content && post.content.length > 0
-                                    ? "…"
-                                    : ""}
-                            </p>
-                            <div className="mt-auto">
-                                <a
-                                    href={post.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center text-sm font-semibold text-cyan-700 hover:text-indigo-700"
-                                >
-                                    Read on Medium
-                                </a>
+                <div className="mx-auto max-w-xl">
+                    <div className="rounded-3xl border border-white/70 bg-white/80 p-8 backdrop-blur-sm shadow-sm text-center">
+                        <div className="mb-4 flex justify-center">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+                                <BookOpen className="h-6 w-6" />
                             </div>
-                        </article>
-                    ))}
-                </div>
-
-                <div className="mt-6 flex justify-center">
-                    <Link
-                        href="/blogs"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center rounded-full border border-cyan-100 bg-white/80 px-4 py-1 text-xs font-medium text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50/60"
-                    >
-                        View all posts
-                    </Link>
+                        </div>
+                        <h3 className="text-lg font-semibold text-foreground mb-2">
+                            Read on Medium
+                        </h3>
+                        <p className="text-sm text-foreground/60 mb-5">
+                            I publish technical articles about backend systems, payment
+                            integrations, and platform engineering challenges.
+                        </p>
+                        <a
+                            href="https://medium.com/@samiulalimsaad"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white transition hover:from-cyan-600 hover:to-indigo-600"
+                        >
+                            Visit Medium Profile
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

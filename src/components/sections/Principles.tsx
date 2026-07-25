@@ -1,4 +1,4 @@
-import { Shield, Timer, Eye, Lock, Wrench, ArrowLeftRight } from "lucide-react";
+import { ArrowLeftRight, Eye, Lock, Shield, Timer, Wrench } from "lucide-react";
 
 const principles = [
     {

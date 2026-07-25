@@ -1,4 +1,4 @@
-import { Server, Building2, Bug, Activity } from "lucide-react";
+import { Activity, Bug, Building2, Server } from "lucide-react";
 
 const reasons = [
     {

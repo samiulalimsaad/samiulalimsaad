@@ -37,11 +37,7 @@ export default function MermaidDiagram({ chart, caption }: MermaidDiagramProps) 
                 ref={containerRef}
                 className="flex justify-center rounded-2xl border border-gray-100 bg-white/60 p-6 backdrop-blur-sm overflow-x-auto"
             />
-            {caption && (
-                <p className="mt-2 text-center text-xs text-foreground/50">
-                    {caption}
-                </p>
-            )}
+            {caption && <p className="mt-2 text-center text-xs text-foreground/50">{caption}</p>}
         </div>
     );
 }

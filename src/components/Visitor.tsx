@@ -1,7 +1,7 @@
 "use client";
 
-import { trackVisitorVisit } from "@/server-actions/visit";
 import { useEffect } from "react";
+import { trackVisitorVisit } from "@/server-actions/visit";
 
 // Create a global variable to track if visitor has been logged
 let visitorLogged = false;

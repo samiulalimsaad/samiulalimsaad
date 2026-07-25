@@ -1,7 +1,7 @@
-import ResumeButton from "@/components/ResumeButton";
-import { getExperienceYears, getProductionYears } from "@/lib/utils";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
+import ResumeButton from "@/components/ResumeButton";
+import { getExperienceYears, getProductionYears } from "@/lib/utils";
 
 const socials = [
     {
@@ -38,15 +38,15 @@ export default function Hero() {
                         </span>
                     </h1>
                     <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
-                        I build and maintain production platform services that
-                        multiple engineering teams depend on — centralized email
-                        delivery, multi-gateway payments, and multi-tenant
-                        authentication. I care about systems that stay reliable
-                        at 2 AM.
+                        I build and maintain production platform services that multiple engineering
+                        teams depend on — centralized email delivery, multi-gateway payments, and
+                        multi-tenant authentication. I care about systems that stay reliable at 2
+                        AM.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a
                             href="#projects"
+                            aria-label="View my work"
                             className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white transition"
                         >
                             View Work

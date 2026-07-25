@@ -1,5 +1,5 @@
-import { codeSampleGists } from "@/lib/gists";
 import { ExternalLink } from "lucide-react";
+import { codeSampleGists } from "@/lib/gists";
 
 export default function CodeSamples() {
     return (
@@ -14,9 +14,8 @@ export default function CodeSamples() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Sanitized patterns from production systems. Each gist
-                    demonstrates a reusable approach used across multiple
-                    projects.
+                    Sanitized patterns from production systems. Each gist demonstrates a reusable
+                    approach used across multiple projects.
                 </p>
 
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

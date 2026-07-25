@@ -1,13 +1,13 @@
-import ResumeButton from "@/components/ResumeButton";
 import Image from "next/image";
 import Link from "next/link";
+import ResumeButton from "@/components/ResumeButton";
 
 const navItems = [
     { href: "/#projects", label: "Work" },
     { href: "/#experience", label: "Experience" },
     { href: "/#about", label: "About" },
-    { href: "/blogs", label: "Blogs" },
     { href: "/gists", label: "Gists" },
+    { href: "/#writing", label: "Writing" },
     { href: "/#contact", label: "Contact" },
 ] as const;
 
