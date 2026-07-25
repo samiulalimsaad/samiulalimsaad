@@ -1,4 +1,5 @@
 import {
+    BookOpen,
     CreditCard,
     Database,
     GitBranch,
@@ -21,6 +22,7 @@ export default function PaymentServiceCaseStudy() {
             <MetricsSection />
             <TradeOffs />
             <LessonsLearned />
+            <RelatedPatterns />
             <BackButton />
         </>
     );
@@ -508,6 +510,41 @@ function LessonCard({
             <h3 className="text-sm font-semibold text-foreground mb-1">{title}</h3>
             <p className="text-xs text-foreground/60 leading-relaxed">{description}</p>
         </div>
+    );
+}
+
+function RelatedPatterns() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Related Patterns
+                </h2>
+                <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6 backdrop-blur-sm">
+                    <div className="flex items-start gap-4">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+                            <BookOpen className="w-5 h-5" />
+                        </div>
+                        <div>
+                            <h3 className="text-base font-semibold text-foreground mb-1">
+                                Payment Gateway Adapter Pattern
+                            </h3>
+                            <p className="text-sm text-foreground/70 mb-3">
+                                A deep dive into the adapter pattern used for
+                                this project — abstracting multiple payment
+                                gateways behind a unified interface.
+                            </p>
+                            <Link
+                                href="/gists/payment-gateway-adapter"
+                                className="inline-flex items-center text-sm font-semibold text-cyan-700 hover:text-indigo-700"
+                            >
+                                Read the full gist →
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }
 

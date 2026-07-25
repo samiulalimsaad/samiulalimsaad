@@ -1,4 +1,6 @@
 import { fetchMediumFeed } from "@/lib/medium";
+import { getAllGistMeta } from "@/lib/gists";
+import Link from "next/link";
 
 function formatDate(dateStr: string) {
     const date = new Date(dateStr);
@@ -104,7 +106,61 @@ export default async function AllBlogsPage() {
                         </article>
                     ))}
                 </div>
+
+                <GistTeaser />
+
+                <div className="mt-6 flex justify-center">
+                    <Link
+                        href="/gists"
+                        className="inline-flex items-center rounded-full border border-cyan-100 bg-white/80 px-4 py-1 text-xs font-medium text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50/60"
+                    >
+                        View all gists
+                    </Link>
+                </div>
             </div>
         </section>
+    );
+}
+
+function GistTeaser() {
+    const gists = getAllGistMeta();
+
+    return (
+        <div className="mt-16">
+            <h2 className="text-center text-2xl sm:text-3xl font-extrabold tracking-tight mb-1">
+                <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                    Technical Gists
+                </span>
+            </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-center text-sm text-foreground/70">
+                Code patterns, architecture decisions, and implementation
+                guides I&apos;ve written.
+            </p>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                {gists.map((gist) => (
+                    <Link key={gist.slug} href={`/gists/${gist.slug}`}>
+                        <article className="flex h-full flex-col rounded-2xl border border-white/70 bg-white/80 p-5 backdrop-blur-sm shadow-sm transition hover:-translate-y-1">
+                            <div className="mb-2 flex flex-wrap gap-1.5">
+                                {gist.tags.slice(0, 3).map((tag) => (
+                                    <span
+                                        key={tag}
+                                        className="inline-flex items-center rounded-full bg-cyan-50 px-2 py-0.5 text-[10px] font-medium text-cyan-700 ring-1 ring-cyan-100"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            <h3 className="mb-1 text-base font-semibold text-cyan-700">
+                                {gist.title}
+                            </h3>
+                            <p className="text-xs text-foreground/70 leading-relaxed line-clamp-2">
+                                {gist.description}
+                            </p>
+                        </article>
+                    </Link>
+                ))}
+            </div>
+        </div>
     );
 }

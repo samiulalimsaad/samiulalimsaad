@@ -1,4 +1,5 @@
 import {
+    BookOpen,
     Database,
     GitBranch,
     HardDrive,
@@ -25,6 +26,7 @@ export default function AuthServiceCaseStudy() {
             <MetricsSection />
             <TradeOffs />
             <LessonsLearned />
+            <RelatedPatterns />
             <BackButton />
         </>
     );
@@ -534,6 +536,67 @@ function LessonCard({
             <h3 className="text-sm font-semibold text-foreground mb-1">{title}</h3>
             <p className="text-xs text-foreground/60 leading-relaxed">{description}</p>
         </div>
+    );
+}
+
+function RelatedPatterns() {
+    const patterns = [
+        {
+            slug: "totp-mfa-service",
+            title: "TOTP MFA Service Pattern",
+            description:
+                "A deep dive into the TOTP-based multi-factor authentication implementation used in this project.",
+        },
+        {
+            slug: "csp-nonce-middleware",
+            title: "CSP Nonce Middleware Pattern",
+            description:
+                "The CSP nonce injection middleware that generates per-request cryptographic nonces for inline script/style security.",
+        },
+        {
+            slug: "rate-limiter-pattern",
+            title: "Rate Limiter Pattern",
+            description:
+                "The per-IP token bucket rate limiter protecting authentication endpoints from brute force attacks.",
+        },
+    ];
+
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Related Patterns
+                </h2>
+                <div className="space-y-4">
+                    {patterns.map((p) => (
+                        <div
+                            key={p.slug}
+                            className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6 backdrop-blur-sm"
+                        >
+                            <div className="flex items-start gap-4">
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+                                    <BookOpen className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h3 className="text-base font-semibold text-foreground mb-1">
+                                        {p.title}
+                                    </h3>
+                                    <p className="text-sm text-foreground/70 mb-3">
+                                        {p.description}
+                                    </p>
+                                    <Link
+                                        href={`/gists/${p.slug}`}
+                                        className="inline-flex items-center text-sm font-semibold text-cyan-700 hover:text-indigo-700"
+                                    >
+                                        Read the full gist →
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 }
 

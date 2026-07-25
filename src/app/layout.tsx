@@ -2,8 +2,14 @@ import Navbar from "@/components/Navbar";
 import Visitor from "@/components/Visitor";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Fira_Code } from "next/font/google";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+
+const firaCode = Fira_Code({
+    subsets: ["latin"],
+    variable: "--font-fira-code",
+});
 
 import "./globals.css";
 
@@ -70,7 +76,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className={firaCode.variable}>
             <body className={`antialiased`}>
                 <script
                     type="application/ld+json"
