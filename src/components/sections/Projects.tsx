@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Projects() {
-    const featured = projects.slice(0, 3);
+    const featured = projects.slice(0, 5);
 
     return (
         <section
@@ -17,8 +17,8 @@ export default function Projects() {
                     </span>
                 </h2>
                 <p className="mx-auto max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    A selection of recent work showcasing fullstack development,
-                    integrations, and modern UI.
+                    A selection of recent work showcasing backend platforms,
+                    identity systems, and production product engineering.
                 </p>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
@@ -81,22 +81,26 @@ function ProjectCard({ project }: ProjectCardProps) {
                     ))}
                 </div>
                 <div className="mt-auto flex gap-3">
-                    <a
-                        href={project.githubFrontEnd}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
-                    >
-                        GitHub
-                    </a>
-                    <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
-                    >
-                        Live Demo
-                    </a>
+                    {project.githubFrontEnd && (
+                        <a
+                            href={project.githubFrontEnd}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
+                        >
+                            GitHub
+                        </a>
+                    )}
+                    {project.live && (
+                        <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
+                        >
+                            Live Demo
+                        </a>
+                    )}
                 </div>
             </div>
         </div>

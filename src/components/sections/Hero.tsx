@@ -54,16 +54,16 @@ export default function Hero() {
                         </span>
                     </h1>
                     <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
-                        Software Engineer &amp; Fullstack Web Developer
-                        specializing in building modern, scalable web
-                        applications with{" "}
+                        Backend Software Engineer building production API
+                        platforms, identity systems, and distributed
+                        infrastructure with{" "}
                         <span className="font-semibold text-cyan-700">
-                            Next.js
+                            TypeScript
                         </span>
                         ,
                         <span className="font-semibold text-indigo-700">
                             {" "}
-                            React
+                            Go
                         </span>
                         , and
                         <span className="font-semibold text-emerald-700">
