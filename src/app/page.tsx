@@ -27,6 +27,14 @@ const Skills = dynamic(() => import("@/components/sections/Skills"), {
     ssr: true,
 });
 
+const CodeSamples = dynamic(
+    () => import("@/components/sections/CodeSamples"),
+    {
+        loading: () => <CardGridSkeleton count={3} />,
+        ssr: true,
+    },
+);
+
 const Contact = dynamic(() => import("@/components/sections/Contact"), {
     loading: () => <ContactSkeleton />,
     ssr: true,
@@ -40,6 +48,7 @@ export default function Home() {
             <Experience />
             <About />
             <Skills />
+            <CodeSamples />
             <Contact />
         </>
     );

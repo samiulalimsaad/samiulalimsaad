@@ -1,6 +1,7 @@
 import {
     AlertTriangle,
     BarChart3,
+    Bug,
     GitBranch,
     Globe,
     HardDrive,
@@ -13,6 +14,7 @@ import {
     Zap,
 } from "lucide-react";
 import Link from "next/link";
+import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export default function PHMailerCaseStudy() {
     return (
@@ -25,6 +27,9 @@ export default function PHMailerCaseStudy() {
             <MetricsSection />
             <IncidentStory />
             <TradeOffs />
+            <FailureModes />
+            <ObservabilitySection />
+            <TestingSection />
             <LessonsLearned />
             <BackButton />
         </>
@@ -130,103 +135,75 @@ function SummaryCard({
 }
 
 function ArchitectureDiagram() {
+    const flowDiagram = `graph TD
+        subgraph Clients
+            A[Product Teams]
+            B[Internal Services]
+        end
+
+        subgraph API
+            C[REST API - Node.js]
+        end
+
+        subgraph Queue
+            D[(Redis - BullMQ)]
+            E[Job Queue]
+        end
+
+        subgraph Workers
+            F[Worker Process]
+            G[Rate Limiter]
+        end
+
+        subgraph Delivery
+            H[AWS SES]
+            I[Plunk API]
+        end
+
+        subgraph Storage
+            J[(PostgreSQL)]
+            K[(Redis Cache)]
+        end
+
+        A --> C
+        B --> C
+        C --> E
+        E --> D
+        D --> F
+        F --> G
+        G --> H
+        G --> I
+        F --> J
+        F --> K`;
+
+    const retryDiagram = `graph LR
+        A[Failed Delivery] --> B{Retry?}
+        B -->|Yes| C[Exponential Backoff]
+        C --> D[Re-queue]
+        D --> A
+        B -->|Max Retries| E[Dead Letter Queue]
+        E --> F[Manual Review]
+        F --> G[Re-process or Discard]`;
+
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
                 <h2 className="text-2xl font-bold text-foreground mb-8">
                     Architecture
                 </h2>
-                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm overflow-x-auto">
-                    <div className="min-w-[600px]">
-                        <div className="flex flex-col items-center gap-2 text-sm">
-                            {/* API Layer */}
-                            <div className="flex items-center gap-4">
-                                <div className="rounded-xl border border-cyan-200 bg-cyan-50 px-4 py-2 text-center text-sm font-medium text-cyan-700">
-                                    Client Applications
-                                </div>
-                                <Arrow />
-                                <div className="rounded-xl border border-indigo-200 bg-indigo-50 px-4 py-2 text-center text-sm font-medium text-indigo-700">
-                                    REST API
-                                </div>
-                            </div>
-
-                            {/* Queue Layer */}
-                            <ArrowDown />
-                            <div className="rounded-xl border border-amber-200 bg-amber-50 px-6 py-3 text-center text-sm font-medium text-amber-700">
-                                <div className="font-semibold">Job Queue</div>
-                                <div className="text-[10px] text-amber-500/80">
-                                    Redis-backed — BullMQ
-                                </div>
-                            </div>
-
-                            {/* Worker Layer */}
-                            <ArrowDown />
-                            <div className="rounded-xl border border-violet-200 bg-violet-50 px-6 py-3 text-center text-sm font-medium text-violet-700">
-                                <div className="font-semibold">Worker Process</div>
-                                <div className="text-[10px] text-violet-500/80">
-                                    Rate-limited, concurrent processing
-                                </div>
-                            </div>
-
-                            {/* Delivery Layer */}
-                            <ArrowDown />
-                            <div className="flex items-center gap-4">
-                                <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2 text-center text-sm font-medium text-emerald-700">
-                                    Delivery Provider
-                                </div>
-                                <Arrow />
-                                <div className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-2 text-center text-xs text-foreground/70">
-                                    Recipients
-                                </div>
-                            </div>
-
-                            {/* Data Stores */}
-                            <div className="mt-4 flex flex-wrap justify-center gap-3">
-                                <DataStore label="PostgreSQL" icon={<HardDrive className="w-3.5 h-3.5" />} />
-                                <DataStore label="Redis" icon={<RefreshCw className="w-3.5 h-3.5" />} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <MermaidDiagram
+                    chart={flowDiagram}
+                    caption="High-level system architecture showing request flow from clients through queue to delivery"
+                />
+                <h3 className="text-lg font-semibold text-foreground mb-4 mt-8">
+                    Retry & Recovery Flow
+                </h3>
+                <MermaidDiagram
+                    chart={retryDiagram}
+                    caption="Delivery failure retry strategy with exponential backoff and dead letter queue"
+                />
             </div>
         </section>
-    );
-}
-
-function Arrow() {
-    return (
-        <svg className="w-6 h-4 text-foreground/30" fill="none" viewBox="0 0 24 8">
-            <path
-                d="M1 4h20M18 1l4 3-4 3"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
-
-function ArrowDown() {
-    return (
-        <svg className="w-4 h-6 text-foreground/30" fill="none" viewBox="0 0 8 24">
-            <path
-                d="M4 1v20M1 18l3 4 3-4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
-
-function DataStore({ label, icon }: { label: string; icon: React.ReactNode }) {
-    return (
-        <div className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-foreground/70">
-            {icon}
-            {label}
-        </div>
     );
 }
 
@@ -302,35 +279,35 @@ function KeyFeatures() {
 function TechnicalDecisions() {
     const decisions = [
         {
-            title: "Fork over Build from Scratch",
+            title: "Plunk over Self-Hosted SMTP / Pure SES",
             context:
-                "Building a production email platform from scratch would have taken months. An open-source alternative provided a solid foundation with active community maintenance.",
+                "Options evaluated: self-hosted Postfix (operational overhead of SPF/DKIM monitoring, IP reputation management), direct AWS SES (template management complexity, sandbox limitations for a small team), and Plunk as a managed layer on top of SES/Postmark.",
             outcome:
-                "Forked an existing platform and added custom integrations while maintaining upstream sync. This reduced initial development time significantly.",
-            icon: <GitBranch className="w-5 h-5" />,
+                "Chose Plunk for operational simplicity and built-in analytics. Trade-off: at very high volumes (>1M/day), Plunk's per-email cost may exceed direct SES pricing. Planned migration path: move to direct SES if volume exceeds Plunk cost-efficiency threshold while keeping the platform architecture intact.",
+            icon: <Server className="w-5 h-5" />,
         },
         {
             title: "BullMQ for Background Jobs",
             context:
-                "Email delivery, campaign processing, and workflow execution are I/O-bound operations that shouldn't block API responses.",
+                "Email delivery, campaign processing, and workflow execution are I/O-bound operations that shouldn't block API responses. Needed backpressure handling for volume spikes.",
             outcome:
-                "Separate worker process processes jobs asynchronously with configurable concurrency and rate limiting. Workers can scale independently from the API server.",
+                "Separate worker process processes jobs asynchronously with configurable concurrency and rate limiting. Workers can scale independently from the API server. Queue provides natural backpressure during spikes.",
             icon: <RefreshCw className="w-5 h-5" />,
         },
         {
-            title: "AWS SES as Delivery Provider",
+            title: "Fork over Build from Scratch",
             context:
-                "Needed a cost-effective, reliable email delivery service with built-in analytics and bounce handling.",
+                "Building a production email platform from scratch would have taken months. An open-source alternative provided a solid foundation with active community maintenance.",
             outcome:
-                "SES provides sub-cent per email pricing, automatic bounce and complaint tracking, and configurable sending quotas. Rate limits are dynamically adjusted based on SES account health.",
-            icon: <Server className="w-5 h-5" />,
+                "Forked an existing platform and added custom integrations while maintaining upstream sync. Fork maintenance cost: monthly merge conflicts and upstream API changes require dedicated sync cycles.",
+            icon: <GitBranch className="w-5 h-5" />,
         },
         {
-            title: "Separate Worker Process",
+            title: "Separate Worker Process for Fault Isolation",
             context:
-                "Background job processing can be resource-intensive and should not degrade API response times.",
+                "Background job processing can be resource-intensive and should not degrade API response times. A crash in the worker should not affect API availability.",
             outcome:
-                "Worker process runs independently, enabling independent scaling and fault isolation. If the worker crashes, the API server remains unaffected.",
+                "Worker process runs independently, enabling independent scaling and fault isolation. If the worker crashes, the API server remains unaffected. Monitoring alerts on worker health.",
             icon: <Shield className="w-5 h-5" />,
         },
     ];
@@ -564,6 +541,206 @@ function LessonCard({
             </div>
             <h3 className="text-sm font-semibold text-foreground mb-1">{title}</h3>
             <p className="text-xs text-foreground/60 leading-relaxed">{description}</p>
+        </div>
+    );
+}
+
+function FailureModes() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <div className="flex items-center gap-3 mb-8">
+                    <Bug className="w-6 h-6 text-red-500" />
+                    <h2 className="text-2xl font-bold text-foreground">
+                        Failure Modes & Recovery
+                    </h2>
+                </div>
+                <div className="space-y-4">
+                    <FailureModeCard
+                        scenario="Delivery Provider Quota Exceeded"
+                        impact="Emails fail to send, queue backs up"
+                        mitigation="Rate limiter dynamically adjusts throughput based on provider health. Queue provides backpressure instead of dropping requests. Alert triggers when queue depth exceeds threshold."
+                    />
+                    <FailureModeCard
+                        scenario="Worker Process Crash"
+                        impact="Email processing stops, API stays responsive"
+                        mitigation="Process manager auto-restarts worker. Queue preserves unprocessed jobs. Alert on worker process disappearance."
+                    />
+                    <FailureModeCard
+                        scenario="Redis Outage"
+                        impact="Queue unavailable, new jobs cannot be enqueued"
+                        mitigation="API returns 503 during Redis unavailability. Jobs already in queue are preserved on restart (persistent Redis config). Alert on Redis connectivity loss."
+                    />
+                    <FailureModeCard
+                        scenario="Bounce / Complaint Spike"
+                        impact="SES reputation drops, sending quotas reduced"
+                        mitigation="Automated bounce processing suppresses repeated bounces. Complaint feedback loop updates suppression list. Dashboard monitors bounce rate trends."
+                    />
+                    <FailureModeCard
+                        scenario="Upstream API Breaking Change (Fork)"
+                        impact="Platform features may break during sync"
+                        mitigation="Isolate custom code in separate files to reduce merge conflicts. UAT environment validates sync before production. Staged rollouts for upstream updates."
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function FailureModeCard({
+    scenario,
+    impact,
+    mitigation,
+}: {
+    scenario: string;
+    impact: string;
+    mitigation: string;
+}) {
+    return (
+        <div className="rounded-2xl border border-red-100 bg-white/80 p-5 backdrop-blur-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                    <span className="text-xs font-medium text-red-600">Scenario</span>
+                    <p className="text-sm text-foreground font-medium mt-0.5">{scenario}</p>
+                </div>
+                <div>
+                    <span className="text-xs font-medium text-amber-600">Impact</span>
+                    <p className="text-sm text-foreground/70 mt-0.5">{impact}</p>
+                </div>
+                <div>
+                    <span className="text-xs font-medium text-emerald-600">Mitigation</span>
+                    <p className="text-sm text-foreground/70 mt-0.5">{mitigation}</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function ObservabilitySection() {
+    return (
+        <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Observability & Monitoring
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <ObservabilityCard
+                        title="Logging"
+                        items={[
+                            "Structured JSON logs with correlation IDs across API, worker, and queue",
+                            "Log levels: debug, info, warn, error — configurable per environment",
+                            "Centralized log aggregation for search and alerting",
+                        ]}
+                    />
+                    <ObservabilityCard
+                        title="Metrics"
+                        items={[
+                            "Prometheus-format metrics: delivery rate, queue depth, latency percentiles",
+                            "Business metrics: emails sent, delivered, bounced, complained per hour",
+                            "Worker health: jobs processed, failure rate, retry count",
+                        ]}
+                    />
+                    <ObservabilityCard
+                        title="Alerting"
+                        items={[
+                            "Queue depth threshold breach",
+                            "Delivery failure rate spike",
+                            "Worker process disappearance",
+                            "Redis / PostgreSQL connectivity loss",
+                            "Bounce rate exceeding 2% threshold",
+                        ]}
+                    />
+                    <ObservabilityCard
+                        title="Dashboards"
+                        items={[
+                            "Grafana dashboard for real-time delivery monitoring",
+                            "Hourly / daily / weekly delivery trends",
+                            "Provider health and quota utilization",
+                            "Per-team email volume breakdown",
+                        ]}
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function ObservabilityCard({
+    title,
+    items,
+}: {
+    title: string;
+    items: string[];
+}) {
+    return (
+        <div className="rounded-2xl border border-gray-100 bg-white/80 p-5 backdrop-blur-sm">
+            <h3 className="text-sm font-semibold text-foreground mb-3">{title}</h3>
+            <ul className="space-y-2">
+                {items.map((item, i) => (
+                    <li
+                        key={i}
+                        className="flex items-start gap-2 text-xs text-foreground/70"
+                    >
+                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+                        {item}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+function TestingSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Testing Strategy
+                </h2>
+                <div className="space-y-4">
+                    <TestingCard
+                        level="Unit Tests"
+                        scope="Individual modules: template rendering, webhook handlers, queue job processors"
+                        approach="Vitest with mocked external dependencies. Tests cover edge cases: malformed templates, webhook signature mismatch, queue job serialization errors."
+                    />
+                    <TestingCard
+                        level="Integration Tests"
+                        scope="API endpoints with real database, queue interaction with Redis"
+                        approach="Testcontainers for PostgreSQL and Redis in CI. Tests verify: email submission → queue → worker → delivery provider mock. Database migrations are tested in isolation."
+                    />
+                    <TestingCard
+                        level="E2E Tests"
+                        scope="Critical user flows: password reset, campaign delivery, bounce handling"
+                        approach="Full workflow tests in UAT environment with real delivery provider sandbox. Tests cover: template rendering, delivery tracking, bounce feedback loop."
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function TestingCard({
+    level,
+    scope,
+    approach,
+}: {
+    level: string;
+    scope: string;
+    approach: string;
+}) {
+    return (
+        <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+            <h3 className="text-sm font-semibold text-foreground mb-2">{level}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <span className="text-xs font-medium text-cyan-600">Scope</span>
+                    <p className="text-xs text-foreground/70 mt-0.5">{scope}</p>
+                </div>
+                <div>
+                    <span className="text-xs font-medium text-cyan-600">Approach</span>
+                    <p className="text-xs text-foreground/70 mt-0.5">{approach}</p>
+                </div>
+            </div>
         </div>
     );
 }

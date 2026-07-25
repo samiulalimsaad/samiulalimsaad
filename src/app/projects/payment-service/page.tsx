@@ -1,5 +1,6 @@
 import {
     BookOpen,
+    Bug,
     CreditCard,
     Database,
     GitBranch,
@@ -10,6 +11,7 @@ import {
     Zap,
 } from "lucide-react";
 import Link from "next/link";
+import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export default function PaymentServiceCaseStudy() {
     return (
@@ -21,6 +23,9 @@ export default function PaymentServiceCaseStudy() {
             <TechnicalDecisions />
             <MetricsSection />
             <TradeOffs />
+            <FailureModes />
+            <ObservabilitySection />
+            <TestingSection />
             <LessonsLearned />
             <RelatedPatterns />
             <BackButton />
@@ -127,112 +132,79 @@ function SummaryCard({
 }
 
 function ArchitectureDiagram() {
+    const flowDiagram = `graph TD
+        subgraph API
+            A[Unified Payment API - Go]
+        end
+
+        subgraph Adapters
+            B[Stripe Adapter]
+            C[bKash Adapter]
+            D[SSLCommerz Adapter]
+        end
+
+        subgraph Core
+            E[Payment State Machine]
+            F[Webhook Processor]
+            G[Refund Engine]
+        end
+
+        subgraph Storage
+            H[(PostgreSQL - Transactions)]
+            I[(ClickHouse - Analytics)]
+            J[(Redis - Cache)]
+        end
+
+        A --> B
+        A --> C
+        A --> D
+        B --> E
+        C --> E
+        D --> E
+        E --> F
+        E --> G
+        E --> H
+        E --> I
+        E --> J`;
+
+    const webhookDiagram = `sequenceDiagram
+        participant G as Payment Gateway
+        participant W as Webhook Handler
+        participant V as Sig Verifier
+        participant I as Idempotency Check
+        participant S as State Machine
+        participant D as Database
+
+        G->>W: POST /webhook
+        W->>V: Verify Signature
+        V-->>W: Valid/Invalid
+        W->>I: Check Idempotency Key
+        I-->>W: New/Duplicate
+        W->>S: Transition State
+        S->>D: Persist Transaction
+        D-->>S: Confirmed
+        S-->>W: Updated
+        W-->>G: 200 OK`;
+
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
                 <h2 className="text-2xl font-bold text-foreground mb-8">
                     Architecture
                 </h2>
-                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm overflow-x-auto">
-                    <div className="min-w-[600px]">
-                        <div className="flex flex-col items-center gap-2 text-sm">
-                            {/* Unified API */}
-                            <div className="rounded-xl border border-indigo-200 bg-indigo-50 px-6 py-3 text-center text-sm font-medium text-indigo-700">
-                                <div className="font-semibold">Unified Payment API</div>
-                                <div className="text-[10px] text-indigo-500/80">
-                                    Common interface for all payment operations
-                                </div>
-                            </div>
-
-                            <ArrowDown />
-
-                            {/* Gateway Adapters */}
-                            <div className="flex items-center gap-3">
-                                <GatewayAdapter label="Stripe" color="indigo" />
-                                <GatewayAdapter label="bKash" color="emerald" />
-                                <GatewayAdapter label="SSLCommerz" color="amber" />
-                            </div>
-
-                            <ArrowDown />
-
-                            {/* Core Services */}
-                            <div className="flex flex-wrap justify-center gap-3">
-                                <div className="rounded-xl border border-cyan-200 bg-cyan-50 px-4 py-2 text-center text-sm font-medium text-cyan-700">
-                                    Webhook Processor
-                                </div>
-                                <div className="rounded-xl border border-violet-200 bg-violet-50 px-4 py-2 text-center text-sm font-medium text-violet-700">
-                                    Payment State Machine
-                                </div>
-                                <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-2 text-center text-sm font-medium text-amber-700">
-                                    Refund Engine
-                                </div>
-                            </div>
-
-                            <ArrowDown />
-
-                            {/* Data Stores */}
-                            <div className="flex flex-wrap justify-center gap-3">
-                                <DataStore label="Transactions" icon={<Database className="w-3.5 h-3.5" />} />
-                                <DataStore label="Analytics" icon={<HardDrive className="w-3.5 h-3.5" />} />
-                                <DataStore label="Cache" icon={<Zap className="w-3.5 h-3.5" />} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <MermaidDiagram
+                    chart={flowDiagram}
+                    caption="System architecture showing adapter pattern with three payment gateway integrations"
+                />
+                <h3 className="text-lg font-semibold text-foreground mb-4 mt-8">
+                    Webhook Processing Flow
+                </h3>
+                <MermaidDiagram
+                    chart={webhookDiagram}
+                    caption="Webhook processing sequence with signature verification and idempotency check"
+                />
             </div>
         </section>
-    );
-}
-
-function Arrow() {
-    return (
-        <svg className="w-6 h-4 text-foreground/30" fill="none" viewBox="0 0 24 8">
-            <path
-                d="M1 4h20M18 1l4 3-4 3"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
-
-function ArrowDown() {
-    return (
-        <svg className="w-4 h-6 text-foreground/30" fill="none" viewBox="0 0 8 24">
-            <path
-                d="M4 1v20M1 18l3 4 3-4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
-
-function GatewayAdapter({ label, color }: { label: string; color: string }) {
-    const colors: Record<string, string> = {
-        indigo: "border-indigo-200 bg-indigo-50 text-indigo-700",
-        emerald: "border-emerald-200 bg-emerald-50 text-emerald-700",
-        amber: "border-amber-200 bg-amber-50 text-amber-700",
-    };
-    return (
-        <div
-            className={`rounded-xl border px-4 py-2 text-center text-sm font-medium ${colors[color] || colors.indigo}`}
-        >
-            {label}
-        </div>
-    );
-}
-
-function DataStore({ label, icon }: { label: string; icon: React.ReactNode }) {
-    return (
-        <div className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-foreground/70">
-            {icon}
-            {label}
-        </div>
     );
 }
 
@@ -509,6 +481,206 @@ function LessonCard({
             </div>
             <h3 className="text-sm font-semibold text-foreground mb-1">{title}</h3>
             <p className="text-xs text-foreground/60 leading-relaxed">{description}</p>
+        </div>
+    );
+}
+
+function FailureModes() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <div className="flex items-center gap-3 mb-8">
+                    <Bug className="w-6 h-6 text-red-500" />
+                    <h2 className="text-2xl font-bold text-foreground">
+                        Failure Modes & Recovery
+                    </h2>
+                </div>
+                <div className="space-y-4">
+                    <FailureModeCard
+                        scenario="Gateway Timeout / Unreachable"
+                        impact="Payment processing fails, user sees error"
+                        mitigation="Retry with exponential backoff for transient failures. Circuit breaker pattern prevents cascading retries to unhealthy gateways. Alert on persistent gateway unavailability."
+                    />
+                    <FailureModeCard
+                        scenario="Webhook Signature Mismatch"
+                        impact="Legitimate payment event not processed"
+                        mitigation="Failed signature verification logs full payload for manual review. Automatic retry from gateway (most gateways retry webhooks for 24-72 hours). Dashboard for manual reconciliation."
+                    />
+                    <FailureModeCard
+                        scenario="Duplicate Webhook Delivery"
+                        impact="Same event processed twice, potential double charge"
+                        mitigation="Idempotency keys with idempotency store in Redis. Duplicate events return cached response. State machine prevents invalid transitions (e.g., completing an already-completed payment)."
+                    />
+                    <FailureModeCard
+                        scenario="Database Transaction Failure"
+                        impact="Payment state inconsistent between gateway and local storage"
+                        mitigation="Write-ahead logging for payment events. Reconciliation job periodically compares local state with gateway state. Manual override API for edge cases."
+                    />
+                    <FailureModeCard
+                        scenario="Refund Race Condition"
+                        impact="Refund initiated twice for same transaction"
+                        mitigation="Refund idempotency via refund IDempotency key. State machine guards prevent double refund. Gateway-side deduplication as last resort."
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function FailureModeCard({
+    scenario,
+    impact,
+    mitigation,
+}: {
+    scenario: string;
+    impact: string;
+    mitigation: string;
+}) {
+    return (
+        <div className="rounded-2xl border border-red-100 bg-white/80 p-5 backdrop-blur-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                    <span className="text-xs font-medium text-red-600">Scenario</span>
+                    <p className="text-sm text-foreground font-medium mt-0.5">{scenario}</p>
+                </div>
+                <div>
+                    <span className="text-xs font-medium text-amber-600">Impact</span>
+                    <p className="text-sm text-foreground/70 mt-0.5">{impact}</p>
+                </div>
+                <div>
+                    <span className="text-xs font-medium text-emerald-600">Mitigation</span>
+                    <p className="text-sm text-foreground/70 mt-0.5">{mitigation}</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function ObservabilitySection() {
+    return (
+        <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Observability & Monitoring
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <ObservabilityCard
+                        title="Logging"
+                        items={[
+                            "Structured JSON logs with correlation IDs across API, webhook handler, and workers",
+                            "Payment lifecycle events logged at INFO: created, completed, failed, refunded",
+                            "Webhook payloads logged at DEBUG for troubleshooting signature mismatches",
+                        ]}
+                    />
+                    <ObservabilityCard
+                        title="Metrics"
+                        items={[
+                            "Prometheus-format metrics: payment volume, success rate, gateway latency",
+                            "Per-gateway breakdown: transaction count, error rate, p50/p95 latency",
+                            "Business metrics: revenue processed, refund rate, dispute rate",
+                        ]}
+                    />
+                    <ObservabilityCard
+                        title="Alerting"
+                        items={[
+                            "Payment success rate drop below 95% threshold",
+                            "Gateway latency exceeding p99 SLA",
+                            "Webhook processing backlog growing",
+                            "Refund rate spike (potential fraud indicator)",
+                            "Reconciliation job detects state mismatch",
+                        ]}
+                    />
+                    <ObservabilityCard
+                        title="Dashboards"
+                        items={[
+                            "Grafana dashboard: real-time payment volume and success rate",
+                            "Per-gateway health and latency overview",
+                            "Transaction trends: hourly, daily, weekly aggregates",
+                            "Refund and dispute tracking",
+                        ]}
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function ObservabilityCard({
+    title,
+    items,
+}: {
+    title: string;
+    items: string[];
+}) {
+    return (
+        <div className="rounded-2xl border border-gray-100 bg-white/80 p-5 backdrop-blur-sm">
+            <h3 className="text-sm font-semibold text-foreground mb-3">{title}</h3>
+            <ul className="space-y-2">
+                {items.map((item, i) => (
+                    <li
+                        key={i}
+                        className="flex items-start gap-2 text-xs text-foreground/70"
+                    >
+                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+                        {item}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+function TestingSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Testing Strategy
+                </h2>
+                <div className="space-y-4">
+                    <TestingCard
+                        level="Unit Tests"
+                        scope="Individual adapters, state machine transitions, webhook signature verification"
+                        approach="Vitest with mocked gateway HTTP clients. Tests cover: adapter interface compliance, invalid state transitions, malformed webhook payloads, signature verification edge cases."
+                    />
+                    <TestingCard
+                        level="Integration Tests"
+                        scope="API endpoints with real database, webhook processing pipeline"
+                        approach="Testcontainers for PostgreSQL and Redis in CI. Tests verify: payment lifecycle through all states, webhook delivery with real signature verification, idempotency across duplicate events."
+                    />
+                    <TestingCard
+                        level="E2E Tests"
+                        scope="Full payment flow: initiate → gateway redirect → webhook → completion"
+                        approach="Gateway sandbox environments for Stripe, bKash, and SSLCommerz. Tests cover: successful payment, failed payment, refund flow, dispute handling."
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function TestingCard({
+    level,
+    scope,
+    approach,
+}: {
+    level: string;
+    scope: string;
+    approach: string;
+}) {
+    return (
+        <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+            <h3 className="text-sm font-semibold text-foreground mb-2">{level}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <span className="text-xs font-medium text-cyan-600">Scope</span>
+                    <p className="text-xs text-foreground/70 mt-0.5">{scope}</p>
+                </div>
+                <div>
+                    <span className="text-xs font-medium text-cyan-600">Approach</span>
+                    <p className="text-xs text-foreground/70 mt-0.5">{approach}</p>
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import {
     BarChart3,
     Brain,
+    Bug,
     Database,
     GitBranch,
     Medal,
@@ -11,6 +12,7 @@ import {
     Zap,
 } from "lucide-react";
 import Link from "next/link";
+import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export default function SkillMapperCaseStudy() {
     return (
@@ -22,6 +24,10 @@ export default function SkillMapperCaseStudy() {
             <TechnicalDecisions />
             <MetricsSection />
             <TradeOffs />
+            <ChangeStreamOperations />
+            <FailureModes />
+            <ObservabilitySection />
+            <TestingSection />
             <LessonsLearned />
             <BackButton />
         </>
@@ -128,96 +134,90 @@ function SummaryCard({
 }
 
 function ArchitectureDiagram() {
+    const flowDiagram = `graph TD
+        subgraph Frontend
+            A[Next.js SSR App]
+            B[TanStack Query]
+        end
+
+        subgraph API
+            C[Express.js API Server]
+            D[Zod Validation]
+            E[RBAC Middleware]
+        end
+
+        subgraph Real-Time
+            F[MongoDB Change Streams]
+            G[Event Bus]
+        end
+
+        subgraph Core Services
+            H[State Machine]
+            I[AI Question Generator]
+            J[Scoring Engine]
+            K[Ranking Engine]
+        end
+
+        subgraph Storage
+            L[(MongoDB)]
+            M[(Redis)]
+            N[Materialized Leaderboard]
+        end
+
+        subgraph AI
+            O[OpenAI]
+            P[Gemini]
+        end
+
+        A --> B
+        B --> C
+        C --> E
+        E --> H
+        H --> F
+        F --> G
+        G --> A
+        H --> I
+        H --> J
+        H --> K
+        I --> O
+        I --> P
+        J --> O
+        J --> P
+        K --> N
+        N --> L
+        C --> L
+        C --> M
+        K --> M`;
+
+    const stateDiagram = `stateDiagram-v2
+        [*] --> Draft
+        Draft --> Published: Publish event
+        Published --> Active: Start event
+        Active --> Completed: Time limit / Submit
+        Active --> Disqualified: Rule violation
+        Completed --> Archived: Archive event
+        Disqualified --> Archived: Archive event
+        Published --> Draft: Unpublish event`;
+
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
                 <h2 className="text-2xl font-bold text-foreground mb-8">
                     Architecture
                 </h2>
-                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm overflow-x-auto">
-                    <div className="min-w-[600px]">
-                        <div className="flex flex-col items-center gap-2 text-sm">
-                            {/* Assessment Lifecycle */}
-                            <div className="rounded-xl border border-cyan-200 bg-cyan-50 px-6 py-3 text-center text-sm font-medium text-cyan-700">
-                                <div className="font-semibold">State Machine</div>
-                                <div className="text-[10px] text-cyan-500/80">
-                                    Draft → Published → Active → Completed → Archived
-                                </div>
-                            </div>
-
-                            <ArrowDown />
-
-                            {/* Backend */}
-                            <div className="rounded-xl border border-indigo-200 bg-indigo-50 px-6 py-3 text-center text-sm font-medium text-indigo-700">
-                                <div className="font-semibold">API Server</div>
-                                <div className="text-[10px] text-indigo-500/80">
-                                    Express.js · Zod Validation · Role-Based Access
-                                </div>
-                            </div>
-
-                            {/* Side-by-side services */}
-                            <div className="flex items-center gap-4">
-                                <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-2 text-center text-sm font-medium text-amber-700">
-                                    AI Question Generator
-                                </div>
-                                <div className="rounded-xl border border-violet-200 bg-violet-50 px-4 py-2 text-center text-sm font-medium text-violet-700">
-                                    Scoring Engine
-                                </div>
-                                <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2 text-center text-sm font-medium text-emerald-700">
-                                    Ranking System
-                                </div>
-                            </div>
-
-                            <ArrowDown />
-
-                            {/* Data Stores */}
-                            <div className="flex flex-wrap justify-center gap-3">
-                                <DataStore label="MongoDB" icon={<Database className="w-3.5 h-3.5" />} />
-                                <DataStore label="Redis" icon={<RefreshCw className="w-3.5 h-3.5" />} />
-                                <DataStore label="AI Providers" icon={<Brain className="w-3.5 h-3.5" />} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <MermaidDiagram
+                    chart={flowDiagram}
+                    caption="System architecture showing frontend, API, real-time sync via change streams, and AI provider integration"
+                />
+                <h3 className="text-lg font-semibold text-foreground mb-4 mt-8">
+                    Assessment Lifecycle State Machine
+                </h3>
+                <MermaidDiagram
+                    chart={stateDiagram}
+                    caption="State machine governing assessment lifecycle with guard conditions on each transition"
+                />
             </div>
         </section>
-    );
-}
-
-function Arrow() {
-    return (
-        <svg className="w-6 h-4 text-foreground/30" fill="none" viewBox="0 0 24 8">
-            <path
-                d="M1 4h20M18 1l4 3-4 3"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
-
-function ArrowDown() {
-    return (
-        <svg className="w-4 h-6 text-foreground/30" fill="none" viewBox="0 0 8 24">
-            <path
-                d="M4 1v20M1 18l3 4 3-4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
-
-function DataStore({ label, icon }: { label: string; icon: React.ReactNode }) {
-    return (
-        <div className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-foreground/70">
-            {icon}
-            {label}
-        </div>
     );
 }
 
@@ -311,9 +311,9 @@ function TechnicalDecisions() {
         {
             title: "Database Change Streams over Polling",
             context:
-                "Concurrent timed exams need real-time state synchronization. Polling creates unnecessary load and introduces latency.",
+                "Concurrent timed exams need real-time state synchronization. Polling creates unnecessary load and introduces latency. However, change streams introduce operational complexity: resume token management, oplog size limits, and WebSocket connection scalability.",
             outcome:
-                "Database change streams provide real-time event notifications without polling overhead, enabling immediate state updates during active exams.",
+                "Change streams provide real-time event notifications without polling overhead. Operational mitigations: resume tokens persisted in a dedicated collection for crash recovery, oplog size monitoring with alerting, WebSocket connections managed via connection pooling with grace period for reconnection. Fallback polling mechanism as safety net if change stream lags beyond threshold.",
             icon: <Zap className="w-5 h-5" />,
         },
         {
@@ -507,6 +507,271 @@ function LessonCard({
             </div>
             <h3 className="text-sm font-semibold text-foreground mb-1">{title}</h3>
             <p className="text-xs text-foreground/60 leading-relaxed">{description}</p>
+        </div>
+    );
+}
+
+function ChangeStreamOperations() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <div className="flex items-center gap-3 mb-8">
+                    <Zap className="w-6 h-6 text-amber-600" />
+                    <h2 className="text-2xl font-bold text-foreground">
+                        Change Stream Operations
+                    </h2>
+                </div>
+                <p className="text-sm text-foreground/70 mb-6 leading-relaxed">
+                    Change streams power real-time exam synchronization, but they
+                    require careful operational management. Here is how each
+                    operational concern is addressed:
+                </p>
+                <div className="space-y-4">
+                    <OperationCard
+                        concern="Resume Token Management"
+                        solution="Resume tokens are persisted to a dedicated MongoDB collection after each batch of events. On restart or crash, the last known token is loaded, ensuring no events are missed. Token staleness is monitored — if a token is too old, the oplog may have cycled, triggering fallback polling."
+                    />
+                    <OperationCard
+                        concern="Oplog Size Monitoring"
+                        solution="Oplog size is tracked via MongoDB's rs.status(). Alert triggers when oplog window falls below configured threshold (e.g., 6 hours). Oplog size is sized at deployment to handle peak write volumes during active exam periods."
+                    />
+                    <OperationCard
+                        concern="WebSocket Connection Management"
+                        solution="Each client establishes a WebSocket via Socket.IO with heartbeat pings every 30s. Connection pool limits prevent resource exhaustion. On disconnect, clients have a 10s grace window to reconnect and recover their change stream cursor."
+                    />
+                    <OperationCard
+                        concern="Fallback Polling Mechanism"
+                        solution="If change stream lag exceeds 5s (detected via timestamp comparison), the system degrades to polling at 2s intervals. This safety net prevents complete synchronization loss if change streams fail or lag significantly."
+                    />
+                    <OperationCard
+                        concern="Connection Scaling"
+                        solution="Change streams are multiplexed through a single change stream per collection with fan-out via an internal event bus. This avoids creating individual change streams per connected client, which would not scale."
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function OperationCard({
+    concern,
+    solution,
+}: {
+    concern: string;
+    solution: string;
+}) {
+    return (
+        <div className="rounded-2xl border border-amber-100 bg-white/80 p-5 backdrop-blur-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+                <div className="sm:col-span-1">
+                    <span className="text-xs font-medium text-amber-700">Concern</span>
+                    <p className="text-sm text-foreground font-medium mt-0.5">{concern}</p>
+                </div>
+                <div className="sm:col-span-4">
+                    <span className="text-xs font-medium text-emerald-600">Solution</span>
+                    <p className="text-sm text-foreground/70 mt-0.5">{solution}</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function FailureModes() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <div className="flex items-center gap-3 mb-8">
+                    <Bug className="w-6 h-6 text-red-500" />
+                    <h2 className="text-2xl font-bold text-foreground">
+                        Failure Modes & Recovery
+                    </h2>
+                </div>
+                <div className="space-y-4">
+                    <FailureModeCard
+                        scenario="Change Stream Resumption Failure"
+                        impact="Real-time sync stops, exam state becomes stale"
+                        mitigation="Persisted resume tokens enable recovery. Fallback polling activates if lag exceeds threshold. Alert on change stream cursor invalidation."
+                    />
+                    <FailureModeCard
+                        scenario="AI Provider Unavailable"
+                        impact="Question generation and scoring fail"
+                        mitigation="Automatic failover to secondary AI provider. Queued generation requests with retry. Cached question templates as fallback for common assessment types."
+                    />
+                    <FailureModeCard
+                        scenario="Oplog Window Exceeded"
+                        impact="Change stream cannot resume from stored token"
+                        mitigation="Oplog size monitoring alerts before window becomes critical. On token expiry, full sync is triggered for affected assessments. Alert triggers manual intervention."
+                    />
+                    <FailureModeCard
+                        scenario="Concurrent Exam Submission Overload"
+                        impact="Scoring engine backlog, delayed results"
+                        mitigation="Queue-based submission processing with configurable concurrency. Results delivered asynchronously via WebSocket when scoring completes. Exponential backoff for retries."
+                    />
+                    <FailureModeCard
+                        scenario="Leaderboard Materialized View Staleness"
+                        impact="Users see outdated rankings"
+                        mitigation="Incremental view updates with staleness threshold (max 30s). Forced refresh on high-priority events (assessment completion). Staleness metrics exposed for monitoring."
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function FailureModeCard({
+    scenario,
+    impact,
+    mitigation,
+}: {
+    scenario: string;
+    impact: string;
+    mitigation: string;
+}) {
+    return (
+        <div className="rounded-2xl border border-red-100 bg-white/80 p-5 backdrop-blur-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                    <span className="text-xs font-medium text-red-600">Scenario</span>
+                    <p className="text-sm text-foreground font-medium mt-0.5">{scenario}</p>
+                </div>
+                <div>
+                    <span className="text-xs font-medium text-amber-600">Impact</span>
+                    <p className="text-sm text-foreground/70 mt-0.5">{impact}</p>
+                </div>
+                <div>
+                    <span className="text-xs font-medium text-emerald-600">Mitigation</span>
+                    <p className="text-sm text-foreground/70 mt-0.5">{mitigation}</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function ObservabilitySection() {
+    return (
+        <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Observability & Monitoring
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <ObservabilityCard
+                        title="Logging"
+                        items={[
+                            "Structured JSON logs with correlation IDs across API, workers, and WebSocket connections",
+                            "Assessment lifecycle events logged at INFO: created, started, submitted, scored",
+                            "Change stream events logged at DEBUG for troubleshooting sync issues",
+                        ]}
+                    />
+                    <ObservabilityCard
+                        title="Metrics"
+                        items={[
+                            "Prometheus-format metrics: active exams, submissions per minute, scoring latency",
+                            "AI provider metrics: request count, latency, error rate per provider",
+                            "Change stream metrics: lag in ms, events processed, resumption count",
+                        ]}
+                    />
+                    <ObservabilityCard
+                        title="Alerting"
+                        items={[
+                            "Change stream lag exceeding threshold",
+                            "AI provider error rate spike",
+                            "Scoring queue backlog growing",
+                            "Active exam count anomaly (potential DDoS)",
+                            "Leaderboard staleness exceeding SLA",
+                        ]}
+                    />
+                    <ObservabilityCard
+                        title="Dashboards"
+                        items={[
+                            "Grafana dashboard: real-time active exams and submissions",
+                            "AI provider health and cost breakdown",
+                            "Assessment completion rates and average scores",
+                            "System health: change stream status, queue depth, error rates",
+                        ]}
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function ObservabilityCard({
+    title,
+    items,
+}: {
+    title: string;
+    items: string[];
+}) {
+    return (
+        <div className="rounded-2xl border border-gray-100 bg-white/80 p-5 backdrop-blur-sm">
+            <h3 className="text-sm font-semibold text-foreground mb-3">{title}</h3>
+            <ul className="space-y-2">
+                {items.map((item, i) => (
+                    <li
+                        key={i}
+                        className="flex items-start gap-2 text-xs text-foreground/70"
+                    >
+                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+                        {item}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+function TestingSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Testing Strategy
+                </h2>
+                <div className="space-y-4">
+                    <TestingCard
+                        level="Unit Tests"
+                        scope="State machine transitions, scoring algorithms, leaderboard calculations"
+                        approach="Vitest with exhaustive transition matrix testing. Tests cover: all valid state transitions, all invalid transitions (guard rejection), AI provider response parsing, XP calculation edge cases."
+                    />
+                    <TestingCard
+                        level="Integration Tests"
+                        scope="API endpoints with real database, change stream pipeline, AI provider mocks"
+                        approach="Testcontainers for MongoDB in CI. Tests verify: full assessment lifecycle, change stream event delivery, concurrent exam submission handling, leaderboard update correctness."
+                    />
+                    <TestingCard
+                        level="E2E Tests"
+                        scope="Full assessment flow: login → start exam → submit → view results → leaderboard"
+                        approach="Playwright tests in UAT environment. Tests cover: timed exam auto-submission, disqualification on rule violation, AI-generated question rendering, real-time score updates via WebSocket."
+                    />
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function TestingCard({
+    level,
+    scope,
+    approach,
+}: {
+    level: string;
+    scope: string;
+    approach: string;
+}) {
+    return (
+        <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+            <h3 className="text-sm font-semibold text-foreground mb-2">{level}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <span className="text-xs font-medium text-cyan-600">Scope</span>
+                    <p className="text-xs text-foreground/70 mt-0.5">{scope}</p>
+                </div>
+                <div>
+                    <span className="text-xs font-medium text-cyan-600">Approach</span>
+                    <p className="text-xs text-foreground/70 mt-0.5">{approach}</p>
+                </div>
+            </div>
         </div>
     );
 }
