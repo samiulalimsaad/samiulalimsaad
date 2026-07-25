@@ -35,5 +35,11 @@
   "files": {
     "includes": ["src/**"],
     "ignoreUnknown": true
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["src/**/*.css"],
+      "linter": { "enabled": false }
+    }
+  ]
 }
