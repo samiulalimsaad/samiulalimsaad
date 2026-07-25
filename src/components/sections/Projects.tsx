@@ -63,12 +63,17 @@ function ProjectCard({ project }: ProjectCardProps) {
                 <p className="mb-2 text-sm text-foreground/80">
                     {project.shortDescription}
                 </p>
-                {project.description && project.description.length > 0 && (
-                    <ul className="mb-3 list-disc space-y-1 pl-5 text-xs text-foreground/70">
-                        {project.description.map((line) => (
-                            <li key={line}>{line}</li>
+                {"metrics" in project && project.metrics && project.metrics.length > 0 && (
+                    <div className="mb-3 flex flex-wrap gap-1.5">
+                        {project.metrics.slice(0, 3).map((m) => (
+                            <span
+                                key={m}
+                                className="inline-flex items-center rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-medium text-indigo-700 ring-1 ring-indigo-100"
+                            >
+                                {m}
+                            </span>
                         ))}
-                    </ul>
+                    </div>
                 )}
                 <div className="mb-4 flex flex-wrap gap-2">
                     {project.tools.map((tool) => (
