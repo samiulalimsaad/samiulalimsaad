@@ -1,7 +1,7 @@
 "use server";
 
-import { detectDevice } from "@/components/utils/detectDevice";
 import { headers } from "next/headers";
+import { detectDevice } from "@/components/utils/detectDevice";
 
 // Type definition for location data
 interface LocationData {
@@ -45,9 +45,7 @@ export async function trackVisitorVisit(): Promise<{
 
         const ip = hdrs.get("x-forwarded-for") || hdrs.get("x-real-ip");
 
-        const { browser, os, type } = detectDevice(
-            hdrs.get("user-agent") || ""
-        );
+        const { browser, os, type } = detectDevice(hdrs.get("user-agent") || "");
 
         const content = [
             `<@${DISCORD_MENTION_ID}> a person landed on the site at ${timestamp}`,

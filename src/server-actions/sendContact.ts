@@ -1,13 +1,36 @@
 "use server";
 
+import { headers } from "next/headers";
+
 export type ContactActionState = {
-    status: "idle" | "success" | "error";
+    status: "idle" | "success" | "error" | "rate-limited";
     message: string | null;
 };
 
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_WINDOW = 5 * 60 * 1000; // 5 minutes
+const RATE_LIMIT_MAX = 3; // max submissions per window
+
+function checkRateLimit(ip: string): boolean {
+    const now = Date.now();
+    const record = rateLimitMap.get(ip);
+
+    if (!record || now > record.resetAt) {
+        rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW });
+        return true;
+    }
+
+    if (record.count >= RATE_LIMIT_MAX) {
+        return false;
+    }
+
+    record.count++;
+    return true;
+}
+
 export async function sendContact(
     _prevState: ContactActionState,
-    formData: FormData
+    formData: FormData,
 ): Promise<ContactActionState> {
     const name = (formData.get("name") ?? "").toString().trim();
     const email = (formData.get("email") ?? "").toString().trim();
@@ -17,6 +40,17 @@ export async function sendContact(
         return {
             status: "error",
             message: "Please fill out all fields.",
+        };
+    }
+
+    const headersList = await headers();
+    const forwarded = headersList.get("x-forwarded-for");
+    const ip = forwarded?.split(",")[0]?.trim() ?? "unknown";
+
+    if (!checkRateLimit(ip)) {
+        return {
+            status: "rate-limited",
+            message: "Too many submissions. Please wait a few minutes and try again.",
         };
     }
 
@@ -49,18 +83,18 @@ export async function sendContact(
         content,
     };
 
-    const headers: Record<string, string> = {
+    const discordHeaders: Record<string, string> = {
         "Content-Type": "application/json",
     };
 
     if (DISCORD_TOKEN) {
-        headers["Authorization"] = `Bot ${DISCORD_TOKEN}`;
+        discordHeaders.Authorization = `Bot ${DISCORD_TOKEN}`;
     }
 
     try {
         const res = await fetch(DISCORD_CHANNEL_ID, {
             method: "POST",
-            headers,
+            headers: discordHeaders,
             body: JSON.stringify(discordPayload),
         });
 
