@@ -7,6 +7,7 @@
     "build": "bun run --bun next build",
     "start": "bun run --bun next start",
     "lint": "bun run --bun next lint",
+    "test": "vitest run",
     "export": "bun run --bun next export"
   },
   "dependencies": {
@@ -30,6 +31,8 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "24.10.1",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
@@ -37,9 +40,11 @@
     "baseline-browser-mapping": "^2.11.1",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.7",
+    "jsdom": "^29.1.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "^4.1.10"
   },
   "author": "Samiul Alim Saad",
   "homepage": "https://github.com/samiulalimsaad/samiulalimsaad#readme",

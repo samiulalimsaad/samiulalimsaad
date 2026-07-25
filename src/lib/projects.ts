@@ -7,9 +7,14 @@ export const projects = [
         title: "PH Mailer",
         subtitle: "Centralized Email Platform",
         time: "Production",
-        shortDescription:
-            "Production email platform replacing Mailgun at scale",
-        priority: 105,
+    shortDescription:
+        "Production email platform replacing Mailgun at scale",
+    metrics: [
+        "100K+ emails/day peak",
+        "5 internal product teams",
+        "~$2K/month saved vs Mailgun",
+    ],
+    priority: 105,
         category: "Backend / Platform",
         status: "Production",
         tier: "featured",
@@ -39,9 +44,14 @@ export const projects = [
         name: "PH Auth Service",
         subtitle: "Multi-Tenant Auth Platform",
         time: "2024 – Present",
-        shortDescription:
-            "Multi-tenant auth platform on ZITADEL with custom Go product layer",
-        priority: 104,
+    shortDescription:
+        "Multi-tenant auth platform on ZITADEL with custom Go product layer",
+    metrics: [
+        "Multi-tenant isolation for 4 products",
+        "7-layer defense-in-depth",
+        "2 engineers coordinated",
+    ],
+    priority: 104,
         category: "Backend / Security",
         status: "Complete awaiting production release",
         tier: "past-work",
@@ -71,9 +81,13 @@ export const projects = [
         title: "PH Bootcamp Platform",
         subtitle: "Lead-Gen Education Platform",
         time: "Production",
-        shortDescription:
-            "Production education platform maintenance and feature development",
-        priority: 103,
+    shortDescription:
+        "Production education platform maintenance and feature development",
+    metrics: [
+        "15K+ enrolled students",
+        "500+ concurrent during campaigns",
+    ],
+    priority: 103,
         category: "Backend / Platform",
         status: "Production",
         tier: "featured",
@@ -100,9 +114,14 @@ export const projects = [
         title: "Enlightall",
         subtitle: "Education Marketplace",
         time: "Independent",
-        shortDescription:
-            "Multi-role education marketplace with payments and real-time messaging",
-        priority: 102,
+    shortDescription:
+        "Multi-role education marketplace with payments and real-time messaging",
+    metrics: [
+        "4 user roles with RBAC",
+        "Stripe Checkout integrated",
+        "Socket.IO real-time messaging",
+    ],
+    priority: 102,
         category: "Full Stack / Product",
         status: "Production",
         tier: "past-work",
@@ -147,9 +166,15 @@ export const projects = [
         title: "SpeakSail / Enlightall",
         subtitle: "Language Learning Marketplace",
         time: "Production",
-        shortDescription:
-            "Production language-learning marketplace with multi-instructor booking and course delivery",
-        priority: 104,
+    shortDescription:
+        "Production language-learning marketplace with multi-instructor booking and course delivery",
+    metrics: [
+        "1,200+ active students",
+        "50+ instructors",
+        "10K+ auth requests/day",
+        "Live with paying customers",
+    ],
+    priority: 104,
         category: "Full Stack / Marketplace",
         status: "Production",
         tier: "featured",
@@ -198,9 +223,14 @@ export const projects = [
         title: "AI Game Platform",
         subtitle: "Interactive Educational Gaming Platform",
         time: "Production",
-        shortDescription:
-            "Learning platform with interactive educational games for different age groups",
-        priority: 100,
+    shortDescription:
+        "Learning platform with interactive educational games for different age groups",
+    metrics: [
+        "Led team of 3 engineers",
+        "Backend-driven game engine",
+        "Multiple age-group difficulty levels",
+    ],
+    priority: 100,
         category: "Full Stack / Product",
         status: "Production",
         tier: "past-work",
@@ -228,9 +258,14 @@ export const projects = [
         title: "Desktop DRM Player",
         subtitle: "DRM-Protected Video Desktop App",
         time: "Production",
-        shortDescription:
-            "Electron desktop app for DRM-protected educational video playback",
-        priority: 95,
+    shortDescription:
+        "Electron desktop app for DRM-protected educational video playback",
+    metrics: [
+        "Widevine DRM in Electron",
+        "Offline license caching",
+        "Led architecture end-to-end",
+    ],
+    priority: 95,
         category: "Desktop / Security",
         status: "Production",
         tier: "past-work",
@@ -258,9 +293,14 @@ export const projects = [
         title: "Payment Service",
         subtitle: "Centralized Payment Platform",
         time: "2024 – Present",
-        shortDescription:
-            "Centralized multi-gateway payment service for education products",
-        priority: 94,
+    shortDescription:
+        "Centralized multi-gateway payment service for education products",
+    metrics: [
+        "3 gateways unified",
+        "OpenAPI-generated Go server",
+        "Polyglot persistence (3 databases)",
+    ],
+    priority: 94,
         category: "Backend / Payments",
         status: "In development",
         tier: "featured",
@@ -305,9 +345,14 @@ export const projects = [
         title: "Skill Mapper",
         subtitle: "Technical Assessment Platform",
         time: "Production",
-        shortDescription:
-            "Technical assessment platform with state machine and leaderboards",
-        priority: 93,
+    shortDescription:
+        "Technical assessment platform with state machine and leaderboards",
+    metrics: [
+        "5,000+ enrolled students",
+        "500 daily active users",
+        "5-tier XP ranking system",
+    ],
+    priority: 93,
         category: "Full Stack / Product",
         status: "Production",
         tier: "featured",
@@ -353,7 +398,7 @@ export const projects = [
         time: "(February 22)",
         shortDescription: "Convention center booking app built with React",
         priority: 92,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -372,7 +417,7 @@ export const projects = [
         time: "(January 22)",
         shortDescription: "Social media-style app with Next.js and Firebase",
         priority: 100,
-        tier: "learning",
+        tier: "archive",
         description: [
             "Nextjs with typescript",
             "Context-API",
@@ -406,7 +451,7 @@ export const projects = [
         time: "(May 22)",
         shortDescription: "E-commerce platform with Stripe payment integration",
         priority: 99,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -426,7 +471,7 @@ export const projects = [
         time: "(May 22)",
         shortDescription: "Service provider directory and booking platform",
         priority: 96,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -445,7 +490,7 @@ export const projects = [
         time: "(2021)",
         shortDescription: "International Space Station Tracker",
         priority: 70,
-        tier: "learning",
+        tier: "archive",
         description: ["Html", "CSS", "JavaScript"],
         image: "/projects/ISS-Tracker.png",
         tools: ["Html", "CSS", "JavaScript"],
@@ -459,7 +504,7 @@ export const projects = [
         time: "(May 22)",
         shortDescription: "Full-stack todo app with React and Express",
         priority: 98,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -485,7 +530,7 @@ export const projects = [
         time: "(April 22)",
         shortDescription: "Phone store e-commerce frontend",
         priority: 94,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -504,7 +549,7 @@ export const projects = [
         time: "(May 22)",
         shortDescription: "Smartphone warehouse inventory management app",
         priority: 97,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -525,7 +570,7 @@ export const projects = [
         time: "(May 22)",
         shortDescription: "Watch store e-commerce platform",
         priority: 95,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -544,7 +589,7 @@ export const projects = [
         time: "(January 22)",
         shortDescription: "Mission planning and management app",
         priority: 89,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -563,7 +608,7 @@ export const projects = [
         time: "(2021)",
         shortDescription: "A web app for manage todo",
         priority: 80,
-        tier: "learning",
+        tier: "archive",
         description: [
             "NextJS",
             "MaterialUI",
@@ -582,7 +627,7 @@ export const projects = [
         time: "(2021)",
         shortDescription: "Password Generator App",
         priority: 77,
-        tier: "learning",
+        tier: "archive",
         description: ["NextJS", "MaterialUI", "JavaScript"],
         image: "https://firebasestorage.googleapis.com/v0/b/personal-website-2994f.appspot.com/o/portfolio%2Fscreenshot-password-generator-jade-sigma.vercel.app-2021.04.28-16_37_58.png?alt=media&token=a647e153-7a2d-4124-968b-da71cde0247d",
         tools: ["Next.JS", "MaterialUI", "JavaScript"],
@@ -596,7 +641,7 @@ export const projects = [
         time: "(March 22)",
         shortDescription: "Dollar bank finance tracking application",
         priority: 93,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -615,7 +660,7 @@ export const projects = [
         time: "(2021)",
         shortDescription: "Application for chatting real time.",
         priority: 88,
-        tier: "learning",
+        tier: "archive",
         description: [
             "NextJS",
             "MaterialUI",
@@ -634,7 +679,7 @@ export const projects = [
         time: "(2021)",
         shortDescription: "Application for URL shortener",
         priority: 70,
-        tier: "learning",
+        tier: "archive",
         description: [
             "NextJS",
             "MaterialUI",
@@ -653,7 +698,7 @@ export const projects = [
         time: "(2021)",
         shortDescription: "Tic Tac Toe game",
         priority: 90,
-        tier: "learning",
+        tier: "archive",
         description: [
             "NextJS",
             "MaterialUI",
@@ -672,7 +717,7 @@ export const projects = [
         time: "(2021)",
         shortDescription: "A simple weather for broadcast current weather",
         priority: 77,
-        tier: "learning",
+        tier: "archive",
         description: ["NextJS", "MaterialUI", "TypeScript"],
         image: "https://firebasestorage.googleapis.com/v0/b/personal-website-2994f.appspot.com/o/portfolio%2Fscreenshot-weather-plum.vercel.app-2021.04.28-16_34_32.png?alt=media&token=d4626788-6391-4b24-b27e-da9e36f6aea4",
         tools: ["Next.JS", "MaterialUI", "TypeScript"],
@@ -686,7 +731,7 @@ export const projects = [
         time: "(2021)",
         shortDescription: "RGBA color generator",
         priority: 77,
-        tier: "learning",
+        tier: "archive",
         description: ["NextJS", "MaterialUI", "TypeScript"],
         image: "https://firebasestorage.googleapis.com/v0/b/personal-website-2994f.appspot.com/o/portfolio%2Flocalhost-3000.png?alt=media&token=b2a35908-c435-406e-86a1-9e32d826f2b0",
         tools: ["Next.JS", "MaterialUI", "TypeScript"],
@@ -700,7 +745,7 @@ export const projects = [
         time: "(February 22)",
         shortDescription: "Influencer gear landing page with Tailwind CSS",
         priority: 91,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS with React-Router-Dom",
             "daisyui, tailwindCSS",
@@ -720,7 +765,7 @@ export const projects = [
         time: "(2021)",
         shortDescription: "An e-commerce app with limited features",
         priority: 70,
-        tier: "learning",
+        tier: "archive",
         description: [
             "NextJS",
             "MaterialUI",
@@ -739,7 +784,7 @@ export const projects = [
         time: "(June 2022)",
         shortDescription: "Equation solver game with Drag and Drop",
         priority: 91,
-        tier: "learning",
+        tier: "archive",
         description: [
             "NextJS",
             "daisyui",
@@ -759,7 +804,7 @@ export const projects = [
         time: "(June 2022)",
         shortDescription: "Traffic management landing page",
         priority: 91,
-        tier: "learning",
+        tier: "archive",
         description: [
             "ReactJS",
             "daisyui",
@@ -779,7 +824,7 @@ export const projects = [
         time: "(2022)",
         shortDescription: "Blog filter app using Redux",
         priority: 87,
-        tier: "learning",
+        tier: "archive",
         description: ["React", "Redux", "JavaScript", "TailwindCSS"],
         image: "/sites/Blog-Home.png",
         tools: ["React", "Redux", "JavaScript", "TailwindCSS", "React-Redux"],
@@ -793,7 +838,7 @@ export const projects = [
         time: "(2022)",
         shortDescription: "multi counter app using vanilla Redux",
         priority: 87,
-        tier: "learning",
+        tier: "archive",
         description: ["HTML", "Redux", "JavaScript", "TailwindCSS"],
         image: "/sites/Multi-Counter-App.png",
         tools: ["HTML", "Redux", "JavaScript", "TailwindCSS"],
@@ -808,7 +853,7 @@ export const projects = [
         time: "(2022)",
         shortDescription: "Shopping Cart app using Redux",
         priority: 87,
-        tier: "learning",
+        tier: "archive",
         description: ["React", "Redux", "JavaScript", "TailwindCSS"],
         image: "/sites/Shopping-Cart-with-React-Redux.png",
         tools: ["React", "Redux", "JavaScript", "TailwindCSS", "React-Redux"],

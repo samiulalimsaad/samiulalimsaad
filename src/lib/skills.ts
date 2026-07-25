@@ -83,8 +83,7 @@ export const skills: SkillGroup[] = [
             { name: "Git", level: "production" },
             { name: "Nginx", level: "familiar" },
             { name: "PM2", level: "familiar" },
-            { name: "AWS S3", level: "familiar" },
-            { name: "Cloudflare Pages", level: "familiar" },
+
         ],
     },
     {
