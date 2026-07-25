@@ -47,6 +47,11 @@ const Contact = dynamic(() => import("@/components/sections/Contact"), {
     ssr: true,
 });
 
+const Blog = dynamic(() => import("@/components/sections/Blog"), {
+    loading: () => <SectionSkeleton />,
+    ssr: true,
+});
+
 export default function Home() {
     return (
         <>
@@ -57,6 +62,7 @@ export default function Home() {
             <About />
             <Skills />
             <Principles />
+            <Blog />
             <CodeSamples />
             <Contact />
         </>
