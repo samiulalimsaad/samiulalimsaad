@@ -76,7 +76,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                     </div>
                 )}
                 <div className="mb-4 flex flex-wrap gap-2">
-                    {project.tools.map((tool) => (
+                    {project.tools.slice(0, 3).map((tool) => (
                         <span
                             key={tool}
                             className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
@@ -84,6 +84,11 @@ function ProjectCard({ project }: ProjectCardProps) {
                             {tool}
                         </span>
                     ))}
+                    {project.tools.length > 3 && (
+                        <span className="inline-flex items-center rounded-full bg-cyan-50/60 px-3 py-1 text-xs font-medium text-cyan-600 ring-1 ring-cyan-100/60">
+                            +{project.tools.length - 3} more
+                        </span>
+                    )}
                 </div>
                 <div className="mt-auto flex flex-wrap gap-3">
                     {project.proprietary && !project.githubFrontEnd && !project.live ? (

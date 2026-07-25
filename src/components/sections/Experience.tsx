@@ -9,10 +9,11 @@ const experiences = [
         dateFrom: "Aug 2024",
         dateTo: "Present",
         description: [
+            "Programming Hero's education platform ecosystem serves thousands of students across multiple products. I own the shared infrastructure layer that all products depend on.",
             "Build and maintain three production platform services: centralized email delivery (PH Mailer), multi-gateway payment processing in Go, and internal operational tooling — serving multiple internal product teams.",
             "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA, device limits, rate limiting, CSP/CSRF), and integration logic. Coordinated two mid-level engineers.",
             "Led architecture of a desktop DRM player (Electron) for protected educational video. Mid-project pivot when upstream Chromium changes broke offline playback — redesigned to a hybrid online/offline license strategy.",
-            "Manage UAT environments and deployment pipelines for 30+ projects using Docker, Docker Swarm, and CI/CD. Maintain 5 production services with 24/7 monitoring and alerting.",
+            "Manage UAT environments and deployment pipelines using Docker and CI/CD. Maintain 5 production services with 24/7 monitoring and alerting.",
         ],
     },
     {
@@ -23,8 +24,9 @@ const experiences = [
         dateFrom: "Feb 2023",
         dateTo: "Aug 2024",
         description: [
-            "Taught web development through live sessions and guided projects covering React, JavaScript, and modern frontend practices.",
-            "Reviewed learner code, broke down project requirements into implementable steps, and mentored students through real-world development challenges.",
+            "Mentored junior developers through live sessions and guided projects covering React, JavaScript, and modern frontend practices.",
+            "Reviewed learner code, broke down project requirements into implementable steps, and provided feedback on architecture and code quality.",
+            "This experience strengthened my ability to explain complex systems, review code critically, and communicate technical decisions clearly.",
         ],
     },
     {
@@ -35,8 +37,8 @@ const experiences = [
         dateFrom: "Aug 2022",
         dateTo: "Aug 2025",
         description: [
-            "SpeakSail — production language-learning marketplace live with paying customers. Multi-instructor booking, course delivery, and payment processing. Serves 1,200+ active students and 50+ instructors.",
-            "Enlightall — production multi-role education marketplace with RBAC, Stripe Checkout, and real-time messaging via Socket.IO. Live in production with real users.",
+            "SpeakSail — production language-learning marketplace with paying customers. Multi-instructor booking, course delivery, and payment processing. Serves students and instructors across multiple countries.",
+            "Enlightall — production multi-role education marketplace with RBAC, Stripe Checkout, and real-time messaging via Socket.IO.",
             "3-year client engagement. Both applications are production-grade, serving real users with real business impact.",
         ],
     },
@@ -49,17 +51,6 @@ const experiences = [
         dateTo: "Aug 2022",
         description: [
             "Built full-stack features with React and Node.js. Fixed bugs, implemented new modules, and shipped code in a production environment.",
-        ],
-    },
-    {
-        designation: "AI Intern",
-        company: "Remote",
-        location: "Remote",
-        jobMode: "Remote · Unpaid",
-        dateFrom: "Jul 2021",
-        dateTo: "Jan 2022",
-        description: [
-            "Remote AI internship while completing final university semester. Contributed to data processing and model evaluation tasks.",
         ],
     },
 ];

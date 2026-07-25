@@ -8,15 +8,15 @@ export default function Skills() {
             className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4 animate-section-in"
         >
             <div className="mx-auto w-full max-w-6xl">
-                <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
-                    <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                        Skills
-                    </span>
-                </h2>
-                <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Tools I use in production systems. Familiar items from
-                    learning and competitive programming are marked differently.
-                </p>
+                    <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
+                        <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                            Engineering Impact Areas
+                        </span>
+                    </h2>
+                    <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
+                        Production experience organized by problem domain.
+                        Familiar items from learning and side projects are marked differently.
+                    </p>
                 <div className="grid gap-8 md:grid-cols-2">
                     {skills.map((group) => (
                         <SkillCard key={group.category} group={group} />

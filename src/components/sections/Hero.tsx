@@ -38,25 +38,11 @@ export default function Hero() {
                         </span>
                     </h1>
                     <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
-                        Software engineer building production platform services
-                        — identity, email, payments — with{" "}
-                        <span className="font-semibold text-cyan-700">Go</span>,
-                        <span className="font-semibold text-indigo-700">
-                            {" "}
-                            TypeScript
-                        </span>
-                        ,
-                        <span className="font-semibold text-emerald-700">
-                            {" "}
-                            Node.js
-                        </span>
-                        , and
-                        <span className="font-semibold text-cyan-700">
-                            {" "}
-                            Laravel
-                        </span>
-                        . Also contributes to DevOps and infrastructure across
-                        30+ projects.
+                        I build and maintain production platform services that
+                        multiple engineering teams depend on — centralized email
+                        delivery, multi-gateway payments, and multi-tenant
+                        authentication. I care about systems that stay reliable
+                        at 2 AM.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a

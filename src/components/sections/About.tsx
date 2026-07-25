@@ -18,13 +18,25 @@ export default function About() {
                 <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
                     <div className="space-y-4 text-base sm:text-lg text-foreground/80 leading-relaxed">
                         <p>
-                            Full-stack software engineer with a backend center
-                            of gravity and {experienceYears}+ years of production
-                            experience. I build and maintain production platform
-                            services — centralized email, multi-gateway
-                            payments, multi-tenant auth — and contribute to
-                            DevOps and infrastructure across 30+ projects at
-                            Programming Hero.
+                            I build platform services that other engineering
+                            teams depend on. My work lives at the intersection
+                            of backend systems, security, and operational
+                            reliability — the parts of software that users never
+                            see but always notice when they break.
+                        </p>
+                        <p>
+                            At{" "}
+                            <span className="font-semibold text-cyan-700">
+                                Programming Hero
+                            </span>
+                            , I own production maintenance of the centralized
+                            email platform (PH Mailer), a multi-gateway payment
+                            service in Go, and a multi-tenant auth platform on
+                            ZITADEL. I manage UAT environments and deployment
+                            pipelines, with 5 production services under 24/7
+                            monitoring and alerting. I&apos;ve coordinated
+                            implementation and reviewed work for mid-level
+                            engineers within my scope.
                         </p>
                         <p>
                             I care less about collecting frameworks and more
@@ -35,23 +47,6 @@ export default function About() {
                             deployed and operated without heroics.
                         </p>
                         <p>
-                            At{" "}
-                            <span className="font-semibold text-cyan-700">
-                                Programming Hero
-                            </span>
-                            , I own production maintenance of the centralized
-                            email platform (PH Mailer), maintain production
-                            education platforms, and have led systems work
-                            across auth, payments, and desktop DRM. I manage UAT
-                            environments and deployment pipelines for 30+
-                            projects, with 5 production services under 24/7
-                            monitoring and alerting. I&apos;ve coordinated
-                            implementation and reviewed work for mid-level
-                            engineers within my scope.
-                        </p>
-                        <p>
-                            I also handle automated testing and continuous
-                            integration pipelines to ensure smooth deployments.
                             I&apos;m comfortable full-stack when the product
                             needs it, but my center of gravity is backend and
                             platform work. I&apos;m open to remote roles and
