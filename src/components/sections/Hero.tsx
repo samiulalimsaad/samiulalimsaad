@@ -38,9 +38,8 @@ export default function Hero() {
                         </span>
                     </h1>
                     <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
-                        Backend-focused software engineer. I build and operate
-                        production platform services — identity, email,
-                        payments, and delivery infrastructure — with{" "}
+                        Software engineer building production platform services
+                        — identity, email, payments — with{" "}
                         <span className="font-semibold text-cyan-700">Go</span>,
                         <span className="font-semibold text-indigo-700">
                             {" "}
@@ -51,7 +50,8 @@ export default function Hero() {
                             {" "}
                             Node.js
                         </span>
-                        .
+                        . Also contributes to DevOps and infrastructure across
+                        30+ projects.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a

@@ -31,8 +31,7 @@ export default async function Blog() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    A few recent articles I&apos;ve written on Medium. For more,
-                    visit my full profile.
+                    Articles are in Bengali. For more, visit my full profile.
                 </p>
 
                 <div className="grid gap-6 md:grid-cols-3">

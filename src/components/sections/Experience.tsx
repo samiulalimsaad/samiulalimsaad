@@ -1,4 +1,3 @@
-import { getProductionYears } from "@/lib/utils";
 import { Building2, CalendarDays, MapPin, Briefcase } from "lucide-react";
 
 const experiences = [
@@ -14,7 +13,9 @@ const experiences = [
             "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA/OTP, device limits, rate limiting, CSRF/CSP), and integration logic. Collaborative architecture under Senior SWE authority; coordinated two mid-level engineers.",
             "Led architecture and implementation of a desktop DRM player (Electron) for protected educational video. Key challenge: upstream Chromium changes broke the offline playback model, requiring a mid-project pivot to a hybrid online/offline license strategy.",
             "Maintained production education platforms (Bootcamp, Skill Mapper): feature development, monitoring, bug fixes, and cross-team coordination.",
-            "Managed UAT environments, deployment pipelines, and server operations for several internal services.",
+            "Manage UAT environments and deployment pipelines for 30+ projects using Docker, Docker Swarm, and CI/CD automation.",
+            "Maintain 5 production services with 24/7 monitoring and alerting. Handle incident response and production debugging.",
+            "Automated testing and continuous integration pipelines to ensure smooth deployments across multiple product teams.",
         ],
     },
     {
@@ -40,17 +41,6 @@ const experiences = [
             "Built full-stack features with React and Node.js. Fixed bugs, implemented new modules, and shipped code in a production environment.",
         ],
     },
-    {
-        designation: "Internship",
-        company: "OpenfabricAI (Transylvanialab)",
-        location: "Romania",
-        jobMode: "Remote",
-        dateFrom: "Jul 2021",
-        dateTo: "Jan 2022",
-        description: [
-            "Contributed to AI-focused projects remotely with an international team. Early exposure to real-world product development workflows.",
-        ],
-    },
 ];
 
 function formatDuration(from: string, to: string) {
@@ -59,7 +49,6 @@ function formatDuration(from: string, to: string) {
 }
 
 export default function Experience() {
-    const years = getProductionYears();
     return (
         <section
             id="experience"

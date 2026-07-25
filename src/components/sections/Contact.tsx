@@ -11,8 +11,7 @@ const otherLinks = [
     { label: "Facebook", href: "https://facebook.com/samiulalimsaad" },
     { label: "Discord", href: "https://discord.com/users/938388181202653224" },
     { label: "Messenger", href: "https://m.me/samiulalimsaad" },
-    { label: "WhatsApp", href: "https://wa.me/8801715378032" },
-    { label: "Phone", href: "tel:+8801715378032" },
+
 ];
 
 const Contact = () => {
