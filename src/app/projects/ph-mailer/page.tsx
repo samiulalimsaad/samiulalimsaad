@@ -13,8 +13,15 @@ import {
     Shield,
     Zap,
 } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
+
+export const metadata: Metadata = {
+    title: "PH Mailer — Centralized Email Platform | Case Study",
+    description:
+        "Production email platform serving 100K+ emails/day across 5 internal product teams. Queue-based architecture with BullMQ, Redis, and AWS SES.",
+};
 
 export default function PHMailerCaseStudy() {
     return (

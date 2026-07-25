@@ -10,8 +10,15 @@ import {
     Shield,
     Zap,
 } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
+
+export const metadata: Metadata = {
+    title: "Payment Service — Multi-Gateway Payment Platform | Case Study",
+    description:
+        "Centralized payment service with adapter pattern for Stripe, bKash, and SSLCommerz. OpenAPI-generated Go server with polyglot persistence.",
+};
 
 export default function PaymentServiceCaseStudy() {
     return (

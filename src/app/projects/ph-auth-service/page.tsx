@@ -14,8 +14,15 @@ import {
     UserCheck,
     Zap,
 } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
+
+export const metadata: Metadata = {
+    title: "PH Auth Service — Multi-Tenant Identity Provider | Case Study",
+    description:
+        "Multi-tenant OIDC auth platform with ZITADEL and custom Go layer. MFA, device limits, rate limiting, CSP/CSRF hardening, and defense-in-depth security.",
+};
 
 export default function AuthServiceCaseStudy() {
     return (

@@ -11,8 +11,15 @@ import {
     Users,
     Zap,
 } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
+
+export const metadata: Metadata = {
+    title: "Skill Mapper — Technical Assessment Platform | Case Study",
+    description:
+        "AI-powered assessment platform with event-driven state machine, dual AI providers (OpenAI + Gemini), and gamified XP ranking for 5,000+ students.",
+};
 
 export default function SkillMapperCaseStudy() {
     return (
