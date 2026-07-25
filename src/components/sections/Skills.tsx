@@ -14,8 +14,8 @@ export default function Skills() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Technologies and tools I use to design, build, and ship
-                    production backend and full-stack systems.
+                    Tools I use in production systems. Familiar items from
+                    learning and competitive programming are marked differently.
                 </p>
                 <div className="grid gap-8 md:grid-cols-2">
                     {skills.map((group) => (
@@ -32,6 +32,9 @@ type SkillCardProps = {
 };
 
 function SkillCard({ group }: SkillCardProps) {
+    const productionItems = group.items.filter(
+        (i) => i.level === "production",
+    );
     const previewItemLimit = 6;
 
     return (
@@ -41,20 +44,20 @@ function SkillCard({ group }: SkillCardProps) {
                     <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">
                         {group.category}
                     </h3>
-                    <p className="text-[11px] font-medium text-cyan-600/80">
-                        {group.items.length} skills
+                    <p className="text-[11px] font-medium text-foreground/60 max-w-md">
+                        {group.context}
                     </p>
                 </div>
                 <ChevronDown className="mt-1 h-4 w-4 shrink-0 text-cyan-500 transition-transform duration-200 group-open:rotate-180" />
             </summary>
 
             <div className="mt-3 flex flex-wrap gap-2 group-open:hidden">
-                {group.items.slice(0, previewItemLimit).map((item) => (
+                {productionItems.slice(0, previewItemLimit).map((item) => (
                     <span
-                        key={item}
+                        key={item.name}
                         className="rounded-full border border-cyan-100 bg-linear-to-r from-cyan-50 via-white to-indigo-50 px-3 py-1 text-[11px] sm:text-xs font-medium text-foreground hover:border-cyan-200"
                     >
-                        {item}
+                        {item.name}
                     </span>
                 ))}
                 {group.items.length > previewItemLimit && (
@@ -68,10 +71,19 @@ function SkillCard({ group }: SkillCardProps) {
                 <div className="flex flex-wrap gap-2">
                     {group.items.map((item) => (
                         <span
-                            key={item}
-                            className="rounded-full border border-cyan-100 bg-linear-to-r from-cyan-50 via-white to-indigo-50 px-3 py-1 text-[11px] sm:text-xs font-medium text-foreground hover:border-cyan-200"
+                            key={item.name}
+                            className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] sm:text-xs font-medium ${
+                                item.level === "production"
+                                    ? "border border-cyan-100 bg-linear-to-r from-cyan-50 via-white to-indigo-50 text-foreground hover:border-cyan-200"
+                                    : "border border-dashed border-gray-200 bg-white/60 text-foreground/50 hover:border-gray-300"
+                            }`}
                         >
-                            {item}
+                            {item.name}
+                            {item.level === "familiar" && (
+                                <span className="ml-1.5 text-[9px] text-foreground/40 font-normal">
+                                    familiar
+                                </span>
+                            )}
                         </span>
                     ))}
                 </div>

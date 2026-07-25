@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Projects() {
-    const featured = projects.slice(0, 6);
+    const featured = projects.filter(p => p.tier === "featured").slice(0, 6);
 
     return (
         <section
@@ -17,8 +17,8 @@ export default function Projects() {
                     </span>
                 </h2>
                 <p className="mx-auto max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    A selection of recent work showcasing backend platforms,
-                    identity systems, and production product engineering.
+                    Production systems I build and maintain. Each entry
+                    describes the engineering problem, not just the technology.
                 </p>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
@@ -80,26 +80,42 @@ function ProjectCard({ project }: ProjectCardProps) {
                         </span>
                     ))}
                 </div>
-                <div className="mt-auto flex gap-3">
-                    {project.githubFrontEnd && (
-                        <a
-                            href={project.githubFrontEnd}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
-                        >
-                            GitHub
-                        </a>
+                <div className="mt-auto flex flex-wrap gap-3">
+                    {project.proprietary && !project.githubFrontEnd && !project.live ? (
+                        <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-medium text-amber-700">
+                            Proprietary — Programming Hero
+                        </span>
+                    ) : (
+                        <>
+                            {project.githubFrontEnd && (
+                                <a
+                                    href={project.githubFrontEnd}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
+                                >
+                                    GitHub
+                                </a>
+                            )}
+                            {project.live && (
+                                <a
+                                    href={project.live}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
+                                >
+                                    Live Demo
+                                </a>
+                            )}
+                        </>
                     )}
-                    {project.live && (
-                        <a
-                            href={project.live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
+                    {"caseStudyLink" in project && project.caseStudyLink && (
+                        <Link
+                            href={project.caseStudyLink}
+                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg border border-indigo-200 text-indigo-700 hover:bg-indigo-50 transition"
                         >
-                            Live Demo
-                        </a>
+                            Case Study →
+                        </Link>
                     )}
                 </div>
             </div>

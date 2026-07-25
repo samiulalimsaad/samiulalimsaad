@@ -10,9 +10,9 @@ const experiences = [
         dateFrom: "Aug 2024",
         dateTo: "Present",
         description: [
-            "Built and maintained production platform services: centralized email (PH Mailer on Plunk), multi-gateway payment integrations in Go (bKash, SSLCommerz, Stripe, Nagad), and internal tooling across multiple product teams.",
+            "Build and maintain three production platform services serving multiple internal product teams: centralized email delivery (PH Mailer), multi-gateway payment processing in Go, and internal operational tooling. These services handle shared infrastructure that individual product teams depend on but shouldn't own.",
             "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA/OTP, device limits, rate limiting, CSRF/CSP), and integration logic. Collaborative architecture under Senior SWE authority; coordinated two mid-level engineers.",
-            "Led architecture and implementation of a desktop DRM player (Electron) for protected educational video playback, including offline support and Chromium DRM constraint handling.",
+            "Led architecture and implementation of a desktop DRM player (Electron) for protected educational video. Key challenge: upstream Chromium changes broke the offline playback model, requiring a mid-project pivot to a hybrid online/offline license strategy.",
             "Maintained production education platforms (Bootcamp, Skill Mapper): feature development, monitoring, bug fixes, and cross-team coordination.",
             "Managed UAT environments, deployment pipelines, and server operations for several internal services.",
         ],
@@ -72,7 +72,7 @@ export default function Experience() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-8 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Professional software engineering since 2021 · Remote
+                    Production platform engineering since 2021 · Remote
                     · Bangladesh
                 </p>
 

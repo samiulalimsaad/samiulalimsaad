@@ -38,8 +38,8 @@ export default function Hero() {
                     </h1>
                     <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
                         Backend-focused software engineer. I build and operate
-                        production platform services identity, email, payments,
-                        and delivery infrastructure with{" "}
+                        production platform services — identity, email,
+                        payments, and delivery infrastructure — with{" "}
                         <span className="font-semibold text-cyan-700">Go</span>,
                         <span className="font-semibold text-indigo-700">
                             {" "}

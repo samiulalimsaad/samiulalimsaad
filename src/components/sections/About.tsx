@@ -18,11 +18,11 @@ export default function About() {
                 <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
                     <div className="space-y-4 text-base sm:text-lg text-foreground/80 leading-relaxed">
                         <p>
-                            I&apos;m a backend-focused software engineer with{" "}
-                            {experienceYears}+ years of professional experience.
-                            Most of my work sits in production platform
-                            services: identity and access, email, payments, and
-                            the delivery infrastructure that keeps those systems
+                            Backend-focused software engineer with{" "}
+                            {experienceYears}+ years of production experience.
+                            My work sits in production platform services:
+                            identity and access, email, payments, and the
+                            delivery infrastructure that keeps those systems
                             shippable.
                         </p>
                         <p>
@@ -64,7 +64,7 @@ export default function About() {
                                 "Prefer boring, operable designs over clever ones",
                                 "Security and tenancy decided early, not bolted on",
                                 "Teach and document so systems aren't stuck in one person's head",
-                                "Own what I touch maintenance is engineering, not overhead",
+                                "Own what I touch — maintenance is engineering, not overhead",
                             ].map((principle) => (
                                 <div
                                     key={principle}
