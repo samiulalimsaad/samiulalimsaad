@@ -45,10 +45,15 @@ export default function Hero() {
                             {" "}
                             TypeScript
                         </span>
-                        , and
+                        ,
                         <span className="font-semibold text-emerald-700">
                             {" "}
                             Node.js
+                        </span>
+                        , and
+                        <span className="font-semibold text-cyan-700">
+                            {" "}
+                            Laravel
                         </span>
                         . Also contributes to DevOps and infrastructure across
                         30+ projects.
