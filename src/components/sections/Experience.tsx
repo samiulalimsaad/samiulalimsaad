@@ -2,8 +2,8 @@ import { Building2, CalendarDays, MapPin } from "lucide-react";
 
 const experiences = [
     {
-        designation: "Web Developer L2",
-        company: "Programming Hero",
+        designation: "Software Engineer",
+        company: "Programming Hero (Technology Team)",
         location: "Dhaka",
         jobMode: "Remote",
         dateFrom: "Aug 2024",
@@ -16,11 +16,11 @@ const experiences = [
         ],
     },
     {
-        designation: "Instructor",
+        designation: "Web Instructor",
         company: "Programming Hero",
         location: "Dhaka",
         jobMode: "Remote",
-        dateFrom: "Feb 2022",
+        dateFrom: "Feb 2023",
         dateTo: "Aug 2024",
         description: [
             "Taught web development through live sessions and guided projects covering React, JavaScript, and modern frontend practices.",
@@ -28,14 +28,38 @@ const experiences = [
         ],
     },
     {
+        designation: "Freelance Software Engineer",
+        company: "Self-employed",
+        location: "Remote",
+        jobMode: "Part-time / Contract",
+        dateFrom: "Aug 2022",
+        dateTo: "Aug 2025",
+        description: [
+            "Built and maintained SpeakSail — a production language-learning marketplace with multi-instructor booking, course delivery, and payment processing. Live with paying customers.",
+            "Built Enlightall — a multi-role education marketplace with RBAC, Stripe Checkout integration, and real-time messaging via Socket.IO.",
+            "Long-term client engagement spanning 3 years alongside full-time employment.",
+        ],
+    },
+    {
         designation: "FullStack Developer (Intern)",
         company: "Macroman Solution",
         location: "Rajshahi",
-        jobMode: "On-site",
+        jobMode: "On-site · Paid",
         dateFrom: "Feb 2022",
         dateTo: "Aug 2022",
         description: [
             "Built full-stack features with React and Node.js. Fixed bugs, implemented new modules, and shipped code in a production environment.",
+        ],
+    },
+    {
+        designation: "AI Intern",
+        company: "Remote",
+        location: "Remote",
+        jobMode: "Remote · Unpaid",
+        dateFrom: "Jul 2021",
+        dateTo: "Jan 2022",
+        description: [
+            "Remote AI internship while completing final university semester. Contributed to data processing and model evaluation tasks.",
         ],
     },
 ];
@@ -58,8 +82,8 @@ export default function Experience() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-8 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Production platform engineering since Aug 2024 · Industry
-                    experience since 2021 · Remote · Bangladesh
+                    Industry experience since Jul 2021 · Platform engineering
+                    since Aug 2024 · Remote · Bangladesh
                 </p>
 
                 <div className="rounded-3xl border border-white/70 bg-white/80 p-5 sm:p-6 backdrop-blur-sm">

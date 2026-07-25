@@ -113,7 +113,7 @@ export const projects = [
         name: "Enlightall",
         title: "Enlightall",
         subtitle: "Education Marketplace",
-        time: "Independent",
+        time: "Freelance Client — Aug 2022 – Aug 2025",
     shortDescription:
         "Multi-role education marketplace with payments and real-time messaging",
     metrics: [
@@ -165,7 +165,7 @@ export const projects = [
         name: "SpeakSail / Enlightall",
         title: "SpeakSail / Enlightall",
         subtitle: "Language Learning Marketplace",
-        time: "Production",
+        time: "Freelance Client — Aug 2022 – Aug 2025",
     shortDescription:
         "Production language-learning marketplace with multi-instructor booking and course delivery",
     metrics: [
