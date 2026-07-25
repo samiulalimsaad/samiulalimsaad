@@ -88,11 +88,11 @@ export const skills: SkillGroup[] = [
         ],
     },
     {
-        category: "Frontend (secondary)",
-        context: "SSR applications, desktop Electron, and component libraries",
+        category: "Supporting Skills",
+        context: "SSR dashboards, desktop apps, and component libraries (not primary focus)",
         items: [
-            { name: "React.js", level: "production" },
-            { name: "Next.js", level: "production" },
+            { name: "React.js", level: "familiar" },
+            { name: "Next.js", level: "familiar" },
             { name: "Electron", level: "production" },
             { name: "Tailwind CSS", level: "production" },
             { name: "SSR", level: "production" },

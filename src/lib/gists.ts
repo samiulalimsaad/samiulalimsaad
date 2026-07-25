@@ -17,6 +17,16 @@ export type Gist = {
     content: string;
 };
 
+export type CodeSampleGist = {
+    id: string;
+    title: string;
+    description: string;
+    url: string;
+    language: string;
+    pattern: string;
+    usedIn: string;
+};
+
 const gistMetaMap: Record<string, GistMeta> = {
     "csp-nonce-middleware": {
         slug: "csp-nonce-middleware",
@@ -90,3 +100,56 @@ export function getGistBySlug(slug: string): Gist | null {
 export function getAllGistSlugs(): string[] {
     return Object.keys(gistMetaMap);
 }
+
+export const codeSampleGists: CodeSampleGist[] = [
+    {
+        id: "worker-pool",
+        title: "Go Worker Pool",
+        description:
+            "Generic worker pool with configurable concurrency, graceful shutdown via signal handling, and built-in metrics collection for jobs processed and queue depth.",
+        url: "https://gist.github.com/samiulalimsaad/worker-pool",
+        language: "Go",
+        pattern: "Concurrency",
+        usedIn: "PH Mailer, Payment Service",
+    },
+    {
+        id: "state-machine",
+        title: "TypeScript State Machine",
+        description:
+            "Typed state machine with transition guards, side-effect hooks, and event sourcing support. Prevents invalid transitions and centralizes lifecycle logic.",
+        url: "https://gist.github.com/samiulalimsaad/state-machine",
+        language: "TypeScript",
+        pattern: "State Management",
+        usedIn: "Skill Mapper, Payment Service",
+    },
+    {
+        id: "payment-adapter",
+        title: "Payment Gateway Adapter",
+        description:
+            "Interface-based adapter pattern for payment gateway abstraction. Includes webhook signature verification, idempotency handling, and refund management.",
+        url: "https://gist.github.com/samiulalimsaad/payment-adapter",
+        language: "Go",
+        pattern: "Adapter / Strategy",
+        usedIn: "Payment Service",
+    },
+    {
+        id: "rate-limiter",
+        title: "Rate Limiting Middleware",
+        description:
+            "Token bucket rate limiter with per-user and per-IP strategies. Redis-backed for distributed deployments with configurable capacity and refill rates.",
+        url: "https://gist.github.com/samiulalimsaad/rate-limiter",
+        language: "Go",
+        pattern: "Middleware / Resilience",
+        usedIn: "PH Auth Service",
+    },
+    {
+        id: "csrf-middleware",
+        title: "CSRF Protection Middleware",
+        description:
+            "Double-submit cookie pattern with CSP nonce integration. Handles safe/unsafe HTTP methods and provides configurable token generation and validation.",
+        url: "https://gist.github.com/samiulalimsaad/csrf-middleware",
+        language: "Go",
+        pattern: "Middleware / Security",
+        usedIn: "PH Auth Service",
+    },
+];

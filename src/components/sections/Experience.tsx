@@ -1,5 +1,5 @@
-import { getExperienceYears } from "@/lib/utils";
-import { Building2, CalendarDays, MapPin } from "lucide-react";
+import { getProductionYears } from "@/lib/utils";
+import { Building2, CalendarDays, MapPin, Briefcase } from "lucide-react";
 
 const experiences = [
     {
@@ -59,7 +59,7 @@ function formatDuration(from: string, to: string) {
 }
 
 export default function Experience() {
-    const years = getExperienceYears();
+    const years = getProductionYears();
     return (
         <section
             id="experience"
@@ -72,8 +72,8 @@ export default function Experience() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-8 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Production platform engineering since 2021 · Remote
-                    · Bangladesh
+                    Production platform engineering since Aug 2024 · Industry
+                    experience since 2021 · Remote · Bangladesh
                 </p>
 
                 <div className="rounded-3xl border border-white/70 bg-white/80 p-5 sm:p-6 backdrop-blur-sm">
@@ -88,8 +88,14 @@ export default function Experience() {
                                 </span>
                                 <div className="rounded-2xl border border-zinc-100 bg-linear-to-br from-white via-cyan-50/40 to-indigo-50/40 p-4 transition hover:-translate-y-0.5 hover:shadow-md">
                                     <div className="space-y-1">
-                                        <h3 className="text-base sm:text-lg font-semibold text-cyan-700">
+                                        <h3 className="text-base sm:text-lg font-semibold text-cyan-700 inline-flex items-center gap-2 flex-wrap">
                                             {exp.designation}
+                                            {index === 0 && (
+                                                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-200">
+                                                    <Briefcase size={10} />
+                                                    Production
+                                                </span>
+                                            )}
                                         </h3>
                                         <div className="flex flex-wrap items-center gap-2">
                                             <span className="inline-flex items-center gap-1 rounded-full border border-cyan-100 bg-white/80 px-2 py-0.5 text-[11px] font-medium text-cyan-700">
