@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { projects } from "@/lib/projects";
 import Image from "next/image";
 import Link from "next/link";
+import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
     title: "Projects — Samiul Alim",
@@ -26,9 +26,7 @@ export default function AllProjectsPage() {
                 </p>
 
                 {/* Featured projects */}
-                <h2 className="mb-6 text-xl font-bold text-cyan-700">
-                    Featured Work
-                </h2>
+                <h2 className="mb-6 text-xl font-bold text-cyan-700">Featured Work</h2>
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
                     {featured.map((p) => (
                         <ProjectCard key={p.name} project={p} />
@@ -39,9 +37,7 @@ export default function AllProjectsPage() {
                 <details className="group mb-16 rounded-3xl border border-gray-200 bg-white/80 p-6 backdrop-blur-sm">
                     <summary className="flex cursor-pointer items-center justify-between gap-2 [&::-webkit-details-marker]:hidden">
                         <div>
-                            <h2 className="text-lg font-bold text-cyan-700">
-                                Past Work
-                            </h2>
+                            <h2 className="text-lg font-bold text-cyan-700">Past Work</h2>
                             <p className="text-sm text-foreground/60">
                                 Projects I contributed to previously
                             </p>
@@ -77,17 +73,13 @@ function ProjectCard({ project }: { project: Project }) {
                 />
             </div>
             <div className="flex flex-1 flex-col p-6">
-                <h2 className="mb-1 text-xl sm:text-2xl font-bold text-cyan-700">
-                    {project.name}
-                </h2>
+                <h2 className="mb-1 text-xl sm:text-2xl font-bold text-cyan-700">{project.name}</h2>
                 {project.time && (
                     <p className="mb-1 text-[11px] font-medium uppercase tracking-wide text-foreground/60">
                         {project.time}
                     </p>
                 )}
-                <p className="mb-2 text-sm text-foreground/80">
-                    {project.shortDescription}
-                </p>
+                <p className="mb-2 text-sm text-foreground/80">{project.shortDescription}</p>
                 {"metrics" in project && project.metrics && project.metrics.length > 0 && (
                     <div className="mb-3 flex flex-wrap gap-1.5">
                         {project.metrics.slice(0, 3).map((m) => (
@@ -150,15 +142,14 @@ function ProjectCard({ project }: { project: Project }) {
                                     Live Demo
                                 </a>
                             )}
-                            {"caseStudyLink" in project &&
-                                project.caseStudyLink && (
-                                    <Link
-                                        href={project.caseStudyLink}
-                                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg border border-indigo-200 text-indigo-700 hover:bg-indigo-50 transition"
-                                    >
-                                        Case Study →
-                                    </Link>
-                                )}
+                            {"caseStudyLink" in project && project.caseStudyLink && (
+                                <Link
+                                    href={project.caseStudyLink}
+                                    className="inline-block px-3 py-1 text-sm font-medium rounded-lg border border-indigo-200 text-indigo-700 hover:bg-indigo-50 transition"
+                                >
+                                    Case Study →
+                                </Link>
+                            )}
                         </>
                     )}
                 </div>
@@ -181,9 +172,7 @@ function PastWorkCard({ project }: { project: Project }) {
                 />
             </div>
             <div className="flex flex-1 flex-col p-4">
-                <h3 className="mb-1 text-base font-semibold text-foreground/90">
-                    {project.name}
-                </h3>
+                <h3 className="mb-1 text-base font-semibold text-foreground/90">{project.name}</h3>
                 {project.time && (
                     <p className="mb-1 text-[10px] font-medium uppercase tracking-wide text-foreground/50">
                         {project.time}
@@ -233,5 +222,3 @@ function PastWorkCard({ project }: { project: Project }) {
         </div>
     );
 }
-
-

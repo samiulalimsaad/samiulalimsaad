@@ -4,7 +4,6 @@ import {
     Bug,
     GitBranch,
     Globe,
-    HardDrive,
     Lock,
     Mail,
     MessageSquare,
@@ -38,6 +37,7 @@ export default function PHMailerCaseStudy() {
             <ObservabilitySection />
             <TestingSection />
             <LessonsLearned />
+            <ReferencesSection />
             <BackButton />
         </>
     );
@@ -59,9 +59,9 @@ function HeroSection() {
                     Centralized Email Platform
                 </p>
                 <p className="text-sm text-foreground/50 max-w-2xl mx-auto mb-6">
-                    Open-source email platform serving multiple product teams.
-                    Replaced Mailgun with a self-hosted alternative handling
-                    transactional emails, campaigns, and workflow automation.
+                    Open-source email platform serving multiple product teams. Replaced Mailgun with
+                    a self-hosted alternative handling transactional emails, campaigns, and workflow
+                    automation.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {["Node.js", "TypeScript", "BullMQ", "Redis", "PostgreSQL", "AWS SES"].map(
@@ -110,11 +110,10 @@ function ExecutiveSummary() {
                     />
                 </div>
                 <p className="text-base text-foreground/80 leading-relaxed">
-                    A centralized email platform built on an open-source core to
-                    eliminate per-provider costs and unify delivery across
-                    multiple product teams. The system handles transactional emails,
-                    marketing campaigns, and automated workflows through a
-                    queue-based architecture with real-time delivery tracking.
+                    A centralized email platform built on an open-source core to eliminate
+                    per-provider costs and unify delivery across multiple product teams. The system
+                    handles transactional emails, marketing campaigns, and automated workflows
+                    through a queue-based architecture with real-time delivery tracking.
                 </p>
             </div>
         </section>
@@ -195,9 +194,7 @@ function ArchitectureDiagram() {
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Architecture
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Architecture</h2>
                 <MermaidDiagram
                     chart={flowDiagram}
                     caption="High-level system architecture showing request flow from clients through queue to delivery"
@@ -257,9 +254,7 @@ function KeyFeatures() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Key Features
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Key Features</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {features.map((f) => (
                         <div
@@ -322,9 +317,7 @@ function TechnicalDecisions() {
     return (
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Technical Decisions
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Technical Decisions</h2>
                 <div className="space-y-4">
                     {decisions.map((d) => (
                         <div
@@ -339,12 +332,8 @@ function TechnicalDecisions() {
                                     <h3 className="text-base font-semibold text-foreground mb-1">
                                         {d.title}
                                     </h3>
-                                    <p className="text-sm text-foreground/70 mb-2">
-                                        {d.context}
-                                    </p>
-                                    <p className="text-sm text-indigo-600/80">
-                                        {d.outcome}
-                                    </p>
+                                    <p className="text-sm text-foreground/70 mb-2">{d.context}</p>
+                                    <p className="text-sm text-indigo-600/80">{d.outcome}</p>
                                 </div>
                             </div>
                         </div>
@@ -359,9 +348,7 @@ function MetricsSection() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Metrics
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Metrics</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <MetricCard label="Peak Daily Volume" value="100,000" />
                     <MetricCard label="Internal Products" value="5+" />
@@ -373,13 +360,7 @@ function MetricsSection() {
     );
 }
 
-function MetricCard({
-    label,
-    value,
-}: {
-    label: string;
-    value: string;
-}) {
+function MetricCard({ label, value }: { label: string; value: string }) {
     return (
         <div className="rounded-2xl border border-gray-100 bg-white/60 p-5 text-center">
             <div className="text-lg font-bold text-indigo-600">{value}</div>
@@ -422,21 +403,11 @@ function IncidentStory() {
     );
 }
 
-function IncidentBlock({
-    title,
-    content,
-}: {
-    title: string;
-    content: string;
-}) {
+function IncidentBlock({ title, content }: { title: string; content: string }) {
     return (
         <div className="rounded-2xl border border-amber-100 bg-white/80 p-5 backdrop-blur-sm">
-            <h3 className="text-sm font-semibold text-amber-800 mb-1">
-                {title}
-            </h3>
-            <p className="text-sm text-foreground/70 leading-relaxed">
-                {content}
-            </p>
+            <h3 className="text-sm font-semibold text-amber-800 mb-1">{title}</h3>
+            <p className="text-sm text-foreground/70 leading-relaxed">{content}</p>
         </div>
     );
 }
@@ -445,9 +416,7 @@ function TradeOffs() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Trade-offs
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Trade-offs</h2>
                 <div className="space-y-4">
                     <TradeOffCard
                         decision="Fork maintenance vs. building from scratch"
@@ -470,20 +439,10 @@ function TradeOffs() {
     );
 }
 
-function TradeOffCard({
-    decision,
-    pro,
-    con,
-}: {
-    decision: string;
-    pro: string;
-    con: string;
-}) {
+function TradeOffCard({ decision, pro, con }: { decision: string; pro: string; con: string }) {
     return (
         <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
-            <h3 className="text-sm font-semibold text-foreground mb-3">
-                {decision}
-            </h3>
+            <h3 className="text-sm font-semibold text-foreground mb-3">{decision}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <span className="text-xs font-medium text-emerald-600">Benefit</span>
@@ -502,9 +461,7 @@ function LessonsLearned() {
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    What I Learned
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Learned</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <LessonCard
                         icon={<Server className="w-5 h-5" />}
@@ -558,9 +515,7 @@ function FailureModes() {
             <div className="mx-auto w-full max-w-4xl">
                 <div className="flex items-center gap-3 mb-8">
                     <Bug className="w-6 h-6 text-red-500" />
-                    <h2 className="text-2xl font-bold text-foreground">
-                        Failure Modes & Recovery
-                    </h2>
+                    <h2 className="text-2xl font-bold text-foreground">Failure Modes & Recovery</h2>
                 </div>
                 <div className="space-y-4">
                     <FailureModeCard
@@ -672,22 +627,13 @@ function ObservabilitySection() {
     );
 }
 
-function ObservabilityCard({
-    title,
-    items,
-}: {
-    title: string;
-    items: string[];
-}) {
+function ObservabilityCard({ title, items }: { title: string; items: string[] }) {
     return (
         <div className="rounded-2xl border border-gray-100 bg-white/80 p-5 backdrop-blur-sm">
             <h3 className="text-sm font-semibold text-foreground mb-3">{title}</h3>
             <ul className="space-y-2">
                 {items.map((item, i) => (
-                    <li
-                        key={i}
-                        className="flex items-start gap-2 text-xs text-foreground/70"
-                    >
+                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/70">
                         <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
                         {item}
                     </li>
@@ -701,9 +647,7 @@ function TestingSection() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Testing Strategy
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Testing Strategy</h2>
                 <div className="space-y-4">
                     <TestingCard
                         level="Unit Tests"
@@ -749,6 +693,41 @@ function TestingCard({
                 </div>
             </div>
         </div>
+    );
+}
+
+function ReferencesSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    References & Verification
+                </h2>
+                <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6 backdrop-blur-sm">
+                    <p className="text-sm text-foreground/70 mb-4">
+                        This is a proprietary production system. The details above reflect my actual
+                        work. Additional evidence available upon request:
+                    </p>
+                    <ul className="space-y-2 text-sm text-foreground/70">
+                        <li className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            Anonymized architecture diagrams and code samples
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            Dashboard screenshots showing delivery metrics
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            Manager and teammate references (with consent)
+                        </li>
+                    </ul>
+                    <p className="mt-4 text-xs text-foreground/50">
+                        Contact me to arrange verification under NDA.
+                    </p>
+                </div>
+            </div>
+        </section>
     );
 }
 

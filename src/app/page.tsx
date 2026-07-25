@@ -1,6 +1,11 @@
-import { CardGridSkeleton, ContactSkeleton, SectionSkeleton, TimelineSkeleton } from "@/components/LoadingSkeletons";
-import Hero from "@/components/sections/Hero";
 import dynamic from "next/dynamic";
+import {
+    CardGridSkeleton,
+    ContactSkeleton,
+    SectionSkeleton,
+    TimelineSkeleton,
+} from "@/components/LoadingSkeletons";
+import Hero from "@/components/sections/Hero";
 
 const WhyHireMe = dynamic(() => import("@/components/sections/WhyHireMe"), {
     loading: () => <SectionSkeleton />,

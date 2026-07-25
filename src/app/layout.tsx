@@ -1,10 +1,10 @@
-import Navbar from "@/components/Navbar";
-import Visitor from "@/components/Visitor";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Fira_Code } from "next/font/google";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { Fira_Code } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import Visitor from "@/components/Visitor";
 
 const firaCode = Fira_Code({
     subsets: ["latin"],
@@ -63,10 +63,7 @@ const jsonLd = {
     name: "Samiul Alim",
     jobTitle: "Backend & Platform Engineer",
     url: siteUrl,
-    sameAs: [
-        "https://github.com/samiulalimsaad",
-        "https://linkedin.com/in/samiulalimsaad",
-    ],
+    sameAs: ["https://github.com/samiulalimsaad", "https://linkedin.com/in/samiulalimsaad"],
     email: "samiulalimsaad@gmail.com",
 };
 
@@ -78,12 +75,18 @@ export default function RootLayout({
     return (
         <html lang="en" className={firaCode.variable}>
             <body className={`antialiased`}>
+                <a
+                    href="#main-content"
+                    className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+                >
+                    Skip to content
+                </a>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
                 <Navbar />
-                {children}
+                <main id="main-content">{children}</main>
                 <Footer />
                 <ScrollToTop />
                 <Visitor />

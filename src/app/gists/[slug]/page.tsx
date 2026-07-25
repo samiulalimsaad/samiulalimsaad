@@ -1,22 +1,18 @@
-import { notFound } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import React from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
-import rehypePrism from "rehype-prism-plus";
 import type { Components } from "react-markdown";
+import ReactMarkdown from "react-markdown";
+import rehypePrism from "rehype-prism-plus";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 import { getAllGistSlugs, getGistBySlug } from "@/lib/gists";
 
 export async function generateStaticParams() {
     return getAllGistSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-    params,
-}: {
-    params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const gist = getGistBySlug(slug);
     if (!gist) return { title: "Not Found" };
@@ -26,11 +22,7 @@ export async function generateMetadata({
     };
 }
 
-export default async function GistPage({
-    params,
-}: {
-    params: Promise<{ slug: string }>;
-}) {
+export default async function GistPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const gist = getGistBySlug(slug);
     if (!gist) notFound();
@@ -48,9 +40,7 @@ export default async function GistPage({
                         ← All gists
                     </Link>
                     <span className="text-foreground/30 mx-1">/</span>
-                    <span className="text-foreground/80 truncate">
-                        {meta.title}
-                    </span>
+                    <span className="text-foreground/80 truncate">{meta.title}</span>
                 </div>
 
                 <div className="mb-2 flex flex-wrap gap-2">
@@ -99,8 +89,18 @@ export default async function GistPage({
                         href="/gists"
                         className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-foreground text-background hover:bg-foreground/90 transition-all hover:-translate-y-0.5"
                     >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                            />
                         </svg>
                         Back to all gists
                     </Link>
@@ -124,9 +124,7 @@ function CodeBlock({
 
     if (!language && !inline) {
         return (
-            <code className="diagram-block whitespace-pre text-sm leading-relaxed">
-                {children}
-            </code>
+            <code className="diagram-block whitespace-pre text-sm leading-relaxed">{children}</code>
         );
     }
 
@@ -144,7 +142,9 @@ function CodeBlock({
                 {language}
             </div>
             <div className="overflow-x-auto">
-                <code className="text-sm leading-6 font-mono bg-transparent border-0 p-0">{children}</code>
+                <code className="text-sm leading-6 font-mono bg-transparent border-0 p-0">
+                    {children}
+                </code>
             </div>
         </div>
     );
@@ -156,7 +156,9 @@ function PreBlock({ children }: { children?: React.ReactNode }) {
         (child) =>
             React.isValidElement(child) &&
             typeof (child.props as Record<string, unknown>)?.className === "string" &&
-            ((child.props as Record<string, unknown>).className as string).includes("diagram-block"),
+            ((child.props as Record<string, unknown>).className as string).includes(
+                "diagram-block",
+            ),
     );
 
     if (isDiagram) {
@@ -212,7 +214,10 @@ function Heading1({ children, ...props }: React.ComponentPropsWithoutRef<"h1">) 
 
 function Heading2({ children, ...props }: React.ComponentPropsWithoutRef<"h2">) {
     return (
-        <h2 className="text-xl font-bold text-indigo-700 mt-10 mb-4 flex items-center gap-2" {...props}>
+        <h2
+            className="text-xl font-bold text-indigo-700 mt-10 mb-4 flex items-center gap-2"
+            {...props}
+        >
             <span className="w-1 h-6 bg-gradient-to-b from-cyan-400 to-indigo-500 rounded-full inline-block" />
             {children}
         </h2>
@@ -239,8 +244,18 @@ function CustomLink({ children, href, ...props }: React.ComponentPropsWithoutRef
         >
             {children}
             {isExternal && (
-                <svg className="w-3.5 h-3.5 inline ml-0.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                <svg
+                    className="w-3.5 h-3.5 inline ml-0.5 -mt-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
                 </svg>
             )}
         </a>

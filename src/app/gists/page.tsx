@@ -31,8 +31,8 @@ export default function GistsPage() {
                         </span>
                     </h1>
                     <p className="mx-auto max-w-2xl text-base text-foreground/70">
-                        Deep-dive code patterns, architectural blueprints, and
-                        implementation guides for the tools and systems I build.
+                        Deep-dive code patterns, architectural blueprints, and implementation guides
+                        for the tools and systems I build.
                     </p>
                 </div>
 
@@ -61,8 +61,18 @@ export default function GistsPage() {
 
                                 {gist.relatedProject && (
                                     <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-indigo-100 bg-indigo-50/60 px-3 py-1 text-[11px] font-medium text-indigo-600 self-start">
-                                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                                        <svg
+                                            className="w-3 h-3"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            strokeWidth={2}
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                                            />
                                         </svg>
                                         {gist.relatedProject.name}
                                     </span>
@@ -70,8 +80,18 @@ export default function GistsPage() {
 
                                 <div className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-cyan-700 group-hover:text-indigo-700 transition-colors">
                                     Read full gist
-                                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                    <svg
+                                        className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        strokeWidth={2}
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M9 5l7 7-7 7"
+                                        />
                                     </svg>
                                 </div>
                             </article>

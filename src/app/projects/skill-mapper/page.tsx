@@ -1,16 +1,4 @@
-import {
-    BarChart3,
-    Brain,
-    Bug,
-    Database,
-    GitBranch,
-    Medal,
-    RefreshCw,
-    Server,
-    Shield,
-    Users,
-    Zap,
-} from "lucide-react";
+import { BarChart3, Brain, Bug, GitBranch, Medal, RefreshCw, Users, Zap } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
@@ -36,6 +24,7 @@ export default function SkillMapperCaseStudy() {
             <ObservabilitySection />
             <TestingSection />
             <LessonsLearned />
+            <ReferencesSection />
             <BackButton />
         </>
     );
@@ -57,21 +46,27 @@ function HeroSection() {
                     AI-Powered Technical Assessment Platform
                 </p>
                 <p className="text-sm text-foreground/50 max-w-2xl mx-auto mb-6">
-                    Full-lifecycle assessment platform with AI-generated
-                    questions, event-driven state machine, and gamified ranking
-                    system serving technical skill evaluation at scale.
+                    Full-lifecycle assessment platform with AI-generated questions, event-driven
+                    state machine, and gamified ranking system serving technical skill evaluation at
+                    scale.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
-                    {["TypeScript", "Node.js", "MongoDB", "OpenAI", "Gemini", "Redis", "Next.js"].map(
-                        (t) => (
-                            <span
-                                key={t}
-                                className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
-                            >
-                                {t}
-                            </span>
-                        ),
-                    )}
+                    {[
+                        "TypeScript",
+                        "Node.js",
+                        "MongoDB",
+                        "OpenAI",
+                        "Gemini",
+                        "Redis",
+                        "Next.js",
+                    ].map((t) => (
+                        <span
+                            key={t}
+                            className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
+                        >
+                            {t}
+                        </span>
+                    ))}
                 </div>
                 <div className="flex flex-wrap justify-center gap-3">
                     <Link
@@ -108,12 +103,11 @@ function ExecutiveSummary() {
                     />
                 </div>
                 <p className="text-base text-foreground/80 leading-relaxed">
-                    A technical assessment platform that uses AI to generate
-                    questions, evaluate answers, and map student skills to
-                    appropriate courses. The system uses an event-driven state
-                    machine to govern assessment lifecycles, supports concurrent
-                    timed exams with real-time synchronization, and features a
-                    gamified XP ranking system across five tiers.
+                    A technical assessment platform that uses AI to generate questions, evaluate
+                    answers, and map student skills to appropriate courses. The system uses an
+                    event-driven state machine to govern assessment lifecycles, supports concurrent
+                    timed exams with real-time synchronization, and features a gamified XP ranking
+                    system across five tiers.
                 </p>
             </div>
         </section>
@@ -209,9 +203,7 @@ function ArchitectureDiagram() {
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Architecture
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Architecture</h2>
                 <MermaidDiagram
                     chart={flowDiagram}
                     caption="System architecture showing frontend, API, real-time sync via change streams, and AI provider integration"
@@ -271,9 +263,7 @@ function KeyFeatures() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Key Features
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Key Features</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {features.map((f) => (
                         <div
@@ -336,9 +326,7 @@ function TechnicalDecisions() {
     return (
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Technical Decisions
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Technical Decisions</h2>
                 <div className="space-y-4">
                     {decisions.map((d) => (
                         <div
@@ -353,12 +341,8 @@ function TechnicalDecisions() {
                                     <h3 className="text-base font-semibold text-foreground mb-1">
                                         {d.title}
                                     </h3>
-                                    <p className="text-sm text-foreground/70 mb-2">
-                                        {d.context}
-                                    </p>
-                                    <p className="text-sm text-indigo-600/80">
-                                        {d.outcome}
-                                    </p>
+                                    <p className="text-sm text-foreground/70 mb-2">{d.context}</p>
+                                    <p className="text-sm text-indigo-600/80">{d.outcome}</p>
                                 </div>
                             </div>
                         </div>
@@ -373,9 +357,7 @@ function MetricsSection() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Metrics
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Metrics</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <MetricCard label="Enrolled Students" value="5,000" />
                     <MetricCard label="Daily Active Users" value="500" />
@@ -387,13 +369,7 @@ function MetricsSection() {
     );
 }
 
-function MetricCard({
-    label,
-    value,
-}: {
-    label: string;
-    value: string;
-}) {
+function MetricCard({ label, value }: { label: string; value: string }) {
     return (
         <div className="rounded-2xl border border-gray-100 bg-white/60 p-5 text-center">
             <div className="text-lg font-bold text-indigo-600">{value}</div>
@@ -406,9 +382,7 @@ function TradeOffs() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Trade-offs
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Trade-offs</h2>
                 <div className="space-y-4">
                     <TradeOffCard
                         decision="State machine vs. simple status flags"
@@ -436,20 +410,10 @@ function TradeOffs() {
     );
 }
 
-function TradeOffCard({
-    decision,
-    pro,
-    con,
-}: {
-    decision: string;
-    pro: string;
-    con: string;
-}) {
+function TradeOffCard({ decision, pro, con }: { decision: string; pro: string; con: string }) {
     return (
         <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
-            <h3 className="text-sm font-semibold text-foreground mb-3">
-                {decision}
-            </h3>
+            <h3 className="text-sm font-semibold text-foreground mb-3">{decision}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <span className="text-xs font-medium text-emerald-600">Benefit</span>
@@ -468,9 +432,7 @@ function LessonsLearned() {
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    What I Learned
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Learned</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <LessonCard
                         icon={<GitBranch className="w-5 h-5" />}
@@ -524,14 +486,11 @@ function ChangeStreamOperations() {
             <div className="mx-auto w-full max-w-4xl">
                 <div className="flex items-center gap-3 mb-8">
                     <Zap className="w-6 h-6 text-amber-600" />
-                    <h2 className="text-2xl font-bold text-foreground">
-                        Change Stream Operations
-                    </h2>
+                    <h2 className="text-2xl font-bold text-foreground">Change Stream Operations</h2>
                 </div>
                 <p className="text-sm text-foreground/70 mb-6 leading-relaxed">
-                    Change streams power real-time exam synchronization, but they
-                    require careful operational management. Here is how each
-                    operational concern is addressed:
+                    Change streams power real-time exam synchronization, but they require careful
+                    operational management. Here is how each operational concern is addressed:
                 </p>
                 <div className="space-y-4">
                     <OperationCard
@@ -560,13 +519,7 @@ function ChangeStreamOperations() {
     );
 }
 
-function OperationCard({
-    concern,
-    solution,
-}: {
-    concern: string;
-    solution: string;
-}) {
+function OperationCard({ concern, solution }: { concern: string; solution: string }) {
     return (
         <div className="rounded-2xl border border-amber-100 bg-white/80 p-5 backdrop-blur-sm">
             <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
@@ -589,9 +542,7 @@ function FailureModes() {
             <div className="mx-auto w-full max-w-4xl">
                 <div className="flex items-center gap-3 mb-8">
                     <Bug className="w-6 h-6 text-red-500" />
-                    <h2 className="text-2xl font-bold text-foreground">
-                        Failure Modes & Recovery
-                    </h2>
+                    <h2 className="text-2xl font-bold text-foreground">Failure Modes & Recovery</h2>
                 </div>
                 <div className="space-y-4">
                     <FailureModeCard
@@ -703,22 +654,13 @@ function ObservabilitySection() {
     );
 }
 
-function ObservabilityCard({
-    title,
-    items,
-}: {
-    title: string;
-    items: string[];
-}) {
+function ObservabilityCard({ title, items }: { title: string; items: string[] }) {
     return (
         <div className="rounded-2xl border border-gray-100 bg-white/80 p-5 backdrop-blur-sm">
             <h3 className="text-sm font-semibold text-foreground mb-3">{title}</h3>
             <ul className="space-y-2">
                 {items.map((item, i) => (
-                    <li
-                        key={i}
-                        className="flex items-start gap-2 text-xs text-foreground/70"
-                    >
+                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/70">
                         <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
                         {item}
                     </li>
@@ -732,9 +674,7 @@ function TestingSection() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Testing Strategy
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Testing Strategy</h2>
                 <div className="space-y-4">
                     <TestingCard
                         level="Unit Tests"
@@ -780,6 +720,41 @@ function TestingCard({
                 </div>
             </div>
         </div>
+    );
+}
+
+function ReferencesSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    References & Verification
+                </h2>
+                <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6 backdrop-blur-sm">
+                    <p className="text-sm text-foreground/70 mb-4">
+                        This is a production system. The details above reflect my actual work.
+                        Additional evidence available upon request:
+                    </p>
+                    <ul className="space-y-2 text-sm text-foreground/70">
+                        <li className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            Anonymized architecture diagrams and code samples
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            Platform usage metrics and student engagement data
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            Manager and teammate references (with consent)
+                        </li>
+                    </ul>
+                    <p className="mt-4 text-xs text-foreground/50">
+                        Contact me to arrange verification under NDA.
+                    </p>
+                </div>
+            </div>
+        </section>
     );
 }
 

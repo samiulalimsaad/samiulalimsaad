@@ -8,10 +8,14 @@
         "noUnusedVariables": "warn"
       },
       "suspicious": {
-        "noExplicitAny": "warn"
+        "noExplicitAny": "warn",
+        "noShadowRestrictedNames": "off"
       },
       "complexity": {
         "noImportantStyles": "off"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "off"
       }
     }
   },
@@ -28,18 +32,12 @@
     }
   },
   "css": {
-    "parser": {
-      "cssModules": false
+    "formatter": {
+      "enabled": false
     }
   },
   "files": {
     "includes": ["src/**"],
     "ignoreUnknown": true
-  },
-  "overrides": [
-    {
-      "includes": ["src/**/*.css"],
-      "linter": { "enabled": false }
-    }
-  ]
+  }
 }

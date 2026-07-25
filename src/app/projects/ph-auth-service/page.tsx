@@ -3,15 +3,13 @@ import {
     Bug,
     Database,
     GitBranch,
-    HardDrive,
     Key,
     Lock,
-    RefreshCw,
     Search,
     Server,
     Shield,
-    Users,
     UserCheck,
+    Users,
     Zap,
 } from "lucide-react";
 import type { Metadata } from "next";
@@ -39,6 +37,7 @@ export default function AuthServiceCaseStudy() {
             <TestingSection />
             <LessonsLearned />
             <RelatedPatterns />
+            <ReferencesSection />
             <BackButton />
         </>
     );
@@ -60,9 +59,8 @@ function HeroSection() {
                     Multi-Tenant Identity Provider
                 </p>
                 <p className="text-sm text-foreground/50 max-w-2xl mx-auto mb-6">
-                    A production-grade OpenID Connect identity provider with
-                    multi-tenant isolation, TOTP-based MFA, device limit
-                    enforcement, and defense-in-depth security.
+                    A production-grade OpenID Connect identity provider with multi-tenant isolation,
+                    TOTP-based MFA, device limit enforcement, and defense-in-depth security.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {["Go", "PostgreSQL", "Redis", "ClickHouse", "ZITADEL OIDC", "Prisma"].map(
@@ -111,13 +109,11 @@ function ExecutiveSummary() {
                     />
                 </div>
                 <p className="text-base text-foreground/80 leading-relaxed">
-                    A custom identity provider implementing the OpenID Connect
-                    protocol to serve as the centralized authentication layer for
-                    an educational platform ecosystem. The system supports
-                    multiple tenants with isolated user bases, TOTP-based
-                    multi-factor authentication, configurable device limits, and
-                    comprehensive audit logging — all behind a defense-in-depth
-                    security middleware chain.
+                    A custom identity provider implementing the OpenID Connect protocol to serve as
+                    the centralized authentication layer for an educational platform ecosystem. The
+                    system supports multiple tenants with isolated user bases, TOTP-based
+                    multi-factor authentication, configurable device limits, and comprehensive audit
+                    logging — all behind a defense-in-depth security middleware chain.
                 </p>
             </div>
         </section>
@@ -219,9 +215,7 @@ function ArchitectureDiagram() {
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Architecture
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Architecture</h2>
                 <MermaidDiagram
                     chart={flowDiagram}
                     caption="System architecture showing security middleware chain, authentication layer, and OIDC identity provider"
@@ -281,9 +275,7 @@ function KeyFeatures() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Key Features
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Key Features</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {features.map((f) => (
                         <div
@@ -346,9 +338,7 @@ function TechnicalDecisions() {
     return (
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Technical Decisions
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Technical Decisions</h2>
                 <div className="space-y-4">
                     {decisions.map((d) => (
                         <div
@@ -363,12 +353,8 @@ function TechnicalDecisions() {
                                     <h3 className="text-base font-semibold text-foreground mb-1">
                                         {d.title}
                                     </h3>
-                                    <p className="text-sm text-foreground/70 mb-2">
-                                        {d.context}
-                                    </p>
-                                    <p className="text-sm text-indigo-600/80">
-                                        {d.outcome}
-                                    </p>
+                                    <p className="text-sm text-foreground/70 mb-2">{d.context}</p>
+                                    <p className="text-sm text-indigo-600/80">{d.outcome}</p>
                                 </div>
                             </div>
                         </div>
@@ -383,9 +369,7 @@ function MetricsSection() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Metrics
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Metrics</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <MetricCard label="Tenant Architecture" value="Multi-Tenant" />
                     <MetricCard label="Security Layers" value="7" />
@@ -397,13 +381,7 @@ function MetricsSection() {
     );
 }
 
-function MetricCard({
-    label,
-    value,
-}: {
-    label: string;
-    value: string;
-}) {
+function MetricCard({ label, value }: { label: string; value: string }) {
     return (
         <div className="rounded-2xl border border-gray-100 bg-white/60 p-5 text-center">
             <div className="text-lg font-bold text-indigo-600">{value}</div>
@@ -416,9 +394,7 @@ function TradeOffs() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Trade-offs
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Trade-offs</h2>
                 <div className="space-y-4">
                     <TradeOffCard
                         decision="Redis SCAN vs. secondary index for token revocation"
@@ -446,20 +422,10 @@ function TradeOffs() {
     );
 }
 
-function TradeOffCard({
-    decision,
-    pro,
-    con,
-}: {
-    decision: string;
-    pro: string;
-    con: string;
-}) {
+function TradeOffCard({ decision, pro, con }: { decision: string; pro: string; con: string }) {
     return (
         <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
-            <h3 className="text-sm font-semibold text-foreground mb-3">
-                {decision}
-            </h3>
+            <h3 className="text-sm font-semibold text-foreground mb-3">{decision}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <span className="text-xs font-medium text-emerald-600">Benefit</span>
@@ -478,9 +444,7 @@ function LessonsLearned() {
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    What I Learned
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Learned</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <LessonCard
                         icon={<Shield className="w-5 h-5" />}
@@ -534,9 +498,7 @@ function FailureModes() {
             <div className="mx-auto w-full max-w-4xl">
                 <div className="flex items-center gap-3 mb-8">
                     <Bug className="w-6 h-6 text-red-500" />
-                    <h2 className="text-2xl font-bold text-foreground">
-                        Failure Modes & Recovery
-                    </h2>
+                    <h2 className="text-2xl font-bold text-foreground">Failure Modes & Recovery</h2>
                 </div>
                 <div className="space-y-4">
                     <FailureModeCard
@@ -648,22 +610,13 @@ function ObservabilitySection() {
     );
 }
 
-function ObservabilityCard({
-    title,
-    items,
-}: {
-    title: string;
-    items: string[];
-}) {
+function ObservabilityCard({ title, items }: { title: string; items: string[] }) {
     return (
         <div className="rounded-2xl border border-gray-100 bg-white/80 p-5 backdrop-blur-sm">
             <h3 className="text-sm font-semibold text-foreground mb-3">{title}</h3>
             <ul className="space-y-2">
                 {items.map((item, i) => (
-                    <li
-                        key={i}
-                        className="flex items-start gap-2 text-xs text-foreground/70"
-                    >
+                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/70">
                         <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
                         {item}
                     </li>
@@ -677,9 +630,7 @@ function TestingSection() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Testing Strategy
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Testing Strategy</h2>
                 <div className="space-y-4">
                     <TestingCard
                         level="Unit Tests"
@@ -753,9 +704,7 @@ function RelatedPatterns() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
-                    Related Patterns
-                </h2>
+                <h2 className="text-2xl font-bold text-foreground mb-8">Related Patterns</h2>
                 <div className="space-y-4">
                     {patterns.map((p) => (
                         <div
@@ -783,6 +732,41 @@ function RelatedPatterns() {
                             </div>
                         </div>
                     ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function ReferencesSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    References & Verification
+                </h2>
+                <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6 backdrop-blur-sm">
+                    <p className="text-sm text-foreground/70 mb-4">
+                        This is a proprietary production system. The details above reflect my actual
+                        work. Additional evidence available upon request:
+                    </p>
+                    <ul className="space-y-2 text-sm text-foreground/70">
+                        <li className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            Anonymized architecture diagrams and code samples
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            Security audit reports and penetration test results
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            Manager and teammate references (with consent)
+                        </li>
+                    </ul>
+                    <p className="mt-4 text-xs text-foreground/50">
+                        Contact me to arrange verification under NDA.
+                    </p>
                 </div>
             </div>
         </section>
