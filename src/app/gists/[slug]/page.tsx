@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -64,7 +65,7 @@ export default async function GistPage({
                 </div>
 
                 <article className="mt-6 rounded-3xl border border-white/70 bg-white/80 p-6 sm:p-10 backdrop-blur-sm shadow-sm">
-                    <div className="prose prose-slate max-w-none prose-headings:font-bold prose-h1:text-3xl prose-h1:text-cyan-700 prose-h1:mb-6 prose-h2:text-xl prose-h2:text-indigo-700 prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:text-foreground prose-h3:mt-8 prose-h3:mb-3 prose-p:text-foreground/80 prose-p:leading-7 prose-a:text-cyan-700 prose-a:font-medium prose-a:no-underline hover:prose-a:text-indigo-700 prose-strong:text-foreground prose-ul:text-foreground/80 prose-li:marker:text-cyan-500 prose-pre:bg-[#1e293b] prose-pre:text-[#e2e8f0] prose-pre:border-0 prose-pre:rounded-xl prose-pre:shadow-lg prose-pre:text-sm prose-pre:leading-6 prose-hr:border-gray-200 prose-blockquote:border-l-cyan-400 prose-blockquote:text-foreground/70">
+                    <div className="prose prose-slate max-w-none prose-headings:font-bold prose-h1:text-3xl prose-h1:text-cyan-700 prose-h1:mb-6 prose-h2:text-xl prose-h2:text-indigo-700 prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:text-foreground prose-h3:mt-8 prose-h3:mb-3 prose-p:text-foreground/80 prose-p:leading-7 prose-a:text-cyan-700 prose-a:font-medium prose-a:no-underline hover:prose-a:text-indigo-700 prose-strong:text-foreground prose-ul:text-foreground/80 prose-li:marker:text-cyan-500 prose-pre:bg-transparent prose-hr:border-gray-200 prose-blockquote:border-l-cyan-400 prose-blockquote:text-foreground/70">
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
                             rehypePlugins={[rehypeRaw, rehypePrism]}
@@ -112,15 +113,24 @@ export default async function GistPage({
 function CodeBlock({
     className,
     children,
+    inline,
 }: {
     className?: string;
     children?: React.ReactNode;
+    inline?: boolean;
 }) {
     const match = /language-(\w+)/.exec(className ?? "");
     const language = match ? match[1] : "";
-    const isInline = !match;
 
-    if (isInline) {
+    if (!language && !inline) {
+        return (
+            <code className="diagram-block whitespace-pre text-sm leading-relaxed">
+                {children}
+            </code>
+        );
+    }
+
+    if (inline) {
         return (
             <code className="text-cyan-800 bg-cyan-50 px-1.5 py-0.5 rounded border border-cyan-100 text-sm font-normal">
                 {children}
@@ -130,11 +140,9 @@ function CodeBlock({
 
     return (
         <div className="relative group">
-            {language && (
-                <div className="absolute top-0 right-0 rounded-bl-xl rounded-tr-xl bg-[#334155] px-3 py-1 text-[11px] font-medium text-slate-400 uppercase tracking-wider">
-                    {language}
-                </div>
-            )}
+            <div className="absolute top-0 right-0 rounded-bl-xl rounded-tr-xl bg-[#334155] px-3 py-1 text-[11px] font-medium text-slate-400 uppercase tracking-wider">
+                {language}
+            </div>
             <div className="overflow-x-auto">
                 <code className="text-sm leading-6 font-mono bg-transparent border-0 p-0">{children}</code>
             </div>
@@ -143,8 +151,24 @@ function CodeBlock({
 }
 
 function PreBlock({ children }: { children?: React.ReactNode }) {
+    const childArr = React.Children.toArray(children);
+    const isDiagram = childArr.some(
+        (child) =>
+            React.isValidElement(child) &&
+            typeof (child.props as Record<string, unknown>)?.className === "string" &&
+            ((child.props as Record<string, unknown>).className as string).includes("diagram-block"),
+    );
+
+    if (isDiagram) {
+        return (
+            <div className="overflow-x-auto whitespace-pre text-sm !text-foreground leading-relaxed p-4 border border-gray-200 !rounded-xl !bg-transparent my-4 not-prose">
+                {children}
+            </div>
+        );
+    }
+
     return (
-        <pre className="bg-[#1e293b] text-[#e2e8f0] rounded-xl shadow-lg overflow-x-auto p-5 text-sm leading-6 font-mono">
+        <pre className="!bg-[#1e293b] !text-[#e2e8f0] !rounded-xl !shadow-lg overflow-x-auto p-5 text-sm leading-6 font-mono">
             {children}
         </pre>
     );

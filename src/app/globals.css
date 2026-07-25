@@ -94,6 +94,16 @@ pre, code, kbd, samp {
     font-family: var(--font-fira-code), monospace;
 }
 
+/* Prevent prose typography from applying background to code inside pre (code blocks).
+   PreBlock component handles code block backgrounds directly. */
+.prose pre code {
+    background-color: transparent;
+}
+.prose pre code::before,
+.prose pre code::after {
+    content: none;
+}
+
 /* Prism syntax highlighting — dark theme for code blocks */
 .prose pre .token.comment,
 .prose pre .token.prolog,
