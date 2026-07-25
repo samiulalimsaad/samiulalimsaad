@@ -51,6 +51,19 @@ export const metadata: Metadata = {
     },
 };
 
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Samiul Alim",
+    jobTitle: "Backend Software Engineer",
+    url: siteUrl,
+    sameAs: [
+        "https://github.com/samiulalimsaad",
+        "https://linkedin.com/in/samiulalimsaad",
+    ],
+    email: "samiulalimsaad@gmail.com",
+};
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -59,6 +72,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`antialiased`}>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
                 <Navbar />
                 {children}
                 <Footer />
