@@ -7,9 +7,8 @@ import {
 import Hero from "@/components/sections/Hero";
 import dynamic from "next/dynamic";
 
-// Lazy load sections with appropriate skeleton loaders
-const About = dynamic(() => import("@/components/sections/About"), {
-    loading: () => <SectionSkeleton />,
+const Projects = dynamic(() => import("@/components/sections/Projects"), {
+    loading: () => <CardGridSkeleton count={6} />,
     ssr: true,
 });
 
@@ -18,23 +17,13 @@ const Experience = dynamic(() => import("@/components/sections/Experience"), {
     ssr: true,
 });
 
-const Education = dynamic(() => import("@/components/sections/Education"), {
-    loading: () => <TimelineSkeleton />,
+const About = dynamic(() => import("@/components/sections/About"), {
+    loading: () => <SectionSkeleton />,
     ssr: true,
 });
 
 const Skills = dynamic(() => import("@/components/sections/Skills"), {
     loading: () => <SectionSkeleton />,
-    ssr: true,
-});
-
-const Projects = dynamic(() => import("@/components/sections/Projects"), {
-    loading: () => <CardGridSkeleton count={5} />,
-    ssr: true,
-});
-
-const Blog = dynamic(() => import("@/components/sections/Blog"), {
-    loading: () => <CardGridSkeleton count={3} />,
     ssr: true,
 });
 
@@ -47,12 +36,10 @@ export default function Home() {
     return (
         <>
             <Hero />
-            <About />
-            <Experience />
-            <Education />
-            <Skills />
             <Projects />
-            <Blog />
+            <Experience />
+            <About />
+            <Skills />
             <Contact />
         </>
     );

@@ -7,18 +7,9 @@ import dynamic from "next/dynamic";
 
 import "./globals.css";
 
-// Lazy load non-critical components
 const Footer = dynamic(() => import("@/components/Footer"), {
     ssr: true,
 });
-
-const FloatingSocialLinks = dynamic(
-    () => import("@/components/FloatingSocialLinks"),
-    {
-        ssr: true,
-    }
-);
-
 const ScrollToTop = dynamic(() => import("@/components/ScrollToTop"), {
     ssr: true,
 });
@@ -26,7 +17,7 @@ const ScrollToTop = dynamic(() => import("@/components/ScrollToTop"), {
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const siteTitle = "Samiul Alim | Backend Software Engineer";
 const siteDescription =
-    "Backend Software Engineer with 3.5+ years building IAM platforms, Redis caching infrastructure, and production APIs. TypeScript · Go · Node.js · MongoDB · Redis.";
+    "Backend-focused software engineer building production platform services, identity systems, and payment infrastructure. Go · TypeScript · Node.js · PostgreSQL.";
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
@@ -71,7 +62,6 @@ export default function RootLayout({
                 <Navbar />
                 {children}
                 <Footer />
-                <FloatingSocialLinks />
                 <ScrollToTop />
                 <Visitor />
                 <Analytics />
