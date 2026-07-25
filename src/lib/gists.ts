@@ -82,12 +82,7 @@ export function getGistBySlug(slug: string): Gist | null {
     const meta = gistMetaMap[slug];
     if (!meta) return null;
 
-    const filePath = path.join(
-        process.cwd(),
-        "public",
-        "gists",
-        `${slug}.md`,
-    );
+    const filePath = path.join(process.cwd(), "public", "gists", `${slug}.md`);
 
     try {
         const content = fs.readFileSync(filePath, "utf-8");
