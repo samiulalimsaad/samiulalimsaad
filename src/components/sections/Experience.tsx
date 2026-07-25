@@ -1,78 +1,64 @@
 import { getExperienceYears } from "@/lib/utils";
-import { Briefcase, Building2, CalendarDays, MapPin } from "lucide-react";
+import { Building2, CalendarDays, MapPin } from "lucide-react";
+
 const experiences = [
     {
         designation: "Web Developer L2",
         company: "Programming Hero",
         location: "Dhaka",
-        jobType: "",
         jobMode: "Remote",
         dateFrom: "Aug 2024",
-        dateTo: "Now",
-        duration: "Aug 2024 0 Now",
-        description:
-            "Architected ph-auth-service, a greenfield multi-tenant OIDC/OAuth2 IAM platform in Go serving three product surfaces. Played a key role in the engineering and evolution of the Programming Hero bootcamp ecosystem, contributing across full-stack development, cloud infrastructure, DevOps, CI/CD, analytics, and platform architecture. Built scalable caching and analytics systems using Redis domain adapters, scoped key builders, TTL-based invalidation, and MongoDB aggregation APIs. Designed a server-side analytics pipeline with dual-container GTM and Meta Conversion API. Delivered 272+ merged PRs across 17 repositories. Orchestrated CI/CD across 8+ repositories with GitHub Actions, Docker build/push workflows, release-please, and Biome quality gates.",
+        dateTo: "Present",
+        description: [
+            "Built and maintained production platform services: centralized email (PH Mailer on Plunk), multi-gateway payment integrations in Go (bKash, SSLCommerz, Stripe, Nagad), and internal tooling across multiple product teams.",
+            "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA/OTP, device limits, rate limiting, CSRF/CSP), and integration logic. Collaborative architecture under Senior SWE authority; coordinated two mid-level engineers.",
+            "Led architecture and implementation of a desktop DRM player (Electron) for protected educational video playback, including offline support and Chromium DRM constraint handling.",
+            "Maintained production education platforms (Bootcamp, Skill Mapper): feature development, monitoring, bug fixes, and cross-team coordination.",
+            "Managed UAT environments, deployment pipelines, and server operations for several internal services.",
+        ],
     },
     {
         designation: "Instructor",
         company: "Programming Hero",
         location: "Dhaka",
-        jobType: "",
         jobMode: "Remote",
-        dateFrom: "Feb 2023",
+        dateFrom: "Feb 2022",
         dateTo: "Aug 2024",
-        duration: "Feb 2023 0 Aug 2024",
-        description:
-            "Taught web development concepts through live sessions and guided projects, helping learners understand React, JavaScript, and modern frontend best practices.",
+        description: [
+            "Taught web development through live sessions and guided projects covering React, JavaScript, and modern frontend practices.",
+            "Reviewed learner code, broke down project requirements into implementable steps, and mentored students through real-world development challenges.",
+        ],
     },
     {
         designation: "FullStack Developer (Intern)",
         company: "Macroman Solution",
         location: "Rajshahi",
-        jobType: "",
         jobMode: "On-site",
         dateFrom: "Feb 2022",
-        dateTo: "August 2022",
-        duration: "Feb 2022 0 Aug 2022",
-        description:
-            "Worked on full-stack features with React and Node.js, fixing bugs, implementing new modules, and learning how to ship code in a production environment.",
+        dateTo: "Aug 2022",
+        description: [
+            "Built full-stack features with React and Node.js. Fixed bugs, implemented new modules, and shipped code in a production environment.",
+        ],
     },
     {
         designation: "Internship",
         company: "OpenfabricAI (Transylvanialab)",
         location: "Romania",
-        jobType: "",
         jobMode: "Remote",
         dateFrom: "Jul 2021",
         dateTo: "Jan 2022",
-        duration: "Jul 2021 0 Jan 2022",
-        description:
-            "Contributed to AI-focused projects remotely, collaborating with an international team and getting exposure to real-world product development workflows.",
-    },
-    {
-        designation: "Competitive Programmer",
-        company: "samiulalimsaad - Codeforces",
-        location: "Online",
-        jobType: "",
-        jobMode: "Remote",
-        dateFrom: "2020",
-        dateTo: "Now",
-        duration: "2020 0 Now",
-        description:
-            "Solving data structures and algorithms problems on Codeforces regularly to sharpen problem-solving skills and stay strong in competitive programming.",
+        description: [
+            "Contributed to AI-focused projects remotely with an international team. Early exposure to real-world product development workflows.",
+        ],
     },
 ];
 
 function formatDuration(from: string, to: string) {
-    const end = to.toLowerCase() === "now" ? "Present" : to;
+    const end = to.toLowerCase() === "present" ? "Present" : to;
     return `${from} → ${end}`;
 }
 
 export default function Experience() {
-    const roles = experiences.length;
-    const modes = Array.from(new Set(experiences.map((e) => e.jobMode)))
-        .filter(Boolean)
-        .join(" / ");
     const years = getExperienceYears();
     return (
         <section
@@ -86,19 +72,9 @@ export default function Experience() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-8 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    A timeline of real work, real teams, and real impact.
+                    Professional software engineering since 2021 · Remote
+                    · Bangladesh
                 </p>
-                <div className="mx-auto flex flex-wrap justify-center gap-2 mb-6">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-white/80 px-3 py-1 text-[11px] font-medium text-indigo-700">
-                        <Briefcase size={14} /> {roles} roles
-                    </span>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-cyan-100 bg-white/80 px-3 py-1 text-[11px] font-medium text-cyan-700">
-                        <CalendarDays size={14} /> {years}+ years
-                    </span>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-white/80 px-3 py-1 text-[11px] font-medium text-emerald-700">
-                        <Building2 size={14} /> {modes}
-                    </span>
-                </div>
 
                 <div className="rounded-3xl border border-white/70 bg-white/80 p-5 sm:p-6 backdrop-blur-sm">
                     <ol className="relative ml-4 border-s border-indigo-200">
@@ -139,9 +115,18 @@ export default function Experience() {
                                                 </span>
                                             )}
                                         </p>
-                                        <p className="mt-2 text-[11px] sm:text-xs leading-relaxed text-foreground/70">
-                                            {exp.description}
-                                        </p>
+                                        <ul className="mt-2 space-y-1 text-[11px] sm:text-xs leading-relaxed text-foreground/70">
+                                            {exp.description.map(
+                                                (line, i) => (
+                                                    <li
+                                                        key={i}
+                                                        className="pl-3 relative before:absolute before:left-0 before:top-[0.4em] before:h-1 before:w-1 before:rounded-full before:bg-cyan-400/60"
+                                                    >
+                                                        {line}
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ul>
                                     </div>
                                 </div>
                             </li>

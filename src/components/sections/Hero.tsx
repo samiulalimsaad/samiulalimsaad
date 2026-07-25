@@ -1,6 +1,6 @@
 import ResumeButton from "@/components/ResumeButton";
 import { getExperienceYears } from "@/lib/utils";
-import { Code2, Github, Linkedin, Mail, MessageSquareCode } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 
 const socials = [
@@ -13,16 +13,6 @@ const socials = [
         href: "https://www.linkedin.com/in/samiulalimsaad",
         Icon: Linkedin,
         label: "LinkedIn",
-    },
-    {
-        Icon: MessageSquareCode,
-        href: "https://discord.com/users/938388181202653224",
-        label: "Discord",
-    },
-    {
-        href: "https://codeforces.com/profile/samiulalimsaad",
-        Icon: Code2,
-        label: "Codeforces",
     },
     {
         href: "mailto:samiulalimsaad@gmail.com",
@@ -41,29 +31,19 @@ export default function Hero() {
             </div>
             <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:text-left">
                 <div className="flex-1 flex flex-col items-center md:items-start gap-5 animate-soft-in">
-                    <span className="inline-flex items-center rounded-full border border-cyan-200 bg-white/60 px-4 py-1 text-xs font-semibold text-cyan-700 backdrop-blur">
-                        <span className="mr-2 h-2 w-2 rounded-full bg-emerald-400" />
-                        Open to opportunities
-                    </span>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-                        <span className="block text-foreground">
-                            Hi, I&apos;m
-                        </span>
                         <span className="bg-linear-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
                             Samiul Alim
                         </span>
                     </h1>
                     <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
-                        Backend Software Engineer building production API
-                        platforms, identity systems, and distributed
-                        infrastructure with{" "}
-                        <span className="font-semibold text-cyan-700">
-                            TypeScript
-                        </span>
-                        ,
+                        Backend-focused software engineer. I build and operate
+                        production platform services identity, email, payments,
+                        and delivery infrastructure with{" "}
+                        <span className="font-semibold text-cyan-700">Go</span>,
                         <span className="font-semibold text-indigo-700">
                             {" "}
-                            Go
+                            TypeScript
                         </span>
                         , and
                         <span className="font-semibold text-emerald-700">
@@ -74,21 +54,25 @@ export default function Hero() {
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a
-                            href="#contact"
+                            href="#projects"
                             className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white transition"
                         >
-                            Hire Me
+                            View Work
                         </a>
                         <ResumeButton />
                     </div>
                     <div className="mt-4 flex flex-wrap items-center gap-3">
                         <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                            Open to remote roles
+                        </div>
+                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
                             <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                            {experienceYears}+ years experience
+                            {experienceYears}+ years in production
                         </div>
                         <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
                             <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
-                            Based in Bangladesh
+                            Bangladesh · US/EU-friendly hours
                         </div>
                     </div>
                     <div className="mt-4 flex items-center gap-3">

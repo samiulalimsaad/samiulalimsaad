@@ -21,8 +21,8 @@ const Footer = () => {
                             </span>
                         </div>
                         <p className="text-xs text-zinc-500 mt-1">
-                            Backend & Full Stack Engineer · TypeScript · Go ·
-                            Node.js · Redis
+                            Backend-focused Software Engineer · Go ·
+                            TypeScript · Node.js · PostgreSQL
                         </p>
                         <p className="mt-3 text-xs text-zinc-500">
                             © {currentYear}{" "}

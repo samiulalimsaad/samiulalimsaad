@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Projects() {
-    const featured = projects.slice(0, 5);
+    const featured = projects.slice(0, 6);
 
     return (
         <section
@@ -46,7 +46,7 @@ type ProjectCardProps = {
 
 function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 backdrop-blur-sm transition hover:-translate-y-2 animate-card-in">
+        <div className="group flex flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white/80 backdrop-blur-sm transition hover:-translate-y-2 animate-card-in">
             <div className="overflow-hidden">
                 <Image
                     src={project.image}

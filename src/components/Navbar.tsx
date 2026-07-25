@@ -1,24 +1,18 @@
+import ResumeButton from "@/components/ResumeButton";
 import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
-    { href: "/", label: "Home", type: "route" as const },
-    { href: "/#about", label: "About", type: "hash" as const },
-    { href: "/#experience", label: "Experience", type: "hash" as const },
-    { href: "/#education", label: "Education", type: "hash" as const },
-    { href: "/#skills", label: "Skills", type: "hash" as const },
-    { href: "/#projects", label: "Featured", type: "hash" as const },
-    { href: "/#blogs", label: "Blog", type: "hash" as const },
-    { href: "/#contact", label: "Contact", type: "hash" as const },
-    { href: "/projects", label: "All Projects", type: "route" as const },
-    { href: "/blogs", label: "All Blogs", type: "route" as const },
+    { href: "/#projects", label: "Work" },
+    { href: "/#experience", label: "Experience" },
+    { href: "/#about", label: "About" },
+    { href: "/#contact", label: "Contact" },
 ] as const;
 
 export default function Navbar() {
     return (
         <header className="sticky top-0 z-40 border-b border-white/60 bg-white/80 backdrop-blur-md animate-soft-in">
             <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:py-3">
-                {/* Brand */}
                 <Link href="/" className="flex items-center gap-2">
                     <Image
                         src="/avatars/samiul-alim.png"
@@ -34,7 +28,6 @@ export default function Navbar() {
                     </span>
                 </Link>
 
-                {/* Desktop nav (right aligned) */}
                 <div className="hidden items-center gap-4 sm:flex">
                     <ul className="flex items-center gap-4 text-sm font-medium text-zinc-700">
                         {navItems.map((item) => (
@@ -48,9 +41,9 @@ export default function Navbar() {
                             </li>
                         ))}
                     </ul>
+                    <ResumeButton />
                 </div>
 
-                {/* Mobile hamburger + dropdown (only on small screens) */}
                 <div className="relative flex items-center sm:hidden">
                     <input
                         id="nav-toggle"
@@ -67,7 +60,6 @@ export default function Navbar() {
                         <span className="mt-1 block h-0.5 w-4 rounded bg-cyan-600" />
                     </label>
 
-                    {/* Mobile dropdown nav (CSS-only, driven by peer checkbox) */}
                     <ul className="absolute right-0 top-11 hidden w-40 flex-col gap-1 rounded-2xl border border-cyan-50 bg-white/95 p-3 text-sm font-medium text-zinc-700 shadow-md peer-checked:flex">
                         {navItems.map((item) => (
                             <li key={item.href}>
@@ -79,6 +71,9 @@ export default function Navbar() {
                                 </Link>
                             </li>
                         ))}
+                        <li>
+                            <ResumeButton />
+                        </li>
                     </ul>
                 </div>
             </nav>
