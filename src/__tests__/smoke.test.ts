@@ -17,13 +17,8 @@ describe("Projects data integrity", () => {
         }
     });
 
-    it("no learning tier projects exist (migrated to archive)", () => {
-        const learning = projects.filter((p) => p.tier === "learning");
-        expect(learning.length).toBe(0);
-    });
-
     it("all projects have valid tiers", () => {
-        const validTiers = ["featured", "past-work", "archive"];
+        const validTiers = ["featured", "past-work"];
         for (const p of projects) {
             expect(validTiers.includes(p.tier)).toBe(true);
         }
