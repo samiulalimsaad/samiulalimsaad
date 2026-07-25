@@ -35,9 +35,9 @@ const experiences = [
         dateFrom: "Aug 2022",
         dateTo: "Aug 2025",
         description: [
-            "Built and maintained SpeakSail — a production language-learning marketplace with multi-instructor booking, course delivery, and payment processing. Live with paying customers.",
-            "Built Enlightall — a multi-role education marketplace with RBAC, Stripe Checkout integration, and real-time messaging via Socket.IO.",
-            "Long-term client engagement spanning 3 years alongside full-time employment.",
+            "SpeakSail — production language-learning marketplace live with paying customers. Multi-instructor booking, course delivery, and payment processing. Serves 1,200+ active students and 50+ instructors.",
+            "Enlightall — production multi-role education marketplace with RBAC, Stripe Checkout, and real-time messaging via Socket.IO. Live in production with real users.",
+            "3-year client engagement. Both applications are production-grade, serving real users with real business impact.",
         ],
     },
     {
