@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { gists } from "@/lib/gists";
+import { getAllGistMeta } from "@/lib/gists";
 import { projects } from "@/lib/projects";
 import { skills } from "@/lib/skills";
 import { getExperienceYears, getProductionYears } from "@/lib/utils";
@@ -74,10 +74,12 @@ describe("Skills data integrity", () => {
 
 describe("Gists data integrity", () => {
     it("has gists", () => {
+        const gists = getAllGistMeta();
         expect(gists.length).toBeGreaterThan(0);
     });
 
     it("all gists have required fields", () => {
+        const gists = getAllGistMeta();
         for (const gist of gists) {
             expect(gist.slug.length).toBeGreaterThan(0);
             expect(gist.title.length).toBeGreaterThan(0);
@@ -86,6 +88,7 @@ describe("Gists data integrity", () => {
     });
 
     it("no duplicate slugs", () => {
+        const gists = getAllGistMeta();
         const slugs = gists.map((g) => g.slug);
         expect(new Set(slugs).size).toBe(slugs.length);
     });
