@@ -3,7 +3,7 @@ import { BookOpen } from "lucide-react";
 export default function Blog() {
     return (
         <section
-            id="blogs"
+            id="writing"
             className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4 animate-section-in"
         >
             <div className="mx-auto w-full max-w-6xl">
