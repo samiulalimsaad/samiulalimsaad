@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function AllProjectsPage() {
     const featured = projects.filter((p) => p.tier === "featured");
     const pastWork = projects.filter((p) => p.tier === "past-work");
-    const learning = projects.filter((p) => p.tier === "learning");
+    const learning = projects.filter((p) => p.tier === "archive");
 
     return (
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in">
@@ -57,11 +57,12 @@ export default function AllProjectsPage() {
                     <summary className="flex cursor-pointer items-center justify-between gap-2 [&::-webkit-details-marker]:hidden">
                         <div>
                             <h2 className="text-lg font-bold text-cyan-700">
-                                Learning & Experiments (2021–2022)
+                                Archive — Early Learning (2021–2022)
                             </h2>
                             <p className="text-sm text-foreground/60">
-                                {learning.length} projects — early work, course
-                                assignments, and side experiments
+                                    {learning.length} projects — course
+                                assignments and early experiments. Not representative
+                                of current engineering level.
                             </p>
                         </div>
                         <span className="rounded-full border border-cyan-100 bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 transition group-open:bg-indigo-50 group-open:border-indigo-200">

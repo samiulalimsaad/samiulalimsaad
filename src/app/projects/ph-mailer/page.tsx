@@ -357,7 +357,7 @@ function MetricsSection() {
                 </h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <MetricCard label="Peak Daily Volume" value="100,000" />
-                    <MetricCard label="Internal Products" value="Multiple" />
+                    <MetricCard label="Internal Products" value="5+" />
                     <MetricCard label="Delivery Provider" value="AWS SES" />
                     <MetricCard label="Status" value="Production" />
                 </div>

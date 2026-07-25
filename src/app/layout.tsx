@@ -21,9 +21,9 @@ const ScrollToTop = dynamic(() => import("@/components/ScrollToTop"), {
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const siteTitle = "Samiul Alim | Backend Software Engineer";
+const siteTitle = "Samiul Alim | Software Engineer";
 const siteDescription =
-    "Backend-focused software engineer building production platform services, identity systems, and payment infrastructure. Go · TypeScript · Node.js · PostgreSQL.";
+    "Full-stack software engineer with backend focus, building production platform services — identity, email, payments, and infrastructure. Go · TypeScript · Node.js · PostgreSQL.";
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
@@ -61,7 +61,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Samiul Alim",
-    jobTitle: "Backend Software Engineer",
+    jobTitle: "Software Engineer",
     url: siteUrl,
     sameAs: [
         "https://github.com/samiulalimsaad",

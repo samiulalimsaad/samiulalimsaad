@@ -382,7 +382,7 @@ function MetricsSection() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <MetricCard label="Tenant Architecture" value="Multi-Tenant" />
                     <MetricCard label="Security Layers" value="7" />
-                    <MetricCard label="Go Source Files" value="60+" />
+                    <MetricCard label="Products Served" value="4" />
                     <MetricCard label="Status" value="In Development" />
                 </div>
             </div>

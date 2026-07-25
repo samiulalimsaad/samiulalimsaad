@@ -18,8 +18,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: `${siteUrl}/blogs`,
             lastModified: new Date(),
-            changeFrequency: "weekly",
+            changeFrequency: "weekly" as const,
             priority: 0.5,
+        },
+        {
+            url: `${siteUrl}/projects/ph-mailer`,
+            lastModified: new Date(),
+            changeFrequency: "monthly" as const,
+            priority: 0.7,
+        },
+        {
+            url: `${siteUrl}/projects/ph-auth-service`,
+            lastModified: new Date(),
+            changeFrequency: "monthly" as const,
+            priority: 0.7,
+        },
+        {
+            url: `${siteUrl}/projects/payment-service`,
+            lastModified: new Date(),
+            changeFrequency: "monthly" as const,
+            priority: 0.7,
+        },
+        {
+            url: `${siteUrl}/projects/skill-mapper`,
+            lastModified: new Date(),
+            changeFrequency: "monthly" as const,
+            priority: 0.7,
         },
     ];
 }
