@@ -94,14 +94,16 @@ function ProjectCard({ project }: ProjectCardProps) {
                             Backend
                         </a>
                     )}
-                    <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
-                    >
-                        Live Demo
-                    </a>
+                    {project.live && (
+                        <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
+                        >
+                            Live Demo
+                        </a>
+                    )}
                 </div>
             </div>
         </div>

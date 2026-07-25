@@ -24,16 +24,17 @@ const ScrollToTop = dynamic(() => import("@/components/ScrollToTop"), {
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteTitle = "Samiul Alim | Backend Software Engineer";
+const siteDescription =
+    "Backend Software Engineer with 3.5+ years building IAM platforms, Redis caching infrastructure, and production APIs. TypeScript · Go · Node.js · MongoDB · Redis.";
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
-    title: "Samiul Alim | Fullstack Web Developer",
-    description:
-        "Portfolio of Samiul Alim, a fullstack software engineer specializing in modern web applications with Next.js, React, Node.js, and TypeScript.",
+    title: siteTitle,
+    description: siteDescription,
     openGraph: {
-        title: "Samiul Alim | Fullstack Web Developer",
-        description:
-            "Fullstack portfolio showcasing projects, skills, and experience with Next.js, React, Node.js, and modern tooling.",
+        title: siteTitle,
+        description: siteDescription,
         url: "/",
         siteName: "Samiul Alim",
         images: [
@@ -48,9 +49,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Samiul Alim | Fullstack Web Developer",
-        description:
-            "Fullstack portfolio showcasing projects, skills, and experience with Next.js, React, Node.js, and modern tooling.",
+        title: siteTitle,
+        description: siteDescription,
         images: [
             {
                 url: "/avatars/samiul-alim.png",

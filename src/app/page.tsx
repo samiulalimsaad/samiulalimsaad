@@ -29,7 +29,7 @@ const Skills = dynamic(() => import("@/components/sections/Skills"), {
 });
 
 const Projects = dynamic(() => import("@/components/sections/Projects"), {
-    loading: () => <CardGridSkeleton count={3} />,
+    loading: () => <CardGridSkeleton count={5} />,
     ssr: true,
 });
 
