@@ -2,13 +2,18 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Fira_Code } from "next/font/google";
+import { Fira_Code, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Visitor from "@/components/Visitor";
 
 const firaCode = Fira_Code({
     subsets: ["latin"],
     variable: "--font-fira-code",
+});
+
+const inter = Inter({
+    subsets: ["latin"],
+    variable: "--font-inter",
 });
 
 import "./globals.css";
@@ -73,8 +78,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={firaCode.variable}>
-            <body className={`antialiased`}>
+        <html lang="en" className={`${firaCode.variable} ${inter.variable}`}>
+            <body className={`font-sans antialiased`}>
                 <a
                     href="#main-content"
                     className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-sm focus:text-white"

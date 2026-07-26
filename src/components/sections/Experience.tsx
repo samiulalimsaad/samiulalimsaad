@@ -1,4 +1,5 @@
 import { Building2, CalendarDays, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const experiences = [
     {
@@ -128,6 +129,51 @@ export default function Experience() {
                             </li>
                         ))}
                     </ol>
+                </div>
+
+                <div className="mt-6 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-5 backdrop-blur-sm">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600 mb-3">
+                        Evidence — Code Review, Monitoring & Platform Metrics
+                    </p>
+                    <div className="grid gap-4 sm:grid-cols-3">
+                        <div>
+                            <p className="text-xs text-foreground/60 mb-2">
+                                GitHub contribution breakdown (62% commits, 12% code review, 26%
+                                PRs):
+                            </p>
+                            <Image
+                                src="/evidence/pr-code-review.png"
+                                alt="GitHub contribution graph showing code review, commits, and pull request activity"
+                                width={400}
+                                height={225}
+                                className="rounded-xl border border-gray-200"
+                            />
+                        </div>
+                        <div>
+                            <p className="text-xs text-foreground/60 mb-2">
+                                Real-time monitoring via Discord (Uptime Kuma):
+                            </p>
+                            <Image
+                                src="/evidence/monitoring-alert.png"
+                                alt="Discord monitoring alert showing service downtime detection with delivery metrics"
+                                width={400}
+                                height={225}
+                                className="rounded-xl border border-gray-200"
+                            />
+                        </div>
+                        <div>
+                            <p className="text-xs text-foreground/60 mb-2">
+                                Bootcamp platform — 898+ active users, 13K+ leads:
+                            </p>
+                            <Image
+                                src="/evidence/bootcamp-active-users.png"
+                                alt="Bootcamp platform admin dashboard showing 898 active users and session data"
+                                width={400}
+                                height={225}
+                                className="rounded-xl border border-gray-200"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
