@@ -51,7 +51,7 @@ const Contact = () => {
                                 </p>
                             ))}
 
-                            <details className="group mt-4">
+                            <details open className="group mt-4">
                                 <summary className="flex cursor-pointer items-center gap-1 text-xs font-medium text-foreground/50 hover:text-foreground/70 [&::-webkit-details-marker]:hidden">
                                     <span className="transition group-open:rotate-90 inline-block mr-1">
                                         ›

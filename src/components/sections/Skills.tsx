@@ -36,7 +36,10 @@ function SkillCard({ group }: SkillCardProps) {
     const previewItemLimit = 6;
 
     return (
-        <details className="group flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white/80 p-5 backdrop-blur-sm transition hover:-translate-y-1 animate-card-in">
+        <details
+            open
+            className="group flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white/80 p-5 backdrop-blur-sm transition hover:-translate-y-1 animate-card-in"
+        >
             <summary className="flex cursor-pointer list-none items-start justify-between gap-2 [&::-webkit-details-marker]:hidden">
                 <div className="space-y-1">
                     <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">

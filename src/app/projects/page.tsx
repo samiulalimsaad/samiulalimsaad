@@ -34,7 +34,10 @@ export default function AllProjectsPage() {
                 </div>
 
                 {/* Past work */}
-                <details className="group mb-16 rounded-3xl border border-gray-200 bg-white/80 p-6 backdrop-blur-sm">
+                <details
+                    open
+                    className="group mb-16 rounded-3xl border border-gray-200 bg-white/80 p-6 backdrop-blur-sm"
+                >
                     <summary className="flex cursor-pointer items-center justify-between gap-2 [&::-webkit-details-marker]:hidden">
                         <div>
                             <h2 className="text-lg font-bold text-cyan-700">Past Work</h2>
