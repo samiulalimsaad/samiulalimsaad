@@ -553,7 +553,7 @@ function ObservabilitySection() {
                     <ObservabilityCard
                         title="Metrics"
                         items={[
-                            "Prometheus-format metrics: payment volume, success rate, gateway latency",
+                            "Payment volume, success rate, and gateway latency per provider",
                             "Per-gateway breakdown: transaction count, error rate, p50/p95 latency",
                             "Business metrics: revenue processed, refund rate, dispute rate",
                         ]}
@@ -561,7 +561,7 @@ function ObservabilitySection() {
                     <ObservabilityCard
                         title="Alerting"
                         items={[
-                            "Payment success rate drop below 95% threshold",
+                            "Payment success rate drop below threshold",
                             "Gateway latency exceeding p99 SLA",
                             "Webhook processing backlog growing",
                             "Refund rate spike (potential fraud indicator)",
@@ -569,9 +569,9 @@ function ObservabilitySection() {
                         ]}
                     />
                     <ObservabilityCard
-                        title="Dashboards"
+                        title="Monitoring"
                         items={[
-                            "Grafana dashboard: real-time payment volume and success rate",
+                            "Discord webhook alerts for service downtime via Uptime Kuma",
                             "Per-gateway health and latency overview",
                             "Transaction trends: hourly, daily, weekly aggregates",
                             "Refund and dispute tracking",

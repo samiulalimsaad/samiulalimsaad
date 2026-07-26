@@ -624,7 +624,7 @@ function ObservabilitySection() {
                     <ObservabilityCard
                         title="Metrics"
                         items={[
-                            "Prometheus-format metrics: active exams, submissions per minute, scoring latency",
+                            "Active exams, submissions per minute, scoring latency",
                             "AI provider metrics: request count, latency, error rate per provider",
                             "Change stream metrics: lag in ms, events processed, resumption count",
                         ]}
@@ -640,9 +640,9 @@ function ObservabilitySection() {
                         ]}
                     />
                     <ObservabilityCard
-                        title="Dashboards"
+                        title="Monitoring"
                         items={[
-                            "Grafana dashboard: real-time active exams and submissions",
+                            "Discord webhook alerts for service downtime via Uptime Kuma",
                             "AI provider health and cost breakdown",
                             "Assessment completion rates and average scores",
                             "System health: change stream status, queue depth, error rates",

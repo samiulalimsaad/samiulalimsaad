@@ -580,7 +580,7 @@ function ObservabilitySection() {
                     <ObservabilityCard
                         title="Metrics"
                         items={[
-                            "Prometheus-format metrics: auth requests per second, success/failure rate, MFA enrollment rate",
+                            "Auth request volume and success/failure rate per tenant",
                             "Rate limiter metrics: requests blocked, current capacity per tenant",
                             "Token operations: issued, refreshed, revoked per minute",
                         ]}
@@ -596,9 +596,9 @@ function ObservabilitySection() {
                         ]}
                     />
                     <ObservabilityCard
-                        title="Dashboards"
+                        title="Monitoring"
                         items={[
-                            "Grafana dashboard: real-time auth traffic and success rates",
+                            "Discord webhook alerts for service downtime via Uptime Kuma",
                             "Per-tenant authentication breakdown",
                             "Rate limiter effectiveness: requests allowed vs blocked",
                             "Security event timeline: failed attempts, rate limit hits, MFA challenges",
@@ -643,9 +643,14 @@ function TestingSection() {
                         approach="Testcontainers for PostgreSQL and Redis in CI. Tests verify: complete OIDC authorization code flow, MFA enrollment and challenge, device limit enforcement, token refresh and revocation."
                     />
                     <TestingCard
-                        level="Security Tests"
-                        scope="OWASP top 10 scenarios: CSRF, XSS, brute force, session hijacking"
-                        approach="Automated security tests in CI pipeline: CSRF token validation, CSP header presence, rate limiter effectiveness under burst traffic, session fixation prevention."
+                        level="E2E Tests"
+                        scope="10 Cypress E2E tests covering: login, registration, profile management, tenant management, tenant projects, user management, forget password, OTP verification, health checks, and application flows"
+                        approach="Cypress with cypress.env.json for environment configuration. Test files in cypress/e2e/*.cy.ts. CI integration via GitHub Actions pipeline."
+                    />
+                    <TestingCard
+                        level="Frontend Test Suite"
+                        scope="50 Vitest tests across the Bootcamp platform: 7 integration tests, 15 hook tests, 12 service tests, 3 store tests, 4 utility tests, 3 component tests, 2 permission tests, 1 constant test"
+                        approach="Vitest with MSW (Mock Service Worker) for API mocking. Test factories and auth helpers for consistent test data. CI runs on every push."
                     />
                 </div>
             </div>

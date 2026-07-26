@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import EvidenceImage from "@/components/ui/EvidenceImage";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
@@ -61,7 +62,8 @@ function HeroSection() {
                 <p className="text-sm text-foreground/50 max-w-2xl mx-auto mb-6">
                     Open-source email platform serving multiple product teams. Replaced Mailgun with
                     a self-hosted alternative handling transactional emails, campaigns, and workflow
-                    automation.
+                    automation. Significant cost reduction vs Mailgun with comparable delivery
+                    performance.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {["Node.js", "TypeScript", "BullMQ", "Redis", "PostgreSQL", "AWS SES"].map(
@@ -95,8 +97,8 @@ function ExecutiveSummary() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <SummaryCard
                         icon={<Mail className="w-5 h-5" />}
-                        value="100K"
-                        label="Emails per day (peak)"
+                        value="197K+"
+                        label="Emails sent (7-day window)"
                     />
                     <SummaryCard
                         icon={<Server className="w-5 h-5" />}
@@ -115,6 +117,11 @@ function ExecutiveSummary() {
                     handles transactional emails, marketing campaigns, and automated workflows
                     through a queue-based architecture with real-time delivery tracking.
                 </p>
+                <EvidenceImage
+                    src="/evidence/ph-mailer-statistics.png"
+                    alt="PH Mailer Plunk dashboard showing 15,496 contacts, 197K+ emails sent, 44.7% open rate"
+                    caption="Plunk dashboard — real-time email delivery metrics across product teams (15,496 contacts, 197,294 emails sent, 44.7% open rate)"
+                />
             </div>
         </section>
     );
@@ -350,9 +357,9 @@ function MetricsSection() {
             <div className="mx-auto w-full max-w-4xl">
                 <h2 className="text-2xl font-bold text-foreground mb-8">Metrics</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <MetricCard label="Peak Daily Volume" value="100,000" />
-                    <MetricCard label="Internal Products" value="5+" />
-                    <MetricCard label="Delivery Provider" value="AWS SES" />
+                    <MetricCard label="Emails Sent (7-day)" value="197,294" />
+                    <MetricCard label="Open Rate" value="44.7%" />
+                    <MetricCard label="Click Rate" value="8.5%" />
                     <MetricCard label="Status" value="Production" />
                 </div>
             </div>
@@ -597,7 +604,7 @@ function ObservabilitySection() {
                     <ObservabilityCard
                         title="Metrics"
                         items={[
-                            "Prometheus-format metrics: delivery rate, queue depth, latency percentiles",
+                            "Plunk dashboard: delivery rate, open rate, click rate, bounce rate",
                             "Business metrics: emails sent, delivered, bounced, complained per hour",
                             "Worker health: jobs processed, failure rate, retry count",
                         ]}
@@ -605,23 +612,28 @@ function ObservabilitySection() {
                     <ObservabilityCard
                         title="Alerting"
                         items={[
-                            "Queue depth threshold breach",
-                            "Delivery failure rate spike",
-                            "Worker process disappearance",
-                            "Redis / PostgreSQL connectivity loss",
-                            "Bounce rate exceeding 2% threshold",
+                            "Discord webhook alerts via Uptime Kuma for service downtime",
+                            "Delivery failure rate spike notifications",
+                            "Worker process disappearance alerts",
+                            "Database connectivity loss notifications",
+                            "Bounce rate exceeding threshold alerts",
                         ]}
                     />
                     <ObservabilityCard
                         title="Dashboards"
                         items={[
-                            "Grafana dashboard for real-time delivery monitoring",
+                            "Plunk real-time email activity dashboard",
                             "Hourly / daily / weekly delivery trends",
-                            "Provider health and quota utilization",
                             "Per-team email volume breakdown",
+                            "Open rate and click rate analytics",
                         ]}
                     />
                 </div>
+                <EvidenceImage
+                    src="/evidence/monitoring-alert.png"
+                    alt="Discord monitoring alert showing 48,978 items processed with delivery metrics"
+                    caption="Real-time monitoring alert — Uptime Kuma Discord integration showing 48,978 items processed, 48,965 sent, 112 exceptions, 26 bounced (5m 35s batch runtime)"
+                />
             </div>
         </section>
     );
@@ -663,6 +675,11 @@ function TestingSection() {
                         level="E2E Tests"
                         scope="Critical user flows: password reset, campaign delivery, bounce handling"
                         approach="Full workflow tests in UAT environment with real delivery provider sandbox. Tests cover: template rendering, delivery tracking, bounce feedback loop."
+                    />
+                    <TestingCard
+                        level="Backend Test Suite"
+                        scope="Bootcamp platform backend: 35 Vitest unit/service tests covering analytics, enrollment, bKash payments, course management, user services, and activity logging"
+                        approach="Vitest with mocked database queries. CI runs on every push via GitHub Actions. Test files: src/services/__tests__/*.test.ts, src/utils/__tests__/*.test.ts"
                     />
                 </div>
             </div>
