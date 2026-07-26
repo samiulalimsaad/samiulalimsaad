@@ -136,42 +136,54 @@ export default function Experience() {
                         Evidence — Code Review, Monitoring & Platform Metrics
                     </p>
                     <div className="grid gap-4 sm:grid-cols-3">
-                        <div>
+                        <div className="flex flex-col">
                             <p className="text-xs text-foreground/60 mb-2">
                                 GitHub contribution breakdown (62% commits, 12% code review, 26%
                                 PRs):
                             </p>
-                            <Image
-                                src="/evidence/pr-code-review.png"
-                                alt="GitHub contribution graph showing code review, commits, and pull request activity"
-                                width={400}
-                                height={225}
-                                className="rounded-xl border border-gray-200"
-                            />
+                            <div
+                                className="relative mt-auto flex items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-gray-900"
+                                style={{ aspectRatio: "4/3" }}
+                            >
+                                <Image
+                                    src="/evidence/pr-code-review.png"
+                                    alt="GitHub contribution graph showing code review, commits, and pull request activity"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                         </div>
-                        <div>
+                        <div className="flex flex-col">
                             <p className="text-xs text-foreground/60 mb-2">
                                 Real-time monitoring via Discord (Uptime Kuma):
                             </p>
-                            <Image
-                                src="/evidence/monitoring-alert.png"
-                                alt="Discord monitoring alert showing service downtime detection with delivery metrics"
-                                width={400}
-                                height={225}
-                                className="rounded-xl border border-gray-200"
-                            />
+                            <div
+                                className="relative mt-auto overflow-hidden rounded-xl border border-gray-200 bg-gray-800"
+                                style={{ aspectRatio: "4/3" }}
+                            >
+                                <Image
+                                    src="/evidence/monitoring-alert.png"
+                                    alt="Discord monitoring alert showing service downtime detection with delivery metrics"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                         </div>
-                        <div>
+                        <div className="flex flex-col">
                             <p className="text-xs text-foreground/60 mb-2">
                                 Bootcamp platform — 898+ active users, 13K+ leads:
                             </p>
-                            <Image
-                                src="/evidence/bootcamp-active-users.png"
-                                alt="Bootcamp platform admin dashboard showing 898 active users and session data"
-                                width={400}
-                                height={225}
-                                className="rounded-xl border border-gray-200"
-                            />
+                            <div
+                                className="relative mt-auto overflow-hidden rounded-xl border border-gray-200 bg-white"
+                                style={{ aspectRatio: "4/3" }}
+                            >
+                                <Image
+                                    src="/evidence/bootcamp-active-users.png"
+                                    alt="Bootcamp platform admin dashboard showing 898 active users and session data"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,8 @@ const DEFAULT_PROJECT_IMAGE = "/projects/default-project.svg";
 
 const PH_MAILER_IMAGE = "/evidence/ph-mailer-statistics.png";
 const BOOTCAMP_IMAGE = "/evidence/bootcamp-statistics.png";
+const SPEAKSAIL_IMAGE = "/projects/speaksail-com.png";
+const SKILL_MAPPER_IMAGE = "/projects/skill-mapper-programming-hero.png";
 
 export const projects = [
     {
@@ -152,7 +154,7 @@ export const projects = [
             "Socket.IO + FCM dual notification system",
             "Evolution: Next.js monolith → Laravel + TanStack Start rewrite",
         ],
-        image: DEFAULT_PROJECT_IMAGE,
+        image: SPEAKSAIL_IMAGE,
         tools: [
             "Next.js 14",
             "TypeScript",
@@ -237,7 +239,7 @@ export const projects = [
             "Concurrent timed exams with real-time sync",
             "XP gamification with 5 rank tiers",
         ],
-        image: DEFAULT_PROJECT_IMAGE,
+        image: SKILL_MAPPER_IMAGE,
         tools: [
             "TypeScript",
             "Node.js",
