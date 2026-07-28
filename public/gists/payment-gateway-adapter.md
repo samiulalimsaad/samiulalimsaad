@@ -4,7 +4,7 @@ An adapter pattern that abstracts multiple payment gateways behind a unified int
 
 ## Problem
 
-Payment services often need to support multiple gateways for redundancy, geographic coverage, and cost optimization. Without abstraction, business logic becomes coupled to each gateway's API, authentication, and data formats — making additions and changes risky.
+Payment services often need to support multiple gateways for redundancy, geographic coverage, and cost optimization. Without abstraction, business logic becomes coupled to each gateway's API, authentication, and data formats, making additions and changes risky.
 
 ## Solution
 
@@ -225,4 +225,4 @@ svc := payment.NewService(gateways, "stripe")
 
 - **Abstraction overhead**: Gateway-specific features (e.g., Stripe's installment plans) may not fit the unified interface. You'll need to extend the interface or handle special cases.
 - **Testing complexity**: Each gateway needs integration tests with its sandbox. Mock the interface for unit tests.
-- **Vendor lock-in escape**: The adapter makes it easy to switch, but not free — each gateway has different business rules for refunds, disputes, and compliance.
+- **Vendor lock-in escape**: The adapter makes it easy to switch, but not free. Each gateway has different business rules for refunds, disputes, and compliance.

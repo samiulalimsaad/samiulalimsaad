@@ -4,11 +4,11 @@
 
 **Backend & Platform Engineer**
 
-Building and operating production systems end-to-end — from architecture
+Building and operating production systems end-to-end, from architecture
 and secure APIs to reliable, zero-downtime deployments.
 
-I work across the full lifecycle of production systems — from architecture and
-implementation to deployment and operations — collaborating across teams to
+I work across the full lifecycle of production systems, from architecture and
+implementation to deployment and operations, collaborating across teams to
 deliver reliable, scalable software that creates long-term business value.
 My focus is backend platforms: identity and authentication systems, payment
 infrastructure, and production APIs designed for maintainability and growth.
@@ -39,22 +39,22 @@ infrastructure, and production APIs designed for maintainability and growth.
 2. Built and maintained production email infrastructure, owning feature development, reliability, and cross-team coordination
 3. Designed secure payment integrations supporting bKash, SSLCommerz, Stripe, and Nagad across multiple education platforms
 4. Managed containerized production deployments using Docker and Docker Swarm, implementing versioned releases and zero-downtime rollout strategies
-5. Owned UAT and production environment lifecycle — infrastructure setup, deployment automation, rollback strategies, and operational troubleshooting
+5. Owned UAT and production environment lifecycle: infrastructure setup, deployment automation, rollback strategies, and operational troubleshooting
 6. Delivered end-to-end engineering solutions spanning backend services, frontend applications, and production infrastructure across multiple products
 
 ---
 
 ## Professional Summary
 
-Backend platform engineer specializing in identity systems, payment infrastructure, and production APIs. I work across architecture, implementation, deployment, and operations — collaborating with product teams, designers, and stakeholders to deliver systems that serve real business needs. My engineering decisions are guided by reliability, maintainability, and long-term value creation.
+Backend platform engineer specializing in identity systems, payment infrastructure, and production APIs. I work across architecture, implementation, deployment, and operations, collaborating with product teams, designers, and stakeholders to deliver systems that serve real business needs. My engineering decisions are guided by reliability, maintainability, and long-term value creation.
 
 ---
 
 ## Guiding Principles
 
-- **Build for Reliability** — Production systems should be observable, maintainable, and resilient.
-- **Think Beyond Features** — Engineering decisions should support long-term business goals.
-- **Own the Outcome** — Responsibility extends from design through deployment and production operations.
+- **Build for Reliability**: Production systems should be observable, maintainable, and resilient.
+- **Think Beyond Features**: Engineering decisions should support long-term business goals.
+- **Own the Outcome**: Responsibility extends from design through deployment and production operations.
 
 ---
 
@@ -111,12 +111,12 @@ Laravel · Vue.js · Electron · Firebase · MySQL · Express · Fastify · Pris
 
 ## Engineering Philosophy
 
-1. **Ownership over implementation** — Responsibility extends beyond writing code to understanding how systems behave in production.
-2. **Business-first engineering** — Technical decisions should serve measurable business outcomes, not engineering preferences.
-3. **Simplicity over cleverness** — Systems should be understandable by the next engineer who reads them.
-4. **Reliability is designed — not assumed** — Every deployment should be observable, reversible, and dependable.
-5. **Testing and documentation** — Production systems require both. Documentation is part of the deliverable.
-6. **Developer experience matters** — Good tooling and clear interfaces compound team velocity over time.
+1. **Ownership over implementation**: Responsibility extends beyond writing code to understanding how systems behave in production.
+2. **Business-first engineering**: Technical decisions should serve measurable business outcomes, not engineering preferences.
+3. **Simplicity over cleverness**: Systems should be understandable by the next engineer who reads them.
+4. **Reliability is designed, not assumed**: Every deployment should be observable, reversible, and dependable.
+5. **Testing and documentation**: Production systems require both. Documentation is part of the deliverable.
+6. **Developer experience matters**: Good tooling and clear interfaces compound team velocity over time.
 
 ---
 

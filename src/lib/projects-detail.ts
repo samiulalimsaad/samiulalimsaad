@@ -47,7 +47,7 @@ export const projectDetails: ProjectDetail[] = [
     {
         _id: "ai-game-platform",
         businessProblem:
-            "Educational content needed to be delivered through interactive, engaging formats that combined real-time interaction with AI-powered features — beyond what traditional learning platforms offered.",
+            "Educational content needed to be delivered through interactive, engaging formats that combined real-time interaction with AI-powered features that went beyond what traditional learning platforms offered.",
         responsibilities:
             "Built and implemented the platform. Contributed to architecture decisions and collaborated with the engineering team across design, development, and deployment.",
         architecture:

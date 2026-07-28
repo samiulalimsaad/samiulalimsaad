@@ -64,7 +64,7 @@ export const skills: SkillGroup[] = [
     },
     {
         category: "Data & Storage",
-        context: "Polyglot persistence — choosing the right store for each access pattern",
+        context: "Polyglot persistence: choosing the right store for each access pattern",
         items: [
             { name: "PostgreSQL", level: "production" },
             { name: "MongoDB", level: "production" },
@@ -88,7 +88,7 @@ export const skills: SkillGroup[] = [
     },
     {
         category: "Frontend (Supporting Role)",
-        context: "SSR dashboards and admin panels — not my primary focus",
+        context: "SSR dashboards and admin panels: not my primary focus",
         items: [
             { name: "React / Next.js", level: "familiar" },
             { name: "Tailwind CSS", level: "production" },
