@@ -291,7 +291,7 @@ export const projects = [
             "Real-time and AI-powered feature support",
             "Extensible design for multiple game types",
         ],
-        image: DEFAULT_PROJECT_IMAGE,
+        image: "/projects/ai-game-platform.png",
         tools: ["Node.js", "TypeScript", "MongoDB", "Docker"],
         stack: ["Node.js", "TypeScript", "MongoDB", "Docker"],
         githubFrontEnd: "",
