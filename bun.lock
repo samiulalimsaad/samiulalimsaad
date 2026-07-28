@@ -32,7 +32,7 @@
         "@types/react": "19.2.7",
         "@types/react-dom": "19.2.3",
         "autoprefixer": "^10.4.22",
-        "baseline-browser-mapping": "latest",
+        "baseline-browser-mapping": "^2.11.3",
         "husky": "^9.1.7",
         "jsdom": "^29.1.1",
         "postcss": "^8.5.6",
