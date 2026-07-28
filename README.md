@@ -2,7 +2,7 @@
 
 # Samiul Alim
 
-**Senior Backend & Platform Engineer**
+**Backend & Platform Engineer**
 
 Building and operating production systems end-to-end — from architecture
 and secure APIs to reliable, zero-downtime deployments.

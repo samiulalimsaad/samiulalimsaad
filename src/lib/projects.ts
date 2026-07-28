@@ -195,7 +195,7 @@ export const projects = [
         priority: 94,
         category: "Backend / Payments",
         status: "In development",
-        tier: "featured",
+        tier: "past-work",
         proprietary: true,
         caseStudyLink: "/projects/payment-service",
         description: [
@@ -261,7 +261,10 @@ export const projects = [
         githubFrontEnd: "",
         githubBackEnd: "",
         live: "https://skillmapper.programming-hero.com",
-        links: { github: null, live: "https://skillmapper.programming-hero.com" },
+        links: {
+            github: null,
+            live: "https://skillmapper.programming-hero.com",
+        },
     },
     {
         _id: "ai-game-platform",
