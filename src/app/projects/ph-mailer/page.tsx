@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import CodeSnippet from "@/components/ui/CodeSnippet";
 import EvidenceImage from "@/components/ui/EvidenceImage";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
@@ -302,6 +303,32 @@ function TechnicalDecisions() {
             outcome:
                 "Separate worker process processes jobs asynchronously with configurable concurrency and rate limiting. Workers can scale independently from the API server. Queue provides natural backpressure during spikes.",
             icon: <RefreshCw className="w-5 h-5" />,
+            snippet: `// BullMQ worker with configurable concurrency and rate limiting.
+// Workers scale independently from the API server.
+const emailQueue = new Queue("email-delivery", {
+    connection: redisConfig,
+    defaultJobOptions: {
+        attempts: 5,
+        backoff: { type: "exponential", delay: 1000 },
+        removeOnComplete: { count: 1000 },
+        removeOnFail: { count: 5000 },
+    },
+})
+
+const worker = new Worker("email-delivery", processEmailJob, {
+    connection: redisConfig,
+    concurrency: 10,
+    limiter: { max: 100, duration: 1000 },
+})
+
+worker.on("failed", (job, err) => {
+    logger.error("Email delivery failed", {
+        jobId: job.id,
+        attempt: job.attemptsMade,
+        error: err.message,
+    })
+})`,
+            language: "typescript",
         },
         {
             title: "Fork over Build from Scratch",
@@ -318,6 +345,39 @@ function TechnicalDecisions() {
             outcome:
                 "Worker process runs independently, enabling independent scaling and fault isolation. If the worker crashes, the API server remains unaffected. Monitoring alerts on worker health.",
             icon: <Shield className="w-5 h-5" />,
+        },
+        {
+            title: "Exponential Backoff with Jitter",
+            context:
+                "Transient failures (rate limits, provider outages, network blips) are common in email delivery. Naive retries cause thundering herd problems on recovery.",
+            outcome:
+                "Exponential backoff with random jitter spreads retries across time, preventing thundering herd. Maximum delay capped at 30 seconds with 5 retry attempts.",
+            icon: <RefreshCw className="w-5 h-5" />,
+            snippet: `// Exponential backoff with jitter — prevents thundering herd on recovery.
+async function retryWithBackoff<T>(
+    fn: () => Promise<T>,
+    opts: { maxAttempts: number; baseDelay: number; maxDelay: number },
+): Promise<T> {
+    for (let attempt = 0; attempt < opts.maxAttempts; attempt++) {
+        try {
+            return await fn()
+        } catch (err) {
+            if (attempt === opts.maxAttempts - 1) throw err
+            const delay = Math.min(
+                opts.baseDelay * Math.pow(2, attempt) + Math.random() * 1000,
+                opts.maxDelay,
+            )
+            logger.warn("retry after failure", {
+                attempt,
+                delay,
+                error: (err as Error).message,
+            })
+            await new Promise(r => setTimeout(r, delay))
+        }
+    }
+    throw new Error("unreachable")
+}`,
+            language: "typescript",
         },
     ];
 
@@ -341,6 +401,11 @@ function TechnicalDecisions() {
                                     </h3>
                                     <p className="text-sm text-foreground/70 mb-2">{d.context}</p>
                                     <p className="text-sm text-indigo-600/80">{d.outcome}</p>
+                                    {d.snippet && (
+                                        <div className="mt-4">
+                                            <CodeSnippet code={d.snippet} language={d.language} />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

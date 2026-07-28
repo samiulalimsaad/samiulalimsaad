@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
@@ -332,6 +333,48 @@ function TechnicalDecisions() {
             outcome:
                 "Multi-layer middleware chain rejects most malicious requests at the first layer (rate limiting), keeping the system fast for legitimate users.",
             icon: <Shield className="w-5 h-5" />,
+            snippet: `// Defense-in-depth middleware chain — each layer rejects early.
+// Downstream layers never execute if a prior layer fails.
+export function createSecurityMiddleware(config: SecurityConfig) {
+    return compose(
+        rateLimiter({ windowMs: 60_000, max: 100 }),
+        cspNonce({ directives: config.cspDirectives }),
+        csrfProtection({ cookie: true }),
+        captcha({ score: 0.7, actions: ["login", "register"] }),
+        inputSanitizer({ maxLength: 1000, allowedTags: [] }),
+        hsts({ maxAge: 31536000, includeSubDomains: true }),
+    )
+}`,
+            language: "typescript",
+        },
+        {
+            title: "Multi-Tenant Data Isolation",
+            context:
+                "The platform serves multiple products (bootcamp, skill-mapper, admin tools). Accidental cross-tenant data leaks would be catastrophic for user trust.",
+            outcome:
+                "A tenant-scoped repository pattern injects tenantId into every query via composite unique constraints. It's impossible to leak data across tenants at the database level.",
+            icon: <Database className="w-5 h-5" />,
+            snippet: `// Tenant-scoped repository — impossible to leak data across tenants.
+// Every query injects tenantId via composite unique constraint.
+export class TenantScopedRepository<T> {
+    constructor(
+        private prisma: PrismaClient,
+        private model: string,
+    ) {}
+
+    async findMany(tenantId: string, where: WhereInput<T>): Promise<T[]> {
+        return this.prisma[this.model].findMany({
+            where: { ...where, tenantId },
+        })
+    }
+
+    async create(tenantId: string, data: CreateInput<T>): Promise<T> {
+        return this.prisma[this.model].create({
+            data: { ...data, tenantId },
+        })
+    }
+}`,
+            language: "typescript",
         },
     ];
 
@@ -355,6 +398,11 @@ function TechnicalDecisions() {
                                     </h3>
                                     <p className="text-sm text-foreground/70 mb-2">{d.context}</p>
                                     <p className="text-sm text-indigo-600/80">{d.outcome}</p>
+                                    {d.snippet && (
+                                        <div className="mt-4">
+                                            <CodeSnippet code={d.snippet} language={d.language} />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

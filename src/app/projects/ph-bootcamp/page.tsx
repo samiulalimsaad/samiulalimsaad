@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import CodeSnippet from "@/components/ui/CodeSnippet";
 import EvidenceImage from "@/components/ui/EvidenceImage";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
@@ -309,6 +310,25 @@ function TechnicalDecisions() {
             outcome:
                 "ABAC with hierarchical grantAccess middleware: each role defines (action, resource) pairs. super_admin bypasses all checks. Admin = mergePermissions(editor, qr, additional grants). Adding a new resource requires one permission definition file.",
             icon: <Shield className="w-5 h-5" />,
+            snippet: `// Hierarchical ABAC — each role defines (action, resource) pairs.
+// super_admin bypasses all checks.
+const rolePermissions: Record<Role, Permission[]> = {
+    super_admin: [{ action: "*", resource: "*" }],
+    admin: mergePermissions(editorPerms, qrPerms, [
+        { action: "manage", resource: "payments" },
+    ]),
+    editor: [{ action: "create", resource: "course" },
+             { action: "update", resource: "content" }],
+    qr: [{ action: "scan", resource: "attendance" }],
+    student: [{ action: "read", resource: "course" }],
+}
+
+function grantAccess(role: Role, action: string, resource: string): boolean {
+    const perms = rolePermissions[role]
+    if (perms.some(p => p.action === "*")) return true
+    return perms.some(p => p.action === action && p.resource === resource)
+}`,
+            language: "typescript",
         },
         {
             title: "Redis Cache with 13 Domain Adapters",
@@ -356,6 +376,11 @@ function TechnicalDecisions() {
                                     </h3>
                                     <p className="text-sm text-foreground/70 mb-2">{d.context}</p>
                                     <p className="text-sm text-indigo-600/80">{d.outcome}</p>
+                                    {d.snippet && (
+                                        <div className="mt-4">
+                                            <CodeSnippet code={d.snippet} language={d.language} />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

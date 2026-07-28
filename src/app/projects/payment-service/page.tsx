@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
@@ -294,6 +295,32 @@ function TechnicalDecisions() {
             outcome:
                 "Each gateway implements a common adapter interface. Core business logic operates on the interface, not concrete implementations. Adding a new gateway means writing one new adapter.",
             icon: <GitBranch className="w-5 h-5" />,
+            snippet: `// PaymentGateway — business logic depends on this interface, never on concrete gateways.
+type PaymentGateway interface {
+    CreatePayment(ctx context.Context, req PaymentRequest) (*PaymentResult, error)
+    VerifyWebhook(payload []byte, signature string) (WebhookEvent, error)
+    Refund(ctx context.Context, id string, amount int64) (*RefundResult, error)
+}
+
+// StripeAdapter implements PaymentGateway for Stripe.
+type StripeAdapter struct {
+    client *stripe.Client
+}
+
+func (a *StripeAdapter) CreatePayment(ctx context.Context, req PaymentRequest) (*PaymentResult, error) {
+    pi, err := a.client.PaymentIntents.New(&stripe.PaymentIntentParams{
+        Amount:   stripe.Int64(req.Amount),
+        Currency: stripe.String(req.Currency),
+    })
+    if err != nil {
+        return nil, fmt.Errorf("stripe: %w", err)
+    }
+    return &PaymentResult{
+        ExternalID: pi.ID,
+        Status:     mapStripeStatus(pi.Status),
+    }, nil
+}`,
+            language: "go",
         },
         {
             title: "OpenAPI Code Generation",
@@ -310,6 +337,66 @@ function TechnicalDecisions() {
             outcome:
                 "PostgreSQL for transaction records (ACID), a columnar database for analytics (aggregations), and Redis for gateway token caching (low latency).",
             icon: <Database className="w-5 h-5" />,
+        },
+        {
+            title: "Payment State Machine",
+            context:
+                "Payments transition through defined states (pending, completed, failed, refunded). Without guards, invalid transitions can corrupt payment records.",
+            outcome:
+                "A state machine governs all transitions with guard functions preventing invalid changes. Each transition is logged for audit trail.",
+            icon: <GitBranch className="w-5 h-5" />,
+            snippet: `// Payment state machine — guards prevent invalid transitions.
+var transitions = map[PaymentState][]PaymentState{
+    StatePending:   {StateCompleted, StateFailed},
+    StateCompleted: {StateRefunded},
+    StateFailed:    {},
+    StateRefunded:  {},
+}
+
+func TransitionPayment(p *Payment, target PaymentState) error {
+    for _, s := range transitions[p.Status] {
+        if s == target {
+            p.Status = target
+            p.UpdatedAt = time.Now()
+            return nil
+        }
+    }
+    return fmt.Errorf("invalid transition: %s -> %s", p.Status, target)
+}`,
+            language: "go",
+        },
+        {
+            title: "Idempotent Webhook Processing",
+            context:
+                "Payment gateways can deliver duplicate webhooks. Processing the same event twice (e.g., charging a user twice) must be prevented.",
+            outcome:
+                "Idempotency keys with Redis-backed deduplication (24-hour TTL) ensure each event is processed exactly once, with automatic retry for transient failures.",
+            icon: <RefreshCw className="w-5 h-5" />,
+            snippet: `// WebhookHandler processes gateway callbacks with idempotency protection.
+func (h *WebhookHandler) Handle(w http.ResponseWriter, r *http.Request) {
+    event, err := h.gateway.VerifyWebhook(r.Body, r.Header.Get("X-Signature"))
+    if err != nil {
+        http.Error(w, "invalid signature", http.StatusBadRequest)
+        return
+    }
+
+    // Idempotency check — skip if already processed
+    key := "webhook:" + event.ID
+    if exists, _ := h.redis.Exists(r.Context(), key).Result(); exists == 1 {
+        w.WriteHeader(http.StatusOK)
+        return
+    }
+
+    if err := h.processEvent(r.Context(), event); err != nil {
+        http.Error(w, "processing failed", http.StatusInternalServerError)
+        return
+    }
+
+    // Mark as processed (TTL matches provider retry window)
+    h.redis.Set(r.Context(), key, "1", 24*time.Hour)
+    w.WriteHeader(http.StatusOK)
+}`,
+            language: "go",
         },
     ];
 
@@ -333,6 +420,11 @@ function TechnicalDecisions() {
                                     </h3>
                                     <p className="text-sm text-foreground/70 mb-2">{d.context}</p>
                                     <p className="text-sm text-indigo-600/80">{d.outcome}</p>
+                                    {d.snippet && (
+                                        <div className="mt-4">
+                                            <CodeSnippet code={d.snippet} language={d.language} />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,7 @@
 import { BarChart3, Brain, Bug, GitBranch, Medal, RefreshCw, Users, Zap } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
@@ -296,6 +297,26 @@ function TechnicalDecisions() {
             outcome:
                 "An event-driven state machine governs all transitions, preventing invalid state changes and providing a clear audit trail of assessment lifecycle events.",
             icon: <GitBranch className="w-5 h-5" />,
+            snippet: `// Event-driven state machine — prevents invalid transitions.
+// Guard functions enforce domain rules before allowing changes.
+type State = "draft" | "published" | "active" | "graded" | "archived"
+type Event = "publish" | "start" | "complete" | "archive"
+
+const machine: Record<State, { event: Event; target: State }[]> = {
+    draft:     [{ event: "publish", target: "published" }],
+    published: [{ event: "start",   target: "active" }],
+    active:    [{ event: "complete", target: "graded" }],
+    graded:    [{ event: "archive",  target: "archived" }],
+    archived:  [],
+}
+
+function transition(current: State, event: Event): State {
+    const allowed = machine[current]
+    const match = allowed.find(t => t.event === event)
+    if (!match) throw new Error(\`Invalid transition: \${current} via \${event}\`)
+    return match.target
+}`,
+            language: "typescript",
         },
         {
             title: "Dual AI Providers for Resilience",
@@ -343,6 +364,11 @@ function TechnicalDecisions() {
                                     </h3>
                                     <p className="text-sm text-foreground/70 mb-2">{d.context}</p>
                                     <p className="text-sm text-indigo-600/80">{d.outcome}</p>
+                                    {d.snippet && (
+                                        <div className="mt-4">
+                                            <CodeSnippet code={d.snippet} language={d.language} />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

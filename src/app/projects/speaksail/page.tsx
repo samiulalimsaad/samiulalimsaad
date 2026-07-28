@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
@@ -301,6 +302,32 @@ function TechnicalDecisions() {
             outcome:
                 "Firebase Auth on the client-side for identity. On login, Firebase user data is POSTed to /api/token which upserts the user in MongoDB and issues a JWT (jose, HS256, 1-hour expiry). JWT is stored in HTTP-only cookie and injected into every API request via RTK Query interceptor.",
             icon: <Shield className="w-5 h-5" />,
+            snippet: `// Firebase Auth for identity + JWT for API authorization.
+// JWT issued after Firebase login, stored in HTTP-only cookie.
+export async function POST(req: Request) {
+    const { firebaseToken } = await req.json()
+    const decoded = await admin.auth().verifyIdToken(firebaseToken)
+
+    const user = await db.user.upsert({
+        where: { firebaseUid: decoded.uid },
+        update: { email: decoded.email!, lastLogin: new Date() },
+        create: { firebaseUid: decoded.uid, email: decoded.email!, role: "student" },
+    })
+
+    const jwt = await new jose.SignJWT({ sub: user.id, role: user.role })
+        .setProtectedHeader({ alg: "HS256" })
+        .setExpirationTime("1h")
+        .sign(secret)
+
+    return new Response(JSON.stringify({ user }), {
+        headers: {
+            "Set-Cookie": cookie.serialize("token", jwt, {
+                httpOnly: true, secure: true, sameSite: "lax", path: "/",
+            }),
+        },
+    })
+}`,
+            language: "typescript",
         },
         {
             title: "Socket.IO + FCM Dual Notification System",
@@ -348,6 +375,11 @@ function TechnicalDecisions() {
                                     </h3>
                                     <p className="text-sm text-foreground/70 mb-2">{d.context}</p>
                                     <p className="text-sm text-indigo-600/80">{d.outcome}</p>
+                                    {d.snippet && (
+                                        <div className="mt-4">
+                                            <CodeSnippet code={d.snippet} language={d.language} />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
