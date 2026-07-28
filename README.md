@@ -22,8 +22,6 @@ infrastructure, and production APIs designed for maintainability and growth.
 
 </div>
 
----
-
 ## Engineering Highlights
 
 - Designed and built a multi-tenant identity platform supporting modern authentication standards across multiple products
@@ -54,11 +52,9 @@ Backend platform engineer specializing in identity systems, payment infrastructu
 
 ## Guiding Principles
 
-| Principle | Description |
-|---|---|
-| **Build for Reliability** | Production systems should be observable, maintainable, and resilient. |
-| **Think Beyond Features** | Engineering decisions should support long-term business goals. |
-| **Own the Outcome** | Responsibility extends from design through deployment and production operations. |
+- **Build for Reliability** — Production systems should be observable, maintainable, and resilient.
+- **Think Beyond Features** — Engineering decisions should support long-term business goals.
+- **Own the Outcome** — Responsibility extends from design through deployment and production operations.
 
 ---
 
