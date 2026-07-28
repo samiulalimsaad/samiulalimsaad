@@ -60,7 +60,7 @@ export default function Hero() {
                         </div>
                         <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
                             <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                            {productionYears}+ years platform · {industryYears}+ years industry
+                            {industryYears}+ years engineering · {productionYears}+ years production
                         </div>
                         <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
                             <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
