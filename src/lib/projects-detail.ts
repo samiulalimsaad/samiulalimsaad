@@ -49,12 +49,12 @@ export const projectDetails: ProjectDetail[] = [
         businessProblem:
             "Educational content needed to be delivered through interactive, engaging formats that combined real-time interaction with AI-powered features — beyond what traditional learning platforms offered.",
         responsibilities:
-            "Led architecture decisions and engineering team. Owned technical direction from design through deployment.",
+            "Built and implemented the platform. Contributed to architecture decisions and collaborated with the engineering team across design, development, and deployment.",
         architecture:
             "Full-stack platform with a backend handling content delivery, real-time communication, and AI integration. Modular architecture separates content management, game logic, and AI services, allowing each to evolve independently. Real-time layers support interactive experiences while AI services provide dynamic content generation.",
         keyDecisions: [
-            "Designed modular architecture separating content, interaction, and AI concerns",
-            "Led technical direction to support both real-time and AI-powered features",
+            "Built modular architecture separating content, interaction, and AI concerns",
+            "Implemented technical direction to support both real-time and AI-powered features",
             "Built for extensibility so new game types and AI capabilities can be added without core changes",
         ],
         businessImpact:

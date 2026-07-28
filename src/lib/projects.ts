@@ -272,7 +272,7 @@ export const projects = [
         shortDescription:
             "Interactive educational gaming platform with AI-powered features and real-time interaction",
         metrics: [
-            "Led architecture and team",
+            "Built and implemented the platform",
             "AI-powered content generation",
             "Real-time interaction",
         ],
@@ -283,7 +283,7 @@ export const projects = [
         proprietary: true,
         caseStudyLink: "",
         description: [
-            "Educational content needed to be delivered through interactive, engaging formats that combined real-time interaction with AI-powered features beyond what traditional learning platforms offered. Led architecture decisions and engineering team, owning technical direction from design through deployment.",
+            "Educational content needed to be delivered through interactive, engaging formats that combined real-time interaction with AI-powered features beyond what traditional learning platforms offered. Built and implemented the platform, contributing to technical decisions across design, development, and deployment.",
             "Full-stack platform with a backend handling content delivery, real-time communication, and AI integration. Modular architecture separates content management, game logic, and AI services, allowing each to evolve independently. Real-time layers support interactive experiences while AI services provide dynamic content generation.",
         ],
         highlights: [

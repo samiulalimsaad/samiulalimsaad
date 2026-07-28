@@ -24,7 +24,7 @@ infrastructure, and production APIs designed for maintainability and growth.
 
 ## Engineering Highlights
 
-- Designed and built a multi-tenant identity platform supporting modern authentication standards across multiple products
+- Built and implemented a multi-tenant identity platform supporting modern authentication standards across multiple products
 - Delivered production email infrastructure enabling reliable communication across internal teams and services
 - Built secure payment integrations supporting multiple providers for education products
 - Managed containerized production environments with zero-downtime deployment strategies
