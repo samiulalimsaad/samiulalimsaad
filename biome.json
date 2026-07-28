@@ -34,6 +34,10 @@
   "css": {
     "formatter": {
       "enabled": false
+    },
+    "parser": {
+      "cssModules": true,
+      "tailwindDirectives": true
     }
   },
   "files": {
