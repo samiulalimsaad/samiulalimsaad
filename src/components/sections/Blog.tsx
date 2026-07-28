@@ -2,7 +2,7 @@ import { ExternalLink } from "lucide-react";
 
 const articles = [
     {
-        title: "How JavaScript Runs Your Code — The Event Loop",
+        title: "How JavaScript Runs Your Code: The Event Loop",
         summary:
             "Deep dive into JavaScript's single-threaded event loop, call stack, task queues, and async execution model.",
         url: "https://medium.com/@samiulalimsaad/%E0%A6%9C%E0%A6%BE%E0%A6%AD%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%95%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%AA%E0%A7%8D%E0%A6%9F-%E0%A6%87%E0%A6%AD%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F-%E0%A6%B2%E0%A7%81%E0%A6%AA-d2a43786b242",
@@ -10,7 +10,7 @@ const articles = [
         tag: "JavaScript",
     },
     {
-        title: "V8 Engine — The Engine Powering Modern JavaScript",
+        title: "V8 Engine: The Engine Powering Modern JavaScript",
         summary:
             "How V8 compiles and optimizes JavaScript, from parsing to JIT compilation and garbage collection.",
         url: "https://medium.com/@samiulalimsaad/v8-engine-%E0%A6%95%E0%A7%80-%E0%A6%8F%E0%A6%87-%E0%A6%97%E0%A7%8B%E0%A6%AA%E0%A6%A8-%E0%A6%B6%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%BF-%E0%A6%AF%E0%A6%BE-%E0%A6%93%E0%A6%AF%E0%A6%BC%E0%A7%87%E0%A6%AC-%E0%A6%AA%E0%A7%83%E0%A6%A5%E0%A6%BF%E0%A6%AC%E0%A7%80%E0%A6%95%E0%A7%87-%E0%A6%9A%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AF%E0%A6%BC-8b0a31173e69",
@@ -26,7 +26,7 @@ const articles = [
         tag: "React",
     },
     {
-        title: "Git and GitHub — Version Control Fundamentals",
+        title: "Git and GitHub: Version Control Fundamentals",
         summary:
             "Practical guide to Git workflows, branching strategies, and collaboration patterns for development teams.",
         url: "https://medium.com/@samiulalimsaad/git-%E0%A6%8F%E0%A6%AC%E0%A6%82-github-dace1d5d7a61",

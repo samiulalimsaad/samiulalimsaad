@@ -11,7 +11,7 @@ const reasons = [
         icon: <Building2 className="w-5 h-5" />,
         title: "Platform Thinking",
         description:
-            "I build shared services that multiple teams consume — email, payments, authentication. I design for the second consumer from day one, because shared infrastructure that only works for one team isn't infrastructure.",
+            "I build shared services that multiple teams consume: email, payments, authentication. I design for the second consumer from day one, because shared infrastructure that only works for one team isn't infrastructure.",
     },
     {
         icon: <Bug className="w-5 h-5" />,
@@ -23,7 +23,7 @@ const reasons = [
         icon: <Activity className="w-5 h-5" />,
         title: "Operational Maturity",
         description:
-            "Monitoring, alerting, CI/CD, and deployment pipelines are first-class engineering work in my book. I don't ship code and hope for the best — I instrument, observe, and iterate.",
+            "Monitoring, alerting, CI/CD, and deployment pipelines are first-class engineering work in my book. I don't ship code and hope for the best. I instrument, observe, and iterate.",
     },
 ];
 

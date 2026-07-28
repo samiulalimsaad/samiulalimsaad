@@ -16,7 +16,7 @@ export default function About() {
                         <p>
                             I build platform services that other engineering teams depend on. My
                             work lives at the intersection of backend systems, security, and
-                            operational reliability — the parts of software that users never see but
+                            operational reliability. The parts of software that users never see but
                             always notice when they break.
                         </p>
                         <p>
@@ -52,7 +52,7 @@ export default function About() {
                                 "Prefer boring, operable designs over clever ones",
                                 "Security and tenancy decided early, not bolted on",
                                 "Teach and document so systems aren't stuck in one person's head",
-                                "Own what I touch — maintenance is engineering, not overhead",
+                                "Own what I touch: maintenance is engineering, not overhead",
                             ].map((principle) => (
                                 <div
                                     key={principle}

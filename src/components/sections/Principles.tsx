@@ -11,13 +11,13 @@ const principles = [
         icon: <Timer className="w-5 h-5" />,
         title: "Reliability before optimization",
         description:
-            "I optimize for correctness first. Fast and wrong is worse than slow and right. Make it work, make it right, then make it fast — in that order.",
+            "I optimize for correctness first. Fast and wrong is worse than slow and right. Make it work, make it right, then make it fast. In that order.",
     },
     {
         icon: <Eye className="w-5 h-5" />,
         title: "Observability by default",
         description:
-            "Every service I build has structured logging, health checks, and alerting from day one — not as an afterthought. If I can't see what's happening, I can't operate it.",
+            "Every service I build has structured logging, health checks, and alerting from day one, not as an afterthought. If I can't see what's happening, I can't operate it.",
     },
     {
         icon: <Lock className="w-5 h-5" />,

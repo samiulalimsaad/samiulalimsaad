@@ -89,7 +89,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                 <div className="mt-auto flex flex-wrap gap-3">
                     {project.proprietary && !project.githubFrontEnd && !project.live ? (
                         <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-medium text-amber-700">
-                            Proprietary — Programming Hero
+                            Proprietary (Programming Hero)
                         </span>
                     ) : (
                         <>

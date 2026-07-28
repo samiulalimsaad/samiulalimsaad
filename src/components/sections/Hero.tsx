@@ -39,7 +39,7 @@ export default function Hero() {
                     </h1>
                     <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
                         I build and maintain production platform services that multiple engineering
-                        teams depend on — centralized email delivery, multi-gateway payments, and
+                        teams depend on: centralized email delivery, multi-gateway payments, and
                         multi-tenant authentication. I care about systems that stay reliable at 2
                         AM.
                     </p>
