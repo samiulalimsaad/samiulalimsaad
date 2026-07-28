@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const gist = getGistBySlug(slug);
     if (!gist) return { title: "Not Found" };
     return {
-        title: `${gist.meta.title} — Technical Gists`,
+        title: `${gist.meta.title} | Technical Gists`,
         description: gist.meta.description,
     };
 }

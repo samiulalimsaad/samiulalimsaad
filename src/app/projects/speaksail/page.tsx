@@ -16,7 +16,7 @@ import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
-    title: "SpeakSail / Enlightall — Language Learning Marketplace | Case Study",
+    title: "SpeakSail / Enlightall: Language Learning Marketplace | Case Study",
     description:
         "Full-stack language-learning marketplace with live video tutoring, Socket.IO real-time messaging, multi-gateway payments, and an evolution story from Next.js monolith to Laravel + TanStack Start.",
 };
@@ -45,7 +45,7 @@ function HeroSection() {
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in">
             <div className="mx-auto w-full max-w-4xl text-center">
                 <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600 ring-1 ring-indigo-100 mb-4">
-                    Production — Real students, paying customers
+                    Production: Real students, paying customers
                 </span>
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
@@ -127,7 +127,7 @@ function ExecutiveSummary() {
                     instructor-led live lessons, Socket.IO real-time messaging, and multi-gateway
                     payment processing. Built as a Next.js 14 monolith with 90+ API routes, 27
                     Mongoose models, and Firebase integration for auth, push notifications, and
-                    analytics. Now evolving into SpeakSail — a complete rewrite using Laravel 11 +
+                    analytics. Now evolving into SpeakSail. A complete rewrite using Laravel 11 +
                     TanStack Start (React 19) with AI-powered chat.
                 </p>
             </div>
@@ -157,32 +157,32 @@ function SummaryCard({
 
 function ArchitectureDiagram() {
     const originalDiagram = `graph TD
-        subgraph Frontend["Next.js 14 — Pages Router"]
+        subgraph Frontend["Next.js 14: Pages Router"]
             A[React 18 + DaisyUI + Tailwind]
             B[Redux Toolkit + RTK Query + SWR]
-            C[Preact Signals — Real-time State]
+            C[Preact Signals: Real-time State]
         end
 
-        subgraph Backend["API Routes — 90+ Endpoints"]
+        subgraph Backend["API Routes: 90+ Endpoints"]
             D[next-connect Middleware Chains]
-            E[Mongoose ODM — 27 Models]
+            E[Mongoose ODM: 27 Models]
         end
 
         subgraph Auth["Authentication"]
-            F[Firebase Auth — Identity]
-            G[JWT jose — API Auth]
+            F[Firebase Auth: Identity]
+            G[JWT jose: API Auth]
         end
 
         subgraph RealTime["Real-time"]
-            H[Socket.IO — Messaging]
-            I[FCM — Push Notifications]
+            H[Socket.IO: Messaging]
+            I[FCM: Push Notifications]
         end
 
         subgraph External["External Services"]
-            J[Stripe — USD Payments]
-            K[Iyzipay — TRY Payments]
-            L[Whereby — Video Sessions]
-            M[Firebase Firestore — Notifications]
+            J[Stripe: USD Payments]
+            K[Iyzipay: TRY Payments]
+            L[Whereby: Video Sessions]
+            M[Firebase Firestore: Notifications]
         end
 
         A --> B
@@ -212,7 +212,7 @@ function ArchitectureDiagram() {
                 <h2 className="text-2xl font-bold text-foreground mb-8">Architecture</h2>
                 <MermaidDiagram
                     chart={originalDiagram}
-                    caption="Original Enlightall v1.7.8 architecture — Next.js 14 monolith with Firebase, Socket.IO, and multi-gateway payments"
+                    caption="Original Enlightall v1.7.8 architecture: Next.js 14 monolith with Firebase, Socket.IO, and multi-gateway payments"
                 />
                 <h3 className="text-lg font-semibold text-foreground mb-4 mt-8">
                     Architecture Evolution
@@ -254,7 +254,7 @@ function KeyFeatures() {
         },
         {
             icon: <Globe className="w-5 h-5" />,
-            title: "i18n — English & Turkish",
+            title: "i18n: English & Turkish",
             description:
                 "Full internationalization support for English and Turkish. Locale-aware routing, translated UI strings, and region-specific payment methods (Stripe for USD, Iyzipay for TRY).",
         },
@@ -707,7 +707,7 @@ function ReferencesSection() {
                         </li>
                         <li className="flex items-start gap-2">
                             <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
-                            No automated tests — known weakness, addressed in the next rewrite
+                            No automated tests: known weakness, addressed in the next rewrite
                             (SpeakSail)
                         </li>
                     </ul>

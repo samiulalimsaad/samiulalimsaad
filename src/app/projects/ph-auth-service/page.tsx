@@ -18,7 +18,7 @@ import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
-    title: "PH Auth Service — Multi-Tenant Identity Provider | Case Study",
+    title: "PH Auth Service: Multi-Tenant Identity Provider | Case Study",
     description:
         "Multi-tenant OIDC auth platform with ZITADEL and custom Go layer. MFA, device limits, rate limiting, CSP/CSRF hardening, and defense-in-depth security.",
 };
@@ -49,7 +49,7 @@ function HeroSection() {
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in">
             <div className="mx-auto w-full max-w-4xl text-center">
                 <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600 ring-1 ring-indigo-100 mb-4">
-                    In Development — Awaiting Production Release
+                    In Development: Awaiting Production Release
                 </span>
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
@@ -114,7 +114,7 @@ function ExecutiveSummary() {
                     the centralized authentication layer for an educational platform ecosystem. The
                     system supports multiple tenants with isolated user bases, TOTP-based
                     multi-factor authentication, configurable device limits, and comprehensive audit
-                    logging — all behind a defense-in-depth security middleware chain.
+                    logging, all behind a defense-in-depth security middleware chain.
                 </p>
             </div>
         </section>
@@ -333,7 +333,7 @@ function TechnicalDecisions() {
             outcome:
                 "Multi-layer middleware chain rejects most malicious requests at the first layer (rate limiting), keeping the system fast for legitimate users.",
             icon: <Shield className="w-5 h-5" />,
-            snippet: `// Defense-in-depth middleware chain — each layer rejects early.
+            snippet: `// Defense-in-depth middleware chain: each layer rejects early.
 // Downstream layers never execute if a prior layer fails.
 export function createSecurityMiddleware(config: SecurityConfig) {
     return compose(
@@ -354,7 +354,7 @@ export function createSecurityMiddleware(config: SecurityConfig) {
             outcome:
                 "A tenant-scoped repository pattern injects tenantId into every query via composite unique constraints. It's impossible to leak data across tenants at the database level.",
             icon: <Database className="w-5 h-5" />,
-            snippet: `// Tenant-scoped repository — impossible to leak data across tenants.
+            snippet: `// Tenant-scoped repository: impossible to leak data across tenants.
 // Every query injects tenantId via composite unique constraint.
 export class TenantScopedRepository<T> {
     constructor(
@@ -447,7 +447,7 @@ function TradeOffs() {
                     <TradeOffCard
                         decision="Redis SCAN vs. secondary index for token revocation"
                         pro="Simple implementation, no additional write path"
-                        con="O(n) scan pattern — acceptable at current scale but needs optimization for millions of tokens"
+                        con="O(n) scan pattern: acceptable at current scale but needs optimization for millions of tokens"
                     />
                     <TradeOffCard
                         decision="ZITADEL library vs. implementing OIDC from scratch"
@@ -502,7 +502,7 @@ function LessonsLearned() {
                     <LessonCard
                         icon={<Zap className="w-5 h-5" />}
                         title="Protocol Libraries Reduce Risk"
-                        description="OIDC is complex — using a battle-tested library for protocol compliance while customizing business logic separately reduces security risk."
+                        description="OIDC is complex. Using a battle-tested library for protocol compliance while customizing business logic separately reduces security risk."
                     />
                     <LessonCard
                         icon={<Database className="w-5 h-5" />}
@@ -512,7 +512,7 @@ function LessonsLearned() {
                     <LessonCard
                         icon={<Lock className="w-5 h-5" />}
                         title="Security Layers Should Reject Early"
-                        description="Most malicious requests are caught by rate limiting before they reach authentication logic — keeping the system fast for legitimate users."
+                        description="Most malicious requests are caught by rate limiting before they reach authentication logic. This keeps the system fast for legitimate users."
                     />
                 </div>
             </div>
@@ -552,7 +552,7 @@ function FailureModes() {
                     <FailureModeCard
                         scenario="Redis Outage (Session Store)"
                         impact="Session validation fails, users cannot authenticate"
-                        mitigation="Redis Sentinel for automatic failover. Session validation returns 503 during outage — clients retry with backoff. Grace period for existing sessions via cookie cache."
+                        mitigation="Redis Sentinel for automatic failover. Session validation returns 503 during outage. Clients retry with backoff. Grace period for existing sessions via cookie cache."
                     />
                     <FailureModeCard
                         scenario="ZITADEL Library API Change"
@@ -567,12 +567,12 @@ function FailureModes() {
                     <FailureModeCard
                         scenario="MFA Enrollment Failure"
                         impact="User cannot complete MFA setup, blocked from account"
-                        mitigation="MFA enrollment is transactional — failure rolls back to previous state. Support override for manual MFA reset. Audit trail of all enrollment attempts."
+                        mitigation="MFA enrollment is transactional: failure rolls back to previous state. Support override for manual MFA reset. Audit trail of all enrollment attempts."
                     />
                     <FailureModeCard
                         scenario="Token Revocation Race Condition"
                         impact="Revoked token used briefly before propagation"
-                        mitigation="Redis-based token blacklist with TTL matching token expiry. Eventual consistency accepted — worst case: token valid for < 1s after revocation. Audit log captures all revocation events."
+                        mitigation="Redis-based token blacklist with TTL matching token expiry. Eventual consistency accepted: worst case token valid for under 1s after revocation. Audit log captures all revocation events."
                     />
                 </div>
             </div>

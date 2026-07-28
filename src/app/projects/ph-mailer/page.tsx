@@ -19,7 +19,7 @@ import EvidenceImage from "@/components/ui/EvidenceImage";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
-    title: "PH Mailer — Centralized Email Platform | Case Study",
+    title: "PH Mailer: Centralized Email Platform | Case Study",
     description:
         "Production email platform serving 100K+ emails/day across 5 internal product teams. Queue-based architecture with BullMQ, Redis, and AWS SES.",
 };
@@ -50,7 +50,7 @@ function HeroSection() {
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in">
             <div className="mx-auto w-full max-w-4xl text-center">
                 <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600 ring-1 ring-indigo-100 mb-4">
-                    Production — 100,000 emails/day peak
+                    Production: 100,000 emails/day peak
                 </span>
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
@@ -109,7 +109,7 @@ function ExecutiveSummary() {
                     <SummaryCard
                         icon={<Shield className="w-5 h-5" />}
                         value="Production"
-                        label="Status — Live"
+                        label="Status: Live"
                     />
                 </div>
                 <p className="text-base text-foreground/80 leading-relaxed">
@@ -121,7 +121,7 @@ function ExecutiveSummary() {
                 <EvidenceImage
                     src="/evidence/ph-mailer-statistics.png"
                     alt="PH Mailer Plunk dashboard showing 15,496 contacts, 197K+ emails sent, 44.7% open rate"
-                    caption="Plunk dashboard — real-time email delivery metrics across product teams (15,496 contacts, 197,294 emails sent, 44.7% open rate)"
+                    caption="Plunk dashboard: real-time email delivery metrics across product teams (15,496 contacts, 197,294 emails sent, 44.7% open rate)"
                 />
             </div>
         </section>
@@ -353,7 +353,7 @@ worker.on("failed", (job, err) => {
             outcome:
                 "Exponential backoff with random jitter spreads retries across time, preventing thundering herd. Maximum delay capped at 30 seconds with 5 retry attempts.",
             icon: <RefreshCw className="w-5 h-5" />,
-            snippet: `// Exponential backoff with jitter — prevents thundering herd on recovery.
+            snippet: `// Exponential backoff with jitter: prevents thundering herd on recovery.
 async function retryWithBackoff<T>(
     fn: () => Promise<T>,
     opts: { maxAttempts: number; baseDelay: number; maxDelay: number },
@@ -448,7 +448,7 @@ function IncidentStory() {
                 <div className="flex items-center gap-3 mb-8">
                     <AlertTriangle className="w-6 h-6 text-amber-600" />
                     <h2 className="text-2xl font-bold text-foreground">
-                        Incident Story — Password Reset Failure
+                        Incident Story: Password Reset Failure
                     </h2>
                 </div>
 
@@ -467,7 +467,7 @@ function IncidentStory() {
                     />
                     <IncidentBlock
                         title="What Was Learned"
-                        content="This incident highlighted the need for delivery monitoring — without it, queued emails can silently fail. Added health checks for outbound integrations and configured delivery failure alerts."
+                        content="This incident highlighted the need for delivery monitoring. Without it, queued emails can silently fail. Added health checks for outbound integrations and configured delivery failure alerts."
                     />
                 </div>
             </div>
@@ -548,7 +548,7 @@ function LessonsLearned() {
                     <LessonCard
                         icon={<GitBranch className="w-5 h-5" />}
                         title="Fork Hygiene Matters"
-                        description="Maintaining a fork requires discipline — isolating custom code in separate files reduces merge conflicts during upstream sync."
+                        description="Maintaining a fork requires discipline: isolating custom code in separate files reduces merge conflicts during upstream sync."
                     />
                     <LessonCard
                         icon={<Shield className="w-5 h-5" />}
@@ -662,7 +662,7 @@ function ObservabilitySection() {
                         title="Logging"
                         items={[
                             "Structured JSON logs with correlation IDs across API, worker, and queue",
-                            "Log levels: debug, info, warn, error — configurable per environment",
+                            "Log levels: debug, info, warn, error (configurable per environment)",
                             "Centralized log aggregation for search and alerting",
                         ]}
                     />
@@ -697,7 +697,7 @@ function ObservabilitySection() {
                 <EvidenceImage
                     src="/evidence/monitoring-alert.png"
                     alt="Discord monitoring alert showing 48,978 items processed with delivery metrics"
-                    caption="Real-time monitoring alert — Uptime Kuma Discord integration showing 48,978 items processed, 48,965 sent, 112 exceptions, 26 bounced (5m 35s batch runtime)"
+                    caption="Real-time monitoring alert: Uptime Kuma Discord integration showing 48,978 items processed, 48,965 sent, 112 exceptions, 26 bounced (5m 35s batch runtime)"
                 />
             </div>
         </section>

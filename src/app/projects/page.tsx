@@ -4,7 +4,7 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-    title: "Projects — Samiul Alim",
+    title: "Projects | Samiul Alim",
     description:
         "Production platform services including email delivery, multi-gateway payments, multi-tenant authentication, and education platforms.",
 };
@@ -111,7 +111,7 @@ function ProjectCard({ project }: { project: Project }) {
                     !project.githubFrontEnd &&
                     !project.live ? (
                         <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-medium text-amber-700">
-                            Proprietary — Programming Hero
+                            Proprietary (Programming Hero)
                         </span>
                     ) : (
                         <>

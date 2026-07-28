@@ -15,7 +15,7 @@ import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
-    title: "Payment Service — Multi-Gateway Payment Platform | Case Study",
+    title: "Payment Service: Multi-Gateway Payment Platform | Case Study",
     description:
         "Centralized payment service with adapter pattern for Stripe, bKash, and SSLCommerz. OpenAPI-generated Go server with polyglot persistence.",
 };
@@ -295,7 +295,7 @@ function TechnicalDecisions() {
             outcome:
                 "Each gateway implements a common adapter interface. Core business logic operates on the interface, not concrete implementations. Adding a new gateway means writing one new adapter.",
             icon: <GitBranch className="w-5 h-5" />,
-            snippet: `// PaymentGateway — business logic depends on this interface, never on concrete gateways.
+            snippet: `// PaymentGateway: business logic depends on this interface, never on concrete gateways.
 type PaymentGateway interface {
     CreatePayment(ctx context.Context, req PaymentRequest) (*PaymentResult, error)
     VerifyWebhook(payload []byte, signature string) (WebhookEvent, error)
@@ -345,7 +345,7 @@ func (a *StripeAdapter) CreatePayment(ctx context.Context, req PaymentRequest) (
             outcome:
                 "A state machine governs all transitions with guard functions preventing invalid changes. Each transition is logged for audit trail.",
             icon: <GitBranch className="w-5 h-5" />,
-            snippet: `// Payment state machine — guards prevent invalid transitions.
+            snippet: `// Payment state machine: guards prevent invalid transitions.
 var transitions = map[PaymentState][]PaymentState{
     StatePending:   {StateCompleted, StateFailed},
     StateCompleted: {StateRefunded},
@@ -380,7 +380,7 @@ func (h *WebhookHandler) Handle(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    // Idempotency check — skip if already processed
+    // Idempotency check: skip if already processed
     key := "webhook:" + event.ID
     if exists, _ := h.redis.Exists(r.Context(), key).Result(); exists == 1 {
         w.WriteHeader(http.StatusOK)
@@ -514,12 +514,12 @@ function LessonsLearned() {
                     <LessonCard
                         icon={<GitBranch className="w-5 h-5" />}
                         title="Adapters Decouple Everything"
-                        description="The adapter pattern makes adding a new payment gateway a contained task — implement the interface, write tests, and deploy."
+                        description="The adapter pattern makes adding a new payment gateway a contained task: implement the interface, write tests, and deploy."
                     />
                     <LessonCard
                         icon={<Shield className="w-5 h-5" />}
                         title="Payment Idempotency Is Non-Negotiable"
-                        description="Webhook handlers must be idempotent — duplicate events happen and processing them twice means charging customers twice."
+                        description="Webhook handlers must be idempotent: duplicate events happen and processing them twice means charging customers twice."
                     />
                     <LessonCard
                         icon={<Database className="w-5 h-5" />}
@@ -759,7 +759,7 @@ function RelatedPatterns() {
                                 Payment Gateway Adapter Pattern
                             </h3>
                             <p className="text-sm text-foreground/70 mb-3">
-                                A deep dive into the adapter pattern used for this project —
+                                A deep dive into the adapter pattern used for this project.
                                 abstracting multiple payment gateways behind a unified interface.
                             </p>
                             <Link

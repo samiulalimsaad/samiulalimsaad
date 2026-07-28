@@ -17,7 +17,7 @@ import EvidenceImage from "@/components/ui/EvidenceImage";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
-    title: "PH Bootcamp Platform — Full-Stack LMS | Case Study",
+    title: "PH Bootcamp Platform: Full-Stack LMS | Case Study",
     description:
         "Full-stack learning management system with DRM video, bKash payments, QR attendance, ABAC authorization, and 85 automated tests.",
 };
@@ -48,7 +48,7 @@ function HeroSection() {
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in">
             <div className="mx-auto w-full max-w-4xl text-center">
                 <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600 ring-1 ring-indigo-100 mb-4">
-                    Production — 13,820+ leads, 898+ active users
+                    Production: 13,820+ leads, 898+ active users
                 </span>
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
@@ -61,7 +61,7 @@ function HeroSection() {
                 <p className="text-sm text-foreground/50 max-w-2xl mx-auto mb-6">
                     Production learning management system with DRM-protected video delivery, bKash
                     tokenized checkout, QR code attendance tracking, ABAC authorization, and an
-                    append-only activity audit log — serving 13,820+ leads and 898+ active users.
+                    append-only activity audit log, serving 13,820+ leads and 898+ active users.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {[
@@ -162,25 +162,25 @@ function ArchitectureDiagram() {
     const flowDiagram = `graph TD
         subgraph Frontend["Frontend (React 19 + TanStack Router)"]
             A[SPA with Zustand + shadcn/ui]
-            B[TanStack Query — Service → Hook → Component]
+            B[TanStack Query: Service → Hook → Component]
         end
 
         subgraph Backend["Backend (Express.js + TypeScript)"]
-            C[REST API — 17 Route Groups]
-            D[ABAC Middleware — 5 Roles]
+            C[REST API: 17 Route Groups]
+            D[ABAC Middleware: 5 Roles]
             E[Controller → Service → Model]
         end
 
         subgraph Storage
-            F[(MongoDB — 18 Models)]
-            G[(Redis — 13 Cache Adapters)]
+            F[(MongoDB: 18 Models)]
+            G[(Redis: 13 Cache Adapters)]
         end
 
         subgraph External["External Services"]
             H[bKash Tokenized Checkout]
-            I[DRM Video API — IP Restrictions]
-            J[Auth Service — Cookie SSO]
-            K[Bunny CDN — Video Storage]
+            I[DRM Video API: IP Restrictions]
+            J[Auth Service: Cookie SSO]
+            K[Bunny CDN: Video Storage]
         end
 
         A --> B
@@ -310,7 +310,7 @@ function TechnicalDecisions() {
             outcome:
                 "ABAC with hierarchical grantAccess middleware: each role defines (action, resource) pairs. super_admin bypasses all checks. Admin = mergePermissions(editor, qr, additional grants). Adding a new resource requires one permission definition file.",
             icon: <Shield className="w-5 h-5" />,
-            snippet: `// Hierarchical ABAC — each role defines (action, resource) pairs.
+            snippet: `// Hierarchical ABAC: each role defines (action, resource) pairs.
 // super_admin bypasses all checks.
 const rolePermissions: Record<Role, Permission[]> = {
     super_admin: [{ action: "*", resource: "*" }],
@@ -493,7 +493,7 @@ function FailureModes() {
                     <FailureModeCard
                         scenario="Activity log write failure"
                         impact="Audit trail loses events. Compliance gap for production mutations."
-                        mitigation="Non-blocking writes via setImmediate — log failures don't affect request handling. Graceful shutdown drain ensures pending logs are flushed before process exit."
+                        mitigation="Non-blocking writes via setImmediate: log failures don't affect request handling. Graceful shutdown drain ensures pending logs are flushed before process exit."
                     />
                 </div>
             </div>
@@ -574,7 +574,7 @@ function ObservabilitySection() {
                 <EvidenceImage
                     src="/evidence/monitoring-alert.png"
                     alt="Discord monitoring alert showing service downtime detection"
-                    caption="Real-time monitoring — Uptime Kuma Discord integration for service health alerts"
+                    caption="Real-time monitoring: Uptime Kuma Discord integration for service health alerts"
                 />
             </div>
         </section>
@@ -604,12 +604,12 @@ function TestingSection() {
                 <h2 className="text-2xl font-bold text-foreground mb-8">Testing Strategy</h2>
                 <div className="space-y-4">
                     <TestingCard
-                        level="Backend Unit Tests — 35 Vitest tests"
+                        level="Backend Unit Tests: 35 Vitest tests"
                         scope="Services and utils: enrollment, analytics (5 sub-services), bKash payment, activity log, QR codes, sessions, courses, forms, assignments, WhatsApp groups"
                         approach="Vitest with mocked Mongoose queries and Redis stubs. External APIs (bKash, video DRM, auth service) mocked via vi.mock('axios'). Fake timers for date-dependent logic. No database connections in tests."
                     />
                     <TestingCard
-                        level="Frontend Tests — 50 Vitest tests"
+                        level="Frontend Tests: 50 Vitest tests"
                         scope="7 integration tests (auth/RBAC, enrollment, course management, course player, assignment review, bootcamp leads, QR management), 15 hook tests, 12 service tests, 3 store tests, 4 utility tests, 3 component tests, 2 permission tests"
                         approach="Vitest + MSW (Mock Service Worker) for HTTP mocking. Testing Library for React component rendering. Test factories and auth helpers for consistent test data. CI runs on every push via GitHub Actions."
                     />
@@ -674,7 +674,7 @@ function LessonsLearned() {
                     <LessonCard
                         icon={<Database className="w-5 h-5" />}
                         title="Cache Adapters > Global Cache"
-                        description="13 domain-specific cache adapters with per-layer TTLs outperform a single global cache. Each domain has different freshness requirements — units need 2min, courses need 30min."
+                        description="13 domain-specific cache adapters with per-layer TTLs outperform a single global cache. Each domain has different freshness requirements. Units need 2min, courses need 30min."
                     />
                 </div>
             </div>
@@ -710,12 +710,12 @@ function EvidenceSection() {
                 <EvidenceImage
                     src="/evidence/bootcamp-statistics.png"
                     alt="Bootcamp admin dashboard showing 13,820 total leads filtered by bootcamp-course category"
-                    caption="Admin dashboard — 13,820 total leads captured across multiple courses with lead-per-day trend visualization"
+                    caption="Admin dashboard: 13,820 total leads captured across multiple courses with lead-per-day trend visualization"
                 />
                 <EvidenceImage
                     src="/evidence/bootcamp-active-users.png"
                     alt="Bootcamp admin dashboard showing 898 active users with session data"
-                    caption="Active users panel — 898 active users with session tracking and unique-users-per-day chart (263 days of data)"
+                    caption="Active users panel: 898 active users with session tracking and unique-users-per-day chart (263 days of data)"
                 />
             </div>
         </section>

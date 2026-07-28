@@ -104,7 +104,7 @@ pre, code, kbd, samp {
     content: none;
 }
 
-/* Prism syntax highlighting — dark theme for code blocks */
+/* Prism syntax highlighting: dark theme for code blocks */
 .prose pre .token.comment,
 .prose pre .token.prolog,
 .prose pre .token.doctype,

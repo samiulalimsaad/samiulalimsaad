@@ -5,7 +5,7 @@ import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
 export const metadata: Metadata = {
-    title: "Skill Mapper — Technical Assessment Platform | Case Study",
+    title: "Skill Mapper: Technical Assessment Platform | Case Study",
     description:
         "AI-powered assessment platform with event-driven state machine, dual AI providers (OpenAI + Gemini), and gamified XP ranking for 5,000+ students.",
 };
@@ -36,7 +36,7 @@ function HeroSection() {
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in">
             <div className="mx-auto w-full max-w-4xl text-center">
                 <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600 ring-1 ring-indigo-100 mb-4">
-                    Production — 5,000 enrolled students
+                    Production: 5,000 enrolled students
                 </span>
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
@@ -227,7 +227,7 @@ function KeyFeatures() {
             icon: <GitBranch className="w-5 h-5" />,
             title: "Event-Driven State Machine",
             description:
-                "Assessment lifecycle governed by a state machine preventing invalid state transitions — more reliable than boolean status flags.",
+                "Assessment lifecycle governed by a state machine that prevents invalid state transitions. More reliable than boolean status flags.",
         },
         {
             icon: <Brain className="w-5 h-5" />,
@@ -257,7 +257,7 @@ function KeyFeatures() {
             icon: <BarChart3 className="w-5 h-5" />,
             title: "Materialized Leaderboard",
             description:
-                "Pre-computed leaderboard views avoid expensive aggregation queries on every request — updated incrementally on score changes.",
+                "Pre-computed leaderboard views avoid expensive aggregation queries on every request. They update incrementally on score changes.",
         },
     ];
 
@@ -297,7 +297,7 @@ function TechnicalDecisions() {
             outcome:
                 "An event-driven state machine governs all transitions, preventing invalid state changes and providing a clear audit trail of assessment lifecycle events.",
             icon: <GitBranch className="w-5 h-5" />,
-            snippet: `// Event-driven state machine — prevents invalid transitions.
+            snippet: `// Event-driven state machine: prevents invalid transitions.
 // Guard functions enforce domain rules before allowing changes.
 type State = "draft" | "published" | "active" | "graded" | "archived"
 type Event = "publish" | "start" | "complete" | "archive"
@@ -521,7 +521,7 @@ function ChangeStreamOperations() {
                 <div className="space-y-4">
                     <OperationCard
                         concern="Resume Token Management"
-                        solution="Resume tokens are persisted to a dedicated MongoDB collection after each batch of events. On restart or crash, the last known token is loaded, ensuring no events are missed. Token staleness is monitored — if a token is too old, the oplog may have cycled, triggering fallback polling."
+                        solution="Resume tokens are persisted to a dedicated MongoDB collection after each batch of events. On restart or crash, the last known token is loaded, ensuring no events are missed. Token staleness is monitored. If a token is too old, the oplog may have cycled, triggering fallback polling."
                     />
                     <OperationCard
                         concern="Oplog Size Monitoring"
