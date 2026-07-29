@@ -10,8 +10,9 @@ and secure APIs to reliable, zero-downtime deployments.
 I work across the full lifecycle of production systems, from architecture and
 implementation to deployment and operations, collaborating across teams to
 deliver reliable, scalable software that creates long-term business value.
-My focus is backend platforms: identity and authentication systems, payment
-infrastructure, and production APIs designed for maintainability and growth.
+My focus is backend platforms: production APIs, email infrastructure,
+assessment platforms, and recruitment systems designed for maintainability
+and growth.
 
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
@@ -24,29 +25,28 @@ infrastructure, and production APIs designed for maintainability and growth.
 
 ## Engineering Highlights
 
-- Built and implemented a multi-tenant identity platform supporting modern authentication standards across multiple products
-- Delivered production email infrastructure enabling reliable communication across internal teams and services
-- Built secure payment integrations supporting multiple providers for education products
-- Managed containerized production environments with zero-downtime deployment strategies
-- Led engineering efforts spanning backend services, frontend applications, and production infrastructure
-- Architected production APIs and platform services focused on scalability and long-term maintainability
+- Own and operate 5 production services end-to-end: PH Mailer (email platform), SkillMapper (assessment platform), Bootcamp (LMS), JobPortal (recruitment platform), and FTP server
+- Full ownership across frontend, backend, infrastructure, and 24/7 monitoring for all services
+- Built and maintained UAT environments and deployment pipelines using Docker and CI/CD with zero-downtime strategies
+- Led architecture of a desktop DRM player (Electron) for protected educational video with hybrid online/offline licensing
+- In development: multi-tenant identity platform (Go, ZITADEL, OIDC/OAuth2) and multi-gateway payment service
 
 ---
 
 ## Selected Achievements
 
-1. Led implementation of a multi-tenant identity platform using Go and ZITADEL, delivering MFA, device limits, and security hardening for multiple education products
-2. Built and maintained production email infrastructure, owning feature development, reliability, and cross-team coordination
-3. Designed secure payment integrations supporting bKash, SSLCommerz, Stripe, and Nagad across multiple education platforms
-4. Managed containerized production deployments using Docker and Docker Swarm, implementing versioned releases and zero-downtime rollout strategies
-5. Owned UAT and production environment lifecycle: infrastructure setup, deployment automation, rollback strategies, and operational troubleshooting
-6. Delivered end-to-end engineering solutions spanning backend services, frontend applications, and production infrastructure across multiple products
+1. Own and operate 5 production services with 24/7 monitoring, incident response, and cross-team coordination
+2. Built and maintained production email platform (PH Mailer) serving multiple internal product teams
+3. Architected DRM player (Electron) for protected educational video, pivoting mid-project to hybrid online/offline licensing when upstream Chromium changes broke offline playback
+4. Built UAT environments and deployment pipelines using Docker and CI/CD, implementing versioned releases and zero-downtime rollout strategies
+5. In development: multi-tenant identity platform using Go and ZITADEL with MFA, device limits, and security hardening
+6. In development: multi-gateway payment service in Go supporting bKash, SSLCommerz, and Stripe
 
 ---
 
 ## Professional Summary
 
-Backend platform engineer specializing in identity systems, payment infrastructure, and production APIs. I work across architecture, implementation, deployment, and operations, collaborating with product teams, designers, and stakeholders to deliver systems that serve real business needs. My engineering decisions are guided by reliability, maintainability, and long-term value creation.
+Backend platform engineer owning 5 production services across email, assessment, LMS, recruitment, and file delivery. Building identity systems and payment infrastructure in Go. Production APIs designed for maintainability and growth.
 
 ---
 
@@ -104,7 +104,6 @@ Laravel · Vue.js · Electron · Firebase · MySQL · Express · Fastify · Pris
 | **Email Infrastructure** | Centralized production email platform enabling reliable cross-team communication |
 | **SaaS Platforms** | Multi-tenant systems requiring scalable architecture and subscription management |
 | **Developer Tooling & Internal Platforms** | APIs, templates, and internal tooling that enable engineering teams to ship faster |
-| **AI Applications** | Text and video summarization, AI assistants integrated into production products |
 | **Content Delivery & Digital Learning** | DRM-protected video, instructor marketplaces, and secure content distribution |
 
 ---
@@ -122,20 +121,33 @@ Laravel · Vue.js · Electron · Firebase · MySQL · Express · Fastify · Pris
 
 ## Current Focus
 
-- Go backend engineering and platform services
-- Distributed systems and scalable architectures
-- Identity and access management (ZITADEL, OIDC/OAuth2)
-- Infrastructure automation, observability, and platform reliability
+**Production (5 services):**
+- PH Mailer · SkillMapper · Bootcamp · JobPortal · FTP server
+- Docker · CI/CD · 24/7 monitoring · zero-downtime deployments
+
+**In Development:**
+- Multi-tenant identity platform (Go, ZITADEL, OIDC/OAuth2, MFA)
+- Multi-gateway payment service (Go, bKash, SSLCommerz, Stripe)
 
 ---
 
 ## Current Engineering Interests
 
-- Backend platform engineering
-- Identity and authentication systems
-- AI-powered educational products
-- Production-ready API design
+- Backend platform engineering and production operations
+- Identity and authentication systems (OIDC/OAuth2)
+- Payment infrastructure and multi-gateway integrations
 - Deployment automation and platform tooling
+- AI-powered educational products
+
+---
+
+## Open Source
+
+### Go Middleware Kit
+
+Production-grade Go middleware patterns extracted from real systems: CSP nonce, rate limiter, CSRF protection, TOTP MFA, payment adapter pattern. Tests, CI, and documentation included.
+
+[github.com/samiulalimsaad/go-middleware-kit](https://github.com/samiulalimsaad/go-middleware-kit)
 
 ---
 
