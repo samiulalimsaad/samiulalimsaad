@@ -699,7 +699,7 @@ function ReferencesSection() {
                         </li>
                         <li className="flex items-start gap-2">
                             <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
-                            Freelance engagement: Aug 2022 – Aug 2025 (3 years)
+                            Freelance engagement: Aug 2022 – Aug 2024 (2 years)
                         </li>
                         <li className="flex items-start gap-2">
                             <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />

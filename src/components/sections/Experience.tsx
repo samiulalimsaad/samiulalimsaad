@@ -40,7 +40,7 @@ const experiences = [
         description: [
             "SpeakSail: production language-learning marketplace with paying customers. Multi-instructor booking, course delivery, and payment processing. Serves students and instructors across multiple countries.",
             "Enlightall: production multi-role education marketplace with RBAC, Stripe Checkout, and real-time messaging via Socket.IO.",
-            "3-year client engagement. Both applications are production-grade, serving real users with real business impact.",
+            "2-year client engagement. Both applications are production-grade, serving real users with real business impact.",
         ],
     },
     {
@@ -51,7 +51,7 @@ const experiences = [
         dateFrom: "Feb 2022",
         dateTo: "Aug 2022",
         description: [
-            "Built full-stack features with React and Node.js. Fixed bugs, implemented new modules, and shipped code in a production environment.",
+            "Built full-stack features with PHP, Symfony, Laravel, and Vue.js. Admin panels using Sonata Admin and Easy Admin. Cross-platform mobile apps with Ionic (Vue) and Flutter. Fixed bugs, implemented new modules, and shipped code in a production environment.",
         ],
     },
 ];
