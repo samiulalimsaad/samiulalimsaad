@@ -109,7 +109,7 @@ describe("Utils", () => {
 
     it("getProductionYears is not inflated beyond reality", () => {
         const years = getProductionYears();
-        // Production started Feb 2024, so max realistic value is ~3 years
-        expect(years).toBeLessThanOrEqual(3);
+        // Production started Aug 2024, so max realistic value is ~2 years
+        expect(years).toBeLessThanOrEqual(2);
     });
 });
