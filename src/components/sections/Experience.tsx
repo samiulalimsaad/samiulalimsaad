@@ -10,11 +10,11 @@ const experiences = [
         dateFrom: "Aug 2024",
         dateTo: "Present",
         description: [
-            "Programming Hero's education platform ecosystem serves thousands of students across multiple products. I own the shared infrastructure layer that all products depend on.",
-            "Build and maintain three production platform services: centralized email delivery (PH Mailer), multi-gateway payment processing in Go, and internal operational tooling, serving multiple internal product teams.",
-            "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA, device limits, rate limiting, CSP/CSRF), and integration logic. Coordinated two mid-level engineers.",
+            "Own and operate 5 production services end-to-end: PH Mailer (email platform), SkillMapper (assessment platform), Bootcamp (LMS), JobPortal (recruitment platform), and FTP server. Full ownership across frontend, backend, and infrastructure.",
+            "Build and maintain UAT environments and deployment pipelines using Docker and CI/CD. Maintain 24/7 monitoring and alerting across all services.",
             "Led architecture of a desktop DRM player (Electron) for protected educational video. Mid-project pivot when upstream Chromium changes broke offline playback. Redesigned to a hybrid online/offline license strategy.",
-            "Manage UAT environments and deployment pipelines using Docker and CI/CD. Maintain 5 production services with 24/7 monitoring and alerting.",
+            "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA, device limits, rate limiting, CSP/CSRF), and integration logic. Coordinated two mid-level engineers.",
+            "In development: multi-gateway payment service in Go and centralized auth platform on ZITADEL.",
         ],
     },
     {

@@ -21,10 +21,10 @@ export default function About() {
                         </p>
                         <p>
                             At <span className="font-semibold text-cyan-700">Programming Hero</span>
-                            , I own production maintenance of the centralized email platform (PH
-                            Mailer), a multi-gateway payment service in Go, and a multi-tenant auth
-                            platform on ZITADEL. I manage UAT environments and deployment pipelines,
-                            with 5 production services under 24/7 monitoring and alerting. I&apos;ve
+                            , I own production maintenance of 5 services: PH Mailer (email
+                            platform), SkillMapper (assessment platform), Bootcamp (LMS), JobPortal
+                            (recruitment platform), and FTP server. I manage UAT environments and
+                            deployment pipelines with 24/7 monitoring and alerting. I&apos;ve
                             coordinated implementation and reviewed work for mid-level engineers
                             within my scope.
                         </p>
