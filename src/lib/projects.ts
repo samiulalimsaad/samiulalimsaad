@@ -134,7 +134,7 @@ export const projects = [
         name: "SpeakSail / Enlightall",
         title: "SpeakSail / Enlightall",
         subtitle: "Language Learning Marketplace",
-        time: "Freelance Client | Aug 2022 – Aug 2025",
+        time: "Freelance Client | Aug 2022 – Aug 2024",
         shortDescription:
             "Language-learning marketplace with live video tutoring, real-time messaging, and multi-gateway payments",
         metrics: ["27 database models", "90+ API routes", "7 user roles, 2 languages"],

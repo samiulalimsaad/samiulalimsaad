@@ -5,8 +5,8 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-const INDUSTRY_START = new Date("2021-07-01T00:00:00Z");
-const PRODUCTION_START = new Date("2023-08-01T00:00:00Z");
+const INDUSTRY_START = new Date("2022-02-01T00:00:00Z");
+const PRODUCTION_START = new Date("2024-08-01T00:00:00Z");
 
 export function getExperienceYears(): number {
     const now = new Date();

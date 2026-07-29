@@ -55,7 +55,7 @@ export const skills: SkillGroup[] = [
             { name: "Go", level: "production" },
             { name: "Node.js / Express", level: "production" },
             { name: "TypeScript", level: "production" },
-            { name: "Laravel / PHP", level: "production" },
+            { name: "Laravel / PHP", level: "familiar" },
             { name: "REST API Design", level: "production" },
             { name: "State Machines", level: "production" },
             { name: "Zod Validation", level: "production" },
@@ -64,14 +64,14 @@ export const skills: SkillGroup[] = [
     },
     {
         category: "Data & Storage",
-        context: "Polyglot persistence: choosing the right store for each access pattern",
+        context: "Primary: PostgreSQL, MongoDB, Redis. Familiar with ClickHouse, Firebase, MySQL.",
         items: [
             { name: "PostgreSQL", level: "production" },
             { name: "MongoDB", level: "production" },
             { name: "Redis", level: "production" },
-            { name: "ClickHouse", level: "production" },
-            { name: "MySQL", level: "production" },
-            { name: "Firebase", level: "production" },
+            { name: "ClickHouse", level: "familiar" },
+            { name: "MySQL", level: "familiar" },
+            { name: "Firebase", level: "familiar" },
         ],
     },
     {
@@ -92,7 +92,7 @@ export const skills: SkillGroup[] = [
         items: [
             { name: "React / Next.js", level: "familiar" },
             { name: "Tailwind CSS", level: "production" },
-            { name: "Electron", level: "production" },
+            { name: "Electron", level: "familiar" },
             { name: "TanStack Query", level: "familiar" },
         ],
     },
