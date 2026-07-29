@@ -21,7 +21,7 @@ import MermaidDiagram from "@/components/ui/MermaidDiagram";
 export const metadata: Metadata = {
     title: "PH Mailer: Centralized Email Platform | Case Study",
     description:
-        "Production email platform serving 100K+ emails/day across 5 internal product teams. Queue-based architecture with BullMQ, Redis, and AWS SES.",
+        "Production email platform serving 197K+ emails/week across 5 internal product teams. Queue-based architecture with BullMQ, Redis, and AWS SES.",
 };
 
 export default function PHMailerCaseStudy() {
@@ -50,7 +50,7 @@ function HeroSection() {
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in">
             <div className="mx-auto w-full max-w-4xl text-center">
                 <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600 ring-1 ring-indigo-100 mb-4">
-                    Production: 100,000 emails/day peak
+                    Production: 197K+ emails sent (7-day window)
                 </span>
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">

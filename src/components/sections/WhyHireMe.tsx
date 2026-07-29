@@ -30,17 +30,17 @@ const reasons = [
 export default function WhyHireMe() {
     return (
         <section
-            id="why-hire-me"
+            id="engineering-approach"
             className="w-full bg-linear-to-b from-white via-indigo-50/40 to-sky-50/60 py-20 px-4 animate-section-in"
         >
             <div className="mx-auto w-full max-w-6xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                        Why Hire Me
+                        Engineering Approach
                     </span>
                 </h2>
                 <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Four signals I bring to every engineering team.
+                    The engineering values that guide my work.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {reasons.map((r) => (

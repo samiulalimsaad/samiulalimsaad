@@ -1,5 +1,4 @@
-const RESUME_URL =
-    "https://drive.google.com/file/d/1ZtcoHzmc2DGqJOYZG3dMjHK970_POjsK/view?usp=sharing";
+const RESUME_URL = "/resume/samiul-alim-resume.pdf";
 
 export default function ResumeButton() {
     return (

@@ -74,7 +74,7 @@ export default function Experience() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-8 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Industry experience since Jul 2021 · Platform engineering since Aug 2024 ·
+                    Industry experience since Feb 2022 · Platform engineering since Aug 2024 ·
                     Remote · Bangladesh
                 </p>
 
