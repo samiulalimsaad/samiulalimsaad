@@ -29,10 +29,11 @@ export default function About() {
                             within my scope.
                         </p>
                         <p>
-                            I care less about collecting frameworks and more about whether a design
-                            stays understandable when the product and the team change. Clear service
-                            boundaries. Security and authorization treated as core design, not a
-                            bolt-on. Changes that can be deployed and operated without heroics.
+                            I build shared services that multiple teams consume: email, payments,
+                            authentication — because shared infrastructure that only works for one
+                            team isn't infrastructure. Every case study on this site explains why I
+                            made each decision, not just what I built. I document trade-offs,
+                            failure modes, and what I'd do differently.
                         </p>
                         <p>
                             I&apos;m comfortable full-stack when the product needs it, but my center

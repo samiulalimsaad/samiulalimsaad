@@ -45,7 +45,7 @@ export const skills: SkillGroup[] = [
             { name: "bKash / SSLCommerz", level: "production" },
             { name: "Webhook Processing", level: "production" },
             { name: "Idempotency", level: "production" },
-            { name: "Refund Management", level: "production" },
+            { name: "Refund Management", level: "familiar" },
         ],
     },
     {
@@ -55,11 +55,10 @@ export const skills: SkillGroup[] = [
             { name: "Go", level: "production" },
             { name: "Node.js / Express", level: "production" },
             { name: "TypeScript", level: "production" },
-            { name: "Laravel / PHP", level: "familiar" },
             { name: "REST API Design", level: "production" },
-            { name: "State Machines", level: "production" },
+            { name: "OpenAPI", level: "production" },
             { name: "Zod Validation", level: "production" },
-            { name: "OpenAPI", level: "familiar" },
+            { name: "Laravel / PHP", level: "familiar" },
         ],
     },
     {
@@ -69,9 +68,9 @@ export const skills: SkillGroup[] = [
             { name: "PostgreSQL", level: "production" },
             { name: "MongoDB", level: "production" },
             { name: "Redis", level: "production" },
+            { name: "Firebase", level: "production" },
             { name: "ClickHouse", level: "familiar" },
             { name: "MySQL", level: "familiar" },
-            { name: "Firebase", level: "familiar" },
         ],
     },
     {
@@ -90,10 +89,10 @@ export const skills: SkillGroup[] = [
         category: "Frontend (Supporting Role)",
         context: "SSR dashboards and admin panels: not my primary focus",
         items: [
-            { name: "React / Next.js", level: "familiar" },
+            { name: "React / Next.js", level: "production" },
             { name: "Tailwind CSS", level: "production" },
-            { name: "Electron", level: "familiar" },
-            { name: "TanStack Query", level: "familiar" },
+            { name: "Electron", level: "production" },
+            { name: "TanStack Query", level: "production" },
         ],
     },
 ];

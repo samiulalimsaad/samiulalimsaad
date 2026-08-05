@@ -25,7 +25,7 @@ describe("Navbar", () => {
         expect(screen.getAllByText("Work").length).toBe(2);
         expect(screen.getAllByText("Experience").length).toBe(2);
         expect(screen.getAllByText("About").length).toBe(2);
-        expect(screen.getAllByText("Gists").length).toBe(2);
+        expect(screen.getAllByText("Contact").length).toBe(2);
     });
 
     it("renders Resume button in desktop nav", () => {
