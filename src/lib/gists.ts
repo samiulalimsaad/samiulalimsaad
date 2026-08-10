@@ -102,7 +102,7 @@ export const codeSampleGists: CodeSampleGist[] = [
         title: "Go Worker Pool",
         description:
             "Generic worker pool with configurable concurrency, graceful shutdown via signal handling, and built-in metrics collection for jobs processed and queue depth.",
-        url: "https://gist.github.com/samiulalimsaad/worker-pool",
+        url: "https://gist.github.com/samiulalimsaad/9c56d0e8e20d2c0c8a4500499c3c00f8",
         language: "Go",
         pattern: "Concurrency",
         usedIn: "PH Mailer, Payment Service",
@@ -112,7 +112,7 @@ export const codeSampleGists: CodeSampleGist[] = [
         title: "TypeScript State Machine",
         description:
             "Typed state machine with transition guards, side-effect hooks, and event sourcing support. Prevents invalid transitions and centralizes lifecycle logic.",
-        url: "https://gist.github.com/samiulalimsaad/state-machine",
+        url: "https://gist.github.com/samiulalimsaad/a2ed9ed1b863840f60a70591c0d93bc0",
         language: "TypeScript",
         pattern: "State Management",
         usedIn: "Skill Mapper, Payment Service",
@@ -122,7 +122,7 @@ export const codeSampleGists: CodeSampleGist[] = [
         title: "Payment Gateway Adapter",
         description:
             "Interface-based adapter pattern for payment gateway abstraction. Includes webhook signature verification, idempotency handling, and refund management.",
-        url: "https://gist.github.com/samiulalimsaad/payment-adapter",
+        url: "https://gist.github.com/samiulalimsaad/975470ddd466f43abdd3452b61e93b67",
         language: "Go",
         pattern: "Adapter / Strategy",
         usedIn: "Payment Service",
@@ -132,7 +132,7 @@ export const codeSampleGists: CodeSampleGist[] = [
         title: "Rate Limiting Middleware",
         description:
             "Token bucket rate limiter with per-user and per-IP strategies. Redis-backed for distributed deployments with configurable capacity and refill rates.",
-        url: "https://gist.github.com/samiulalimsaad/rate-limiter",
+        url: "https://gist.github.com/samiulalimsaad/cd75c8d0dae1ac26e72a2b7dc21121c4",
         language: "Go",
         pattern: "Middleware / Resilience",
         usedIn: "PH Auth Service",
@@ -142,7 +142,7 @@ export const codeSampleGists: CodeSampleGist[] = [
         title: "CSRF Protection Middleware",
         description:
             "Double-submit cookie pattern with CSP nonce integration. Handles safe/unsafe HTTP methods and provides configurable token generation and validation.",
-        url: "https://gist.github.com/samiulalimsaad/csrf-middleware",
+        url: "https://gist.github.com/samiulalimsaad/27d139171374da820d2b6d1b8f8044c8",
         language: "Go",
         pattern: "Middleware / Security",
         usedIn: "PH Auth Service",

@@ -12,7 +12,8 @@ export const projects = [
         title: "PH Mailer",
         subtitle: "Centralized Email Platform",
         time: "Production",
-        shortDescription: "Production email platform replacing Mailgun at scale",
+        shortDescription:
+            "Production email platform: forked Plunk, custom BullMQ worker + Redis queue, delivery via AWS SES",
         metrics: [
             "197K+ emails sent (7-day window)",
             "5 internal product teams",
@@ -25,18 +26,18 @@ export const projects = [
         proprietary: true,
         caseStudyLink: "/projects/ph-mailer",
         description: [
-            "Centralized email platform built on Plunk to replace Mailgun costs across multiple product teams. The challenge was designing a shared service that multiple internal products could adopt without each team losing control over their email templates and delivery tracking.",
+            "Centralized email platform forked from open-source Plunk, extended with a custom BullMQ worker and Redis-backed queue, with delivery routed through AWS SES. The challenge was designing a shared service that multiple internal products could adopt without each team losing control over their email templates and delivery tracking.",
             "Own production maintenance, feature development, and upstream synchronization with Plunk's API. Responsibilities include delivery monitoring, bounce handling, and coordinating template changes across teams with different release schedules.",
-            "Plunk was chosen over self-hosted SMTP (Postfix) and Amazon SES for its operational simplicity and built-in analytics. SES was rejected due to sandbox complexity and template management overhead for a small team.",
+            "Forking Plunk was chosen over self-hosted SMTP (Postfix) and direct AWS SES: Plunk provides the template/analytics layer out of the box, while custom BullMQ workers add queue-based async delivery and SES handles outbound delivery. SES alone was rejected due to template management overhead for a small team.",
         ],
         highlights: [
             "Production platform ownership maintenance, monitoring, features",
-            "Plunk-based centralized email replacing Mailgun at scale",
+            "Forked Plunk + custom BullMQ worker queue, delivery via AWS SES",
             "Cross-team coordination for shared internal service",
         ],
         image: PH_MAILER_IMAGE,
-        tools: ["Node.js", "TypeScript", "Plunk", "Docker"],
-        stack: ["Node.js", "TypeScript", "Plunk", "Docker"],
+        tools: ["Node.js", "TypeScript", "Plunk", "BullMQ", "Redis", "AWS SES", "Docker"],
+        stack: ["Node.js", "TypeScript", "Plunk", "BullMQ", "Redis", "AWS SES", "Docker"],
         githubFrontEnd: "",
         githubBackEnd: "",
         live: "",
@@ -273,7 +274,7 @@ export const projects = [
         subtitle: "AI-Powered Gamified Learning Platform",
         time: "MVP",
         shortDescription:
-            "19-engine gamified micro-learning platform with AI-generated content, universal envelope architecture, and server-authoritative scoring",
+            "19-engine gamified micro-learning platform with AI-generated content, universal envelope architecture, and server-authoritative scoring (hackathon MVP)",
         metrics: [
             "19 game engines, 6-seam extensible registry",
             "Multi-provider AI pipeline (Anthropic, OpenAI, Gemini, OpenRouter)",
@@ -281,7 +282,7 @@ export const projects = [
         ],
         priority: 91,
         category: "Full Stack / AI",
-        status: "Production",
+        status: "MVP",
         tier: "featured",
         proprietary: false,
         caseStudyLink: "/projects/ai-game-platform",

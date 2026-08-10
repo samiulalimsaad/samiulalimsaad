@@ -11,14 +11,28 @@ const RATE_LIMIT_WINDOW = 5 * 60 * 1000; // 5 minutes
 const RATE_LIMIT_MAX = 3; // max submissions per window
 
 // Cookie-based rate limiting persists across serverless cold starts.
-// Timestamps stored in HTTP-only cookie to prevent client tampering.
+// Timestamps stored in an HTTP-only cookie. Note: this is a soft deterrent,
+// not a security boundary - a client can delete the cookie to reset the
+// window. Suitable for spam reduction on a low-traffic contact form.
 async function checkRateLimit(): Promise<boolean> {
     const cookieStore = await cookies();
     const key = "contact-ts";
     const raw = cookieStore.get(key)?.value;
 
     const now = Date.now();
-    const timestamps: number[] = raw ? JSON.parse(raw) : [];
+    let timestamps: number[] = [];
+    if (raw) {
+        try {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) {
+                timestamps = parsed.filter(
+                    (ts): ts is number => typeof ts === "number" && Number.isFinite(ts),
+                );
+            }
+        } catch {
+            timestamps = [];
+        }
+    }
 
     // Remove expired timestamps outside the 5-minute window
     const recent = timestamps.filter((ts) => now - ts < RATE_LIMIT_WINDOW);
