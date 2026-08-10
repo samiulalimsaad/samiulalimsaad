@@ -11,6 +11,7 @@ const experiences = [
         dateTo: "Present",
         description: [
             "Own and operate 5 production services end-to-end: PH Mailer (email platform), SkillMapper (assessment platform), Bootcamp (LMS), JobPortal (recruitment platform), and FTP server. Full ownership across frontend, backend, and infrastructure.",
+            "JobPortal (recruitment platform) and FTP server (file delivery): maintained and operated in production through the same Docker + CI/CD pipeline as the other services. [REVIEW: replace with specific scope + one metric]",
             "Build and maintain UAT environments and deployment pipelines using Docker and CI/CD. Maintain 24/7 monitoring and alerting across all services.",
             "Led architecture of a desktop DRM player (Electron) for protected educational video. Mid-project pivot when upstream Chromium changes broke offline playback. Redesigned to a hybrid online/offline license strategy.",
             "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA, device limits, rate limiting, CSP/CSRF), and integration logic. Coordinated two mid-level engineers.",

@@ -1,9 +1,11 @@
 import { describe, expect, it, vi } from "vitest";
 
+const cookieGetMock = vi.fn(() => undefined);
+
 // Mock next/headers
 vi.mock("next/headers", () => ({
     cookies: vi.fn(() => ({
-        get: vi.fn(() => undefined),
+        get: cookieGetMock,
         set: vi.fn(),
     })),
 }));
@@ -44,5 +46,20 @@ describe("sendContact server action", () => {
         const result = await sendContact({ status: "idle", message: null }, fd);
         expect(result.status).toBe("error");
         expect(result.message).toBe("Server is not configured to send messages.");
+    });
+
+    it("does not throw on a malformed rate-limit cookie", async () => {
+        cookieGetMock.mockReturnValue({ value: "{not-json" });
+
+        const fd = new FormData();
+        fd.set("name", "Test User");
+        fd.set("email", "test@example.com");
+        fd.set("message", "Hello");
+
+        const result = await sendContact({ status: "idle", message: null }, fd);
+        expect(result.status).toBe("error");
+        expect(result.message).toBe("Server is not configured to send messages.");
+
+        cookieGetMock.mockReturnValue(undefined);
     });
 });

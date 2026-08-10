@@ -14,6 +14,7 @@ package middleware
 import (
     "net/http"
     "sync"
+    "time"
 
     "golang.org/x/time/rate"
 )
@@ -65,6 +66,14 @@ func cleanupVisitors() {
 
 func now() int64 {
     return time.Now().Unix()
+}
+
+// StartCleanupLoop launches the periodic cleanup goroutine.
+// Call once at startup, e.g.:
+//
+//	go middleware.StartCleanupLoop()
+func StartCleanupLoop() {
+    go cleanupVisitors()
 }
 
 // RateLimitMiddleware applies rate limiting to mutating HTTP methods.
