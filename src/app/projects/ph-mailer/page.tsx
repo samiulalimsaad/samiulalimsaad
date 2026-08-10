@@ -21,7 +21,7 @@ import MermaidDiagram from "@/components/ui/MermaidDiagram";
 export const metadata: Metadata = {
     title: "PH Mailer: Centralized Email Platform | Case Study",
     description:
-        "Production email platform serving 197K+ emails/week across 5 internal product teams. Queue-based architecture with BullMQ, Redis, and AWS SES.",
+        "Production email platform: forked Plunk with custom BullMQ worker + Redis queue, delivery via AWS SES. 197K+ emails/week across 5 internal product teams.",
 };
 
 export default function PHMailerCaseStudy() {
@@ -33,6 +33,7 @@ export default function PHMailerCaseStudy() {
             <KeyFeatures />
             <TechnicalDecisions />
             <MetricsSection />
+            <OperationsDeepDive />
             <IncidentStory />
             <TradeOffs />
             <FailureModes />
@@ -61,10 +62,10 @@ function HeroSection() {
                     Centralized Email Platform
                 </p>
                 <p className="text-sm text-foreground/50 max-w-2xl mx-auto mb-6">
-                    Open-source email platform serving multiple product teams. Replaced Mailgun with
-                    a self-hosted alternative handling transactional emails, campaigns, and workflow
-                    automation. Significant cost reduction vs Mailgun with comparable delivery
-                    performance.
+                    Production email platform forked from open-source Plunk, extended with a custom
+                    BullMQ worker and Redis-backed queue, with delivery routed through AWS SES.
+                    Replaced Mailgun for transactional emails, campaigns, and workflow automation.
+                    Significant cost reduction vs Mailgun with comparable delivery performance.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {["Node.js", "TypeScript", "BullMQ", "Redis", "PostgreSQL", "AWS SES"].map(
@@ -438,6 +439,86 @@ function MetricCard({ label, value }: { label: string; value: string }) {
             <div className="text-lg font-bold text-indigo-600">{value}</div>
             <div className="text-xs text-foreground/60">{label}</div>
         </div>
+    );
+}
+
+function OperationsDeepDive() {
+    const batchStats = [
+        { label: "Items processed", value: "48,978" },
+        { label: "Sent", value: "48,965" },
+        { label: "Exceptions", value: "112" },
+        { label: "Bounced", value: "26" },
+        { label: "Batch runtime", value: "5m 35s" },
+        { label: "Effective throughput", value: "~146 emails/s" },
+    ];
+
+    return (
+        <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">Operations Deep-Dive</h2>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6">
+                    <h3 className="text-base font-semibold text-foreground mb-2">
+                        Throughput from a real batch run
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed mb-4">
+                        A monitored batch run processed 48,978 queued items in 5 minutes 35 seconds
+                        — roughly 146 emails per second sustained, with 48,965 delivered, 112
+                        transient exceptions handled by retry, and 26 bounces routed to the
+                        suppression list. These numbers come from the monitoring alert on this page:
+                        real production run, not a synthetic load test.
+                    </p>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        {batchStats.map((s) => (
+                            <div
+                                key={s.label}
+                                className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-3 text-center"
+                            >
+                                <div className="text-lg font-bold text-indigo-700">{s.value}</div>
+                                <div className="text-[11px] text-foreground/60">{s.label}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6">
+                    <h3 className="text-base font-semibold text-foreground mb-2">
+                        Deployment & rollout
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        Each service runs as a Docker container, deployed through a versioned
+                        pipeline: build → test → push image → staged rollout on UAT → health check →
+                        rolling update on production, with the previous image retained for instant
+                        rollback. UAT validates upstream Plunk syncs before they reach production,
+                        which matters because we maintain a fork.
+                    </p>
+                    <MermaidDiagram
+                        chart={`graph LR
+                            A[Commit] --> B[CI: lint + test]
+                            B --> C[Build image]
+                            C --> D[Push to registry]
+                            D --> E[Deploy to UAT]
+                            E --> F[Health check]
+                            F --> G[Rolling update: prod]
+                            G -->|fail| H[Rollback to last image]
+                            G -->|pass| I[Monitor delivery]`}
+                        caption="Versioned deploy pipeline: build → test → image → UAT → health check → rolling update with rollback"
+                    />
+                </div>
+
+                <div className="rounded-2xl border border-amber-100 bg-amber-50/50 p-6 backdrop-blur-sm">
+                    <h3 className="text-base font-semibold text-amber-800 mb-2">
+                        How batch metrics are captured
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        The worker logs processed/sent/exception/bounce counters per batch run, and
+                        Uptime Kuma surfaces a Discord alert with the summary (shown in the
+                        Observability section). This gives a delivery health check on every batch —
+                        a spike in exceptions or bounces trips an alert before users notice.
+                    </p>
+                </div>
+            </div>
+        </section>
     );
 }
 

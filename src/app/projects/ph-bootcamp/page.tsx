@@ -31,6 +31,8 @@ export default function PHBootcampCaseStudy() {
             <KeyFeatures />
             <TechnicalDecisions />
             <MetricsSection />
+            <PaymentIdempotency />
+            <DatabaseDesign />
             <TradeOffs />
             <FailureModes />
             <ObservabilitySection />
@@ -413,6 +415,156 @@ function MetricCard({ label, value }: { label: string; value: string }) {
             <div className="text-lg font-bold text-indigo-600">{value}</div>
             <div className="text-xs text-foreground/60">{label}</div>
         </div>
+    );
+}
+
+function PaymentIdempotency() {
+    return (
+        <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Payment Idempotency: bKash Tokenized Checkout
+                </h2>
+                <p className="text-sm text-foreground/70 leading-relaxed mb-6">
+                    Money flows must never double-charge a student, even when a user double-submits,
+                    a network request retries, or bKash's server behaves non-deterministically. The
+                    bKash tokenized flow has four hops — grant token, create payment, execute, query
+                    — each of which can fail or be retried. The design below is how the system stays
+                    consistent across retries.
+                </p>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6">
+                    <h3 className="text-base font-semibold text-foreground mb-4">
+                        The four state transitions and their failure points
+                    </h3>
+                    <MermaidDiagram
+                        chart={`graph LR
+                            A[Grant token] -->|1| B[Create payment]
+                            B -->|2| C[User approves on bKash]
+                            C -->|3| D[Execute payment]
+                            D -->|4| E[Query verification]
+                            A -.fail.-> A2[Redis: token cached 55min]
+                            B -.retry-safe.-> B2[Idempotency: same merchantInvoiceNumber]
+                            D -.retry-safe.-> D2[Execute is idempotent by txn ID]
+                            E -.result.-> F[Mark enrollment paid]`}
+                        caption="Four-hop tokenized flow; retry-safety is guaranteed at create and execute steps"
+                    />
+                </div>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6">
+                    <h3 className="text-base font-semibold text-foreground mb-4">
+                        Idempotency guards
+                    </h3>
+                    <div className="space-y-3">
+                        <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-4">
+                            <div className="text-sm font-semibold text-indigo-700 mb-1">
+                                Unique merchantInvoiceNumber per payment
+                            </div>
+                            <p className="text-xs text-foreground/70">
+                                Generated once per enrollment, persisted, and reused on every retry
+                                of the same checkout. If the create step is retried, bKash sees the
+                                same invoice number and returns the existing payment instead of
+                                creating a duplicate.
+                            </p>
+                        </div>
+                        <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-4">
+                            <div className="text-sm font-semibold text-indigo-700 mb-1">
+                                Duplicate transaction ID detection
+                            </div>
+                            <p className="text-xs text-foreground/70">
+                                On webhook and query responses, the transaction ID is checked
+                                against already-processed payments before any state mutation. A
+                                repeat notification for an already-marked-paid enrollment is a
+                                no-op, not a second charge.
+                            </p>
+                        </div>
+                        <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-4">
+                            <div className="text-sm font-semibold text-indigo-700 mb-1">
+                                Rate limit: 1 attempt/min/user+event
+                            </div>
+                            <p className="text-xs text-foreground/70">
+                                A per-user, per-event attempt limiter stops automated double-submits
+                                and brute-force retries at the boundary before they reach bKash.
+                            </p>
+                        </div>
+                        <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-4">
+                            <div className="text-sm font-semibold text-indigo-700 mb-1">
+                                Grant token cached in Redis (55 min TTL)
+                            </div>
+                            <p className="text-xs text-foreground/70">
+                                Re-uses a valid bKash token across payments instead of
+                                re-authenticating on every checkout, cutting latency and avoiding
+                                rate-limit friction with the provider.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="rounded-2xl border border-amber-100 bg-amber-50/50 p-6">
+                    <h3 className="text-base font-semibold text-amber-800 mb-2">Trade-off</h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        Tokenized checkout is slower than one-step payment links (extra
+                        user-approval hop) but keeps cards/accounts off our servers and is the
+                        standard bKash integration. The cost is more states to manage — which is
+                        exactly why the idempotency layer exists. A distributed lock or unique DB
+                        index would add a second guard at the data layer; we rely on the
+                        application-level guard plus the rate limiter today.
+                    </p>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function DatabaseDesign() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">Database Design</h2>
+                <p className="text-sm text-foreground/70 leading-relaxed mb-6">
+                    MongoDB is the primary store. The non-obvious decisions are about write
+                    patterns, freshness, and how read-heavy paths avoid expensive queries.
+                </p>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6">
+                    <h3 className="text-base font-semibold text-foreground mb-2">
+                        Read-heavy hot paths are materialized or cached, not aggregated per request
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        Analytics dashboards, leaderboards, and enrollment counts are the hottest
+                        reads. Recomputing them from source documents on every request burns CPU and
+                        creates locking contention. The platform instead maintains denormalized
+                        counters and snapshots that are updated on write and served on read, with
+                        the per-domain Redis adapters (30min courses, 5-10min analytics) absorbing
+                        the rest. This keeps p95 read latency flat as the lead volume grows.
+                    </p>
+                </div>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6">
+                    <h3 className="text-base font-semibold text-foreground mb-2">
+                        Append-only audit log, secret auto-redaction
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        The activity log is immutable by design: events are inserted, never updated,
+                        and carry a before/after diff. Passwords, tokens, and OTPs are redacted
+                        before write so secrets never land in the log. Writes are fire-and-forget
+                        (non-blocking) with a graceful-shutdown drain so the last few events survive
+                        process restarts.
+                    </p>
+                </div>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6">
+                    <h3 className="text-base font-semibold text-foreground mb-2">
+                        Versioned cache keys for safe schema evolution
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        Every cache adapter namespaces its keys with a version (v1) so a schema
+                        change or cache-payload change can invalidate cleanly by bumping the version
+                        — no cross-version deserialization bugs, no manual flush choreography.
+                    </p>
+                </div>
+            </div>
+        </section>
     );
 }
 

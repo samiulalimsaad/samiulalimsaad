@@ -19,6 +19,7 @@ export default function SkillMapperCaseStudy() {
             <KeyFeatures />
             <TechnicalDecisions />
             <MetricsSection />
+            <ConcurrencyModel />
             <TradeOffs />
             <ChangeStreamOperations />
             <FailureModes />
@@ -401,6 +402,90 @@ function MetricCard({ label, value }: { label: string; value: string }) {
             <div className="text-lg font-bold text-indigo-600">{value}</div>
             <div className="text-xs text-foreground/60">{label}</div>
         </div>
+    );
+}
+
+function ConcurrencyModel() {
+    return (
+        <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
+                    Concurrency Model: Timed Exams & Real-Time Sync
+                </h2>
+                <p className="text-sm text-foreground/70 leading-relaxed mb-6">
+                    The hard part of Skill Mapper isn't CRUD — it's that hundreds of students take
+                    timed exams concurrently, and the system must stay correct under racing
+                    submissions, disconnections, and rule violations. Three decisions define the
+                    model.
+                </p>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6">
+                    <h3 className="text-base font-semibold text-foreground mb-4">
+                        1. Server is the source of truth for the clock
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        The exam deadline is computed server-side from the moment the assessment
+                        becomes active, never from the client's device clock. Client timers are
+                        presentation only; every submission carries the server-issued attempt
+                        record, so a student who pauses, tabs away, or rewinds their clock gets no
+                        advantage. This also means the server can enforce hard cut-off regardless of
+                        client state.
+                    </p>
+                </div>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6">
+                    <h3 className="text-base font-semibold text-foreground mb-4">
+                        2. Single-writer submission via attempt state
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        Each attempt has an owner and a lifecycle (started → submitted → graded).
+                        Submission transitions the attempt state atomically, so two racing "submit"
+                        requests can't both win: the state machine accepts the first transition and
+                        rejects the second. This gives idempotency — a client retry after a network
+                        blip is a no-op, not a double grade.
+                    </p>
+                    <CodeSnippet
+                        language="typescript"
+                        code={`// Atomic submit: only one transition wins.
+// A retried submit sees state already "submitted" -> rejected.
+const result = await attempts.collection.findOneAndUpdate(
+    { _id: attemptId, status: "active" },
+    { $set: { status: "submitted", submittedAt: new Date() } },
+    { returnDocument: "after" }
+)
+if (!result.value) throw new Error("attempt already submitted")`}
+                    />
+                </div>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6">
+                    <h3 className="text-base font-semibold text-foreground mb-4">
+                        3. Disqualification races resolved by the state machine
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        Rule violations (e.g., leaving the exam window) can fire close to the submit
+                        moment. Instead of a free-floating "disqualify" flag that could race with
+                        grading, disqualification is modeled as an event that transitions the
+                        attempt state. Whichever event wins the transition, grading logic checks the
+                        final state — no interleaving where a disqualified attempt gets a grade and
+                        a revoked one.
+                    </p>
+                </div>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6">
+                    <h3 className="text-base font-semibold text-foreground mb-4">
+                        What's missing today (honest scope)
+                    </h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        At 500 DAU a single MongoDB instance and one app replica are sufficient, so
+                        distributed locks aren't needed yet — atomic find-and-modify gives
+                        single-writer semantics. If this scaled to thousands of concurrent exams,
+                        the next step would be moving grading to a queue (reliability +
+                        backpressure) and sharding attempts by exam. That's a future trade-off, not
+                        one we've needed to make.
+                    </p>
+                </div>
+            </div>
+        </section>
     );
 }
 

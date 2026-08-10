@@ -32,6 +32,7 @@ export default function AuthServiceCaseStudy() {
             <KeyFeatures />
             <TechnicalDecisions />
             <MetricsSection />
+            <ThreatModel />
             <TradeOffs />
             <FailureModes />
             <ObservabilitySection />
@@ -435,6 +436,125 @@ function MetricCard({ label, value }: { label: string; value: string }) {
             <div className="text-lg font-bold text-indigo-600">{value}</div>
             <div className="text-xs text-foreground/60">{label}</div>
         </div>
+    );
+}
+
+function ThreatModel() {
+    const threats = [
+        {
+            threat: "Credential stuffing / brute force",
+            mitigation:
+                "Per-IP and per-account rate limiting, progressive delay on repeated failures, lockout after threshold, ReCAPTCHA on login/registration",
+            layer: "Edge + App",
+        },
+        {
+            threat: "Token theft / replay (XSS-led)",
+            mitigation:
+                "CSP nonce per request (no unsafe-inline), HttpOnly + Secure + SameSite cookies for sessions, short-lived access tokens, PKCE for public clients",
+            layer: "App + Session",
+        },
+        {
+            threat: "Session fixation / hijack",
+            mitigation:
+                "Session IDs rotated on privilege change, device-limit enforcement, server-side revocation, absolute + sliding expiry",
+            layer: "Session",
+        },
+        {
+            threat: "Stolen credentials (user-side)",
+            mitigation:
+                "Mandatory TOTP MFA enrollment with 1-step skew tolerance, device-limit per user, audit log of auth attempts",
+            layer: "MFA",
+        },
+        {
+            threat: "Multi-tenant data leak",
+            mitigation:
+                "Composite unique constraints at DB level (tenant, project, client), tenant scoping in every query, no cross-tenant identifiers in tokens",
+            layer: "Data",
+        },
+        {
+            threat: "CSRF on state-changing flows",
+            mitigation:
+                "Double-submit cookie CSRF token, SameSite=Lax, origin checks on OAuth redirects",
+            layer: "App",
+        },
+        {
+            threat: "Audit tampering / secret leakage",
+            mitigation:
+                "Append-only audit log to columnar store, secret auto-redaction before write, retention window",
+            layer: "Data",
+        },
+    ];
+
+    return (
+        <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Threat Model</h2>
+                <p className="text-sm text-foreground/70 leading-relaxed mb-6">
+                    "7 security layers" is a count; this is the reasoning behind it. For each
+                    realistic threat against a multi-tenant identity platform, the table lists the
+                    concrete mitigation and the layer that owns it.
+                </p>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm mb-6 overflow-x-auto">
+                    <table className="w-full text-sm">
+                        <thead>
+                            <tr className="border-b border-gray-200 text-left">
+                                <th className="pb-2 pr-4 text-xs font-semibold text-foreground/60">
+                                    Threat
+                                </th>
+                                <th className="pb-2 pr-4 text-xs font-semibold text-foreground/60">
+                                    Mitigation
+                                </th>
+                                <th className="pb-2 text-xs font-semibold text-foreground/60">
+                                    Layer
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {threats.map((t) => (
+                                <tr
+                                    key={t.threat}
+                                    className="border-b border-gray-100 last:border-0"
+                                >
+                                    <td className="py-2 pr-4 align-top font-medium text-foreground">
+                                        {t.threat}
+                                    </td>
+                                    <td className="py-2 pr-4 align-top text-xs text-foreground/70">
+                                        {t.mitigation}
+                                    </td>
+                                    <td className="py-2 align-top whitespace-nowrap">
+                                        <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-medium text-indigo-700">
+                                            {t.layer}
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="rounded-2xl border border-gray-100 bg-white/80 p-6 backdrop-blur-sm">
+                    <h3 className="text-base font-semibold text-foreground mb-2">
+                        Authorization code + PKCE flow (native & SPA clients)
+                    </h3>
+                    <MermaidDiagram
+                        chart={`sequenceDiagram
+                            participant Client
+                            participant App as Go App Layer
+                            participant Z as ZITADEL (OIDC)
+                            Client->>App: 1. Auth request + code_verifier
+                            App->>Z: 2. Authorization request (PKCE)
+                            Z-->>Client: 3. Authorization code
+                            Client->>App: 4. Code + code_verifier
+                            App->>Z: 5. Token exchange (code + verifier)
+                            Z-->>App: 6. Access/Refresh token + userinfo
+                            App->>App: 7. Enforce MFA + device limit
+                            App-->>Client: 8. Session cookie (HttpOnly, Secure, SameSite)`}
+                        caption="Authorization code flow with PKCE: the code_verifier binds the token exchange to the original client, defeating interception"
+                    />
+                </div>
+            </div>
+        </section>
     );
 }
 
