@@ -36,7 +36,7 @@ and growth.
 ## Selected Achievements
 
 1. Own and operate 5 production services with 24/7 monitoring, incident response, and cross-team coordination
-2. Built and maintained production email platform (PH Mailer) serving multiple internal product teams
+2. Built and maintained production email platform (PH Mailer): forked Plunk, custom BullMQ worker + Redis queue, delivery via AWS SES
 3. Architected DRM player (Electron) for protected educational video, pivoting mid-project to hybrid online/offline licensing when upstream Chromium changes broke offline playback
 4. Built UAT environments and deployment pipelines using Docker and CI/CD, implementing versioned releases and zero-downtime rollout strategies
 5. In development: multi-tenant identity platform using Go and ZITADEL with MFA, device limits, and security hardening
@@ -74,7 +74,7 @@ React and Next.js applications for production use, Electron desktop applications
 
 ### Platform & Infrastructure
 
-Docker containerization, Docker Swarm orchestration, CI/CD pipelines, rolling updates, zero-downtime deployments, rollback strategies, and production operations across multiple environments.
+Docker containerization and orchestration (Docker Swarm, Coolify), CI/CD pipelines with rolling updates and rollback strategies, UAT environment management, and production operations across multiple environments. Right-sized infrastructure for a small team — containerized services on managed hosts rather than heavyweight orchestration.
 
 ### Architecture & System Design
 
@@ -145,7 +145,7 @@ Laravel · Vue.js · Electron · Firebase · MySQL · Express · Fastify · Pris
 
 ### Go Middleware Kit
 
-Production-grade Go middleware patterns extracted from real systems: CSP nonce, rate limiter, CSRF protection, TOTP MFA, payment adapter pattern. Tests, CI, and documentation included.
+Zero-dependency Go middleware patterns extracted from real systems: rate limiter, CSP nonce injection, CSRF protection, TOTP MFA (RFC 6238), and payment gateway adapter. Tests, race-detector CI, and documentation included.
 
 [github.com/samiulalimsaad/go-middleware-kit](https://github.com/samiulalimsaad/go-middleware-kit)
 
@@ -166,21 +166,3 @@ Available for remote engineering opportunities worldwide.
 ## Hiring Statement
 
 Open to collaborating with remote teams building scalable backend platforms, developer infrastructure, and production systems with long-term business impact.
-
----
-
-## GitHub Statistics
-
-<div align="center">
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=samiulalimsaad&show_icons=true&theme=dark&hide_border=true&count_private=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=samiulalimsaad&layout=compact&theme=dark&hide_border=true)
-
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=samiulalimsaad&theme=dark&hide_border=true)
-
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=samiulalimsaad&theme=react-dark&hide_border=true)
-
-![Snake Animation](https://raw.githubusercontent.com/samiulalimsaad/samiulalimsaad/output/github-contribution-grid-snake-dark.svg)
-
-</div>
