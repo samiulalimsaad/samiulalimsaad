@@ -1,9 +1,9 @@
 const DEFAULT_PROJECT_IMAGE = "/projects/default-project.svg";
 
-const PH_MAILER_IMAGE = "/evidence/ph-mailer-statistics.webp";
-const BOOTCAMP_IMAGE = "/evidence/bootcamp-statistics.webp";
-const SPEAKSAIL_IMAGE = "/projects/speaksail-com.webp";
-const SKILL_MAPPER_IMAGE = "/projects/skill-mapper-programming-hero.webp";
+const PH_MAILER_IMAGE = "/evidence/ph-mailer-statistics.png";
+const BOOTCAMP_IMAGE = "/evidence/bootcamp-statistics.png";
+const SPEAKSAIL_IMAGE = "/projects/speaksail-com.png";
+const SKILL_MAPPER_IMAGE = "/projects/skill-mapper-programming-hero.png";
 
 export const projects = [
     {
@@ -36,6 +36,8 @@ export const projects = [
             "Cross-team coordination for shared internal service",
         ],
         image: PH_MAILER_IMAGE,
+        imageWidth: 1289,
+        imageHeight: 406,
         tools: ["Node.js", "TypeScript", "Plunk", "BullMQ", "Redis", "AWS SES", "Docker"],
         stack: ["Node.js", "TypeScript", "Plunk", "BullMQ", "Redis", "AWS SES", "Docker"],
         githubFrontEnd: "",
@@ -72,6 +74,8 @@ export const projects = [
             "Coordinated two engineers; collaborative architecture",
         ],
         image: DEFAULT_PROJECT_IMAGE,
+        imageWidth: 1200,
+        imageHeight: 720,
         tools: ["Go", "PostgreSQL", "ZITADEL", "OIDC", "OAuth2"],
         stack: ["Go", "PostgreSQL", "ZITADEL", "OIDC", "OAuth2"],
         githubFrontEnd: "",
@@ -105,6 +109,8 @@ export const projects = [
             "85 automated tests (35 Vitest backend + 50 Vitest frontend)",
         ],
         image: BOOTCAMP_IMAGE,
+        imageWidth: 1541,
+        imageHeight: 537,
         tools: [
             "TypeScript",
             "Node.js",
@@ -156,6 +162,8 @@ export const projects = [
             "Evolution: Next.js monolith → Laravel + TanStack Start rewrite",
         ],
         image: SPEAKSAIL_IMAGE,
+        imageWidth: 1920,
+        imageHeight: 911,
         tools: [
             "Next.js 14",
             "TypeScript",
@@ -209,6 +217,8 @@ export const projects = [
             "Polyglot persistence for transaction, analytics, and cache",
         ],
         image: DEFAULT_PROJECT_IMAGE,
+        imageWidth: 1200,
+        imageHeight: 720,
         tools: ["Go", "PostgreSQL", "Redis", "ClickHouse", "Stripe", "bKash", "SSLCommerz"],
         stack: ["Go", "PostgreSQL", "Redis", "ClickHouse", "Stripe", "bKash", "SSLCommerz"],
         githubFrontEnd: "",
@@ -241,6 +251,8 @@ export const projects = [
             "XP gamification with 5 rank tiers",
         ],
         image: SKILL_MAPPER_IMAGE,
+        imageWidth: 1920,
+        imageHeight: 911,
         tools: [
             "TypeScript",
             "Node.js",
@@ -298,7 +310,9 @@ export const projects = [
             "Server-authoritative scoring  client submits raw results, server derives correctness",
             "Multi-provider AI pipeline with validated-retry and offline-first reliability",
         ],
-        image: "/projects/ai-game-platform.webp",
+        image: "/projects/ai-game-platform.png",
+        imageWidth: 1920,
+        imageHeight: 911,
         tools: [
             "TypeScript",
             "React",

@@ -159,7 +159,7 @@ export default function Experience() {
                                 style={{ aspectRatio: "4/3" }}
                             >
                                 <Image
-                                    src="/evidence/pr-code-review.webp"
+                                    src="/evidence/pr-code-review.png"
                                     alt="GitHub contribution graph showing code review, commits, and pull request activity"
                                     fill
                                     className="object-contain"
@@ -175,7 +175,7 @@ export default function Experience() {
                                 style={{ aspectRatio: "4/3" }}
                             >
                                 <Image
-                                    src="/evidence/monitoring-alert.webp"
+                                    src="/evidence/monitoring-alert.png"
                                     alt="Discord monitoring alert showing service downtime detection with delivery metrics"
                                     fill
                                     className="object-contain"
@@ -191,7 +191,7 @@ export default function Experience() {
                                 style={{ aspectRatio: "4/3" }}
                             >
                                 <Image
-                                    src="/evidence/bootcamp-active-users.webp"
+                                    src="/evidence/bootcamp-active-users.png"
                                     alt="Bootcamp platform admin dashboard showing 898 active users and session data"
                                     fill
                                     className="object-contain"
