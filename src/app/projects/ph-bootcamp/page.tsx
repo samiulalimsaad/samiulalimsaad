@@ -12,19 +12,56 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import CodeSnippet from "@/components/ui/CodeSnippet";
 import EvidenceImage from "@/components/ui/EvidenceImage";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+
+const pageTitle = "PH Bootcamp Platform: Full-Stack LMS | Case Study";
+const pageDescription =
+    "Full-stack learning management system with DRM video, bKash payments, QR attendance, ABAC authorization, and 85 automated tests.";
+
 export const metadata: Metadata = {
-    title: "PH Bootcamp Platform: Full-Stack LMS | Case Study",
-    description:
-        "Full-stack learning management system with DRM video, bKash payments, QR attendance, ABAC authorization, and 85 automated tests.",
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+        canonical: "/projects/ph-bootcamp",
+    },
+    openGraph: {
+        title: pageTitle,
+        description: pageDescription,
+        url: "/projects/ph-bootcamp",
+        siteName: "Samiul Alim",
+        images: [
+            {
+                url: "/evidence/bootcamp-statistics.webp",
+                width: 1200,
+                height: 630,
+                alt: "Bootcamp platform statistics dashboard",
+            },
+        ],
+        type: "article",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDescription,
+        images: ["/evidence/bootcamp-statistics.webp"],
+    },
 };
 
 export default function PHBootcampCaseStudy() {
     return (
         <>
+            <BreadcrumbsJsonLd
+                items={[
+                    { name: "Home", href: siteUrl },
+                    { name: "Projects", href: `${siteUrl}/projects` },
+                    { name: "PH Bootcamp", href: `${siteUrl}/projects/ph-bootcamp` },
+                ]}
+            />
             <HeroSection />
             <ExecutiveSummary />
             <OwnershipSection />
@@ -725,7 +762,7 @@ function ObservabilitySection() {
                     />
                 </div>
                 <EvidenceImage
-                    src="/evidence/monitoring-alert.png"
+                    src="/evidence/monitoring-alert.webp"
                     alt="Discord monitoring alert showing service downtime detection"
                     caption="Real-time monitoring: Uptime Kuma Discord integration for service health alerts"
                 />
@@ -861,12 +898,12 @@ function EvidenceSection() {
             <div className="mx-auto w-full max-w-4xl">
                 <h2 className="text-2xl font-bold text-foreground mb-8">Evidence</h2>
                 <EvidenceImage
-                    src="/evidence/bootcamp-statistics.png"
+                    src="/evidence/bootcamp-statistics.webp"
                     alt="Bootcamp admin dashboard showing 13,820 total leads filtered by bootcamp-course category"
                     caption="Admin dashboard: 13,820 total leads captured across multiple courses with lead-per-day trend visualization"
                 />
                 <EvidenceImage
-                    src="/evidence/bootcamp-active-users.png"
+                    src="/evidence/bootcamp-active-users.webp"
                     alt="Bootcamp admin dashboard showing 898 active users with session data"
                     caption="Active users panel: 898 active users with session tracking and unique-users-per-day chart (263 days of data)"
                 />

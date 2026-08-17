@@ -3,10 +3,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 
+const pageTitle = "Projects | Samiul Alim — Production Case Studies";
+const pageDescription =
+    "Production platform services including email delivery, multi-gateway payments, multi-tenant authentication, and education platforms.";
+
 export const metadata: Metadata = {
-    title: "Projects | Samiul Alim",
-    description:
-        "Production platform services including email delivery, multi-gateway payments, multi-tenant authentication, and education platforms.",
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+        canonical: "/projects",
+    },
+    openGraph: {
+        title: pageTitle,
+        description: pageDescription,
+        url: "/projects",
+        siteName: "Samiul Alim",
+        images: [
+            {
+                url: "/avatars/samiul-alim-og.png",
+                width: 600,
+                height: 600,
+                alt: "Samiul Alim, backend-focused full-stack software engineer",
+            },
+        ],
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDescription,
+        images: ["/avatars/samiul-alim-og.png"],
+    },
 };
 
 export default function AllProjectsPage() {

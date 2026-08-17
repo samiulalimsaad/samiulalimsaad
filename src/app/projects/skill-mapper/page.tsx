@@ -1,18 +1,55 @@
 import { BarChart3, Brain, Bug, GitBranch, Medal, RefreshCw, Users, Zap } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+
+const pageTitle = "Skill Mapper: Technical Assessment Platform | Case Study";
+const pageDescription =
+    "AI-powered assessment platform with event-driven state machine, dual AI providers (OpenAI + Gemini), and gamified XP ranking for 5,000+ students.";
+
 export const metadata: Metadata = {
-    title: "Skill Mapper: Technical Assessment Platform | Case Study",
-    description:
-        "AI-powered assessment platform with event-driven state machine, dual AI providers (OpenAI + Gemini), and gamified XP ranking for 5,000+ students.",
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+        canonical: "/projects/skill-mapper",
+    },
+    openGraph: {
+        title: pageTitle,
+        description: pageDescription,
+        url: "/projects/skill-mapper",
+        siteName: "Samiul Alim",
+        images: [
+            {
+                url: "/projects/skill-mapper-programming-hero.webp",
+                width: 720,
+                height: 342,
+                alt: "Skill Mapper assessment platform interface",
+            },
+        ],
+        type: "article",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDescription,
+        images: ["/projects/skill-mapper-programming-hero.webp"],
+    },
 };
 
 export default function SkillMapperCaseStudy() {
     return (
         <>
+            <BreadcrumbsJsonLd
+                items={[
+                    { name: "Home", href: siteUrl },
+                    { name: "Projects", href: `${siteUrl}/projects` },
+                    { name: "Skill Mapper", href: `${siteUrl}/projects/skill-mapper` },
+                ]}
+            />
             <HeroSection />
             <ExecutiveSummary />
             <ArchitectureDiagram />

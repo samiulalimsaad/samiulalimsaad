@@ -11,18 +11,55 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+
+const pageTitle = "Payment Service: Multi-Gateway Payment Platform | Case Study";
+const pageDescription =
+    "Centralized payment service with adapter pattern for Stripe, bKash, and SSLCommerz. OpenAPI-generated Go server with polyglot persistence.";
+
 export const metadata: Metadata = {
-    title: "Payment Service: Multi-Gateway Payment Platform | Case Study",
-    description:
-        "Centralized payment service with adapter pattern for Stripe, bKash, and SSLCommerz. OpenAPI-generated Go server with polyglot persistence.",
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+        canonical: "/projects/payment-service",
+    },
+    openGraph: {
+        title: pageTitle,
+        description: pageDescription,
+        url: "/projects/payment-service",
+        siteName: "Samiul Alim",
+        images: [
+            {
+                url: "/avatars/samiul-alim-og.png",
+                width: 600,
+                height: 600,
+                alt: "Samiul Alim, backend-focused full-stack software engineer",
+            },
+        ],
+        type: "article",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDescription,
+        images: ["/avatars/samiul-alim-og.png"],
+    },
 };
 
 export default function PaymentServiceCaseStudy() {
     return (
         <>
+            <BreadcrumbsJsonLd
+                items={[
+                    { name: "Home", href: siteUrl },
+                    { name: "Projects", href: `${siteUrl}/projects` },
+                    { name: "Payment Service", href: `${siteUrl}/projects/payment-service` },
+                ]}
+            />
             <HeroSection />
             <ExecutiveSummary />
             <ArchitectureDiagram />

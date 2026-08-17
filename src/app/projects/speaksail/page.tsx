@@ -11,18 +11,55 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+
+const pageTitle = "SpeakSail / Enlightall: Language Learning Marketplace | Case Study";
+const pageDescription =
+    "Full-stack language-learning marketplace with live video tutoring, Socket.IO real-time messaging, multi-gateway payments, and an evolution story from Next.js monolith to Laravel + TanStack Start.";
+
 export const metadata: Metadata = {
-    title: "SpeakSail / Enlightall: Language Learning Marketplace | Case Study",
-    description:
-        "Full-stack language-learning marketplace with live video tutoring, Socket.IO real-time messaging, multi-gateway payments, and an evolution story from Next.js monolith to Laravel + TanStack Start.",
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+        canonical: "/projects/speaksail",
+    },
+    openGraph: {
+        title: pageTitle,
+        description: pageDescription,
+        url: "/projects/speaksail",
+        siteName: "Samiul Alim",
+        images: [
+            {
+                url: "/projects/speaksail-com.webp",
+                width: 720,
+                height: 342,
+                alt: "SpeakSail language learning marketplace homepage",
+            },
+        ],
+        type: "article",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDescription,
+        images: ["/projects/speaksail-com.webp"],
+    },
 };
 
 export default function SpeakSailCaseStudy() {
     return (
         <>
+            <BreadcrumbsJsonLd
+                items={[
+                    { name: "Home", href: siteUrl },
+                    { name: "Projects", href: `${siteUrl}/projects` },
+                    { name: "SpeakSail", href: `${siteUrl}/projects/speaksail` },
+                ]}
+            />
             <HeroSection />
             <ExecutiveSummary />
             <ArchitectureDiagram />

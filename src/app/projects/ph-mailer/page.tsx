@@ -14,19 +14,56 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import CodeSnippet from "@/components/ui/CodeSnippet";
 import EvidenceImage from "@/components/ui/EvidenceImage";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+
+const pageTitle = "PH Mailer: Centralized Email Platform | Case Study";
+const pageDescription =
+    "Production email platform: forked Plunk with custom BullMQ worker + Redis queue, delivery via AWS SES. 197K+ emails/week across 5 internal product teams.";
+
 export const metadata: Metadata = {
-    title: "PH Mailer: Centralized Email Platform | Case Study",
-    description:
-        "Production email platform: forked Plunk with custom BullMQ worker + Redis queue, delivery via AWS SES. 197K+ emails/week across 5 internal product teams.",
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+        canonical: "/projects/ph-mailer",
+    },
+    openGraph: {
+        title: pageTitle,
+        description: pageDescription,
+        url: "/projects/ph-mailer",
+        siteName: "Samiul Alim",
+        images: [
+            {
+                url: "/evidence/ph-mailer-statistics.webp",
+                width: 1200,
+                height: 630,
+                alt: "PH Mailer delivery dashboard showing email metrics",
+            },
+        ],
+        type: "article",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDescription,
+        images: ["/evidence/ph-mailer-statistics.webp"],
+    },
 };
 
 export default function PHMailerCaseStudy() {
     return (
         <>
+            <BreadcrumbsJsonLd
+                items={[
+                    { name: "Home", href: siteUrl },
+                    { name: "Projects", href: `${siteUrl}/projects` },
+                    { name: "PH Mailer", href: `${siteUrl}/projects/ph-mailer` },
+                ]}
+            />
             <HeroSection />
             <ExecutiveSummary />
             <OwnershipSection />
@@ -121,7 +158,7 @@ function ExecutiveSummary() {
                     through a queue-based architecture with real-time delivery tracking.
                 </p>
                 <EvidenceImage
-                    src="/evidence/ph-mailer-statistics.png"
+                    src="/evidence/ph-mailer-statistics.webp"
                     alt="PH Mailer Plunk dashboard showing 15,496 contacts, 197K+ emails sent, 44.7% open rate"
                     caption="Plunk dashboard: real-time email delivery metrics across product teams (15,496 contacts, 197,294 emails sent, 44.7% open rate)"
                 />
@@ -787,7 +824,7 @@ function ObservabilitySection() {
                     />
                 </div>
                 <EvidenceImage
-                    src="/evidence/monitoring-alert.png"
+                    src="/evidence/monitoring-alert.webp"
                     alt="Discord monitoring alert showing 48,978 items processed with delivery metrics"
                     caption="Real-time monitoring alert: Uptime Kuma Discord integration showing 48,978 items processed, 48,965 sent, 112 exceptions, 26 bounced (5m 35s batch runtime)"
                 />

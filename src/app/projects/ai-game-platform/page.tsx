@@ -11,18 +11,55 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+
+const pageTitle = "AI Game Platform: 19-Engine Gamified Learning | Case Study";
+const pageDescription =
+    "AI-powered gamified micro-learning platform with 19 game engines, universal envelope architecture, multi-provider AI pipeline, and server-authoritative scoring.";
+
 export const metadata: Metadata = {
-    title: "AI Game Platform: 19-Engine Gamified Learning | Case Study",
-    description:
-        "AI-powered gamified micro-learning platform with 19 game engines, universal envelope architecture, multi-provider AI pipeline, and server-authoritative scoring.",
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+        canonical: "/projects/ai-game-platform",
+    },
+    openGraph: {
+        title: pageTitle,
+        description: pageDescription,
+        url: "/projects/ai-game-platform",
+        siteName: "Samiul Alim",
+        images: [
+            {
+                url: "/projects/ai-game-platform.webp",
+                width: 720,
+                height: 342,
+                alt: "AI Game Platform educational games interface",
+            },
+        ],
+        type: "article",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDescription,
+        images: ["/projects/ai-game-platform.webp"],
+    },
 };
 
 export default function AIGamePlatformCaseStudy() {
     return (
         <>
+            <BreadcrumbsJsonLd
+                items={[
+                    { name: "Home", href: siteUrl },
+                    { name: "Projects", href: `${siteUrl}/projects` },
+                    { name: "AI Game Platform", href: `${siteUrl}/projects/ai-game-platform` },
+                ]}
+            />
             <HeroSection />
             <ExecutiveSummary />
             <ArchitectureDiagram />

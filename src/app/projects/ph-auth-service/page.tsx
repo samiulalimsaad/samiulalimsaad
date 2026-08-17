@@ -14,18 +14,55 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+
+const pageTitle = "PH Auth Service: Multi-Tenant Identity Provider | Case Study";
+const pageDescription =
+    "Multi-tenant OIDC auth platform with ZITADEL and custom Go layer. MFA, device limits, rate limiting, CSP/CSRF hardening, and defense-in-depth security.";
+
 export const metadata: Metadata = {
-    title: "PH Auth Service: Multi-Tenant Identity Provider | Case Study",
-    description:
-        "Multi-tenant OIDC auth platform with ZITADEL and custom Go layer. MFA, device limits, rate limiting, CSP/CSRF hardening, and defense-in-depth security.",
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+        canonical: "/projects/ph-auth-service",
+    },
+    openGraph: {
+        title: pageTitle,
+        description: pageDescription,
+        url: "/projects/ph-auth-service",
+        siteName: "Samiul Alim",
+        images: [
+            {
+                url: "/avatars/samiul-alim-og.png",
+                width: 600,
+                height: 600,
+                alt: "Samiul Alim, backend-focused full-stack software engineer",
+            },
+        ],
+        type: "article",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDescription,
+        images: ["/avatars/samiul-alim-og.png"],
+    },
 };
 
 export default function AuthServiceCaseStudy() {
     return (
         <>
+            <BreadcrumbsJsonLd
+                items={[
+                    { name: "Home", href: siteUrl },
+                    { name: "Projects", href: `${siteUrl}/projects` },
+                    { name: "PH Auth Service", href: `${siteUrl}/projects/ph-auth-service` },
+                ]}
+            />
             <HeroSection />
             <ExecutiveSummary />
             <OwnershipSection />
