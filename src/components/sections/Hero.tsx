@@ -26,19 +26,21 @@ export default function Hero() {
             id="home"
             className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4 scroll-mt-16"
         >
-            <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:text-left">
-                <div className="flex-1 flex flex-col items-center md:items-start gap-5">
+            <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:gap-14 md:text-left">
+                <div className="flex flex-[1.4] flex-col items-center gap-5 md:items-start">
                     <p className="inline-flex items-center gap-2 rounded-full border border-cyan-100 bg-white/80 px-3 py-1 text-xs font-medium text-cyan-700">
                         Samiul Alim · Software Engineer
                     </p>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-                        <span className="bg-linear-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
-                            I own production systems
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
+                        <span className="text-foreground/80">
+                            Backend-Focused Full-Stack Engineer
                         </span>
                         <br />
-                        <span className="text-foreground">other engineering teams depend on.</span>
+                        <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                            Building Scalable Web Systems
+                        </span>
                     </h1>
-                    <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
+                    <p className="max-w-2xl text-sm sm:text-base text-foreground/70">
                         Backend-focused software engineer building production platform services —
                         authentication, payments, and email delivery. I design shared
                         infrastructure, operate it in production, and respond when it breaks at 2
@@ -54,19 +56,16 @@ export default function Hero() {
                         </a>
                         <ResumeButton />
                     </div>
-                    <div className="mt-4 flex flex-wrap items-center gap-3">
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    <div className="mt-4 flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100">
                             Open to remote roles
-                        </div>
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
-                            <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
+                        </span>
+                        <span className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100">
                             US / EU timezone-friendly
-                        </div>
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
-                            <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
+                        </span>
+                        <span className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100">
                             Go · TypeScript · PostgreSQL
-                        </div>
+                        </span>
                     </div>
                     <div className="mt-4 flex items-center gap-3">
                         {socials.map(({ href, Icon, label }) => (
@@ -83,10 +82,10 @@ export default function Hero() {
                         ))}
                     </div>
                 </div>
-                <div className="flex-1 flex justify-center md:justify-end">
+                <div className="flex flex-1 justify-center md:justify-end">
                     <div className="relative">
                         <div className="relative rounded-3xl bg-white/80 p-4 backdrop-blur">
-                            <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-2xl border-4 border-white sm:h-64 sm:w-64">
+                            <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-2xl border-4 border-white sm:h-56 sm:w-56">
                                 <Image
                                     src="/avatars/samiul-alim.webp"
                                     width={300}
