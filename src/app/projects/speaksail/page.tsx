@@ -161,7 +161,7 @@ function ExecutiveSummary() {
                 <p className="text-base text-foreground/80 leading-relaxed mb-4">
                     A full-stack language-learning marketplace connecting students with instructors
                     for live video lessons, real-time messaging, and multi-currency payments. Built
-                    as a Next.js 14 monolith evolving into SpeakSail — a Laravel 11 + TanStack Start
+                    as a Next.js 14 monolith evolving into SpeakSail a Laravel 11 + TanStack Start
                     (React 19) architecture with AI-powered chat.
                 </p>
                 <div className="rounded-2xl border border-indigo-100 bg-indigo-50/50 p-5">
@@ -171,8 +171,8 @@ function ExecutiveSummary() {
                         client. What I can share: the platform served real students and paying
                         instructors across multiple countries, and user adoption and revenue grew
                         steadily over the engagement. Active development is currently paused due to
-                        client-side budget and time constraints — not product failure — and may
-                        resume if conditions allow.
+                        client-side budget and time constraints not product failure and may resume
+                        if conditions allow.
                     </p>
                 </div>
             </div>

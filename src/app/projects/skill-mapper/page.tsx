@@ -450,7 +450,7 @@ function ConcurrencyModel() {
                     Concurrency Model: Timed Exams & Real-Time Sync
                 </h2>
                 <p className="text-sm text-foreground/70 leading-relaxed mb-6">
-                    The hard part of Skill Mapper isn't CRUD — it's that hundreds of students take
+                    The hard part of Skill Mapper isn't CRUD it's that hundreds of students take
                     timed exams concurrently, and the system must stay correct under racing
                     submissions, disconnections, and rule violations. Three decisions define the
                     model.
@@ -478,7 +478,7 @@ function ConcurrencyModel() {
                         Each attempt has an owner and a lifecycle (started → submitted → graded).
                         Submission transitions the attempt state atomically, so two racing "submit"
                         requests can't both win: the state machine accepts the first transition and
-                        rejects the second. This gives idempotency — a client retry after a network
+                        rejects the second. This gives idempotency a client retry after a network
                         blip is a no-op, not a double grade.
                     </p>
                     <CodeSnippet
@@ -503,8 +503,8 @@ if (!result.value) throw new Error("attempt already submitted")`}
                         moment. Instead of a free-floating "disqualify" flag that could race with
                         grading, disqualification is modeled as an event that transitions the
                         attempt state. Whichever event wins the transition, grading logic checks the
-                        final state — no interleaving where a disqualified attempt gets a grade and
-                        a revoked one.
+                        final state no interleaving where a disqualified attempt gets a grade and a
+                        revoked one.
                     </p>
                 </div>
 
@@ -514,7 +514,7 @@ if (!result.value) throw new Error("attempt already submitted")`}
                     </h3>
                     <p className="text-sm text-foreground/70 leading-relaxed">
                         At 500 DAU a single MongoDB instance and one app replica are sufficient, so
-                        distributed locks aren't needed yet — atomic find-and-modify gives
+                        distributed locks aren't needed yet atomic find-and-modify gives
                         single-writer semantics. If this scaled to thousands of concurrent exams,
                         the next step would be moving grading to a queue (reliability +
                         backpressure) and sharding attempts by exam. That's a future trade-off, not

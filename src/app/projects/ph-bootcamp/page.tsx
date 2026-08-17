@@ -466,8 +466,8 @@ function PaymentIdempotency() {
                 <p className="text-sm text-foreground/70 leading-relaxed mb-6">
                     Money flows must never double-charge a student, even when a user double-submits,
                     a network request retries, or bKash's server behaves non-deterministically. The
-                    bKash tokenized flow has four hops — grant token, create payment, execute, query
-                    — each of which can fail or be retried. The design below is how the system stays
+                    bKash tokenized flow has four hops grant token, create payment, execute, query
+                    each of which can fail or be retried. The design below is how the system stays
                     consistent across retries.
                 </p>
 
@@ -543,7 +543,7 @@ function PaymentIdempotency() {
                     <p className="text-sm text-foreground/70 leading-relaxed">
                         Tokenized checkout is slower than one-step payment links (extra
                         user-approval hop) but keeps cards/accounts off our servers and is the
-                        standard bKash integration. The cost is more states to manage — which is
+                        standard bKash integration. The cost is more states to manage which is
                         exactly why the idempotency layer exists. A distributed lock or unique DB
                         index would add a second guard at the data layer; we rely on the
                         application-level guard plus the rate limiter today.
@@ -598,7 +598,7 @@ function DatabaseDesign() {
                     <p className="text-sm text-foreground/70 leading-relaxed">
                         Every cache adapter namespaces its keys with a version (v1) so a schema
                         change or cache-payload change can invalidate cleanly by bumping the version
-                        — no cross-version deserialization bugs, no manual flush choreography.
+                        no cross-version deserialization bugs, no manual flush choreography.
                     </p>
                 </div>
             </div>

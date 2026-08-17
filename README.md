@@ -74,7 +74,7 @@ React and Next.js applications for production use, Electron desktop applications
 
 ### Platform & Infrastructure
 
-Docker containerization and orchestration (Docker Swarm, Coolify), CI/CD pipelines with rolling updates and rollback strategies, UAT environment management, and production operations across multiple environments. Right-sized infrastructure for a small team — containerized services on managed hosts rather than heavyweight orchestration.
+Docker containerization and orchestration (Docker Swarm, Coolify), CI/CD pipelines with rolling updates and rollback strategies, UAT environment management, and production operations across multiple environments. Right-sized infrastructure for a small team containerized services on managed hosts rather than heavyweight orchestration.
 
 ### Architecture & System Design
 
@@ -97,7 +97,7 @@ Laravel · Vue.js · Electron · Firebase · MySQL · Express · Fastify · Pris
 ## Business Domains
 
 | Domain | Engineering Relevance |
-|---|---|
+| --- | --- |
 | **Identity & Access Management** | Multi-tenant authentication, OIDC/OAuth2, MFA, and RBAC across education products |
 | **EdTech** | Learning platforms, course registration, DRM-protected content, bootcamp delivery |
 | **Payment Systems** | Multi-gateway integrations (bKash, SSLCommerz, Stripe, Nagad) for education marketplaces |
@@ -122,10 +122,12 @@ Laravel · Vue.js · Electron · Firebase · MySQL · Express · Fastify · Pris
 ## Current Focus
 
 **Production (5 services):**
+
 - PH Mailer · SkillMapper · Bootcamp · JobPortal · FTP server
 - Docker · CI/CD · 24/7 monitoring · zero-downtime deployments
 
 **In Development:**
+
 - Multi-tenant identity platform (Go, ZITADEL, OIDC/OAuth2, MFA)
 - Multi-gateway payment service (Go, bKash, SSLCommerz, Stripe)
 

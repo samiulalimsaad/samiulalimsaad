@@ -11,7 +11,7 @@ const experiences = [
         dateTo: "Present",
         description: [
             "Own and operate 5 production services end-to-end: PH Mailer (email platform), SkillMapper (assessment platform), Bootcamp (LMS), JobPortal (recruitment platform), and FTP server. Full ownership across frontend, backend, and infrastructure.",
-            "JobPortal (recruitment platform) and FTP file-delivery server: maintained and operated in production alongside the other services — release coordination, incident response, and deployment through the same Docker + CI/CD pipeline.",
+            "JobPortal (recruitment platform) and FTP file-delivery server: maintained and operated in production alongside the other services release coordination, incident response, and deployment through the same Docker + CI/CD pipeline.",
             "Build and maintain UAT environments and deployment pipelines using Docker and CI/CD. Maintain 24/7 monitoring and alerting across all services.",
             "Led architecture of a desktop DRM player (Electron) for protected educational video. Mid-project pivot when upstream Chromium changes broke offline playback. Redesigned to a hybrid online/offline license strategy.",
             "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA, device limits, rate limiting, CSP/CSRF), and integration logic. Coordinated two mid-level engineers.",
@@ -26,7 +26,7 @@ const experiences = [
         dateFrom: "Feb 2023",
         dateTo: "Aug 2024",
         description: [
-            "Reviewed code and architecture for junior engineers working on real React/JavaScript projects — security, state management, error handling, and performance under review.",
+            "Reviewed code and architecture for junior engineers working on real React/JavaScript projects security, state management, error handling, and performance under review.",
             "Translated product requirements into implementable technical breakdowns and gave structured, actionable feedback on code quality and architecture.",
             "Coordinated with learners across different time zones, strengthening written technical communication.",
         ],

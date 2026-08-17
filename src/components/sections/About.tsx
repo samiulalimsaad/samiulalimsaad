@@ -16,7 +16,7 @@ export default function About() {
                         <p>
                             I build platform services that other engineering teams depend on. My
                             work lives at the intersection of backend systems, security, and
-                            operational reliability — the parts of software that users never see but
+                            operational reliability the parts of software that users never see but
                             always notice when they break.
                         </p>
                         <p>
@@ -30,7 +30,7 @@ export default function About() {
                         </p>
                         <p>
                             I build shared services that multiple teams consume: email, payments,
-                            authentication — because shared infrastructure that only works for one
+                            authentication because shared infrastructure that only works for one
                             team isn&apos;t infrastructure. My center of gravity is backend and
                             platform work in Go and TypeScript, with production posture: every
                             system gets structured logging, health checks, and alerting from day

@@ -5,7 +5,7 @@ import { getAllGistMeta } from "@/lib/gists";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
 
-const pageTitle = "Technical Gists | Samiul Alim — Go & TypeScript Patterns";
+const pageTitle = "Technical Gists | Samiul Alim Go & TypeScript Patterns";
 const pageDescription =
     "Deep-dive code patterns and architectures: CSP/CORS middleware, payment gateway adapters, rate limiters, and TOTP MFA services in Go and TypeScript.";
 

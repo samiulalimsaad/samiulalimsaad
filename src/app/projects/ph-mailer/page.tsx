@@ -513,7 +513,7 @@ function OperationsDeepDive() {
                     </h3>
                     <p className="text-sm text-foreground/70 leading-relaxed mb-4">
                         A monitored batch run processed 48,978 queued items in 5 minutes 35 seconds
-                        — roughly 146 emails per second sustained, with 48,965 delivered, 112
+                        roughly 146 emails per second sustained, with 48,965 delivered, 112
                         transient exceptions handled by retry, and 26 bounces routed to the
                         suppression list. These numbers come from the monitoring alert on this page:
                         real production run, not a synthetic load test.
@@ -563,8 +563,8 @@ function OperationsDeepDive() {
                     <p className="text-sm text-foreground/70 leading-relaxed">
                         The worker logs processed/sent/exception/bounce counters per batch run, and
                         Uptime Kuma surfaces a Discord alert with the summary (shown in the
-                        Observability section). This gives a delivery health check on every batch —
-                        a spike in exceptions or bounces trips an alert before users notice.
+                        Observability section). This gives a delivery health check on every batch a
+                        spike in exceptions or bounces trips an alert before users notice.
                     </p>
                 </div>
             </div>
@@ -931,7 +931,7 @@ function OwnershipSection() {
         {
             title: "Reliability",
             description:
-                "Simplicity, observability, and dependable delivery first — the queue absorbs spikes, retries with backoff, and every failure mode has a defined recovery path.",
+                "Simplicity, observability, and dependable delivery first the queue absorbs spikes, retries with backoff, and every failure mode has a defined recovery path.",
         },
     ];
 

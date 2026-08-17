@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 
-const pageTitle = "Projects | Samiul Alim — Production Case Studies";
+const pageTitle = "Projects | Samiul Alim Production Case Studies";
 const pageDescription =
     "Production platform services including email delivery, multi-gateway payments, multi-tenant authentication, and education platforms.";
 
