@@ -22,8 +22,9 @@ describe("Navbar", () => {
     it("renders navigation items", () => {
         render(<Navbar />);
         // Items appear in both desktop and mobile nav
-        expect(screen.getAllByText("Case Studies").length).toBe(2);
+        expect(screen.getAllByText("Projects").length).toBe(2);
         expect(screen.getAllByText("Experience").length).toBe(2);
+        expect(screen.getAllByText("Skills").length).toBe(2);
         expect(screen.getAllByText("About").length).toBe(2);
         expect(screen.getAllByText("Contact").length).toBe(2);
     });
@@ -34,8 +35,12 @@ describe("Navbar", () => {
         expect(resumeButtons.length).toBeGreaterThanOrEqual(1);
     });
 
-    it("renders mobile menu toggle", () => {
+    it("renders an accessible mobile menu toggle", () => {
         render(<Navbar />);
-        expect(screen.getByLabelText("Toggle navigation")).toBeInTheDocument();
+        const toggle = screen.getByRole("button", { name: "Open navigation menu" });
+        expect(toggle).toBeInTheDocument();
+        expect(toggle).toHaveAttribute("aria-expanded", "false");
+        expect(toggle).toHaveAttribute("aria-controls");
+        expect(toggle).toHaveAccessibleName("Open navigation menu");
     });
 });

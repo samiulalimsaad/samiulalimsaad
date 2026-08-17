@@ -1,9 +1,9 @@
 const DEFAULT_PROJECT_IMAGE = "/projects/default-project.svg";
 
-const PH_MAILER_IMAGE = "/evidence/ph-mailer-statistics.png";
-const BOOTCAMP_IMAGE = "/evidence/bootcamp-statistics.png";
-const SPEAKSAIL_IMAGE = "/projects/speaksail-com.png";
-const SKILL_MAPPER_IMAGE = "/projects/skill-mapper-programming-hero.png";
+const PH_MAILER_IMAGE = "/evidence/ph-mailer-statistics.webp";
+const BOOTCAMP_IMAGE = "/evidence/bootcamp-statistics.webp";
+const SPEAKSAIL_IMAGE = "/projects/speaksail-com.webp";
+const SKILL_MAPPER_IMAGE = "/projects/skill-mapper-programming-hero.webp";
 
 export const projects = [
     {
@@ -298,7 +298,7 @@ export const projects = [
             "Server-authoritative scoring  client submits raw results, server derives correctness",
             "Multi-provider AI pipeline with validated-retry and offline-first reliability",
         ],
-        image: "/projects/ai-game-platform.png",
+        image: "/projects/ai-game-platform.webp",
         tools: [
             "TypeScript",
             "React",
