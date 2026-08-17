@@ -2,17 +2,13 @@
 
 # Samiul Alim
 
-**Backend & Platform Engineer**
+**Backend-Focused Full-Stack Engineer**
 
-Building and operating production systems end-to-end, from architecture
-and secure APIs to reliable, zero-downtime deployments.
+Building Scalable Web Systems
 
-I work across the full lifecycle of production systems, from architecture and
-implementation to deployment and operations, collaborating across teams to
-deliver reliable, scalable software that creates long-term business value.
-My focus is backend platforms: production APIs, email infrastructure,
-assessment platforms, and recruitment systems designed for maintainability
-and growth.
+Backend-focused software engineer building production platform services for
+authentication, payments, and email delivery. I design shared infrastructure,
+operate it in production, and respond when it breaks.
 
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
@@ -21,150 +17,52 @@ and growth.
 
 ![Profile Views](https://komarev.com/ghpvc/?username=samiulalimsaad&color=blueviolet&style=flat)
 
+Open to remote roles · US / EU timezone-friendly
+
 </div>
 
-## Engineering Highlights
+---
 
-- Own and operate 5 production services end-to-end: PH Mailer (email platform), SkillMapper (assessment platform), Bootcamp (LMS), JobPortal (recruitment platform), and FTP server
-- Full ownership across frontend, backend, infrastructure, and 24/7 monitoring for all services
-- Built and maintained UAT environments and deployment pipelines using Docker and CI/CD with zero-downtime strategies
-- Led architecture of a desktop DRM player (Electron) for protected educational video with hybrid online/offline licensing
-- In development: multi-tenant identity platform (Go, ZITADEL, OIDC/OAuth2) and multi-gateway payment service
+## Highlights
+
+- Own & operate 5 production services: PH Mailer, SkillMapper, Bootcamp, JobPortal, FTP server
+- 197K+ emails/week on PH Mailer (forked Plunk + BullMQ/Redis queue, AWS SES delivery)
+- Multi-tenant auth on ZITADEL with custom Go layer: MFA, device limits, CSP/CSRF, rate limiting
+- Bootcamp LMS: DRM video, bKash payments, QR attendance, ABAC · 13,820+ leads
+- DRM player (Electron) with hybrid online/offline licensing pivot
+- In development: multi-gateway payment service (Go · Stripe/bKash/SSLCommerz)
+- AI Game Platform: 19-engine gamified micro-learning MVP with AI-generated content
 
 ---
 
-## Selected Achievements
+## Selected Work
 
-1. Own and operate 5 production services with 24/7 monitoring, incident response, and cross-team coordination
-2. Built and maintained production email platform (PH Mailer): forked Plunk, custom BullMQ worker + Redis queue, delivery via AWS SES
-3. Architected DRM player (Electron) for protected educational video, pivoting mid-project to hybrid online/offline licensing when upstream Chromium changes broke offline playback
-4. Built UAT environments and deployment pipelines using Docker and CI/CD, implementing versioned releases and zero-downtime rollout strategies
-5. In development: multi-tenant identity platform using Go and ZITADEL with MFA, device limits, and security hardening
-6. In development: multi-gateway payment service in Go supporting bKash, SSLCommerz, and Stripe
+- **PH Mailer** — centralized email platform serving 5 internal teams (production)
+- **Skill Mapper** — technical assessment platform, 5,000+ enrolled students (production)
+- **PH Bootcamp** — full-stack LMS with DRM video, bKash payments, QR attendance (production)
+- **PH Auth Service** — multi-tenant auth, ZITADEL + custom Go product layer
+- **Payment Service** — multi-gateway adapter in Go, OpenAPI-generated contracts (in dev)
+- **SpeakSail** — language-learning marketplace with live tutoring and real-time messaging (live)
+- **AI Game Platform** — 19-engine gamified learning with multi-provider AI content (MVP)
 
----
-
-## Professional Summary
-
-Backend platform engineer owning 5 production services across email, assessment, LMS, recruitment, and file delivery. Building identity systems and payment infrastructure in Go. Production APIs designed for maintainability and growth.
-
----
-
-## Guiding Principles
-
-- **Build for Reliability**: Production systems should be observable, maintainable, and resilient.
-- **Think Beyond Features**: Engineering decisions should support long-term business goals.
-- **Own the Outcome**: Responsibility extends from design through deployment and production operations.
-
----
-
-## Core Expertise
-
-### Platform Engineering
-
-Multi-tenant authentication platforms, OIDC/OAuth2 implementation, MFA enforcement, RBAC systems, and security hardening. Building identity infrastructure that serves multiple products with consistent security policies.
-
-### Backend Engineering
-
-Production APIs in Go and Node.js, payment gateway integrations, email infrastructure, DRM-protected content delivery, and backend services designed for scalability and maintainability.
-
-### Frontend Engineering
-
-React and Next.js applications for production use, Electron desktop applications, and responsive interfaces built with modern UI frameworks. Frontend delivery that complements backend platform work.
-
-### Platform & Infrastructure
-
-Docker containerization and orchestration (Docker Swarm, Coolify), CI/CD pipelines with rolling updates and rollback strategies, UAT environment management, and production operations across multiple environments. Right-sized infrastructure for a small team containerized services on managed hosts rather than heavyweight orchestration.
-
-### Architecture & System Design
-
-Scalable architecture, API-first design, modular system design, clean architecture principles, and systems built for long-term evolution rather than short-term delivery.
-
----
-
-## Technology Stack
-
-### Primary
-
-Go · TypeScript · Node.js · PostgreSQL · MongoDB · Redis · Docker
-
-### Additional Professional Experience
-
-Laravel · Vue.js · Electron · Firebase · MySQL · Express · Fastify · Prisma · Nginx · GitHub Actions · Coolify · Vercel
-
----
-
-## Business Domains
-
-| Domain | Engineering Relevance |
-| --- | --- |
-| **Identity & Access Management** | Multi-tenant authentication, OIDC/OAuth2, MFA, and RBAC across education products |
-| **EdTech** | Learning platforms, course registration, DRM-protected content, bootcamp delivery |
-| **Payment Systems** | Multi-gateway integrations (bKash, SSLCommerz, Stripe, Nagad) for education marketplaces |
-| **Email Infrastructure** | Centralized production email platform enabling reliable cross-team communication |
-| **SaaS Platforms** | Multi-tenant systems requiring scalable architecture and subscription management |
-| **Developer Tooling & Internal Platforms** | APIs, templates, and internal tooling that enable engineering teams to ship faster |
-| **Content Delivery & Digital Learning** | DRM-protected video, instructor marketplaces, and secure content distribution |
-
----
-
-## Engineering Philosophy
-
-1. **Ownership over implementation**: Responsibility extends beyond writing code to understanding how systems behave in production.
-2. **Business-first engineering**: Technical decisions should serve measurable business outcomes, not engineering preferences.
-3. **Simplicity over cleverness**: Systems should be understandable by the next engineer who reads them.
-4. **Reliability is designed, not assumed**: Every deployment should be observable, reversible, and dependable.
-5. **Testing and documentation**: Production systems require both. Documentation is part of the deliverable.
-6. **Developer experience matters**: Good tooling and clear interfaces compound team velocity over time.
-
----
-
-## Current Focus
-
-**Production (5 services):**
-
-- PH Mailer · SkillMapper · Bootcamp · JobPortal · FTP server
-- Docker · CI/CD · 24/7 monitoring · zero-downtime deployments
-
-**In Development:**
-
-- Multi-tenant identity platform (Go, ZITADEL, OIDC/OAuth2, MFA)
-- Multi-gateway payment service (Go, bKash, SSLCommerz, Stripe)
-
----
-
-## Current Engineering Interests
-
-- Backend platform engineering and production operations
-- Identity and authentication systems (OIDC/OAuth2)
-- Payment infrastructure and multi-gateway integrations
-- Deployment automation and platform tooling
-- AI-powered educational products
+Details and case studies → <https://samiulalimsaad.vercel.app/projects>
 
 ---
 
 ## Open Source
 
-### Go Middleware Kit
-
-Zero-dependency Go middleware patterns extracted from real systems: rate limiter, CSP nonce injection, CSRF protection, TOTP MFA (RFC 6238), and payment gateway adapter. Tests, race-detector CI, and documentation included.
-
-[github.com/samiulalimsaad/go-middleware-kit](https://github.com/samiulalimsaad/go-middleware-kit)
+- **Go Middleware Kit** — rate limiter, CSP nonce, CSRF, TOTP MFA, payment gateway adapter in zero-dependency Go → <https://github.com/samiulalimsaad/go-middleware-kit>
+- **Technical Gists** — deep dives on CSP nonce, payment adapter, rate limiter, TOTP MFA → <https://samiulalimsaad.vercel.app/gists>
+- **Code Samples** — Go worker pool, typed state machine, payment adapter, middleware patterns → <https://gist.github.com/samiulalimsaad>
+- **AI Game Platform** — shared `@eduplay/schemas` monorepo, server-authoritative scoring → <https://github.com/samiulalimsaad/hackathon-team-undefined-eduplay>
 
 ---
 
 ## Connect
 
 - [Portfolio](https://samiulalimsaad.vercel.app)
+- [GitHub](https://github.com/samiulalimsaad)
 - [LinkedIn](https://www.linkedin.com/in/samiulalimsaad)
 - [Email](mailto:samiulalimsaad@gmail.com)
-- [Twitter](https://twitter.com/samiulalimsaad)
-- [Codeforces](https://codeforces.com/profile/samiulalimsaad)
 
-Available for remote engineering opportunities worldwide.
-
----
-
-## Hiring Statement
-
-Open to collaborating with remote teams building scalable backend platforms, developer infrastructure, and production systems with long-term business impact.
+Open to mid-level and senior software engineering roles · Remote · US / EU time zones.
