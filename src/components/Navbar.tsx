@@ -6,7 +6,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import ResumeButton from "@/components/ResumeButton";
 
 const navItems = [
-    { href: "/#home", label: "Home" },
+    { href: "/", label: "Home" },
     { href: "/#projects", label: "Projects" },
     { href: "/#experience", label: "Experience" },
     { href: "/#skills", label: "Skills" },
@@ -37,7 +37,7 @@ export default function Navbar() {
                 className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:py-3"
                 aria-label="Primary"
             >
-                <Link href="/#home" className="flex items-center gap-2 rounded-md">
+                <Link href="/" className="flex items-center gap-2 rounded-md">
                     <Image
                         src="/avatars/samiul-alim.webp"
                         alt="Samiul Alim"
