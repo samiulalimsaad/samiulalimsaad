@@ -11,7 +11,7 @@ const experiences = [
         dateTo: "Present",
         description: [
             "Own and operate 5 production services end-to-end: PH Mailer (email platform), SkillMapper (assessment platform), Bootcamp (LMS), JobPortal (recruitment platform), and FTP server. Full ownership across frontend, backend, and infrastructure.",
-            "JobPortal (recruitment platform) and FTP server (file delivery): maintained and operated in production through the same Docker + CI/CD pipeline as the other services. [REVIEW: replace with specific scope + one metric]",
+            "JobPortal (recruitment platform) and FTP file-delivery server: maintained and operated in production alongside the other services — release coordination, incident response, and deployment through the same Docker + CI/CD pipeline.",
             "Build and maintain UAT environments and deployment pipelines using Docker and CI/CD. Maintain 24/7 monitoring and alerting across all services.",
             "Led architecture of a desktop DRM player (Electron) for protected educational video. Mid-project pivot when upstream Chromium changes broke offline playback. Redesigned to a hybrid online/offline license strategy.",
             "Contributed to a multi-tenant auth platform on ZITADEL: custom Go product layer for SSR UI, security controls (MFA, device limits, rate limiting, CSP/CSRF), and integration logic. Coordinated two mid-level engineers.",
@@ -26,9 +26,9 @@ const experiences = [
         dateFrom: "Feb 2023",
         dateTo: "Aug 2024",
         description: [
-            "Mentored junior developers through live sessions and guided projects covering React, JavaScript, and modern frontend practices.",
-            "Reviewed learner code, broke down project requirements into implementable steps, and provided feedback on architecture and code quality.",
-            "This experience strengthened my ability to explain complex systems, review code critically, and communicate technical decisions clearly.",
+            "Reviewed code and architecture for junior engineers working on real React/JavaScript projects — security, state management, error handling, and performance under review.",
+            "Translated product requirements into implementable technical breakdowns and gave structured, actionable feedback on code quality and architecture.",
+            "Coordinated with learners across different time zones, strengthening written technical communication.",
         ],
     },
     {
@@ -55,6 +55,18 @@ const experiences = [
             "Built full-stack features with PHP, Symfony, Laravel, and Vue.js. Admin panels using Sonata Admin and Easy Admin. Cross-platform mobile apps with Ionic (Vue) and Flutter. Fixed bugs, implemented new modules, and shipped code in a production environment.",
         ],
     },
+    {
+        designation: "Software Engineering Intern",
+        company: "Openfabric (Transylvania Lab)",
+        location: "Romania",
+        jobMode: "Remote",
+        dateFrom: "Jul 2021",
+        dateTo: "Jan 2022",
+        description: [
+            "R&D work on AI model optimization and deployment: built machine learning models, preprocessed datasets, and improved model performance and scalability across multiple projects.",
+            "Collaborated with a distributed team to optimize algorithms, implement new features, and deliver research-backed improvements to production pipelines.",
+        ],
+    },
 ];
 
 function formatDuration(from: string, to: string) {
@@ -75,7 +87,7 @@ export default function Experience() {
                     </span>
                 </h2>
                 <p className="mx-auto mb-8 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Industry experience since Feb 2022 · Platform engineering since Aug 2024 ·
+                    Industry experience since Jul 2021 · Platform engineering since Aug 2024 ·
                     Remote · Bangladesh
                 </p>
 

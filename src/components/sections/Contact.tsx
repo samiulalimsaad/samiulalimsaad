@@ -11,12 +11,6 @@ const primaryLinks = [
     { Icon: Github, href: "https://github.com/samiulalimsaad", label: "github.com/samiulalimsaad" },
 ];
 
-const otherLinks = [
-    { label: "Facebook", href: "https://facebook.com/samiulalimsaad" },
-    { label: "Discord", href: "https://discord.com/users/938388181202653224" },
-    { label: "Messenger", href: "https://m.me/samiulalimsaad" },
-];
-
 const Contact = () => {
     return (
         <section
@@ -31,8 +25,15 @@ const Contact = () => {
                                 Contact Me
                             </span>
                         </h2>
+                        <div className="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-4 mb-4">
+                            <p className="text-sm text-foreground/80 leading-relaxed">
+                                Open to mid-level and senior software engineering roles. Remote ·
+                                comfortable collaborating across US and European time zones.
+                            </p>
+                        </div>
                         <p className="text-base sm:text-lg text-zinc-700 mb-4 leading-relaxed">
-                            Let&apos;s connect. You can reach me through email, LinkedIn, or GitHub.
+                            Let&apos;s talk about how I can help your engineering team build
+                            reliable systems.
                         </p>
                         <div className="space-y-3 text-zinc-700">
                             {primaryLinks.map(({ Icon, href, label }) => (
@@ -50,29 +51,6 @@ const Contact = () => {
                                     </a>
                                 </p>
                             ))}
-
-                            <details open className="group mt-4">
-                                <summary className="flex cursor-pointer items-center gap-1 text-xs font-medium text-foreground/50 hover:text-foreground/70 [&::-webkit-details-marker]:hidden">
-                                    <span className="transition group-open:rotate-90 inline-block mr-1">
-                                        ›
-                                    </span>
-                                    More platforms
-                                </summary>
-                                <div className="mt-2 space-y-2 pl-1">
-                                    {otherLinks.map(({ label, href }) => (
-                                        <p key={href} className="flex items-center">
-                                            <a
-                                                href={href}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="text-sm text-foreground/60 hover:text-sky-600"
-                                            >
-                                                {label}
-                                            </a>
-                                        </p>
-                                    ))}
-                                </div>
-                            </details>
                         </div>
                     </div>
                 </div>

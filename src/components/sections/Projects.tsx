@@ -3,7 +3,7 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 
 export default function Projects() {
-    const featured = projects.filter((p) => p.tier === "featured").slice(0, 6);
+    const featured = projects.filter((p) => p.tier === "featured").slice(0, 3);
 
     return (
         <section

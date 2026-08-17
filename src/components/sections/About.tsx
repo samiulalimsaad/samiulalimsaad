@@ -7,7 +7,7 @@ export default function About() {
             <div className="mx-auto w-full max-w-6xl rounded-3xl border border-gray-200 bg-white/80 p-6 sm:p-8 backdrop-blur-sm animate-soft-in">
                 <h2 className="text-center md:text-left text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">
                     <span className="bg-linear-to-r from-indigo-600 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
-                        About
+                        How I Work
                     </span>
                 </h2>
 
@@ -16,7 +16,7 @@ export default function About() {
                         <p>
                             I build platform services that other engineering teams depend on. My
                             work lives at the intersection of backend systems, security, and
-                            operational reliability. The parts of software that users never see but
+                            operational reliability — the parts of software that users never see but
                             always notice when they break.
                         </p>
                         <p>
@@ -31,28 +31,31 @@ export default function About() {
                         <p>
                             I build shared services that multiple teams consume: email, payments,
                             authentication — because shared infrastructure that only works for one
-                            team isn't infrastructure. Every case study on this site explains why I
-                            made each decision, not just what I built. I document trade-offs,
-                            failure modes, and what I'd do differently.
+                            team isn&apos;t infrastructure. My center of gravity is backend and
+                            platform work in Go and TypeScript, with production posture: every
+                            system gets structured logging, health checks, and alerting from day
+                            one. Security and tenancy are decided early, not bolted on. Every case
+                            study on this site explains the trade-offs I accepted and what I&apos;d
+                            do differently.
                         </p>
                         <p>
-                            I&apos;m comfortable full-stack when the product needs it, but my center
-                            of gravity is backend and platform work. I&apos;m open to remote roles
-                            and work well with US and European time zones.
+                            I take features from requirements through architecture, implementation,
+                            testing, deployment, and monitoring. I&apos;m comfortable full-stack
+                            when the product needs it, and I work well with US and European time
+                            zones. Currently open to mid-level and senior software engineering
+                            roles, remote-first.
                         </p>
                     </div>
 
                     <aside className="rounded-3xl border border-white/70 bg-white/80 p-5 sm:p-6 shadow-sm backdrop-blur-sm animate-card-in">
                         <div className="mb-4">
                             <p className="text-xs font-semibold uppercase tracking-wide text-cyan-700">
-                                Principles
+                                Operating principles
                             </p>
                         </div>
                         <div className="grid gap-3">
                             {[
                                 "Prefer boring, operable designs over clever ones",
-                                "Security and tenancy decided early, not bolted on",
-                                "Teach and document so systems aren't stuck in one person's head",
                                 "Own what I touch: maintenance is engineering, not overhead",
                             ].map((principle) => (
                                 <div

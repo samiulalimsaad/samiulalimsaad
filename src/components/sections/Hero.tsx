@@ -1,7 +1,6 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import ResumeButton from "@/components/ResumeButton";
-import { getExperienceYears, getProductionYears } from "@/lib/utils";
 
 const socials = [
     {
@@ -22,34 +21,33 @@ const socials = [
 ];
 
 export default function Hero() {
-    const industryYears = getExperienceYears();
-    const productionYears = getProductionYears();
-
     return (
         <section className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4 animate-section-in">
-            <div className="absolute inset-x-0 top-20 -z-10 flex justify-center">
-                <div className="h-64 w-64 rounded-full bg-cyan-200/30 blur-3xl animate-soft-in" />
-            </div>
             <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:text-left">
                 <div className="flex-1 flex flex-col items-center md:items-start gap-5 animate-soft-in">
+                    <p className="inline-flex items-center gap-2 rounded-full border border-cyan-100 bg-white/80 px-3 py-1 text-xs font-medium text-cyan-700">
+                        Samiul Alim · Software Engineer
+                    </p>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
                         <span className="bg-linear-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
-                            Samiul Alim
+                            I own production systems
                         </span>
+                        <br />
+                        <span className="text-foreground">other engineering teams depend on.</span>
                     </h1>
                     <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
-                        I build and maintain production platform services that multiple engineering
-                        teams depend on: centralized email delivery, multi-gateway payments, and
-                        multi-tenant authentication. I care about systems that stay reliable at 2
+                        Backend-focused software engineer building production platform services —
+                        authentication, payments, and email delivery. I design shared
+                        infrastructure, operate it in production, and respond when it breaks at 2
                         AM.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a
                             href="#projects"
-                            aria-label="View my work"
+                            aria-label="View case studies"
                             className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white transition"
                         >
-                            View Work
+                            View Case Studies
                         </a>
                         <ResumeButton />
                     </div>
@@ -60,11 +58,11 @@ export default function Hero() {
                         </div>
                         <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
                             <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                            {industryYears}+ years engineering · {productionYears}+ years production
+                            US / EU timezone-friendly
                         </div>
                         <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
                             <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
-                            Bangladesh · US/EU-friendly hours
+                            Go · TypeScript · PostgreSQL
                         </div>
                     </div>
                     <div className="mt-4 flex items-center gap-3">
@@ -83,10 +81,9 @@ export default function Hero() {
                     </div>
                 </div>
                 <div className="flex-1 flex justify-center md:justify-end">
-                    <div className="relative animate-float-slow">
-                        <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-cyan-300 via-indigo-300 to-sky-200 opacity-70 blur-md" />
-                        <div className="relative rounded-3xl bg-white/80 p-5 backdrop-blur animate-soft-in">
-                            <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-full border-4 border-white sm:h-72 sm:w-72">
+                    <div className="relative">
+                        <div className="relative rounded-3xl bg-white/80 p-4 backdrop-blur animate-soft-in">
+                            <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-2xl border-4 border-white sm:h-64 sm:w-64">
                                 <Image
                                     src="/avatars/samiul-alim.png"
                                     width={300}
