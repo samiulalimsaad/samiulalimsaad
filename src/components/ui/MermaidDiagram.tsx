@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type MermaidDiagramProps = {
     chart: string;
@@ -9,8 +9,32 @@ type MermaidDiagramProps = {
 
 export default function MermaidDiagram({ chart, caption }: MermaidDiagramProps) {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [render, setRender] = useState(false);
 
     useEffect(() => {
+        const node = containerRef.current;
+        if (!node) return;
+
+        if (typeof IntersectionObserver === "undefined") {
+            setRender(true);
+            return;
+        }
+
+        const io = new IntersectionObserver(
+            (entries) => {
+                if (entries.some((e) => e.isIntersecting)) {
+                    setRender(true);
+                    io.disconnect();
+                }
+            },
+            { rootMargin: "300px" },
+        );
+        io.observe(node);
+        return () => io.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!render) return;
         let mounted = true;
         (async () => {
             const { default: mermaid } = await import("mermaid");
@@ -29,15 +53,16 @@ export default function MermaidDiagram({ chart, caption }: MermaidDiagramProps) 
         return () => {
             mounted = false;
         };
-    }, [chart]);
+    }, [chart, render]);
 
     return (
         <div className="my-6">
             <div
                 ref={containerRef}
-                className="flex justify-center rounded-2xl border border-gray-100 bg-white/60 p-6 backdrop-blur-sm overflow-x-auto"
+                aria-hidden="true"
+                className="flex min-h-32 justify-center rounded-2xl border border-gray-100 bg-white/60 p-6 backdrop-blur-sm overflow-x-auto"
             />
-            {caption && <p className="mt-2 text-center text-xs text-foreground/50">{caption}</p>}
+            {caption && <p className="mt-2 text-center text-xs text-gray-500">{caption}</p>}
         </div>
     );
 }

@@ -22,9 +22,12 @@ const socials = [
 
 export default function Hero() {
     return (
-        <section className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4 animate-section-in">
+        <section
+            id="home"
+            className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4 scroll-mt-16"
+        >
             <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:text-left">
-                <div className="flex-1 flex flex-col items-center md:items-start gap-5 animate-soft-in">
+                <div className="flex-1 flex flex-col items-center md:items-start gap-5">
                     <p className="inline-flex items-center gap-2 rounded-full border border-cyan-100 bg-white/80 px-3 py-1 text-xs font-medium text-cyan-700">
                         Samiul Alim · Software Engineer
                     </p>
@@ -82,10 +85,10 @@ export default function Hero() {
                 </div>
                 <div className="flex-1 flex justify-center md:justify-end">
                     <div className="relative">
-                        <div className="relative rounded-3xl bg-white/80 p-4 backdrop-blur animate-soft-in">
+                        <div className="relative rounded-3xl bg-white/80 p-4 backdrop-blur">
                             <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-2xl border-4 border-white sm:h-64 sm:w-64">
                                 <Image
-                                    src="/avatars/samiul-alim.png"
+                                    src="/avatars/samiul-alim.webp"
                                     width={300}
                                     height={300}
                                     alt="Samiul Alim"

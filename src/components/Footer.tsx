@@ -20,7 +20,7 @@ const Footer = () => {
                     <div>
                         <div className="flex items-center gap-2 text-sm font-semibold tracking-wide text-zinc-700 uppercase">
                             <Image
-                                src="/avatars/samiul-alim.png"
+                                src="/avatars/samiul-alim.webp"
                                 alt="Samiul Alim"
                                 width={32}
                                 height={32}
