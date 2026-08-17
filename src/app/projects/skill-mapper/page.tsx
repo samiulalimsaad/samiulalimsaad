@@ -24,9 +24,9 @@ export const metadata: Metadata = {
         siteName: "Samiul Alim",
         images: [
             {
-                url: "/projects/skill-mapper-programming-hero.webp",
-                width: 720,
-                height: 342,
+                url: "/projects/skill-mapper-programming-hero.png",
+                width: 1920,
+                height: 911,
                 alt: "Skill Mapper assessment platform interface",
             },
         ],
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: pageTitle,
         description: pageDescription,
-        images: ["/projects/skill-mapper-programming-hero.webp"],
+        images: ["/projects/skill-mapper-programming-hero.png"],
     },
 };
 

@@ -36,9 +36,9 @@ export const metadata: Metadata = {
         siteName: "Samiul Alim",
         images: [
             {
-                url: "/evidence/bootcamp-statistics.webp",
-                width: 1200,
-                height: 630,
+                url: "/evidence/bootcamp-statistics.png",
+                width: 1541,
+                height: 537,
                 alt: "Bootcamp platform statistics dashboard",
             },
         ],
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: pageTitle,
         description: pageDescription,
-        images: ["/evidence/bootcamp-statistics.webp"],
+        images: ["/evidence/bootcamp-statistics.png"],
     },
 };
 
@@ -762,9 +762,11 @@ function ObservabilitySection() {
                     />
                 </div>
                 <EvidenceImage
-                    src="/evidence/monitoring-alert.webp"
+                    src="/evidence/monitoring-alert.png"
                     alt="Discord monitoring alert showing service downtime detection"
                     caption="Real-time monitoring: Uptime Kuma Discord integration for service health alerts"
+                    width={468}
+                    height={388}
                 />
             </div>
         </section>
@@ -898,14 +900,18 @@ function EvidenceSection() {
             <div className="mx-auto w-full max-w-4xl">
                 <h2 className="text-2xl font-bold text-foreground mb-8">Evidence</h2>
                 <EvidenceImage
-                    src="/evidence/bootcamp-statistics.webp"
+                    src="/evidence/bootcamp-statistics.png"
                     alt="Bootcamp admin dashboard showing 13,820 total leads filtered by bootcamp-course category"
                     caption="Admin dashboard: 13,820 total leads captured across multiple courses with lead-per-day trend visualization"
+                    width={1541}
+                    height={537}
                 />
                 <EvidenceImage
-                    src="/evidence/bootcamp-active-users.webp"
+                    src="/evidence/bootcamp-active-users.png"
                     alt="Bootcamp admin dashboard showing 898 active users with session data"
                     caption="Active users panel: 898 active users with session tracking and unique-users-per-day chart (263 days of data)"
+                    width={501}
+                    height={202}
                 />
             </div>
         </section>

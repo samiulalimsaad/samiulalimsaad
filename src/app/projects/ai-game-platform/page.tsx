@@ -34,9 +34,9 @@ export const metadata: Metadata = {
         siteName: "Samiul Alim",
         images: [
             {
-                url: "/projects/ai-game-platform.webp",
-                width: 720,
-                height: 342,
+                url: "/projects/ai-game-platform.png",
+                width: 1920,
+                height: 911,
                 alt: "AI Game Platform educational games interface",
             },
         ],
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: pageTitle,
         description: pageDescription,
-        images: ["/projects/ai-game-platform.webp"],
+        images: ["/projects/ai-game-platform.png"],
     },
 };
 

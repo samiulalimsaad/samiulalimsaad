@@ -38,9 +38,9 @@ export const metadata: Metadata = {
         siteName: "Samiul Alim",
         images: [
             {
-                url: "/evidence/ph-mailer-statistics.webp",
-                width: 1200,
-                height: 630,
+                url: "/evidence/ph-mailer-statistics.png",
+                width: 1289,
+                height: 406,
                 alt: "PH Mailer delivery dashboard showing email metrics",
             },
         ],
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: pageTitle,
         description: pageDescription,
-        images: ["/evidence/ph-mailer-statistics.webp"],
+        images: ["/evidence/ph-mailer-statistics.png"],
     },
 };
 
@@ -158,9 +158,11 @@ function ExecutiveSummary() {
                     through a queue-based architecture with real-time delivery tracking.
                 </p>
                 <EvidenceImage
-                    src="/evidence/ph-mailer-statistics.webp"
+                    src="/evidence/ph-mailer-statistics.png"
                     alt="PH Mailer Plunk dashboard showing 15,496 contacts, 197K+ emails sent, 44.7% open rate"
                     caption="Plunk dashboard: real-time email delivery metrics across product teams (15,496 contacts, 197,294 emails sent, 44.7% open rate)"
+                    width={1289}
+                    height={406}
                 />
             </div>
         </section>
@@ -824,9 +826,11 @@ function ObservabilitySection() {
                     />
                 </div>
                 <EvidenceImage
-                    src="/evidence/monitoring-alert.webp"
+                    src="/evidence/monitoring-alert.png"
                     alt="Discord monitoring alert showing 48,978 items processed with delivery metrics"
                     caption="Real-time monitoring alert: Uptime Kuma Discord integration showing 48,978 items processed, 48,965 sent, 112 exceptions, 26 bounced (5m 35s batch runtime)"
+                    width={468}
+                    height={388}
                 />
             </div>
         </section>

@@ -96,10 +96,10 @@ function ProjectCard({ project }: { project: Project }) {
                 <Image
                     src={project.image}
                     alt={project.name}
-                    width={360}
-                    height={216}
+                    width={project.imageWidth}
+                    height={project.imageHeight}
                     loading="lazy"
-                    className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="h-auto w-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
             </div>
             <div className="flex flex-1 flex-col p-6">
@@ -195,10 +195,10 @@ function PastWorkCard({ project }: { project: Project }) {
                 <Image
                     src={project.image}
                     alt={project.name}
-                    width={360}
-                    height={216}
+                    width={project.imageWidth}
+                    height={project.imageHeight}
                     loading="lazy"
-                    className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="h-auto w-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
             </div>
             <div className="flex flex-1 flex-col p-4">

@@ -34,9 +34,9 @@ export const metadata: Metadata = {
         siteName: "Samiul Alim",
         images: [
             {
-                url: "/projects/speaksail-com.webp",
-                width: 720,
-                height: 342,
+                url: "/projects/speaksail-com.png",
+                width: 1920,
+                height: 911,
                 alt: "SpeakSail language learning marketplace homepage",
             },
         ],
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: pageTitle,
         description: pageDescription,
-        images: ["/projects/speaksail-com.webp"],
+        images: ["/projects/speaksail-com.png"],
     },
 };
 
