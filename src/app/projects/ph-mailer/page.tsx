@@ -29,6 +29,7 @@ export default function PHMailerCaseStudy() {
         <>
             <HeroSection />
             <ExecutiveSummary />
+            <OwnershipSection />
             <ArchitectureDiagram />
             <KeyFeatures />
             <TechnicalDecisions />
@@ -426,7 +427,17 @@ function MetricsSection() {
                     <MetricCard label="Emails Sent (7-day)" value="197,294" />
                     <MetricCard label="Open Rate" value="44.7%" />
                     <MetricCard label="Click Rate" value="8.5%" />
-                    <MetricCard label="Status" value="Production" />
+                    <MetricCard label="Send Cost vs Mailgun" value="~50–60% less" />
+                </div>
+                <div className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5">
+                    <h3 className="text-sm font-semibold text-emerald-800 mb-1">
+                        Business impact: delivery cost reduction
+                    </h3>
+                    <p className="text-xs text-foreground/70 leading-relaxed">
+                        Moving transactional, campaign, and workflow email off Mailgun and onto PH
+                        Mailer cut email-sending cost by roughly 50–60% at comparable delivery
+                        performance. Exact figures are confidential to the organization.
+                    </p>
                 </div>
             </div>
         </section>
@@ -856,6 +867,54 @@ function TestingCard({
                 </div>
             </div>
         </div>
+    );
+}
+
+function OwnershipSection() {
+    const ownership = [
+        {
+            title: "Production maintenance",
+            description:
+                "Run the platform for 5+ product teams: monitoring, delivery health, incident response, and release coordination across services.",
+        },
+        {
+            title: "Feature development",
+            description:
+                "Extend the Plunk fork with custom capabilities: BullMQ worker, rate limiting, bounce/complaint processing, and delivery failure handling.",
+        },
+        {
+            title: "Cross-team coordination",
+            description:
+                "Own template management and delivery changes that touch multiple product teams with independent release schedules. Handle upstream sync of the fork.",
+        },
+        {
+            title: "Reliability",
+            description:
+                "Simplicity, observability, and dependable delivery first — the queue absorbs spikes, retries with backoff, and every failure mode has a defined recovery path.",
+        },
+    ];
+
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Own</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {ownership.map((o) => (
+                        <div
+                            key={o.title}
+                            className="rounded-2xl border border-gray-100 bg-white/60 p-5 hover:border-indigo-100 hover:bg-indigo-50/30 transition"
+                        >
+                            <h3 className="text-sm font-semibold text-foreground mb-1">
+                                {o.title}
+                            </h3>
+                            <p className="text-xs text-foreground/60 leading-relaxed">
+                                {o.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 }
 

@@ -27,6 +27,7 @@ export default function PHBootcampCaseStudy() {
         <>
             <HeroSection />
             <ExecutiveSummary />
+            <OwnershipSection />
             <ArchitectureDiagram />
             <KeyFeatures />
             <TechnicalDecisions />
@@ -869,6 +870,54 @@ function EvidenceSection() {
                     alt="Bootcamp admin dashboard showing 898 active users with session data"
                     caption="Active users panel: 898 active users with session tracking and unique-users-per-day chart (263 days of data)"
                 />
+            </div>
+        </section>
+    );
+}
+
+function OwnershipSection() {
+    const ownership = [
+        {
+            title: "Backend ownership",
+            description:
+                "Designed and built the Express + TypeScript API: ABAC authorization, bKash tokenized checkout with idempotency, DRM video delivery, QR attendance, and the audit log.",
+        },
+        {
+            title: "Full-stack delivery",
+            description:
+                "Built the React 19 frontend with a strict Service → Hook → Component architecture, plus the 50-test MSW-based frontend suite.",
+        },
+        {
+            title: "Testing & reliability",
+            description:
+                "Owned the 85-test suite and production monitoring: rate limiting abuse control, cache-adaptor design, non-blocking audit writes, and failure-mode planning.",
+        },
+        {
+            title: "Operations",
+            description:
+                "Deployment and runtime maintenance through a versioned CI/CD pipeline, with 24/7 alerting on service health and payment failures.",
+        },
+    ];
+
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Own</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {ownership.map((o) => (
+                        <div
+                            key={o.title}
+                            className="rounded-2xl border border-gray-100 bg-white/60 p-5 hover:border-indigo-100 hover:bg-indigo-50/30 transition"
+                        >
+                            <h3 className="text-sm font-semibold text-foreground mb-1">
+                                {o.title}
+                            </h3>
+                            <p className="text-xs text-foreground/60 leading-relaxed">
+                                {o.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );

@@ -28,6 +28,7 @@ export default function AuthServiceCaseStudy() {
         <>
             <HeroSection />
             <ExecutiveSummary />
+            <OwnershipSection />
             <ArchitectureDiagram />
             <KeyFeatures />
             <TechnicalDecisions />
@@ -903,6 +904,54 @@ function RelatedPatterns() {
                                     </Link>
                                 </div>
                             </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function OwnershipSection() {
+    const ownership = [
+        {
+            title: "Go product layer",
+            description:
+                "Owned design and implementation of the custom Go layer on top of ZITADEL: SSR UI, per-tenant configuration, and integration logic the OIDC interface doesn't expose.",
+        },
+        {
+            title: "Security hardening",
+            description:
+                "Designed the security controls not available through standard OIDC: MFA enrollment flows, per-user device limits, CSP nonce injection, rate limiting, ReCAPTCHA, and CSRF protection.",
+        },
+        {
+            title: "Team coordination",
+            description:
+                "Coordinated implementation and reviewed the work of two mid-level engineers. Made collaborative architecture decisions under senior engineer authority.",
+        },
+        {
+            title: "Tenancy & isolation",
+            description:
+                "Chose the tenant-scoped repository pattern with composite unique constraints so cross-tenant data leaks are impossible at the database level, not just the application level.",
+        },
+    ];
+
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Own</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {ownership.map((o) => (
+                        <div
+                            key={o.title}
+                            className="rounded-2xl border border-gray-100 bg-white/60 p-5 hover:border-indigo-100 hover:bg-indigo-50/30 transition"
+                        >
+                            <h3 className="text-sm font-semibold text-foreground mb-1">
+                                {o.title}
+                            </h3>
+                            <p className="text-xs text-foreground/60 leading-relaxed">
+                                {o.description}
+                            </p>
                         </div>
                     ))}
                 </div>

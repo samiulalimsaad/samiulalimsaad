@@ -1,7 +1,6 @@
 import {
     Bug,
     CreditCard,
-    Database,
     Globe,
     HardDrive,
     MessageSquare,
@@ -107,29 +106,38 @@ function ExecutiveSummary() {
             <div className="mx-auto w-full max-w-4xl">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <SummaryCard
-                        icon={<Database className="w-5 h-5" />}
-                        value="27"
-                        label="Mongoose models"
-                    />
-                    <SummaryCard
-                        icon={<Server className="w-5 h-5" />}
-                        value="90+"
-                        label="API routes"
-                    />
-                    <SummaryCard
                         icon={<Globe className="w-5 h-5" />}
-                        value="7 roles, 2 langs"
-                        label="RBAC & i18n (EN/TR)"
+                        value="Production"
+                        label="Live marketplace, multiple countries"
+                    />
+                    <SummaryCard
+                        icon={<HardDrive className="w-5 h-5" />}
+                        value="Steady growth"
+                        label="User base & revenue trended up"
+                    />
+                    <SummaryCard
+                        icon={<CreditCard className="w-5 h-5" />}
+                        value="Payments"
+                        label="Multi-currency, multi-gateway"
                     />
                 </div>
-                <p className="text-base text-foreground/80 leading-relaxed">
-                    A full-stack language-learning marketplace serving real students with
-                    instructor-led live lessons, Socket.IO real-time messaging, and multi-gateway
-                    payment processing. Built as a Next.js 14 monolith with 90+ API routes, 27
-                    Mongoose models, and Firebase integration for auth, push notifications, and
-                    analytics. Now evolving into SpeakSail. A complete rewrite using Laravel 11 +
-                    TanStack Start (React 19) with AI-powered chat.
+                <p className="text-base text-foreground/80 leading-relaxed mb-4">
+                    A full-stack language-learning marketplace connecting students with instructors
+                    for live video lessons, real-time messaging, and multi-currency payments. Built
+                    as a Next.js 14 monolith evolving into SpeakSail — a Laravel 11 + TanStack Start
+                    (React 19) architecture with AI-powered chat.
                 </p>
+                <div className="rounded-2xl border border-indigo-100 bg-indigo-50/50 p-5">
+                    <h3 className="text-sm font-semibold text-foreground mb-1">Business context</h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed">
+                        User counts, revenue, and transaction volumes are confidential to the
+                        client. What I can share: the platform served real students and paying
+                        instructors across multiple countries, and user adoption and revenue grew
+                        steadily over the engagement. Active development is currently paused due to
+                        client-side budget and time constraints — not product failure — and may
+                        resume if conditions allow.
+                    </p>
+                </div>
             </div>
         </section>
     );
@@ -394,7 +402,11 @@ function MetricsSection() {
     return (
         <section className="w-full bg-white py-16 px-4">
             <div className="mx-auto w-full max-w-4xl">
-                <h2 className="text-2xl font-bold text-foreground mb-8">Metrics</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-2">Scope & Technical Depth</h2>
+                <p className="text-sm text-foreground/70 leading-relaxed mb-8">
+                    Revenue and user-count figures are confidential, so the numbers below reflect
+                    engineering scope rather than business metrics.
+                </p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <MetricCard label="Database Models" value="27" />
                     <MetricCard label="API Routes" value="90+" />
@@ -558,9 +570,9 @@ function EvolutionStory() {
                     />
                     <EvolutionCard
                         version="SpeakSail"
-                        status="Future direction"
-                        statusColor="indigo"
-                        description="Complete platform rebuild: Laravel 11 backend with Filament admin panel + TanStack Start (React 19) frontend. AI-powered chat via Anthropic SDK. Proper API/SPA separation."
+                        status="Paused (client-side)"
+                        statusColor="amber"
+                        description="Complete platform rebuild: Laravel 11 backend with Filament admin panel + TanStack Start (React 19) frontend. AI-powered chat via Anthropic SDK. Proper API/SPA separation. On hold while client budget and priorities allow resumption."
                         tech={[
                             "Laravel 11",
                             "Filament",
@@ -681,7 +693,7 @@ function ReferencesSection() {
                 </h2>
                 <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6 backdrop-blur-sm">
                     <p className="text-sm text-foreground/70 mb-4">
-                        This is a production system serving real students and paying customers.
+                        This is a production system that served real students and paying customers.
                         Additional context:
                     </p>
                     <ul className="space-y-2 text-sm text-foreground/70">
@@ -707,8 +719,8 @@ function ReferencesSection() {
                         </li>
                         <li className="flex items-start gap-2">
                             <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
-                            No automated tests: known weakness, addressed in the next rewrite
-                            (SpeakSail)
+                            Active work on hold due to client-side budget and time constraints; not
+                            product failure
                         </li>
                     </ul>
                 </div>
