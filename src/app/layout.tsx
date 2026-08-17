@@ -1,29 +1,25 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { Fira_Code, Inter } from "next/font/google";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ScrollToTop from "@/components/ScrollToTop";
 import Visitor from "@/components/Visitor";
 
 const firaCode = Fira_Code({
     subsets: ["latin"],
+    weight: ["400"],
     variable: "--font-fira-code",
 });
 
 const inter = Inter({
     subsets: ["latin"],
+    weight: "variable",
     variable: "--font-inter",
 });
 
 import "./globals.css";
-
-const Footer = dynamic(() => import("@/components/Footer"), {
-    ssr: true,
-});
-const ScrollToTop = dynamic(() => import("@/components/ScrollToTop"), {
-    ssr: true,
-});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const siteTitle = "Samiul Alim | Software Engineer (Backend Focus)";
@@ -32,8 +28,14 @@ const siteDescription =
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
-    title: siteTitle,
+    title: {
+        default: siteTitle,
+        template: `%s`,
+    },
     description: siteDescription,
+    alternates: {
+        canonical: "/",
+    },
     openGraph: {
         title: siteTitle,
         description: siteDescription,
@@ -41,10 +43,10 @@ export const metadata: Metadata = {
         siteName: "Samiul Alim",
         images: [
             {
-                url: "/avatars/samiul-alim.png",
+                url: "/avatars/samiul-alim-og.png",
                 width: 600,
                 height: 600,
-                alt: "Portrait of Samiul Alim",
+                alt: "Portrait of Samiul Alim, backend-focused full-stack software engineer",
             },
         ],
         type: "website",
@@ -55,8 +57,8 @@ export const metadata: Metadata = {
         description: siteDescription,
         images: [
             {
-                url: "/avatars/samiul-alim.png",
-                alt: "Portrait of Samiul Alim",
+                url: "/avatars/samiul-alim-og.png",
+                alt: "Portrait of Samiul Alim, backend-focused full-stack software engineer",
             },
         ],
     },
@@ -66,10 +68,13 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Samiul Alim",
-    jobTitle: "Software Engineer",
+    jobTitle: "Backend-Focused Full-Stack Software Engineer",
+    description:
+        "Software engineer specializing in production backend systems, APIs, authentication, payments, and email delivery. Go, TypeScript, PostgreSQL.",
     url: siteUrl,
     sameAs: ["https://github.com/samiulalimsaad", "https://linkedin.com/in/samiulalimsaad"],
     email: "samiulalimsaad@gmail.com",
+    knowsAbout: ["Go", "Node.js", "TypeScript", "PostgreSQL", "Redis", "System Design"],
 };
 
 export default function RootLayout({

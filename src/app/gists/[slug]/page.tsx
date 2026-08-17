@@ -6,7 +6,10 @@ import ReactMarkdown from "react-markdown";
 import rehypePrism from "rehype-prism-plus";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import { getAllGistSlugs, getGistBySlug } from "@/lib/gists";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
 
 export async function generateStaticParams() {
     return getAllGistSlugs().map((slug) => ({ slug }));
@@ -16,9 +19,37 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const { slug } = await params;
     const gist = getGistBySlug(slug);
     if (!gist) return { title: "Not Found" };
+
+    const title = `${gist.meta.title} | Technical Gists`;
+    const description = gist.meta.description;
+
     return {
-        title: `${gist.meta.title} | Technical Gists`,
-        description: gist.meta.description,
+        title,
+        description,
+        alternates: {
+            canonical: `/gists/${slug}`,
+        },
+        openGraph: {
+            title,
+            description,
+            url: `/gists/${slug}`,
+            siteName: "Samiul Alim",
+            images: [
+                {
+                    url: "/avatars/samiul-alim-og.png",
+                    width: 600,
+                    height: 600,
+                    alt: "Samiul Alim, backend-focused full-stack software engineer",
+                },
+            ],
+            type: "article",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: ["/avatars/samiul-alim-og.png"],
+        },
     };
 }
 
@@ -31,6 +62,13 @@ export default async function GistPage({ params }: { params: Promise<{ slug: str
 
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4 animate-section-in">
+            <BreadcrumbsJsonLd
+                items={[
+                    { name: "Home", href: siteUrl },
+                    { name: "Technical Gists", href: `${siteUrl}/gists` },
+                    { name: meta.title, href: `${siteUrl}/gists/${slug}` },
+                ]}
+            />
             <div className="mx-auto w-full max-w-4xl animate-soft-in">
                 <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-foreground/60">
                     <Link

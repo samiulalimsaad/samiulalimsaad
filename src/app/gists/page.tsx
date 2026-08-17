@@ -1,5 +1,42 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import { getAllGistMeta } from "@/lib/gists";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+
+const pageTitle = "Technical Gists | Samiul Alim — Go & TypeScript Patterns";
+const pageDescription =
+    "Deep-dive code patterns and architectures: CSP/CORS middleware, payment gateway adapters, rate limiters, and TOTP MFA services in Go and TypeScript.";
+
+export const metadata: Metadata = {
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+        canonical: "/gists",
+    },
+    openGraph: {
+        title: pageTitle,
+        description: pageDescription,
+        url: "/gists",
+        siteName: "Samiul Alim",
+        images: [
+            {
+                url: "/avatars/samiul-alim-og.png",
+                width: 600,
+                height: 600,
+                alt: "Samiul Alim, backend-focused full-stack software engineer",
+            },
+        ],
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDescription,
+        images: ["/avatars/samiul-alim-og.png"],
+    },
+};
 
 const tagColors: Record<string, string> = {
     Go: "bg-emerald-50 text-emerald-700 ring-emerald-200",
@@ -23,6 +60,12 @@ export default function GistsPage() {
 
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-20 px-4 animate-section-in">
+            <BreadcrumbsJsonLd
+                items={[
+                    { name: "Home", href: siteUrl },
+                    { name: "Technical Gists", href: `${siteUrl}/gists` },
+                ]}
+            />
             <div className="mx-auto w-full max-w-6xl animate-soft-in">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
