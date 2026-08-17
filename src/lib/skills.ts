@@ -50,9 +50,12 @@ export const skills: SkillGroup[] = [
     },
     {
         category: "Backend Services",
-        context: "REST API design, background workers, and state machines",
+        context:
+            "Go is a core strength: concurrency, memory model, standard library. Plus REST API design and background workers.",
         items: [
             { name: "Go", level: "production" },
+            { name: "Go Concurrency (goroutines, channels)", level: "production" },
+            { name: "Go Standard Library", level: "production" },
             { name: "Node.js / Express", level: "production" },
             { name: "TypeScript", level: "production" },
             { name: "REST API Design", level: "production" },
@@ -93,6 +96,17 @@ export const skills: SkillGroup[] = [
             { name: "Tailwind CSS", level: "production" },
             { name: "Electron", level: "production" },
             { name: "TanStack Query", level: "production" },
+        ],
+    },
+    {
+        category: "Testing & Quality",
+        context: "Unit, integration, and E2E testing as part of the delivery pipeline",
+        items: [
+            { name: "Vitest", level: "production" },
+            { name: "Test Strategy", level: "production" },
+            { name: "Cypress", level: "production" },
+            { name: "MSW", level: "production" },
+            { name: "CI/CD Test Gates", level: "production" },
         ],
     },
 ];

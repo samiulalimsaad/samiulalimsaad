@@ -8,12 +8,12 @@ vi.mock("next/image", () => ({
 describe("Hero", () => {
     it("renders name", () => {
         render(<Hero />);
-        expect(screen.getByText("Samiul Alim")).toBeInTheDocument();
+        expect(screen.getByText(/Samiul Alim/)).toBeInTheDocument();
     });
 
     it("renders CTA buttons", () => {
         render(<Hero />);
-        expect(screen.getByText("View Work")).toBeInTheDocument();
+        expect(screen.getByText("View Case Studies")).toBeInTheDocument();
         expect(screen.getByText("Resume")).toBeInTheDocument();
     });
 
@@ -29,8 +29,8 @@ describe("Hero", () => {
         expect(screen.getByText("Open to remote roles")).toBeInTheDocument();
     });
 
-    it("shows experience badge", () => {
+    it("shows tech stack badge", () => {
         render(<Hero />);
-        expect(screen.getByText(/years engineering/)).toBeInTheDocument();
+        expect(screen.getByText("Go · TypeScript · PostgreSQL")).toBeInTheDocument();
     });
 });

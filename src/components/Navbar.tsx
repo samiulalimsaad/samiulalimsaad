@@ -3,7 +3,7 @@ import Link from "next/link";
 import ResumeButton from "@/components/ResumeButton";
 
 const navItems = [
-    { href: "/#projects", label: "Work" },
+    { href: "/#projects", label: "Case Studies" },
     { href: "/#experience", label: "Experience" },
     { href: "/#about", label: "About" },
     { href: "/#contact", label: "Contact" },

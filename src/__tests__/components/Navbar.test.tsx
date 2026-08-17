@@ -22,7 +22,7 @@ describe("Navbar", () => {
     it("renders navigation items", () => {
         render(<Navbar />);
         // Items appear in both desktop and mobile nav
-        expect(screen.getAllByText("Work").length).toBe(2);
+        expect(screen.getAllByText("Case Studies").length).toBe(2);
         expect(screen.getAllByText("Experience").length).toBe(2);
         expect(screen.getAllByText("About").length).toBe(2);
         expect(screen.getAllByText("Contact").length).toBe(2);

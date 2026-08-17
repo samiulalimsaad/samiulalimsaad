@@ -17,7 +17,7 @@ export const projects = [
         metrics: [
             "197K+ emails sent (7-day window)",
             "5 internal product teams",
-            "Significant cost reduction vs Mailgun",
+            "~50–60% lower send cost vs Mailgun",
         ],
         priority: 105,
         category: "Backend / Platform",
