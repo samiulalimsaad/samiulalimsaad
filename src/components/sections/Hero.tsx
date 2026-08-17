@@ -31,17 +31,16 @@ export default function Hero() {
                     <p className="inline-flex items-center gap-2 rounded-full border border-cyan-100 bg-white/80 px-3 py-1 text-xs font-medium text-cyan-700">
                         Samiul Alim · Software Engineer
                     </p>
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
-                        <span className="text-foreground/80">
+                    <h1 className="text-balance text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
+                        <span className="inline-block text-foreground/80">
                             Backend-Focused Full-Stack Engineer
-                        </span>
-                        <br />
-                        <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                        </span>{" "}
+                        <span className="inline-block bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                             Building Scalable Web Systems
                         </span>
                     </h1>
                     <p className="max-w-2xl text-sm sm:text-base text-foreground/70">
-                        Backend-focused software engineer building production platform services —
+                        Backend-focused software engineer building production platform services
                         authentication, payments, and email delivery. I design shared
                         infrastructure, operate it in production, and respond when it breaks at 2
                         AM.
