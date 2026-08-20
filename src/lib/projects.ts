@@ -53,7 +53,7 @@ export const projects = [
         time: "2024 – Present",
         shortDescription: "Multi-tenant auth platform on ZITADEL with custom Go product layer",
         metrics: [
-            "Multi-tenant isolation for 4 products",
+            "Multi-tenant isolation for 3 products",
             "7-layer defense-in-depth",
             "2 engineers coordinated",
         ],

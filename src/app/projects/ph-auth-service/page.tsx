@@ -88,7 +88,7 @@ function HeroSection() {
         <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-20 px-4 animate-section-in">
             <div className="mx-auto w-full max-w-4xl text-center">
                 <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600 ring-1 ring-indigo-100 mb-4">
-                    In Development: Awaiting Production Release
+                    Complete: Awaiting Production Release
                 </span>
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
@@ -144,7 +144,7 @@ function ExecutiveSummary() {
                     />
                     <SummaryCard
                         icon={<Server className="w-5 h-5" />}
-                        value="In Development"
+                        value="Complete"
                         label="Status"
                     />
                 </div>
@@ -389,7 +389,7 @@ export function createSecurityMiddleware(config: SecurityConfig) {
         {
             title: "Multi-Tenant Data Isolation",
             context:
-                "The platform serves multiple products (bootcamp, skill-mapper, admin tools). Accidental cross-tenant data leaks would be catastrophic for user trust.",
+                "The platform is built to serve three product tenants (bootcamp, skill-mapper, admin tools). Accidental cross-tenant data leaks would be catastrophic for user trust.",
             outcome:
                 "A tenant-scoped repository pattern injects tenantId into every query via composite unique constraints. It's impossible to leak data across tenants at the database level.",
             icon: <Database className="w-5 h-5" />,
