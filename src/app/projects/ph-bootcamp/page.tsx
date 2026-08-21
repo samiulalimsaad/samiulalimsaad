@@ -17,7 +17,7 @@ import CodeSnippet from "@/components/ui/CodeSnippet";
 import EvidenceImage from "@/components/ui/EvidenceImage";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.samiulalimsaad.com";
 
 const pageTitle = "PH Bootcamp Platform: Full-Stack LMS | Case Study";
 const pageDescription =

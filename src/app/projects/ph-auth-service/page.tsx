@@ -18,7 +18,7 @@ import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.samiulalimsaad.com";
 
 const pageTitle = "PH Auth Service: Multi-Tenant Identity Provider | Case Study";
 const pageDescription =

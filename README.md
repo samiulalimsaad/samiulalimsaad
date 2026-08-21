@@ -45,14 +45,14 @@ Open to remote roles · US / EU timezone-friendly
 - **SpeakSail** — language-learning marketplace with live tutoring and real-time messaging (live)
 - **AI Game Platform** — 19-engine gamified learning with multi-provider AI content (MVP)
 
-Details and case studies → <https://samiulalimsaad.vercel.app/projects>
+Details and case studies → <https://www.samiulalimsaad.com/projects>
 
 ---
 
 ## Open Source
 
 - **Go Middleware Kit** — rate limiter, CSP nonce, CSRF, TOTP MFA, payment gateway adapter in zero-dependency Go → <https://github.com/samiulalimsaad/go-middleware-kit>
-- **Technical Gists** — deep dives on CSP nonce, payment adapter, rate limiter, TOTP MFA → <https://samiulalimsaad.vercel.app/gists>
+- **Technical Gists** — deep dives on CSP nonce, payment adapter, rate limiter, TOTP MFA → <https://www.samiulalimsaad.com/gists>
 - **Code Samples** — Go worker pool, typed state machine, payment adapter, middleware patterns → <https://gist.github.com/samiulalimsaad>
 - **AI Game Platform** — shared `@eduplay/schemas` monorepo, server-authoritative scoring → <https://github.com/samiulalimsaad/hackathon-team-undefined-eduplay>
 
@@ -60,7 +60,7 @@ Details and case studies → <https://samiulalimsaad.vercel.app/projects>
 
 ## Connect
 
-- [Portfolio](https://samiulalimsaad.vercel.app)
+- [Portfolio](https://www.samiulalimsaad.com)
 - [GitHub](https://github.com/samiulalimsaad)
 - [LinkedIn](https://www.linkedin.com/in/samiulalimsaad)
 - [Email](mailto:samiulalimsaad@gmail.com)

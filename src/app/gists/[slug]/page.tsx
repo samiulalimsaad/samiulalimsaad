@@ -9,7 +9,7 @@ import remarkGfm from "remark-gfm";
 import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import { getAllGistSlugs, getGistBySlug } from "@/lib/gists";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://samiulalimsaad.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.samiulalimsaad.com";
 
 export async function generateStaticParams() {
     return getAllGistSlugs().map((slug) => ({ slug }));

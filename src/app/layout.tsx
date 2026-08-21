@@ -21,7 +21,7 @@ const inter = Inter({
 
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.samiulalimsaad.com";
 const siteTitle = "Samiul Alim | Software Engineer (Backend Focus)";
 const siteDescription =
     "Backend-focused software engineer building production platform services for authentication, payments, and email delivery. Go · TypeScript · PostgreSQL.";
