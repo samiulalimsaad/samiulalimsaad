@@ -19,7 +19,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.samiulalimsaad.
 
 const pageTitle = "Payment Service: Multi-Gateway Payment Platform | Case Study";
 const pageDescription =
-    "Centralized payment service with adapter pattern for Stripe, bKash, and SSLCommerz. OpenAPI-generated Go server with polyglot persistence.";
+    "Centralized payment service for Stripe, bKash, and SSLCommerz. OpenAPI-defined Go API with checkout, payment tracking, orders, refunds, and an admin dashboard.";
 
 export const metadata: Metadata = {
     title: pageTitle,
@@ -94,9 +94,8 @@ function HeroSection() {
                     Unified Multi-Gateway Payment Platform
                 </p>
                 <p className="text-sm text-foreground/50 max-w-2xl mx-auto mb-6">
-                    A centralized payment service abstracting multiple payment gateways behind a
-                    unified API, with webhook processing, refund management, and transaction
-                    analytics.
+                    A centralized payment service for checkout, payment tracking, order management,
+                    and refund operations across multiple gateways.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {[
@@ -141,8 +140,8 @@ function ExecutiveSummary() {
                     />
                     <SummaryCard
                         icon={<GitBranch className="w-5 h-5" />}
-                        value="Adapter"
-                        label="Architecture pattern"
+                        value="Go API"
+                        label="Service layer"
                     />
                     <SummaryCard
                         icon={<Server className="w-5 h-5" />}
@@ -151,10 +150,11 @@ function ExecutiveSummary() {
                     />
                 </div>
                 <p className="text-base text-foreground/80 leading-relaxed">
-                    A centralized payment service that abstracts multiple payment gateways behind a
-                    unified API. Built with an adapter pattern that allows adding new payment
-                    providers without changing core business logic. Handles payment creation,
-                    webhook processing, refund management, and transaction analytics.
+                    A centralized payment service that gives education products one checkout and
+                    payment-management surface across Stripe, bKash, and SSLCommerz. The service
+                    exposes OpenAPI-defined Go endpoints for payments, orders, products, users,
+                    organizations, and refunds, backed by PostgreSQL with Redis integration and a
+                    Nuxt administration dashboard.
                 </p>
             </div>
         </section>
@@ -194,9 +194,9 @@ function ArchitectureDiagram() {
         end
 
         subgraph Core
-            E[Payment State Machine]
-            F[Webhook Processor]
-            G[Refund Engine]
+            E[Payment Lifecycle]
+            F[Gateway Callback Handling]
+            G[Refund Records]
         end
 
         subgraph Storage
@@ -217,24 +217,17 @@ function ArchitectureDiagram() {
         E --> I
         E --> J`;
 
-    const webhookDiagram = `sequenceDiagram
-        participant G as Payment Gateway
-        participant W as Webhook Handler
-        participant V as Sig Verifier
-        participant I as Idempotency Check
-        participant S as State Machine
-        participant D as Database
+    const callbackDiagram = `sequenceDiagram
+         participant G as Payment Gateway
+         participant W as Callback Handler
+         participant V as Payment Service
+         participant D as Database
 
-        G->>W: POST /webhook
-        W->>V: Verify Signature
-        V-->>W: Valid/Invalid
-        W->>I: Check Idempotency Key
-        I-->>W: New/Duplicate
-        W->>S: Transition State
-        S->>D: Persist Transaction
-        D-->>S: Confirmed
-        S-->>W: Updated
-        W-->>G: 200 OK`;
+         G->>W: Payment callback
+         W->>V: Validate transaction
+         V->>D: Update payment status
+         D-->>V: Persisted
+         W-->>G: 200 OK`;
 
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
@@ -245,11 +238,11 @@ function ArchitectureDiagram() {
                     caption="System architecture showing adapter pattern with three payment gateway integrations"
                 />
                 <h3 className="text-lg font-semibold text-foreground mb-4 mt-8">
-                    Webhook Processing Flow
+                    Gateway Callback Flow
                 </h3>
                 <MermaidDiagram
-                    chart={webhookDiagram}
-                    caption="Webhook processing sequence with signature verification and idempotency check"
+                    chart={callbackDiagram}
+                    caption="Gateway callback flow validating and persisting payment status"
                 />
             </div>
         </section>
@@ -266,33 +259,33 @@ function KeyFeatures() {
         },
         {
             icon: <GitBranch className="w-5 h-5" />,
-            title: "Gateway Adapter Pattern",
+            title: "Gateway Integration Boundaries",
             description:
-                "Each payment provider has an adapter implementing a common interface. Core business logic never depends on gateway-specific code.",
+                "Gateway-specific checkout and callback code is kept separate from payment persistence, allowing provider behavior to evolve without spreading gateway details through the dashboard and API layers.",
         },
         {
             icon: <RefreshCw className="w-5 h-5" />,
-            title: "Webhook Processing",
+            title: "Gateway Callback Processing",
             description:
-                "Idempotent webhook handlers with event deduplication and automatic retry for failed notifications.",
+                "Gateway callbacks are validated and mapped back to local payment records so checkout results update the service's payment status.",
         },
         {
             icon: <Shield className="w-5 h-5" />,
-            title: "Payment State Machine",
+            title: "Payment Lifecycle Tracking",
             description:
-                "Payments transition through defined states (pending, completed, failed, refunded) with guards against invalid transitions.",
+                "Payment records track pending, completed, failed, refunded, and cancelled outcomes together with gateway responses and failure reasons.",
         },
         {
             icon: <Database className="w-5 h-5" />,
-            title: "Transaction Analytics",
+            title: "Operational Data Separation",
             description:
-                "Columnar database for payment analytics with aggregations by gateway, currency, and time period.",
+                "PostgreSQL stores payment and order records, while Redis supports low-latency gateway token access and ClickHouse is available for analytics workloads.",
         },
         {
             icon: <HardDrive className="w-5 h-5" />,
             title: "Refund Management",
             description:
-                "Full and partial refund support with provider-specific refund handling and reconciliation.",
+                "Refund records can be created, listed, inspected, updated, and tracked alongside their related payments.",
         },
     ];
 

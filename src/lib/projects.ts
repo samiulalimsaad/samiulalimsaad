@@ -205,13 +205,14 @@ export const projects = [
         proprietary: true,
         caseStudyLink: "/projects/payment-service",
         description: [
-            "Centralized payment service abstracting multiple payment gateways behind a unified API with an adapter pattern. Supports Stripe, bKash, and SSLCommerz with webhook processing, refund management, and transaction analytics.",
-            "Built with OpenAPI specification and Go code generation for type-safe API contracts. Uses PostgreSQL for transaction records, a columnar database for analytics queries, and Redis for gateway token caching.",
+            "Centralized payment service for education products with checkout flows for Stripe, bKash, and SSLCommerz. Tracks payment status, gateway responses, orders, and refund records from one service.",
+            "Built an OpenAPI-defined Go API with generated contracts, PostgreSQL persistence, Redis-backed gateway token storage, Docker packaging, and a Nuxt administration dashboard.",
         ],
         highlights: [
-            "Multi-gateway adapter pattern for payment abstraction",
+            "Stripe, bKash, and SSLCommerz checkout integrations",
+            "Payment, order, and refund lifecycle management",
             "OpenAPI-generated server with type-safe contracts",
-            "Polyglot persistence for transaction, analytics, and cache",
+            "Admin dashboard for operational payment management",
         ],
         image: DEFAULT_PROJECT_IMAGE,
         imageWidth: 1200,
