@@ -215,7 +215,7 @@ function ArchitectureDiagram() {
         end
 
         subgraph Backend["Backend (Express + TypeScript)"]
-            G[REST API: play, score, quiz, content, leaderboard]
+             G[REST API: play, score, content, leaderboard, topics]
             H[AI Validated-Retry Pipeline]
             I[Server-Authoritative Scoring]
             J[Gamification: XP, Badges, Leaderboard]
@@ -272,13 +272,9 @@ function ArchitectureDiagram() {
 
         F->>B: POST /api/score { playId, rawResult }
         B->>B: Re-validate content, derive score
-        B->>DB: Update Profile.xp, UserProgress
-        B-->>F: { learnCard, quiz }
-
-        U->>F: Take quiz
-        F->>B: POST /api/quiz-result
-        B->>DB: Finalize XP, update leaderboard
-        B-->>F: { xp, badges, leaderboard }`;
+         B->>DB: Update Profile.xp, UserProgress, AttemptHistory
+         B-->>F: { learnCard, badges, aggregate result }
+         F-->>U: Results and learn card`;
 
     return (
         <section className="w-full bg-linear-to-b from-indigo-50/60 via-white to-sky-50/60 py-16 px-4">
@@ -316,7 +312,7 @@ function KeyFeatures() {
             icon: <BrainCircuit className="w-5 h-5" />,
             title: "Multi-Provider AI Pipeline",
             description:
-                "Supports Anthropic Claude, OpenAI, Gemini, and OpenRouter through a common provider interface. The validated-retry loop: model outputs inner content for one engine, Zod validates it against the engine's schema, and on failure the system re-prompts with exact validation errors until the shape is correct. All content pre-seeded offline to MongoDB  the app runs fully without any LLM at runtime.",
+                "Supports Anthropic Claude, OpenAI, Gemini, and OpenRouter through a common provider interface. The validated-retry loop: model outputs inner content for one engine, Zod validates it against the engine's schema, and on failure the system re-prompts with exact validation errors until the shape is correct. Offline authored fixtures support local seeding, but the current personalized play route requires an AI provider at runtime.",
         },
         {
             icon: <Shield className="w-5 h-5" />,
@@ -328,7 +324,7 @@ function KeyFeatures() {
             icon: <Medal className="w-5 h-5" />,
             title: "Gamification System",
             description:
-                "XP and levels awarded per game completion + quiz score. Milestone badges unlock on first win, perfect quiz, topic completion. Global leaderboard ranked by XP  backed by Redis sorted sets (ZSET) for fast rank queries, with MongoDB fallback when Redis is unavailable.",
+                "XP and levels are awarded from server-computed game results. Milestone badges unlock on first win and topic completion. Global leaderboard is backed by Redis sorted sets (ZSET) for fast rank queries, with MongoDB fallback when Redis is unavailable.",
         },
         {
             icon: <Users className="w-5 h-5" />,
@@ -392,7 +388,7 @@ const ENGINE_SCHEMAS = {
 // AI emits inner content only  server wraps it:
 const inner = await generateContent(prompt)
 const validated = ENGINE_SCHEMAS[engine].parse(inner)
-const envelope = makeEnvelope({ engine, content: validated })`,
+const envelope = makeEnvelope(engine, validated)`,
             language: "typescript",
         },
         {
@@ -404,7 +400,7 @@ const envelope = makeEnvelope({ engine, content: validated })`,
             icon: <Puzzle className="w-5 h-5" />,
             snippet: `// Universal envelope  all but 3 fields optional:
 interface GameEnvelope {
-  schemaVersion: string        // "1.0"  gates migrations
+  schemaVersion: string        // "2.0"  gates migrations
   engine: Engine               // discriminator
   content: EngineContent       // per-engine AI payload
 
@@ -422,7 +418,7 @@ interface GameEnvelope {
 
 // AI never emits the envelope  it emits inner content only.
 // Server wraps it deterministically:
-const envelope = makeEnvelope({ engine, content, rewards: { xp: 10 } })`,
+const envelope = makeEnvelope(engine, content, { rewards: { xp: 10 } })`,
             language: "typescript",
         },
         {
@@ -616,8 +612,8 @@ function FailureModes() {
                     />
                     <FailureModeCard
                         scenario="LLM unavailable at runtime"
-                        impact="Play start fails because no content can be generated."
-                        mitigation="All content is pre-seeded offline. The API key can be revoked entirely and the app still serves every game from cached MongoDB documents. This is verified by literally deleting the API key during testing  the play loop continues working."
+                        impact="Personalized play start fails because the current route generates five questions through the configured provider."
+                        mitigation="The repository includes an AI-free authored fixture seed for local development and demos. A production fallback from /api/play/start to published fixture content is not currently implemented."
                     />
                     <FailureModeCard
                         scenario="Score cheating via modified client"

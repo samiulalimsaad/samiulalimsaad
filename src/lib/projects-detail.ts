@@ -47,19 +47,29 @@ export const projectDetails: ProjectDetail[] = [
     {
         _id: "ai-game-platform",
         businessProblem:
-            "Educational content needed to be delivered through interactive, engaging formats that combined real-time interaction with AI-powered features that went beyond what traditional learning platforms offered.",
+            "Technical learners needed practice that was more interactive than documentation or video, while generated game content had to remain safe, predictable, and compatible with fixed gameplay components.",
         responsibilities:
-            "Built and implemented the platform. Contributed to architecture decisions and collaborated with the engineering team across design, development, and deployment.",
+            "Built the full-stack platform and its shared content contract. Owned the engine registry, envelope design, provider-agnostic generation pipeline, server-authoritative scoring path, and integration between the Express API and React app.",
         architecture:
-            "Full-stack platform with a backend handling content delivery, real-time communication, and AI integration. Modular architecture separates content management, game logic, and AI services, allowing each to evolve independently. Real-time layers support interactive experiences while AI services provide dynamic content generation.",
+            "pnpm monorepo with 19 frozen React game templates, a shared @eduplay/schemas package, and an Express + TypeScript API. AI emits only per-engine JSON; the backend validates it, wraps it in a universal GameEnvelope, stores each play in MongoDB, and the frontend validates again before rendering. Score submissions contain raw results only; the server re-validates stored content and derives correctness, XP, levels, badges, and leaderboard updates.",
         keyDecisions: [
-            "Built modular architecture separating content, interaction, and AI concerns",
-            "Implemented technical direction to support both real-time and AI-powered features",
-            "Built for extensibility so new game types and AI capabilities can be added without core changes",
+            "Used fixed React templates plus schema-validated JSON instead of AI-generated UI",
+            "Created a universal envelope for shared rewards, timers, assets, accessibility, localization, and versioning",
+            "Separated searchable game metadata, heavy game content, and user progress in MongoDB",
+            "Made scoring server-authoritative and added offline authored fixtures for local development",
         ],
         businessImpact:
-            "Established a reusable platform foundation for AI-powered educational experiences, enabling future expansion of interactive learning capabilities. Created a modular architecture that supports multiple game types, allowing content teams to build new experiences without additional engineering investment.",
-        technologies: ["Node.js", "TypeScript", "MongoDB", "Docker"],
+            "Established a reusable foundation for interactive technical learning. New content can use existing mechanics without engine changes, while new mechanics follow a clear six-seam registry path. The current MVP supports runtime-personalized play through four AI providers and deterministic local fixture seeding.",
+        technologies: [
+            "TypeScript",
+            "React",
+            "Vite",
+            "Express",
+            "MongoDB",
+            "Zod",
+            "Zustand",
+            "Docker",
+        ],
     },
     {
         _id: "featured-3",

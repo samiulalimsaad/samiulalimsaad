@@ -301,14 +301,14 @@ export const projects = [
         description: [
             "Gamified micro-learning platform where students learn technical topics (web dev, DSA, programming) by playing interactive games instead of reading docs or watching videos. AI generates structured JSON content per game engine  the app never receives JSX, HTML, or React from the model. Content is validated by per-engine Zod schemas at both seed time and render time, eliminating the 'wrong-shape JSON to broken game' failure mode.",
             "Architecture is a pnpm monorepo with a shared @eduplay/schemas contract package consumed by both Express backend and React frontend. A universal envelope lifts cross-cutting concerns (XP, levels, rewards, timers, i18n, a11y, assets) out of individual engines into one forward-compatible wrapper. 19 game engines ship as frozen React templates  adding a new game is data plus one registry line, never a rewrite.",
-            "AI content pipeline supports 4 providers (Anthropic, OpenAI, Gemini, OpenRouter) with a validated-retry loop: the model outputs inner content for one engine, Zod validates it, and on failure the system re-prompts with the validation errors until the shape is correct. All content is pre-seeded offline to MongoDB  the app runs fully without any LLM at runtime, proven by killing the API key during a live test.",
+            "AI content pipeline supports 4 providers (Anthropic, OpenAI, Gemini, OpenRouter) with a validated-retry loop: the model outputs inner content for one engine, Zod validates it, and on failure the system re-prompts with the validation errors until the shape is correct. Offline authored fixtures are also available for local seeding; the current personalized play route requires a configured AI provider at runtime.",
         ],
         highlights: [
             "Data-driven engine registry: 19 games, frozen React templates, JSON-driven rendering",
             "Universal envelope architecture  i18n, a11y, XP, timers added once for all engines",
             "Zod schemas as single source of truth, shared between backend and frontend",
             "Server-authoritative scoring  client submits raw results, server derives correctness",
-            "Multi-provider AI pipeline with validated-retry and offline-first reliability",
+            "Multi-provider AI pipeline with validated-retry and offline fixture seeding",
         ],
         image: "/projects/ai-game-platform.png",
         imageWidth: 1920,
