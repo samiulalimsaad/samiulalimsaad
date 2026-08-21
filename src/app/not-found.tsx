@@ -16,9 +16,9 @@ export default function NotFound() {
                         Lost in the layout.
                     </h1>
                     <p className="text-sm sm:text-base text-foreground/70 mb-6">
-                        The page you&apos;re looking for doesn&apos;t exist or
-                        might have been moved. You can head back to the homepage
-                        to explore my work, skills, and projects.
+                        The page you&apos;re looking for doesn&apos;t exist or might have been
+                        moved. You can head back to the homepage to explore my work, skills, and
+                        projects.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

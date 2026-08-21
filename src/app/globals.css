@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
     --background: #ffffff;
@@ -8,12 +9,17 @@
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+    --font-sans: var(--font-inter);
+    --font-mono: var(--font-fira-code);
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+section[id],
+main[id] {
+    scroll-margin-top: 4.5rem;
 }
 
 body {
@@ -87,4 +93,89 @@ body {
 
 .animate-pulse-soft {
     animation: pulse-soft 2200ms ease-in-out infinite;
+}
+
+pre, code, kbd, samp {
+    font-family: var(--font-fira-code), monospace;
+}
+
+/* Prevent prose typography from applying background to code inside pre (code blocks).
+   PreBlock component handles code block backgrounds directly. */
+.prose pre code {
+    background-color: transparent;
+}
+.prose pre code::before,
+.prose pre code::after {
+    content: none;
+}
+
+/* Prism syntax highlighting: dark theme for code blocks */
+.prose pre .token.comment,
+.prose pre .token.prolog,
+.prose pre .token.doctype,
+.prose pre .token.cdata {
+    color: #64748b;
+    font-style: italic;
+}
+.prose pre .token.punctuation {
+    color: #94a3b8;
+}
+.prose pre .token.property,
+.prose pre .token.tag,
+.prose pre .token.boolean,
+.prose pre .token.number,
+.prose pre .token.constant,
+.prose pre .token.symbol,
+.prose pre .token.deleted {
+    color: #f472b6;
+}
+.prose pre .token.selector,
+.prose pre .token.attr-name,
+.prose pre .token.string,
+.prose pre .token.char,
+.prose pre .token.builtin,
+.prose pre .token.inserted {
+    color: #34d399;
+}
+.prose pre .token.operator,
+.prose pre .token.entity,
+.prose pre .token.url {
+    color: #67e8f9;
+}
+.prose pre .token.atrule,
+.prose pre .token.attr-value,
+.prose pre .token.keyword {
+    color: #818cf8;
+}
+.prose pre .token.function,
+.prose pre .token.class-name {
+    color: #facc15;
+}
+.prose pre .token.regex,
+.prose pre .token.important,
+.prose pre .token.variable {
+    color: #fdba74;
+}
+.prose pre .token.important {
+    font-weight: bold;
+}
+.prose pre .token.bold {
+    font-weight: bold;
+}
+.prose pre .token.italic {
+    font-style: italic;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    html {
+        scroll-behavior: auto;
+    }
 }

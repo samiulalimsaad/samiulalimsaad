@@ -1,74 +1,74 @@
 "use server";
 
-import { detectDevice } from "@/components/utils/detectDevice";
 import { headers } from "next/headers";
+import { detectDevice } from "@/components/utils/detectDevice";
 
-// Type definition for location data
-interface LocationData {
-    ip: string;
-    hostname: string;
-    city: string;
-    region: string;
-    country: string;
-    loc: string;
-    org: string;
-    postal: string;
-    timezone: string;
-    readme: string;
-    anycast: boolean;
-}
-
-// Server Action - No HTTP response, just return data
 export async function trackVisitorVisit(): Promise<{
     success: boolean;
     error?: string;
-    location?: LocationData | null;
-    ip?: string;
 }> {
     try {
         const DISCORD_CHANNEL = process.env.DISCORD_PAGE_VISIT_WEBHOOK_URL;
         const DISCORD_MENTION_ID = process.env.DISCORD_MENTION_ID;
         const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 
-        const timestamp = new Date().toLocaleString("en-US", {
-            timeZone: "Asia/Dhaka",
-        });
-
         if (!DISCORD_CHANNEL) {
-            return {
-                success: false,
-                error: "Server is not configured",
-            };
+            return { success: false, error: "Server is not configured" };
         }
 
-        const hdrs = await headers(); // Await the headers
+        const hdrs = await headers();
+        const ip =
+            hdrs.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+            hdrs.get("x-real-ip") ||
+            hdrs.get("cf-connecting-ip") ||
+            "unknown";
 
-        const ip = hdrs.get("x-forwarded-for") || hdrs.get("x-real-ip");
+        const { browser, os, type } = detectDevice(hdrs.get("user-agent") || "");
+        const referrer = hdrs.get("referer") || hdrs.get("referrer") || null;
+        const language = hdrs.get("accept-language")?.split(",")[0] || null;
+        const timezone = hdrs.get("timezone") || null;
+        const country = hdrs.get("cf-ipcountry") || null;
 
-        const { browser, os, type } = detectDevice(
-            hdrs.get("user-agent") || ""
-        );
+        const timestamp = new Date().toISOString();
+        const ipLink = `https://whatismyipaddress.com/ip/${ip}`;
 
-        const content = [
-            `<@${DISCORD_MENTION_ID}> a person landed on the site at ${timestamp}`,
-            `detected IP: \`${ip}\``,
-            `user IP: \`${hdrs.get("x-forwarded-for")}\``,
-            `user IP: \`${hdrs.get("x-real-ip")}\``,
-            `user IP: \`${hdrs.get("cf-connecting-ip")}\``,
-            `user IP: \`${hdrs.get("true-client-ip")}\``,
-            `user IP: \`${hdrs.get("cf-ipcountry")}\``,
-            `user agent: \`${hdrs.get("user-agent")}\``,
-            `user os: \`${os}\``,
-            `user browser: \`${browser}\``,
-            `user device: \`${type}\`,`,
-            `referrer: \`${hdrs.get("referrer")}\``,
-            `user language: \`${hdrs.get("accept-language")}\``,
-            `user timezone: \`${hdrs.get("timezone")}\``,
-            `user country: \`${hdrs.get("country")}\``,
-        ].join("\n");
+        const fields = [
+            { name: "OS", value: os || "N/A", inline: true },
+            { name: "Browser", value: browser || "N/A", inline: true },
+            { name: "Device", value: type, inline: true },
+        ];
+
+        if (country || timezone) {
+            fields.push({
+                name: "Location",
+                value: [country, timezone].filter(Boolean).join(" · ") || "N/A",
+                inline: true,
+            });
+        }
+
+        if (language) {
+            fields.push({ name: "Language", value: language, inline: true });
+        }
+
+        if (referrer) {
+            fields.push({ name: "Referrer", value: referrer, inline: false });
+        }
 
         const discordPayload = {
-            content,
+            content: `<@${DISCORD_MENTION_ID}>`,
+            embeds: [
+                {
+                    title: "New Portfolio Visitor",
+                    url: ipLink,
+                    description: `**IP:** [${ip}](${ipLink})`,
+                    color: 0x22c55e,
+                    fields,
+                    timestamp,
+                    footer: {
+                        text: "Portfolio Visitor Tracker",
+                    },
+                },
+            ],
         };
 
         const res = await fetch(DISCORD_CHANNEL, {
@@ -81,20 +81,12 @@ export async function trackVisitorVisit(): Promise<{
         });
 
         if (!res.ok) {
-            return {
-                success: false,
-                error: "Failed to send message",
-            };
+            return { success: false, error: "Failed to send message" };
         }
 
-        return {
-            success: true,
-        };
+        return { success: true };
     } catch (error) {
         console.error(error);
-        return {
-            success: false,
-            error: "Unexpected server error",
-        };
+        return { success: false, error: "Unexpected server error" };
     }
 }

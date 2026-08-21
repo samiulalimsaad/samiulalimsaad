@@ -1,5 +1,15 @@
-import SocialLinks from "@/components/sections/SocialLinks";
+import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
+
+const footerLinks = [
+    { Icon: Mail, href: "mailto:samiulalimsaad@gmail.com", label: "Email" },
+    {
+        Icon: Linkedin,
+        href: "https://linkedin.com/in/samiulalimsaad",
+        label: "LinkedIn",
+    },
+    { Icon: Github, href: "https://github.com/samiulalimsaad", label: "GitHub" },
+];
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -10,7 +20,7 @@ const Footer = () => {
                     <div>
                         <div className="flex items-center gap-2 text-sm font-semibold tracking-wide text-zinc-700 uppercase">
                             <Image
-                                src="/avatars/samiul-alim.png"
+                                src="/avatars/samiul-alim.webp"
                                 alt="Samiul Alim"
                                 width={32}
                                 height={32}
@@ -21,8 +31,7 @@ const Footer = () => {
                             </span>
                         </div>
                         <p className="text-xs text-zinc-500 mt-1">
-                            Fullstack Web Developer · Crafting modern,
-                            performant web experiences.
+                            Software Engineer · Backend Focus · Go · TypeScript · PostgreSQL
                         </p>
                         <p className="mt-3 text-xs text-zinc-500">
                             © {currentYear}{" "}
@@ -33,8 +42,19 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div className="flex flex-col items-center md:items-end gap-2">
-                        <SocialLinks size={24} />
+                    <div className="flex items-center gap-3">
+                        {footerLinks.map(({ Icon, href, label }) => (
+                            <a
+                                key={href}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={label}
+                                className="flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-cyan-500 to-indigo-500 text-white transition hover:scale-110"
+                            >
+                                <Icon size={16} />
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>

@@ -29,9 +29,8 @@ export default function Error({
                         This section failed to load.
                     </h1>
                     <p className="mb-6 text-sm sm:text-base text-foreground/70">
-                        An unexpected error occurred while rendering this page.
-                        You can try again, or go back and explore the rest of
-                        the site.
+                        An unexpected error occurred while rendering this page. You can try again,
+                        or go back and explore the rest of the site.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

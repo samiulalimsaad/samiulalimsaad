@@ -6,44 +6,56 @@
     "dev": "bun run --bun next dev",
     "build": "bun run --bun next build",
     "start": "bun run --bun next start",
-    "lint": "bun run --bun next lint",
-    "export": "bun run --bun next export"
+    "lint": "biome check src/",
+    "lint:fix": "biome check --write src/",
+    "format": "biome format --write src/",
+    "format:check": "biome format src/",
+    "test": "vitest run",
+    "export": "bun run --bun next export",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.20",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
     "babel-plugin-react-compiler": "^1.0.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.556.0",
+    "mermaid": "^11.16.0",
     "next": "16.2.3",
+    "prismjs": "^1.30.0",
     "react": "19.2.1",
     "react-dom": "19.2.1",
+    "react-markdown": "^10.1.0",
+    "rehype-prism-plus": "^2.0.2",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1",
     "sharp": "^0.34.5",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.5.5",
     "@tailwindcss/postcss": "^4.1.17",
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "24.10.1",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "autoprefixer": "^10.4.22",
-    "eslint": "9.39.1",
-    "eslint-config-next": "16.0.7",
+    "baseline-browser-mapping": "^2.11.14",
+    "husky": "^9.1.7",
+    "jsdom": "^29.1.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "^4.1.10"
   },
   "author": "Samiul Alim Saad",
   "homepage": "https://github.com/samiulalimsaad/samiulalimsaad#readme",
-  "packageManager": "pnpm@10.24.0",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@vercel/speed-insights",
-      "sharp",
-      "unrs-resolver"
+  "packageManager": "bun@1.4.0",
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "biome check --write --no-errors-on-unmatched"
     ]
-  },
-  "workspaces": [
-    "."
-  ]
+  }
 }

@@ -1,9 +1,9 @@
-import { projects } from "@/lib/projects";
 import Image from "next/image";
 import Link from "next/link";
+import { projects } from "@/lib/projects";
 
 export default function Projects() {
-    const featured = projects.slice(0, 3);
+    const featured = projects.filter((p) => p.tier === "featured").slice(0, 3);
 
     return (
         <section
@@ -17,8 +17,8 @@ export default function Projects() {
                     </span>
                 </h2>
                 <p className="mx-auto max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    A selection of recent work showcasing fullstack development,
-                    integrations, and modern UI.
+                    Production systems I build and maintain. Each entry describes the engineering
+                    problem, not just the technology.
                 </p>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
@@ -46,32 +46,33 @@ type ProjectCardProps = {
 
 function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 backdrop-blur-sm transition hover:-translate-y-2 animate-card-in">
+        <div className="group flex flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white/80 backdrop-blur-sm transition hover:-translate-y-2 animate-card-in">
             <div className="overflow-hidden">
                 <Image
                     src={project.image}
                     alt={project.name}
-                    width={360}
-                    height={216}
-                    className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    width={project.imageWidth}
+                    height={project.imageHeight}
+                    className="h-auto w-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
             </div>
             <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">
-                    {project.name}
-                </h3>
-                <p className="mb-2 text-sm text-foreground/80">
-                    {project.shortDescription}
-                </p>
-                {project.description && project.description.length > 0 && (
-                    <ul className="mb-3 list-disc space-y-1 pl-5 text-xs text-foreground/70">
-                        {project.description.map((line) => (
-                            <li key={line}>{line}</li>
+                <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">{project.name}</h3>
+                <p className="mb-2 text-sm text-foreground/80">{project.shortDescription}</p>
+                {"metrics" in project && project.metrics && project.metrics.length > 0 && (
+                    <div className="mb-3 flex flex-wrap gap-1.5">
+                        {project.metrics.slice(0, 3).map((m) => (
+                            <span
+                                key={m}
+                                className="inline-flex items-center rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-medium text-indigo-700 ring-1 ring-indigo-100"
+                            >
+                                {m}
+                            </span>
                         ))}
-                    </ul>
+                    </div>
                 )}
                 <div className="mb-4 flex flex-wrap gap-2">
-                    {project.tools.map((tool) => (
+                    {project.tools.slice(0, 3).map((tool) => (
                         <span
                             key={tool}
                             className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
@@ -79,24 +80,49 @@ function ProjectCard({ project }: ProjectCardProps) {
                             {tool}
                         </span>
                     ))}
+                    {project.tools.length > 3 && (
+                        <span className="inline-flex items-center rounded-full bg-cyan-50/60 px-3 py-1 text-xs font-medium text-cyan-600 ring-1 ring-cyan-100/60">
+                            +{project.tools.length - 3} more
+                        </span>
+                    )}
                 </div>
-                <div className="mt-auto flex gap-3">
-                    <a
-                        href={project.githubFrontEnd}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
-                    >
-                        GitHub
-                    </a>
-                    <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
-                    >
-                        Live Demo
-                    </a>
+                <div className="mt-auto flex flex-wrap gap-3">
+                    {project.proprietary && !project.githubFrontEnd && !project.live ? (
+                        <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-medium text-amber-700">
+                            Proprietary (Programming Hero)
+                        </span>
+                    ) : (
+                        <>
+                            {project.githubFrontEnd && (
+                                <a
+                                    href={project.githubFrontEnd}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
+                                >
+                                    GitHub
+                                </a>
+                            )}
+                            {project.live && (
+                                <a
+                                    href={project.live}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600 transition"
+                                >
+                                    Live Demo
+                                </a>
+                            )}
+                        </>
+                    )}
+                    {"caseStudyLink" in project && project.caseStudyLink && (
+                        <Link
+                            href={project.caseStudyLink}
+                            className="inline-block px-3 py-1 text-sm font-medium rounded-lg border border-indigo-200 text-indigo-700 hover:bg-indigo-50 transition"
+                        >
+                            Case Study →
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>

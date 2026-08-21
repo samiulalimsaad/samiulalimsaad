@@ -1,13 +1,15 @@
-import {
-    Facebook,
-    Github,
-    Linkedin,
-    Mail,
-    MessageCircle,
-    MessageSquareCode,
-    Phone,
-} from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import ContactForm from "./ContactForm";
+
+const primaryLinks = [
+    { Icon: Mail, href: "mailto:samiulalimsaad@gmail.com", label: "samiulalimsaad@gmail.com" },
+    {
+        Icon: Linkedin,
+        href: "https://linkedin.com/in/samiulalimsaad",
+        label: "linkedin.com/in/samiulalimsaad",
+    },
+    { Icon: Github, href: "https://github.com/samiulalimsaad", label: "github.com/samiulalimsaad" },
+];
 
 const Contact = () => {
     return (
@@ -16,7 +18,6 @@ const Contact = () => {
             className="w-full bg-linear-to-b from-white via-sky-50/60 to-indigo-50/40 py-20 px-4 animate-section-in"
         >
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 md:flex-row md:items-stretch">
-                {/* Contact Info */}
                 <div className="flex-1 flex">
                     <div className="w-full h-full rounded-3xl bg-white/80 p-8 backdrop-blur-sm border border-gray-200 animate-soft-in">
                         <h2 className="text-center md:text-left text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
@@ -24,109 +25,36 @@ const Contact = () => {
                                 Contact Me
                             </span>
                         </h2>
+                        <div className="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-4 mb-4">
+                            <p className="text-sm text-foreground/80 leading-relaxed">
+                                Open to mid-level and senior software engineering roles. Remote ·
+                                comfortable collaborating across US and European time zones.
+                            </p>
+                        </div>
                         <p className="text-base sm:text-lg text-zinc-700 mb-4 leading-relaxed">
-                            Let&apos;s connect. You can reach me directly
-                            through email, phone, or any of my social profiles
-                            below.
+                            Let&apos;s talk about how I can help your engineering team build
+                            reliable systems.
                         </p>
                         <div className="space-y-3 text-zinc-700">
-                            <p className="flex items-center">
-                                <a
-                                    href="mailto:samiulalimsaad@gmail.com"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center hover:text-sky-600"
-                                >
-                                    <span className="mr-4">
-                                        <Mail className="h-5 w-5" />
-                                    </span>
-                                    samiulalimsaad@gmail.com
-                                </a>
-                            </p>
-                            <p className="flex items-center">
-                                <a
-                                    href="tel:+8801715378032"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center hover:text-sky-600"
-                                >
-                                    <span className="mr-4">
-                                        <Phone className="h-5 w-5" />
-                                    </span>
-                                    +880 1715 37 80 32
-                                </a>
-                            </p>
-
-                            <p className="flex items-center">
-                                <a
-                                    href="https://facebook.com/samiulalimsaad"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center hover:text-sky-600"
-                                >
-                                    <span className="mr-4">
-                                        <Facebook className="h-5 w-5" />
-                                    </span>
-                                    facebook.com/samiulalimsaad
-                                </a>
-                            </p>
-                            <p className="flex items-center">
-                                <a
-                                    href="https://discord.com/users/938388181202653224"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center hover:text-sky-600"
-                                >
-                                    <span className="mr-4">
-                                        <MessageSquareCode className="h-5 w-5" />
-                                    </span>
-                                    discord.com/users/938388181202653224
-                                </a>
-                            </p>
-                            <p className="flex items-center">
-                                <a
-                                    href="https://m.me/samiulalimsaad"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center hover:text-sky-600"
-                                >
-                                    <span className="mr-4">
-                                        <MessageCircle className="h-5 w-5" />
-                                    </span>
-                                    m.me/samiulalimsaad
-                                </a>
-                            </p>
-                            <p className="flex items-center">
-                                <a
-                                    href="https://linkedin.com/in/samiulalimsaad"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center hover:text-sky-600"
-                                >
-                                    <span className="mr-4">
-                                        <Linkedin className="h-5 w-5" />
-                                    </span>
-                                    linkedin.com/in/samiulalimsaad
-                                </a>
-                            </p>
-                            <p className="flex items-center">
-                                <a
-                                    href="https://github.com/samiulalimsaad"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center hover:text-sky-600"
-                                >
-                                    <span className="mr-4">
-                                        <Github className="h-5 w-5" />
-                                    </span>
-                                    github.com/samiulalimsaad
-                                </a>
-                            </p>
+                            {primaryLinks.map(({ Icon, href, label }) => (
+                                <p key={href} className="flex items-center">
+                                    <a
+                                        href={href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="flex items-center hover:text-sky-600"
+                                    >
+                                        <span className="mr-4">
+                                            <Icon className="h-5 w-5" />
+                                        </span>
+                                        {label}
+                                    </a>
+                                </p>
+                            ))}
                         </div>
                     </div>
                 </div>
 
-                {/* Simple contact form (separate component) */}
                 <div className="flex-1 flex animate-soft-in">
                     <ContactForm />
                 </div>

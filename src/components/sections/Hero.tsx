@@ -1,7 +1,6 @@
-import ResumeButton from "@/components/ResumeButton";
-import { getExperienceYears } from "@/lib/utils";
-import { Code2, Github, Linkedin, Mail, MessageSquareCode } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
+import ResumeButton from "@/components/ResumeButton";
 
 const socials = [
     {
@@ -15,16 +14,6 @@ const socials = [
         label: "LinkedIn",
     },
     {
-        Icon: MessageSquareCode,
-        href: "https://discord.com/users/938388181202653224",
-        label: "Discord",
-    },
-    {
-        href: "https://codeforces.com/profile/samiulalimsaad",
-        Icon: Code2,
-        label: "Codeforces",
-    },
-    {
         href: "mailto:samiulalimsaad@gmail.com",
         Icon: Mail,
         label: "Email",
@@ -32,64 +21,50 @@ const socials = [
 ];
 
 export default function Hero() {
-    const experienceYears = getExperienceYears();
-
     return (
-        <section className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4 animate-section-in">
-            <div className="absolute inset-x-0 top-20 -z-10 flex justify-center">
-                <div className="h-64 w-64 rounded-full bg-cyan-200/30 blur-3xl animate-soft-in" />
-            </div>
-            <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:text-left">
-                <div className="flex-1 flex flex-col items-center md:items-start gap-5 animate-soft-in">
-                    <span className="inline-flex items-center rounded-full border border-cyan-200 bg-white/60 px-4 py-1 text-xs font-semibold text-cyan-700 backdrop-blur">
-                        <span className="mr-2 h-2 w-2 rounded-full bg-emerald-400" />
-                        Open to opportunities
-                    </span>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-                        <span className="block text-foreground">
-                            Hi, I&apos;m
-                        </span>
-                        <span className="bg-linear-to-r from-cyan-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
-                            Samiul Alim
+        <section
+            id="home"
+            className="relative flex min-h-[80vh] items-center justify-center bg-linear-to-b from-sky-50 via-white to-indigo-50 px-4 scroll-mt-16"
+        >
+            <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 text-center md:flex-row md:items-center md:gap-14 md:text-left">
+                <div className="flex flex-[1.4] flex-col items-center gap-5 md:items-start">
+                    <p className="inline-flex items-center gap-2 rounded-full border border-cyan-100 bg-white/80 px-3 py-1 text-xs font-medium text-cyan-700">
+                        Samiul Alim · Software Engineer
+                    </p>
+                    <h1 className="text-balance text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
+                        <span className="inline-block text-foreground/80">
+                            Backend-Focused Full-Stack Engineer
+                        </span>{" "}
+                        <span className="inline-block bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                            Building Scalable Web Systems
                         </span>
                     </h1>
-                    <p className="max-w-xl text-sm sm:text-base md:text-lg text-foreground/70">
-                        Software Engineer &amp; Fullstack Web Developer
-                        specializing in building modern, scalable web
-                        applications with{" "}
-                        <span className="font-semibold text-cyan-700">
-                            Next.js
-                        </span>
-                        ,
-                        <span className="font-semibold text-indigo-700">
-                            {" "}
-                            React
-                        </span>
-                        , and
-                        <span className="font-semibold text-emerald-700">
-                            {" "}
-                            Node.js
-                        </span>
-                        .
+                    <p className="max-w-2xl text-sm sm:text-base text-foreground/70">
+                        Backend-focused software engineer building production platform services
+                        authentication, payments, and email delivery. I design shared
+                        infrastructure, operate it in production, and respond when it breaks at 2
+                        AM.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a
-                            href="#contact"
+                            href="#projects"
+                            aria-label="View case studies"
                             className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white transition"
                         >
-                            Hire Me
+                            View Case Studies
                         </a>
                         <ResumeButton />
                     </div>
-                    <div className="mt-4 flex flex-wrap items-center gap-3">
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
-                            <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                            {experienceYears}+ years experience
-                        </div>
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground/70">
-                            <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
-                            Based in Bangladesh
-                        </div>
+                    <div className="mt-4 flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100">
+                            Open to remote roles
+                        </span>
+                        <span className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100">
+                            US / EU timezone-friendly
+                        </span>
+                        <span className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100">
+                            Go · TypeScript · PostgreSQL
+                        </span>
                     </div>
                     <div className="mt-4 flex items-center gap-3">
                         {socials.map(({ href, Icon, label }) => (
@@ -106,13 +81,12 @@ export default function Hero() {
                         ))}
                     </div>
                 </div>
-                <div className="flex-1 flex justify-center md:justify-end">
-                    <div className="relative animate-float-slow">
-                        <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-cyan-300 via-indigo-300 to-sky-200 opacity-70 blur-md" />
-                        <div className="relative rounded-3xl bg-white/80 p-5 backdrop-blur animate-soft-in">
-                            <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-full border-4 border-white sm:h-72 sm:w-72">
+                <div className="flex flex-1 justify-center md:justify-end">
+                    <div className="relative">
+                        <div className="relative rounded-3xl bg-white/80 p-4 backdrop-blur">
+                            <div className="mx-auto flex h-48 w-48 items-center justify-center overflow-hidden rounded-2xl border-4 border-white sm:h-56 sm:w-56">
                                 <Image
-                                    src="/avatars/samiul-alim.png"
+                                    src="/avatars/samiul-alim.webp"
                                     width={300}
                                     height={300}
                                     alt="Samiul Alim"
