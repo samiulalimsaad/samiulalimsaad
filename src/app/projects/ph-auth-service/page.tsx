@@ -75,6 +75,7 @@ export default function AuthServiceCaseStudy() {
             <FailureModes />
             <ObservabilitySection />
             <TestingSection />
+            <ReleaseReadinessSection />
             <LessonsLearned />
             <RelatedPatterns />
             <ReferencesSection />
@@ -99,8 +100,9 @@ function HeroSection() {
                     Multi-Tenant Identity Provider
                 </p>
                 <p className="text-sm text-foreground/50 max-w-2xl mx-auto mb-6">
-                    A production-grade OpenID Connect identity provider with multi-tenant isolation,
-                    TOTP-based MFA, device limit enforcement, and defense-in-depth security.
+                    A production-oriented OpenID Connect identity provider with multi-tenant
+                    isolation, TOTP-based MFA, device limit enforcement, and defense-in-depth
+                    security. Complete, awaiting production release.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {["Go", "PostgreSQL", "Redis", "ClickHouse", "ZITADEL OIDC", "Prisma"].map(
@@ -139,21 +141,23 @@ function ExecutiveSummary() {
                     />
                     <SummaryCard
                         icon={<Shield className="w-5 h-5" />}
-                        value="7 Layers"
-                        label="Defense-in-depth security"
+                        value="10"
+                        label="Cypress E2E suites"
                     />
                     <SummaryCard
                         icon={<Server className="w-5 h-5" />}
-                        value="Complete"
-                        label="Status"
+                        value="3"
+                        label="Backend data stores"
                     />
                 </div>
                 <p className="text-base text-foreground/80 leading-relaxed">
                     A custom identity provider implementing the OpenID Connect protocol to serve as
                     the centralized authentication layer for an educational platform ecosystem. The
-                    system supports multiple tenants with isolated user bases, TOTP-based
-                    multi-factor authentication, configurable device limits, and comprehensive audit
-                    logging, all behind a defense-in-depth security middleware chain.
+                    system supports tenant-scoped users, projects, OIDC clients, and signing keys,
+                    TOTP-based multi-factor authentication, configurable device limits, Redis-backed
+                    sessions, and audit-event storage behind a defense-in-depth security middleware
+                    chain. The Go IDP and Nuxt administration dashboard are complete and awaiting
+                    production release.
                 </p>
             </div>
         </section>
@@ -203,7 +207,7 @@ function ArchitectureDiagram() {
         end
 
         subgraph Identity
-            L[ZITADEL OIDC Provider]
+            L[Go OIDC Provider]
             M[Token Issuance]
             N[JWKS Endpoint]
             O[PKCE Flow]
@@ -310,6 +314,12 @@ function KeyFeatures() {
             description:
                 "Columnar database for high-volume authentication event analytics with batch inserts and structured metadata.",
         },
+        {
+            icon: <Users className="w-5 h-5" />,
+            title: "Administration Dashboard",
+            description:
+                "Nuxt 3 dashboard authenticated through OIDC for managing tenants, projects, applications, users, and MFA configuration.",
+        },
     ];
 
     return (
@@ -354,7 +364,7 @@ function TechnicalDecisions() {
             context:
                 "The OIDC protocol is complex with requirements for PKCE, JWKS rotation, token exchange, and introspection. Implementing from scratch introduces security risk.",
             outcome:
-                "Built on a production-tested OIDC library, reducing security risk while allowing customization for business-specific requirements like custom scopes and multi-tenant flows.",
+                "Built on a battle-tested OIDC library, reducing protocol implementation risk while allowing customization for business-specific requirements like custom scopes and multi-tenant flows.",
             icon: <GitBranch className="w-5 h-5" />,
         },
         {
@@ -391,10 +401,10 @@ export function createSecurityMiddleware(config: SecurityConfig) {
             context:
                 "The platform is built to serve three product tenants (bootcamp, skill-mapper, admin tools). Accidental cross-tenant data leaks would be catastrophic for user trust.",
             outcome:
-                "A tenant-scoped repository pattern injects tenantId into every query via composite unique constraints. It's impossible to leak data across tenants at the database level.",
+                "Tenant-scoped queries and composite database constraints reinforce isolation between product tenants and make incorrect associations visible at the persistence boundary.",
             icon: <Database className="w-5 h-5" />,
-            snippet: `// Tenant-scoped repository: impossible to leak data across tenants.
-// Every query injects tenantId via composite unique constraint.
+            snippet: `// Tenant-scoped repository: keep tenant boundaries explicit.
+// Every query injects tenantId and relies on composite constraints.
 export class TenantScopedRepository<T> {
     constructor(
         private prisma: PrismaClient,
@@ -458,10 +468,10 @@ function MetricsSection() {
             <div className="mx-auto w-full max-w-4xl">
                 <h2 className="text-2xl font-bold text-foreground mb-8">Metrics</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <MetricCard label="Tenant Architecture" value="Multi-Tenant" />
-                    <MetricCard label="Security Layers" value="7" />
-                    <MetricCard label="Products Served" value="4" />
-                    <MetricCard label="Status" value="In Development" />
+                    <MetricCard label="E2E test suites" value="10" />
+                    <MetricCard label="Admin resource domains" value="4" />
+                    <MetricCard label="Backend data stores" value="3" />
+                    <MetricCard label="Status" value="Pre-production" />
                 </div>
             </div>
         </section>
@@ -710,27 +720,27 @@ function FailureModes() {
                     <FailureModeCard
                         scenario="Redis Outage (Session Store)"
                         impact="Session validation fails, users cannot authenticate"
-                        mitigation="Redis Sentinel for automatic failover. Session validation returns 503 during outage. Clients retry with backoff. Grace period for existing sessions via cookie cache."
+                        mitigation="Redis is an explicit session dependency. The service reports initialization and connection failures rather than silently accepting unverifiable sessions. High-availability failover remains a deployment concern before production release."
                     />
                     <FailureModeCard
                         scenario="ZITADEL Library API Change"
                         impact="OIDC protocol handling may break after upgrade"
-                        mitigation="Integration tests cover all OIDC flows. Staged rollouts with UAT validation. Pinned dependency version with planned upgrade cycles."
+                        mitigation="The dependency is version-pinned in Go modules, with protocol behavior documented through OIDC flow diagrams and server tests. Upgrade validation remains part of release preparation."
                     />
                     <FailureModeCard
                         scenario="Rate Limiter False Positive"
                         impact="Legitimate user blocked after exceeding threshold"
-                        mitigation="Rate limit headers expose remaining capacity. Users see Retry-After header with clear messaging. Admin override API for unblocking. Per-user whitelist for known IPs."
+                        mitigation="The current token-bucket limiter applies bounded per-IP limits to mutating requests. Threshold tuning and operational override policy remain pre-production concerns."
                     />
                     <FailureModeCard
                         scenario="MFA Enrollment Failure"
                         impact="User cannot complete MFA setup, blocked from account"
-                        mitigation="MFA enrollment is transactional: failure rolls back to previous state. Support override for manual MFA reset. Audit trail of all enrollment attempts."
+                        mitigation="Enrollment validates the TOTP code before marking MFA active, and the profile flow exposes recovery feedback for invalid or failed setup attempts."
                     />
                     <FailureModeCard
                         scenario="Token Revocation Race Condition"
                         impact="Revoked token used briefly before propagation"
-                        mitigation="Redis-based token blacklist with TTL matching token expiry. Eventual consistency accepted: worst case token valid for under 1s after revocation. Audit log captures all revocation events."
+                        mitigation="Server-side Redis session deletion provides immediate control for browser sessions. Exact distributed token-revocation guarantees require production deployment validation."
                     />
                 </div>
             </div>
@@ -778,36 +788,33 @@ function ObservabilitySection() {
                     <ObservabilityCard
                         title="Logging"
                         items={[
-                            "Structured JSON logs with correlation IDs across auth flows",
-                            "Authentication events logged: login success, login failure, MFA challenge, token refresh, token revocation",
-                            "Security events logged at WARN: rate limit exceeded, failed MFA, suspicious IP patterns",
+                            "Structured application logging through Go's slog and the service logger",
+                            "Authentication, session, MFA, and management operations emit diagnostic events",
+                            "Sensitive values are masked or sanitized in user-facing error and logging paths",
                         ]}
                     />
                     <ObservabilityCard
                         title="Metrics"
                         items={[
-                            "Auth request volume and success/failure rate per tenant",
-                            "Rate limiter metrics: requests blocked, current capacity per tenant",
-                            "Token operations: issued, refreshed, revoked per minute",
+                            "Health endpoint exposes service availability for deployment checks",
+                            "ClickHouse audit repository provides a path for structured auth-event analysis",
+                            "Request logging supports troubleshooting during staging validation",
                         ]}
                     />
                     <ObservabilityCard
                         title="Alerting"
                         items={[
-                            "Failed login rate spike (potential brute force attack)",
-                            "Rate limiter blocking > 5% of legitimate traffic",
-                            "MFA enrollment failure rate increase",
-                            "Redis connectivity loss",
-                            "Token revocation backlog",
+                            "Database and Redis initialization failures are surfaced during startup",
+                            "Authentication and security failures remain observable in service logs",
+                            "Production alert thresholds and on-call policies remain release work",
                         ]}
                     />
                     <ObservabilityCard
                         title="Monitoring"
                         items={[
-                            "Discord webhook alerts for service downtime via Uptime Kuma",
-                            "Per-tenant authentication breakdown",
-                            "Rate limiter effectiveness: requests allowed vs blocked",
-                            "Security event timeline: failed attempts, rate limit hits, MFA challenges",
+                            "Health checks can be used by staging and deployment environments",
+                            "OIDC flow and management API behavior is covered by Cypress scenarios",
+                            "Operational monitoring configuration is not represented as a production claim",
                         ]}
                     />
                 </div>
@@ -839,24 +846,19 @@ function TestingSection() {
                 <h2 className="text-2xl font-bold text-foreground mb-8">Testing Strategy</h2>
                 <div className="space-y-4">
                     <TestingCard
-                        level="Unit Tests"
-                        scope="Middleware functions, token operations, MFA validation, device limit enforcement"
-                        approach="Vitest with mocked Redis and PostgreSQL. Tests cover: rate limiter edge cases (overflow, refill timing), TOTP validation with known test vectors, device limit enforcement across concurrent sessions."
+                        level="Go Server Tests"
+                        scope="6 server test suites covering health, login, registration, OTP, password recovery, and profile flows"
+                        approach="Go tests exercise HTTP behavior against the running IDP environment and assert response status and rendered auth UI content."
                     />
                     <TestingCard
-                        level="Integration Tests"
-                        scope="Full auth flows with real database, OIDC protocol compliance"
-                        approach="Testcontainers for PostgreSQL and Redis in CI. Tests verify: complete OIDC authorization code flow, MFA enrollment and challenge, device limit enforcement, token refresh and revocation."
+                        level="Cypress E2E"
+                        scope="10 suites covering login, registration, OTP, password recovery, profile/MFA, tenant, project, user, application, and health flows"
+                        approach="Cypress tests use environment-configured base URLs and credentials, with API setup for tenant, project, and OIDC application lifecycle scenarios."
                     />
                     <TestingCard
-                        level="E2E Tests"
-                        scope="10 Cypress E2E tests covering: login, registration, profile management, tenant management, tenant projects, user management, forget password, OTP verification, health checks, and application flows"
-                        approach="Cypress with cypress.env.json for environment configuration. Test files in cypress/e2e/*.cy.ts. CI integration via GitHub Actions pipeline."
-                    />
-                    <TestingCard
-                        level="Frontend Test Suite"
-                        scope="50 Vitest tests across the Bootcamp platform: 7 integration tests, 15 hook tests, 12 service tests, 3 store tests, 4 utility tests, 3 component tests, 2 permission tests, 1 constant test"
-                        approach="Vitest with MSW (Mock Service Worker) for API mocking. Test factories and auth helpers for consistent test data. CI runs on every push."
+                        level="Release Validation"
+                        scope="IDP Docker packaging and Nuxt dashboard build/deployment workflows"
+                        approach="Manual release workflow builds and pushes the Go IDP image; staging dashboard changes trigger a Nuxt build and Vercel deployment workflow."
                     />
                 </div>
             </div>
@@ -887,6 +889,48 @@ function TestingCard({
                 </div>
             </div>
         </div>
+    );
+}
+
+function ReleaseReadinessSection() {
+    return (
+        <section className="w-full bg-linear-to-b from-sky-50/60 via-white to-indigo-50/60 py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Release Readiness</h2>
+                <p className="text-sm text-foreground/70 leading-relaxed mb-6">
+                    The implementation is complete and packaged for release, but it has not yet been
+                    promoted to production. The repository separates the deployable Go IDP and Nuxt
+                    dashboard and includes workflows for building the IDP image and deploying the
+                    dashboard.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="rounded-2xl border border-gray-100 bg-white/80 p-5">
+                        <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                            <Server className="w-5 h-5" />
+                        </div>
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Go IDP Container
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Dockerfile and manual GitHub Actions workflow build and publish a tagged
+                            authentication-server image.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/80 p-5">
+                        <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                            <GitBranch className="w-5 h-5" />
+                        </div>
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Nuxt Dashboard Deployment
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Staging dashboard changes run a Nuxt build and deploy workflow targeting
+                            Vercel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }
 
@@ -967,9 +1011,19 @@ function OwnershipSection() {
                 "Coordinated implementation and reviewed the work of two mid-level engineers. Made collaborative architecture decisions under senior engineer authority.",
         },
         {
+            title: "Admin dashboard",
+            description:
+                "Built the Nuxt 3 dashboard surface for OIDC-authenticated management of tenants, projects, applications, users, and MFA configuration.",
+        },
+        {
+            title: "E2E and release readiness",
+            description:
+                "Added 10 Cypress suites across auth and management flows, plus Docker and GitHub Actions workflows for pre-production release validation.",
+        },
+        {
             title: "Tenancy & isolation",
             description:
-                "Chose the tenant-scoped repository pattern with composite unique constraints so cross-tenant data leaks are impossible at the database level, not just the application level.",
+                "Implemented tenant-scoped queries and composite constraints to reinforce isolation at both application and persistence boundaries.",
         },
     ];
 
@@ -1006,8 +1060,8 @@ function ReferencesSection() {
                 </h2>
                 <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6 backdrop-blur-sm">
                     <p className="text-sm text-foreground/70 mb-4">
-                        This is a proprietary production system. The details above reflect my actual
-                        work. Additional evidence available upon request:
+                        This is a proprietary pre-production system. The details above reflect my
+                        actual work. Additional implementation evidence is available upon request:
                     </p>
                     <ul className="space-y-2 text-sm text-foreground/70">
                         <li className="flex items-start gap-2">
@@ -1016,7 +1070,7 @@ function ReferencesSection() {
                         </li>
                         <li className="flex items-start gap-2">
                             <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
-                            Security audit reports and penetration test results
+                            Anonymized security architecture and release-readiness evidence
                         </li>
                         <li className="flex items-start gap-2">
                             <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />

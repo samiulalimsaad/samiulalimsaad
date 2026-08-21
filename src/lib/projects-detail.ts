@@ -12,20 +12,32 @@ export const projectDetails: ProjectDetail[] = [
     {
         _id: "featured-2",
         businessProblem:
-            "Multiple education products required secure, consistent authentication. Each product was managing identity independently, creating duplication, security inconsistencies, and maintenance overhead across the platform.",
+            "Multiple education products needed one secure identity layer with tenant-scoped users, clients, and projects instead of separate authentication implementations and inconsistent security controls.",
         responsibilities:
-            "Led implementation of the centralized authentication platform. Contributed to platform architecture while owning major technical decisions around MFA, device management, and security hardening.",
+            "Led implementation of the centralized authentication platform. Owned major technical decisions around OIDC integration, MFA, device and session management, tenant isolation, security hardening, the Nuxt administration dashboard, and end-to-end verification.",
         architecture:
-            "Centralized identity platform with a core identity service handling OIDC/OAuth2 flows, multi-tenant isolation, and token management. A custom application layer provides product-specific authentication logic, allowing downstream services to integrate without embedding identity complexity. Security policies (MFA, device limits) are enforced at the platform level, ensuring consistent enforcement regardless of the consuming application.",
+            "Go identity provider built on the ZITADEL OIDC library, with PostgreSQL for identity and tenant configuration, Redis for sessions and revocation, and ClickHouse for audit-event analytics. The service exposes OIDC protocol endpoints plus an admin API for tenants, projects, clients, users, and sessions. A Nuxt 3 dashboard consumes that management surface through OIDC authentication.",
         keyDecisions: [
-            "Centralized identity into a single platform rather than per-product implementations",
-            "Separated application-specific auth logic from core identity concerns",
-            "Implemented MFA and device limits at the platform level for uniform security",
-            "Designed security hardening to be enforceable without application-level changes",
+            "Used a battle-tested OIDC library instead of implementing protocol flows from scratch",
+            "Separated protocol handling, product-specific auth UI, and admin management APIs",
+            "Used PostgreSQL, Redis, and ClickHouse for distinct identity, session, and analytics workloads",
+            "Enforced MFA, device limits, CSRF, CSP nonces, reCAPTCHA, rate limiting, and session controls centrally",
+            "Added Cypress E2E coverage and Docker/GitHub Actions release workflows before production rollout",
         ],
         businessImpact:
-            "Eliminated authentication duplication across products. Reduced integration effort for new services by centralizing identity into a shared platform. Improved security posture through consistent, platform-level policy enforcement. Enabled faster product development by removing identity complexity from individual teams.",
-        technologies: ["Go", "PostgreSQL", "ZITADEL", "OIDC/OAuth2", "Docker"],
+            "Created a reusable central identity foundation for multiple products, reducing duplicated authentication work and concentrating security policy in one service. The platform is complete and release-ready, with admin tooling, automated integration coverage, and deployment packaging in place, but has not yet been promoted to production.",
+        technologies: [
+            "Go",
+            "PostgreSQL",
+            "Redis",
+            "ClickHouse",
+            "Prisma",
+            "ZITADEL OIDC",
+            "OpenAPI",
+            "Nuxt 3",
+            "Cypress",
+            "Docker",
+        ],
     },
     {
         _id: "featured-1",

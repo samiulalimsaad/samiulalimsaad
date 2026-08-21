@@ -90,6 +90,8 @@ export default function AllProjectsPage() {
 type Project = (typeof projects)[number];
 
 function ProjectCard({ project }: { project: Project }) {
+    const isSourceCode = "githubLabel" in project && project.githubLabel === "Source Code";
+
     return (
         <div className="group flex flex-col overflow-hidden rounded-3xl border border-white/70 bg-white/80 backdrop-blur-sm transition hover:-translate-y-2 animate-card-in">
             <div className="overflow-hidden">
@@ -157,9 +159,15 @@ function ProjectCard({ project }: { project: Project }) {
                                     href={project.githubBackEnd}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-block px-3 py-1 text-sm font-medium rounded-lg bg-foreground text-background hover:bg-foreground/90 transition"
+                                    className={`inline-block px-3 py-1 text-sm font-medium rounded-lg transition ${
+                                        isSourceCode
+                                            ? "bg-linear-to-r from-cyan-500 to-indigo-500 text-white hover:from-cyan-600 hover:to-indigo-600"
+                                            : "bg-foreground text-background hover:bg-foreground/90"
+                                    }`}
                                 >
-                                    Backend
+                                    {"githubLabel" in project && project.githubLabel
+                                        ? project.githubLabel
+                                        : "Backend"}
                                 </a>
                             )}
                             {project.live && (
@@ -246,6 +254,14 @@ function PastWorkCard({ project }: { project: Project }) {
                         <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-medium text-amber-700">
                             Proprietary
                         </span>
+                    )}
+                    {"caseStudyLink" in project && project.caseStudyLink && (
+                        <Link
+                            href={project.caseStudyLink}
+                            className="inline-block px-2 py-0.5 text-[11px] font-medium rounded-md border border-indigo-200 text-indigo-700 hover:bg-indigo-50 transition"
+                        >
+                            Case Study →
+                        </Link>
                     )}
                 </div>
             </div>
