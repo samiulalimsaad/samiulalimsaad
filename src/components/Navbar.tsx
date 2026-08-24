@@ -67,6 +67,12 @@ export default function Navbar() {
                             </li>
                         ))}
                     </ul>
+                    <Link
+                        href="/#contact"
+                        className="rounded-full bg-linear-to-r from-indigo-600 to-cyan-500 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >
+                        Hire Me
+                    </Link>
                     <AskAI />
                     <ResumeButton />
                 </div>
@@ -116,6 +122,13 @@ export default function Navbar() {
                         </li>
                     ))}
                     <li className="flex flex-wrap gap-2 px-3 pt-2">
+                        <Link
+                            href="/#contact"
+                            onClick={() => setOpen(false)}
+                            className="rounded-full bg-linear-to-r from-indigo-600 to-cyan-500 px-4 py-2 text-sm font-semibold text-white transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >
+                            Hire Me
+                        </Link>
                         <AskAI />
                         <ResumeButton />
                     </li>

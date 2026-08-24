@@ -54,6 +54,12 @@ export default function Hero() {
                         >
                             View Case Studies
                         </a>
+                        <a
+                            href="#contact"
+                            className="inline-flex items-center rounded-full border border-indigo-200 bg-white/80 px-6 py-2 text-sm font-semibold text-indigo-700 transition hover:-translate-y-px hover:border-indigo-300 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >
+                            Hire Me
+                        </a>
                         <ResumeButton />
                     </div>
                     <div className="mt-4 flex flex-wrap items-center gap-2">
