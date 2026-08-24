@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
+import AskAI from "@/components/AskAI";
 import ResumeButton from "@/components/ResumeButton";
 
 const navItems = [
@@ -66,6 +67,7 @@ export default function Navbar() {
                             </li>
                         ))}
                     </ul>
+                    <AskAI />
                     <ResumeButton />
                 </div>
 
@@ -113,7 +115,8 @@ export default function Navbar() {
                             </Link>
                         </li>
                     ))}
-                    <li className="px-3 pt-2">
+                    <li className="flex flex-wrap gap-2 px-3 pt-2">
+                        <AskAI />
                         <ResumeButton />
                     </li>
                 </ul>

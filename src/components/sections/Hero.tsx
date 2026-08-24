@@ -1,6 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
-import AskAI from "@/components/AskAI";
 import ResumeButton from "@/components/ResumeButton";
 import { profile } from "@/lib/knowledge";
 
@@ -82,7 +81,6 @@ export default function Hero() {
                             </a>
                         ))}
                     </div>
-                    <AskAI />
                 </div>
                 <div className="flex flex-1 justify-center md:justify-end">
                     <div className="relative">
