@@ -4,8 +4,7 @@ import Link from "next/link";
 import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import CodeSnippet from "@/components/ui/CodeSnippet";
 import MermaidDiagram from "@/components/ui/MermaidDiagram";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.samiulalimsaad.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 const pageTitle = "Skill Mapper: Technical Assessment Platform | Case Study";
 const pageDescription =

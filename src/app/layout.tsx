@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/ScrollToTop";
 import Visitor from "@/components/Visitor";
+import { AI_CONTEXT_URL, experienceFacts, PROFILE_ID, profile, SITE_URL } from "@/lib/knowledge";
 
 const firaCode = Fira_Code({
     subsets: ["latin"],
@@ -21,13 +22,11 @@ const inter = Inter({
 
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.samiulalimsaad.com";
-const siteTitle = "Samiul Alim | Software Engineer (Backend Focus)";
-const siteDescription =
-    "Backend-focused software engineer building production platform services for authentication, payments, and email delivery. Go · TypeScript · PostgreSQL.";
+const siteTitle = `${profile.name} | ${profile.title}`;
+const siteDescription = `${profile.summary} Go, TypeScript, PostgreSQL, authentication, payments, and email delivery.`;
 
 export const metadata: Metadata = {
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(SITE_URL),
     title: {
         default: siteTitle,
         template: `%s`,
@@ -67,14 +66,25 @@ export const metadata: Metadata = {
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Samiul Alim",
-    jobTitle: "Backend-Focused Full-Stack Software Engineer",
-    description:
-        "Software engineer specializing in production backend systems, APIs, authentication, payments, and email delivery. Go, TypeScript, PostgreSQL.",
-    url: siteUrl,
-    sameAs: ["https://github.com/samiulalimsaad", "https://linkedin.com/in/samiulalimsaad"],
-    email: "samiulalimsaad@gmail.com",
-    knowsAbout: ["Go", "Node.js", "TypeScript", "PostgreSQL", "Redis", "System Design"],
+    "@id": PROFILE_ID,
+    name: profile.name,
+    jobTitle: profile.title,
+    description: profile.summary,
+    url: SITE_URL,
+    sameAs: [profile.social.github, profile.social.linkedin],
+    email: profile.email,
+    subjectOf: { "@id": `${AI_CONTEXT_URL}#profile` },
+    worksFor: { "@type": "Organization", name: experienceFacts[0].employer },
+    knowsAbout: [
+        "Go",
+        "Node.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Redis",
+        "REST APIs",
+        "Authentication",
+        "Payments",
+    ],
 };
 
 export default function RootLayout({

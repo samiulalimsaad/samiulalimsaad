@@ -1,14 +1,15 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import { profile } from "@/lib/knowledge";
 import ContactForm from "./ContactForm";
 
 const primaryLinks = [
-    { Icon: Mail, href: "mailto:samiulalimsaad@gmail.com", label: "samiulalimsaad@gmail.com" },
+    { Icon: Mail, href: `mailto:${profile.email}`, label: profile.email },
     {
         Icon: Linkedin,
-        href: "https://linkedin.com/in/samiulalimsaad",
+        href: profile.social.linkedin,
         label: "linkedin.com/in/samiulalimsaad",
     },
-    { Icon: Github, href: "https://github.com/samiulalimsaad", label: "github.com/samiulalimsaad" },
+    { Icon: Github, href: profile.social.github, label: "github.com/samiulalimsaad" },
 ];
 
 const Contact = () => {

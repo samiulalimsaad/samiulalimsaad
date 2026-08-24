@@ -14,24 +14,24 @@ I build reliable backend platforms, distributed systems, and scalable product in
 
 ## Selected Work
 
-- **[PH Mailer](https://www.samiulalimsaad.com/projects/ph-mailer)** — Centralized email platform built with BullMQ, Redis queues, and AWS SES for reliable cross-team delivery.
-- **[PH Auth Service](https://www.samiulalimsaad.com/projects/ph-auth-service)** — Multi-tenant OIDC identity platform in Go & PostgreSQL with PKCE, session revocation, and TOTP MFA.
-- **[PH Bootcamp Platform](https://bootcamp.programming-hero.com)** — Full-stack LMS supporting DRM video streaming, tokenized bKash payments, and QR attendance tracking.
-- **[Skill Mapper](https://skillmapper.programming-hero.com)** — Assessment engine with state machine lifecycle orchestration and real-time materialized leaderboard caching.
+- **[PH Mailer](https://www.samiulalimsaad.com/projects/ph-mailer)** — Centralized email platform with BullMQ, Redis queues, and AWS SES. Serves 5 internal teams, 197K+ emails sent.
+- **[PH Auth Service](https://www.samiulalimsaad.com/projects/ph-auth-service)** — Multi-tenant OIDC identity platform in Go with PKCE, TOTP MFA, and session revocation.
+- **[PH Bootcamp Platform](https://bootcamp.programming-hero.com)** — Full-stack LMS with DRM video streaming, tokenized bKash payments, and QR attendance. 13K+ leads, 898+ active users.
+- **[Skill Mapper](https://skillmapper.programming-hero.com)** — Assessment engine with state machine lifecycle, real-time leaderboards, and 5-tier XP ranking. 5K+ enrolled students.
 - **[Payment Service](https://www.samiulalimsaad.com/projects/payment-service)** — Unified payment orchestration in Go for Stripe, bKash, and SSLCommerz with idempotent webhook handling.
-- **[SpeakSail](https://speaksail.com)** — Production language-learning marketplace with live video tutoring, Socket.IO messaging, and multi-currency billing.
+- **[SpeakSail](https://speaksail.com)** — Language-learning marketplace with live video tutoring, Socket.IO messaging, and multi-currency billing. 90+ API routes, 27 database models.
 
 ---
 
 ## Engineering Stack
 
-| Domain | Technologies & Patterns |
+| Domain | Technologies |
 | :--- | :--- |
-| **Backend & APIs** | Go · Node.js · TypeScript · Express · REST · OpenAPI · Worker Pools |
+| **Backend & APIs** | Go · Node.js · TypeScript · Express · REST · OpenAPI |
 | **Data & Storage** | PostgreSQL · MongoDB · Redis · ClickHouse |
-| **Security & Identity** | OIDC · OAuth2 · ZITADEL · TOTP MFA · Rate Limiting · CSRF / CSP |
-| **Infrastructure & CI/CD** | Docker · GitHub Actions · Linux · 24/7 Monitoring |
-| **Frontend (Supporting)** | React · Next.js · Nuxt · Tailwind CSS · TanStack Query |
+| **Security & Identity** | OIDC · OAuth2 · ZITADEL · TOTP MFA · Rate Limiting · CSP / CSRF |
+| **Infrastructure** | Docker · GitHub Actions · Linux |
+| **Frontend** | React · Next.js · Nuxt · Tailwind CSS · TanStack Query |
 
 ---
 
@@ -43,21 +43,19 @@ I build reliable backend platforms, distributed systems, and scalable product in
 
 <div align="center">
 
-## Activity & Engineering Metrics
+## GitHub Activity
 
-| GitHub Activity | Language Distribution |
-| :---: | :---: |
-| <img src="https://github-readme-stats.vercel.app/api?username=samiulalimsaad&show_icons=true&hide_border=true&theme=transparent&hide_title=true" width="400" alt="GitHub Activity"> | <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=samiulalimsaad&layout=compact&hide_border=true&theme=transparent&langs_count=6" width="350" alt="Top Languages"> |
-
-<br />
+<p align="center">
+  <img src="https://github-stats-extended.vercel.app/api?username=samiulalimsaad&show_icons=true&hide_border=true&theme=transparent" alt="GitHub Stats" height="135" />
+  <img src="https://streak-stats.demolab.com/?user=samiulalimsaad&hide_border=true&theme=transparent" alt="GitHub Streak" height="135" />
+  <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=samiulalimsaad&layout=compact&hide_border=true&theme=transparent&langs_count=6" alt="Top Languages" height="135" />
+</p>
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=samiulalimsaad&theme=github-compact&hide_border=true&area=true&custom_title=Contribution%20Activity" width="100%" alt="Contribution Graph">
 
-<br /><br />
-
 ## Let's Connect
 
-Open to remote engineering roles, backend architecture, and distributed systems discussions.
+Open to backend architecture, platform engineering, and distributed systems roles.
 
 **[samiulalimsaad@gmail.com](mailto:samiulalimsaad@gmail.com)** &nbsp;·&nbsp; **[LinkedIn](https://www.linkedin.com/in/samiulalimsaad)** &nbsp;·&nbsp; **[Portfolio](https://www.samiulalimsaad.com)**
 

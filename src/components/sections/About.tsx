@@ -12,7 +12,7 @@ export default function About() {
                 </h2>
 
                 <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
-                    <div className="space-y-4 text-base sm:text-lg text-foreground/80 leading-relaxed">
+                    <div className="space-y-4 text-sm sm:text-base text-foreground/80 leading-relaxed text-justify">
                         <p>
                             I build platform services that other engineering teams depend on. My
                             work lives at the intersection of backend systems, security, and

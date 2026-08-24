@@ -1,20 +1,21 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import ResumeButton from "@/components/ResumeButton";
+import { profile } from "@/lib/knowledge";
 
 const socials = [
     {
-        href: "https://github.com/samiulalimsaad",
+        href: profile.social.github,
         Icon: Github,
         label: "GitHub",
     },
     {
-        href: "https://www.linkedin.com/in/samiulalimsaad",
+        href: profile.social.linkedin,
         Icon: Linkedin,
         label: "LinkedIn",
     },
     {
-        href: "mailto:samiulalimsaad@gmail.com",
+        href: `mailto:${profile.email}`,
         Icon: Mail,
         label: "Email",
     },

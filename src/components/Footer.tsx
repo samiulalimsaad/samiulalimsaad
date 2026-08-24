@@ -1,14 +1,15 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
+import { profile } from "@/lib/knowledge";
 
 const footerLinks = [
-    { Icon: Mail, href: "mailto:samiulalimsaad@gmail.com", label: "Email" },
+    { Icon: Mail, href: `mailto:${profile.email}`, label: "Email" },
     {
         Icon: Linkedin,
-        href: "https://linkedin.com/in/samiulalimsaad",
+        href: profile.social.linkedin,
         label: "LinkedIn",
     },
-    { Icon: Github, href: "https://github.com/samiulalimsaad", label: "GitHub" },
+    { Icon: Github, href: profile.social.github, label: "GitHub" },
 ];
 
 const Footer = () => {
