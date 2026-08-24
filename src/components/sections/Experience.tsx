@@ -42,27 +42,22 @@ const experiences = [
         description: experienceFacts[2].responsibilities,
     },
     {
-        designation: experienceFacts[2].title,
-        company: experienceFacts[2].employer,
-        location: "Rajshahi",
-        jobMode: "On-site · Paid",
-        dateFrom: experienceFacts[2].start,
-        dateTo: experienceFacts[2].end,
-        description: [
-            "Built full-stack features with PHP, Symfony, Laravel, and Vue.js. Admin panels using Sonata Admin and Easy Admin. Cross-platform mobile apps with Ionic (Vue) and Flutter. Fixed bugs, implemented new modules, and shipped code in a production environment.",
-        ],
-    },
-    {
         designation: experienceFacts[3].title,
         company: experienceFacts[3].employer,
-        location: "Romania",
-        jobMode: "Remote",
+        location: "Rajshahi",
+        jobMode: "On-site · Paid",
         dateFrom: experienceFacts[3].start,
         dateTo: experienceFacts[3].end,
-        description: [
-            "R&D work on AI model optimization and deployment: built machine learning models, preprocessed datasets, and improved model performance and scalability across multiple projects.",
-            "Collaborated with a distributed team to optimize algorithms, implement new features, and deliver research-backed improvements to production pipelines.",
-        ],
+        description: experienceFacts[3].responsibilities,
+    },
+    {
+        designation: experienceFacts[4].title,
+        company: experienceFacts[4].employer,
+        location: "Romania",
+        jobMode: "Remote",
+        dateFrom: experienceFacts[4].start,
+        dateTo: experienceFacts[4].end,
+        description: experienceFacts[4].responsibilities,
     },
 ];
 

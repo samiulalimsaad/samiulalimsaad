@@ -3,7 +3,10 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 
 export default function Projects() {
-    const featured = projects.filter((p) => p.tier === "featured").slice(0, 3);
+    const featuredIds = ["featured-1", "featured-2", "featured-3", "ph-skill-mapper"];
+    const featured = featuredIds
+        .map((id) => projects.find((project) => project._id === id))
+        .filter((project): project is (typeof projects)[number] => Boolean(project));
 
     return (
         <section
@@ -17,8 +20,9 @@ export default function Projects() {
                     </span>
                 </h2>
                 <p className="mx-auto max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Production systems I build and maintain. Each entry describes the engineering
-                    problem, not just the technology.
+                    Platform services I build and operate across identity, payments, email delivery,
+                    and education products. Each entry explains the engineering problem, ownership,
+                    and outcome.
                 </p>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
@@ -58,6 +62,9 @@ function ProjectCard({ project }: ProjectCardProps) {
             </div>
             <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">{project.name}</h3>
+                <p className="mb-1 text-[11px] font-medium uppercase tracking-wide text-foreground/50">
+                    {project.status}
+                </p>
                 <p className="mb-2 text-sm text-foreground/80">{project.shortDescription}</p>
                 {"metrics" in project && project.metrics && project.metrics.length > 0 && (
                     <div className="mb-3 flex flex-wrap gap-1.5">

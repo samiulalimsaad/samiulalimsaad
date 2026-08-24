@@ -15,7 +15,7 @@ I build reliable backend platforms, distributed systems, and scalable product in
 ## Selected Work
 
 - **[PH Mailer](https://www.samiulalimsaad.com/projects/ph-mailer)** — Centralized email platform with BullMQ, Redis queues, and AWS SES. Serves 5 internal teams, 197K+ emails sent.
-- **[PH Auth Service](https://www.samiulalimsaad.com/projects/ph-auth-service)** — Multi-tenant OIDC identity platform in Go with PKCE, TOTP MFA, and session revocation.
+- **[PH Auth Service](https://www.samiulalimsaad.com/projects/ph-auth-service)** — Release-ready multi-tenant OIDC identity platform in Go with PKCE, TOTP MFA, and session revocation; complete but awaiting production rollout.
 - **[PH Bootcamp Platform](https://bootcamp.programming-hero.com)** — Full-stack LMS with DRM video streaming, tokenized bKash payments, and QR attendance. 13K+ leads, 898+ active users.
 - **[Skill Mapper](https://skillmapper.programming-hero.com)** — Assessment engine with state machine lifecycle, real-time leaderboards, and 5-tier XP ranking. 5K+ enrolled students.
 - **[Payment Service](https://www.samiulalimsaad.com/projects/payment-service)** — Unified payment orchestration in Go for Stripe, bKash, and SSLCommerz with idempotent webhook handling.

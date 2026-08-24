@@ -55,14 +55,14 @@ export const projects = [
         metrics: ["10 Cypress E2E suites", "4 admin resource domains", "3 backend data stores"],
         priority: 104,
         category: "Backend / Security",
-        status: "Complete awaiting production release",
-        tier: "past-work",
+        status: "Complete, awaiting production release",
+        tier: "featured",
         proprietary: true,
         caseStudyLink: "/projects/ph-auth-service",
         description: [
             "Multi-tenant OpenID Connect identity provider built in Go with tenant-scoped users, projects, OIDC clients, and signing keys. The provider supports PKCE S256, refresh tokens, private-key JWT authentication, request objects, standard scopes, and custom scopes.",
             "The custom Go layer handles server-rendered auth UI, MFA enrollment and OTP verification, per-user device limits, Redis-backed sessions, session revocation, CSP nonces, CSRF protection, reCAPTCHA, rate limiting, request timeouts, and password recovery.",
-            "Built the companion Nuxt 3 administration dashboard for tenants, projects, applications, users, and MFA configuration. Added Cypress coverage for authentication journeys and management APIs, plus Docker and GitHub Actions workflows for release preparation. Complete and awaiting production release.",
+            "Built the companion Nuxt 3 administration dashboard for tenants, projects, applications, users, and MFA configuration. Added Cypress coverage for authentication journeys and management APIs, plus Docker and GitHub Actions workflows for release preparation. Complete and awaiting production release; it is not currently serving production tenants.",
         ],
         highlights: [
             "Go OIDC provider with PKCE, refresh tokens, and private-key JWT",
