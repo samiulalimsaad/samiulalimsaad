@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BreadcrumbsJsonLd from "@/components/Breadcrumbs";
 import { getAllGistMeta } from "@/lib/gists";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.samiulalimsaad.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 const pageTitle = "Technical Gists | Samiul Alim Go & TypeScript Patterns";
 const pageDescription =
