@@ -4,7 +4,7 @@ import Skills from "@/components/sections/Skills";
 describe("Skills", () => {
     it("renders section heading", () => {
         render(<Skills />);
-        expect(screen.getByText("Engineering Impact Areas")).toBeInTheDocument();
+        expect(screen.getByText("Technical Focus")).toBeInTheDocument();
     });
 
     it("renders skill categories", () => {
