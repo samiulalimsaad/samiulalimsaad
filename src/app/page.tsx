@@ -21,20 +21,23 @@ export default function Home() {
 
 function Impact() {
     const metrics = [
-        { value: "5", label: "production services owned" },
-        { value: "197K+", label: "emails in one 7-day window" },
-        { value: "50–60%", label: "lower email delivery cost" },
+        { value: "5", label: "production services maintained" },
+        { value: "197K+", label: "emails processed in 7 days" },
+        { value: "50–60%", label: "lower email send cost" },
         { value: "13,820+", label: "leads captured" },
     ];
 
     return (
         <section className="w-full bg-linear-to-b from-white via-sky-50/60 to-indigo-50/40 px-4 py-12">
             <div className="mx-auto w-full max-w-6xl rounded-3xl border border-white/70 bg-white/80 p-6 shadow-sm backdrop-blur-sm sm:p-8">
-                <h2 className="mb-6 text-center text-2xl font-extrabold tracking-tight">
+                <h2 className="mb-2 text-center text-2xl font-extrabold tracking-tight">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         Engineering Impact
                     </span>
                 </h2>
+                <p className="mb-6 text-center text-xs text-foreground/50">
+                    Production and operational results documented in selected case studies
+                </p>
                 <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                     {metrics.map((metric) => (
                         <div
