@@ -102,7 +102,7 @@ function HeroSection() {
                     Production email platform forked from open-source Plunk, extended with a custom
                     BullMQ worker and Redis-backed queue, with delivery routed through AWS SES.
                     Replaced Mailgun for transactional emails, campaigns, and workflow automation.
-                    Significant cost reduction vs Mailgun with comparable delivery performance.
+                    Approximately 50–60% lower sending cost at comparable delivery performance.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {["Node.js", "TypeScript", "BullMQ", "Redis", "PostgreSQL", "AWS SES"].map(
@@ -682,8 +682,8 @@ function LessonsLearned() {
                     />
                     <LessonCard
                         icon={<Shield className="w-5 h-5" />}
-                        title="Fail Open, Investigate Later"
-                        description="Using Redis data directly to unblock users was faster than fixing the SMTP config. Sometimes operational workarounds are the right call."
+                        title="Workarounds Are Valid Under Pressure"
+                        description="Using Redis data directly to unblock users was faster than fixing the SMTP config. Sometimes operational workarounds are the right call when users are blocked."
                     />
                 </div>
             </div>

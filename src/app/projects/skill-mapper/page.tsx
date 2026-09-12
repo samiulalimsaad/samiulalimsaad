@@ -51,6 +51,7 @@ export default function SkillMapperCaseStudy() {
             />
             <HeroSection />
             <ExecutiveSummary />
+            <OwnershipSection />
             <ArchitectureDiagram />
             <KeyFeatures />
             <TechnicalDecisions />
@@ -169,6 +170,55 @@ function SummaryCard({
             <div className="text-2xl font-bold text-foreground">{value}</div>
             <div className="text-xs text-foreground/60">{label}</div>
         </div>
+    );
+}
+
+function OwnershipSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Own</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Assessment lifecycle
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Designed and built the event-driven state machine governing assessment
+                            lifecycle, preventing invalid transitions and providing a clear audit
+                            trail.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Scoring and ranking
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Built server-authoritative scoring with dual AI provider integration,
+                            materialized leaderboard, and XP-based gamification across five tiers.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Real-time sync
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Implemented MongoDB change streams for concurrent timed exam
+                            synchronization, with resume-token recovery and fallback polling.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Frontend and tests
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Built the Next.js SSR frontend with TanStack Query, and authored unit,
+                            integration, and E2E test suites for the full assessment flow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }
 
@@ -639,6 +689,15 @@ function ChangeStreamOperations() {
                     Change streams power real-time exam synchronization, but they require careful
                     operational management. Here is how each operational concern is addressed:
                 </p>
+                <div className="rounded-2xl border border-amber-100 bg-amber-50/50 p-4 mb-6">
+                    <p className="text-xs text-foreground/70 leading-relaxed">
+                        <strong>Scope note:</strong> Resume token persistence and fallback polling
+                        are implemented. Oplog monitoring and WebSocket connection management are
+                        operational concerns documented here for completeness; their alert
+                        thresholds and scaling behavior are validated at current scale but may
+                        require tuning under higher concurrent exam loads.
+                    </p>
+                </div>
                 <div className="space-y-4">
                     <OperationCard
                         concern="Resume Token Management"

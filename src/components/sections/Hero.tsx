@@ -34,17 +34,16 @@ export default function Hero() {
                     </p>
                     <h1 className="text-balance text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
                         <span className="inline-block text-foreground/80">
-                            Backend-Focused Full-Stack Engineer
+                            Backend & Platform Engineer
                         </span>{" "}
                         <span className="inline-block bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                            Building Scalable Web Systems
+                            Building Reliable Product Infrastructure
                         </span>
                     </h1>
                     <p className="max-w-2xl text-sm sm:text-base text-foreground/70">
-                        Backend-focused software engineer building production platform services
-                        authentication, payments, and email delivery. I design shared
-                        infrastructure, operate it in production, and respond when it breaks at 2
-                        AM.
+                        I build and operate platform services for authentication, payments, email
+                        delivery, and education products. Strongest in Go and TypeScript, from
+                        architecture through deployment, monitoring, and incident response.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                         <a
@@ -52,13 +51,13 @@ export default function Hero() {
                             aria-label="View case studies"
                             className="inline-flex items-center rounded-full bg-linear-to-r from-cyan-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white transition"
                         >
-                            View Case Studies
+                            View Selected Work
                         </a>
                         <a
                             href="#contact"
                             className="inline-flex items-center rounded-full border border-indigo-200 bg-white/80 px-6 py-2 text-sm font-semibold text-indigo-700 transition hover:-translate-y-px hover:border-indigo-300 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
-                            Hire Me
+                            Contact Me
                         </a>
                         <ResumeButton />
                     </div>

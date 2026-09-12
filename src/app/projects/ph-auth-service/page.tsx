@@ -281,7 +281,7 @@ function KeyFeatures() {
             icon: <Key className="w-5 h-5" />,
             title: "OpenID Connect Provider",
             description:
-                "Full OIDC implementation with authorization code flow, PKCE, refresh tokens, token introspection, and JWKS endpoint.",
+                "OpenID Connect provider built on ZITADEL's OIDC library with authorization code flow, PKCE, refresh tokens, token introspection, and JWKS endpoint.",
         },
         {
             icon: <Users className="w-5 h-5" />,

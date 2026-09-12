@@ -5,6 +5,13 @@ const BOOTCAMP_IMAGE = "/evidence/bootcamp-statistics.png";
 const SPEAKSAIL_IMAGE = "/projects/speaksail-com.png";
 const SKILL_MAPPER_IMAGE = "/projects/skill-mapper-programming-hero.png";
 
+export type EvidenceLevel =
+    | "production"
+    | "implemented-tested"
+    | "pre-production"
+    | "in-development"
+    | "mvp";
+
 export const projects = [
     {
         _id: "featured-1",
@@ -12,6 +19,7 @@ export const projects = [
         title: "PH Mailer",
         subtitle: "Centralized Email Platform",
         time: "Production",
+        evidenceLevel: "production" as EvidenceLevel,
         shortDescription:
             "Production email platform: forked Plunk, custom BullMQ worker + Redis queue, delivery via AWS SES",
         metrics: [
@@ -51,18 +59,19 @@ export const projects = [
         name: "PH Auth Service",
         subtitle: "Multi-Tenant OIDC Identity Platform",
         time: "2024 – Present",
+        evidenceLevel: "pre-production" as EvidenceLevel,
         shortDescription: "Multi-tenant auth platform on ZITADEL with custom Go product layer",
         metrics: ["10 Cypress E2E suites", "4 admin resource domains", "3 backend data stores"],
         priority: 104,
         category: "Backend / Security",
-        status: "Complete awaiting production release",
+        status: "Complete, awaiting production release",
         tier: "past-work",
         proprietary: true,
         caseStudyLink: "/projects/ph-auth-service",
         description: [
             "Multi-tenant OpenID Connect identity provider built in Go with tenant-scoped users, projects, OIDC clients, and signing keys. The provider supports PKCE S256, refresh tokens, private-key JWT authentication, request objects, standard scopes, and custom scopes.",
             "The custom Go layer handles server-rendered auth UI, MFA enrollment and OTP verification, per-user device limits, Redis-backed sessions, session revocation, CSP nonces, CSRF protection, reCAPTCHA, rate limiting, request timeouts, and password recovery.",
-            "Built the companion Nuxt 3 administration dashboard for tenants, projects, applications, users, and MFA configuration. Added Cypress coverage for authentication journeys and management APIs, plus Docker and GitHub Actions workflows for release preparation. Complete and awaiting production release.",
+            "Built the companion Nuxt 3 administration dashboard for tenants, projects, applications, users, and MFA configuration. Added Cypress coverage for authentication journeys and management APIs, plus Docker and GitHub Actions workflows for release preparation. Complete and awaiting production release; it is not currently serving production tenants.",
         ],
         highlights: [
             "Go OIDC provider with PKCE, refresh tokens, and private-key JWT",
@@ -86,6 +95,7 @@ export const projects = [
         title: "PH Bootcamp Platform",
         subtitle: "Full-Stack LMS with DRM, Payments & QR",
         time: "Production",
+        evidenceLevel: "production" as EvidenceLevel,
         shortDescription:
             "Full-stack LMS with DRM video, bKash payments, QR attendance, and WhatsApp group management",
         metrics: ["13,820+ total leads", "898+ active users", "85 automated tests"],
@@ -93,7 +103,7 @@ export const projects = [
         category: "Backend / Platform",
         status: "Production",
         tier: "featured",
-        proprietary: false,
+        proprietary: true,
         caseStudyLink: "/projects/ph-bootcamp",
         description: [
             "Full-stack learning management system handling course delivery, event registration with bKash payments, DRM-protected video streaming, QR code attendance tracking, WhatsApp group management, and bootcamp lead capture across 13,820+ leads.",
@@ -139,6 +149,7 @@ export const projects = [
         title: "SpeakSail / Enlightall",
         subtitle: "Language Learning Marketplace",
         time: "Freelance Client | Aug 2022 – Aug 2024",
+        evidenceLevel: "production" as EvidenceLevel,
         shortDescription:
             "Language-learning marketplace with live video tutoring, real-time messaging, and multi-gateway payments",
         metrics: ["27 database models", "90+ API routes", "7 user roles, 2 languages"],
@@ -192,6 +203,7 @@ export const projects = [
         title: "Payment Service",
         subtitle: "Centralized Payment Platform",
         time: "2024 – Present",
+        evidenceLevel: "in-development" as EvidenceLevel,
         shortDescription: "Centralized multi-gateway payment service for education products",
         metrics: [
             "3 gateways unified",
@@ -230,13 +242,14 @@ export const projects = [
         title: "Skill Mapper",
         subtitle: "Technical Assessment Platform",
         time: "Production",
+        evidenceLevel: "production" as EvidenceLevel,
         shortDescription: "Technical assessment platform with state machine and leaderboards",
         metrics: ["5,000+ enrolled students", "500 daily active users", "5-tier XP ranking system"],
         priority: 93,
         category: "Full Stack / Product",
         status: "Production",
         tier: "featured",
-        proprietary: false,
+        proprietary: true,
         caseStudyLink: "/projects/skill-mapper",
         description: [
             "Full-lifecycle technical assessment platform with an event state machine governing the assessment lifecycle (draft → published → active → completed → archived). Includes invite management, concurrent timed exams with real-time synchronization, and automated disqualification on rule violations.",
@@ -283,6 +296,7 @@ export const projects = [
         title: "AI Game Platform",
         subtitle: "AI-Powered Gamified Learning Platform",
         time: "MVP",
+        evidenceLevel: "mvp" as EvidenceLevel,
         shortDescription:
             "19-engine gamified micro-learning platform with AI-generated content, universal envelope architecture, and server-authoritative scoring (hackathon MVP)",
         metrics: [
@@ -345,3 +359,56 @@ export const projects = [
         },
     },
 ];
+
+export const projectStatusMap: Record<
+    string,
+    {
+        status: string;
+        evidenceLevel: EvidenceLevel;
+        canClaimProduction: boolean;
+        publicSource: boolean;
+    }
+> = {
+    "featured-1": {
+        status: "Production",
+        evidenceLevel: "production",
+        canClaimProduction: true,
+        publicSource: false,
+    },
+    "featured-2": {
+        status: "Complete, awaiting production release",
+        evidenceLevel: "pre-production",
+        canClaimProduction: false,
+        publicSource: false,
+    },
+    "featured-3": {
+        status: "Production",
+        evidenceLevel: "production",
+        canClaimProduction: true,
+        publicSource: false,
+    },
+    "featured-4": {
+        status: "Production",
+        evidenceLevel: "production",
+        canClaimProduction: true,
+        publicSource: false,
+    },
+    "ph-payment-service": {
+        status: "In development",
+        evidenceLevel: "in-development",
+        canClaimProduction: false,
+        publicSource: false,
+    },
+    "ph-skill-mapper": {
+        status: "Production",
+        evidenceLevel: "production",
+        canClaimProduction: true,
+        publicSource: false,
+    },
+    "ai-game-platform": {
+        status: "MVP",
+        evidenceLevel: "mvp",
+        canClaimProduction: false,
+        publicSource: true,
+    },
+};

@@ -61,6 +61,7 @@ export default function SpeakSailCaseStudy() {
             />
             <HeroSection />
             <ExecutiveSummary />
+            <OwnershipSection />
             <ArchitectureDiagram />
             <KeyFeatures />
             <TechnicalDecisions />
@@ -148,8 +149,8 @@ function ExecutiveSummary() {
                     />
                     <SummaryCard
                         icon={<HardDrive className="w-5 h-5" />}
-                        value="Steady growth"
-                        label="User base & revenue trended up"
+                        value="Confidential"
+                        label="User and revenue figures under NDA"
                     />
                     <SummaryCard
                         icon={<CreditCard className="w-5 h-5" />}
@@ -196,6 +197,56 @@ function SummaryCard({
             <div className="text-2xl font-bold text-foreground">{value}</div>
             <div className="text-xs text-foreground/60">{label}</div>
         </div>
+    );
+}
+
+function OwnershipSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Own</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Payments and auth
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Built Stripe, Iyzipay, and Paymax payment integrations with
+                            multi-currency support. Implemented Firebase Auth + JWT hybrid
+                            authentication and 7-role RBAC.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Real-time messaging
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Implemented Socket.IO in-app messaging with room-based delivery and
+                            Firebase Cloud Messaging for push notifications. Dual notification
+                            system ensuring message delivery.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Admin tooling
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Built RBAC-secured admin panel for instructor management, course
+                            approval, payment reconciliation, and platform configuration.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Architecture evolution
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Maintained the original Next.js 14 monolith and contributed to the
+                            Laravel 11 + TanStack Start rewrite with AI-powered chat integration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }
 

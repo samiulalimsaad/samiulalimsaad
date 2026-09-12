@@ -1,6 +1,8 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { getAllGistMeta } from "@/lib/gists";
-import { projects } from "@/lib/projects";
+import { projectStatusMap, projects } from "@/lib/projects";
 import { skills } from "@/lib/skills";
 import { getExperienceYears, getProductionYears } from "@/lib/utils";
 
@@ -42,6 +44,71 @@ describe("Projects data integrity", () => {
     it("no project exceeds reasonable tool count", () => {
         for (const p of projects) {
             expect(p.tools.length).toBeLessThanOrEqual(10);
+        }
+    });
+
+    it("all projects have evidenceLevel", () => {
+        for (const p of projects) {
+            expect("evidenceLevel" in p && typeof p.evidenceLevel).toBe("string");
+        }
+    });
+
+    it("status map covers all projects", () => {
+        for (const p of projects) {
+            expect(projectStatusMap[p._id]).toBeDefined();
+        }
+    });
+
+    it("development and MVP projects cannot claim production", () => {
+        for (const [id, meta] of Object.entries(projectStatusMap)) {
+            if (!meta.canClaimProduction) {
+                const project = projects.find((p) => p._id === id);
+                expect(project).toBeDefined();
+                expect(project!.status.toLowerCase()).not.toBe("production");
+            }
+        }
+    });
+
+    it("auth service remains pre-production", () => {
+        const auth = projects.find((p) => p._id === "featured-2");
+        expect(auth).toBeDefined();
+        expect(auth!.status).toContain("awaiting production");
+    });
+
+    it("payment service remains in development", () => {
+        const pay = projects.find((p) => p._id === "ph-payment-service");
+        expect(pay).toBeDefined();
+        expect(pay!.status).toBe("In development");
+    });
+
+    it("ai game platform remains MVP", () => {
+        const ai = projects.find((p) => p._id === "ai-game-platform");
+        expect(ai).toBeDefined();
+        expect(ai!.status).toBe("MVP");
+    });
+
+    it("five projects are proprietary to Programming Hero", () => {
+        const proprietary = projects.filter((p) => p.proprietary);
+        expect(proprietary.length).toBe(5);
+    });
+
+    it("speakSail is not proprietary", () => {
+        const ss = projects.find((p) => p._id === "featured-4");
+        expect(ss).toBeDefined();
+        expect(ss!.proprietary).toBe(false);
+    });
+
+    it("ai game platform is public", () => {
+        const ai = projects.find((p) => p._id === "ai-game-platform");
+        expect(ai).toBeDefined();
+        expect(ai!.proprietary).toBe(false);
+    });
+
+    it("proprietary projects have case study links", () => {
+        const proprietary = projects.filter((p) => p.proprietary);
+        for (const p of proprietary) {
+            expect(p.caseStudyLink).toBeDefined();
+            expect(p.caseStudyLink).toMatch(/^\/projects\//);
         }
     });
 });
@@ -111,5 +178,39 @@ describe("Utils", () => {
         const years = getProductionYears();
         // Production started Aug 2024, so max realistic value is ~2 years
         expect(years).toBeLessThanOrEqual(2);
+    });
+});
+
+describe("README content integrity", () => {
+    const readme = fs.readFileSync(path.resolve("README.md"), "utf-8");
+
+    it("contains backend/platform positioning", () => {
+        expect(readme).toContain("Backend & Platform Software Engineer");
+    });
+
+    it("contains portfolio link", () => {
+        expect(readme).toContain("samiulalimsaad.com");
+    });
+
+    it("contains resume link", () => {
+        expect(readme).toContain("samiul-alim-resume.pdf");
+    });
+
+    it("does not contain decorative stats widgets", () => {
+        expect(readme).not.toContain("github-stats-extended");
+        expect(readme).not.toContain("streak-stats");
+        expect(readme).not.toContain("github-readme-activity-graph");
+    });
+
+    it("marks auth service as pre-production", () => {
+        expect(readme).toContain("Pre-production");
+    });
+
+    it("marks payment service as in development", () => {
+        expect(readme).toContain("In development");
+    });
+
+    it("marks EduPlay as MVP or hackathon", () => {
+        expect(readme.toLowerCase()).toContain("hackathon mvp");
     });
 });

@@ -61,6 +61,7 @@ export default function PaymentServiceCaseStudy() {
             />
             <HeroSection />
             <ExecutiveSummary />
+            <OwnershipSection />
             <ArchitectureDiagram />
             <KeyFeatures />
             <TechnicalDecisions />
@@ -177,6 +178,58 @@ function SummaryCard({
             <div className="text-2xl font-bold text-foreground">{value}</div>
             <div className="text-xs text-foreground/60">{label}</div>
         </div>
+    );
+}
+
+function OwnershipSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Own</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Gateway adapter architecture
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Designed the adapter pattern abstraction for Stripe, bKash, and
+                            SSLCommerz with a unified PaymentGateway interface, webhook
+                            verification, and refund management.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Payment lifecycle
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Built the payment state machine with guard functions preventing invalid
+                            transitions. Implemented idempotent webhook processing with Redis-backed
+                            deduplication.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            API and contracts
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Defined the OpenAPI specification and generated server/client code for
+                            type-safe contract compliance. Built the Nuxt administration dashboard
+                            for operational management.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Data architecture
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Designed polyglot persistence: PostgreSQL for transactions, Redis for
+                            gateway tokens, ClickHouse for analytics. Each store chosen for its
+                            access pattern.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }
 
@@ -699,6 +752,15 @@ function ObservabilitySection() {
                         ]}
                     />
                 </div>
+                <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50/50 p-5">
+                    <h3 className="text-sm font-semibold text-amber-800 mb-1">Scope note</h3>
+                    <p className="text-xs text-foreground/70 leading-relaxed">
+                        Observability features listed above represent the design direction. Detailed
+                        alerting thresholds, reconciliation jobs, and gateway-specific monitoring
+                        have not yet been validated in production because this service is in
+                        development.
+                    </p>
+                </div>
             </div>
         </section>
     );
@@ -814,8 +876,9 @@ function ReferencesSection() {
                 </h2>
                 <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6 backdrop-blur-sm">
                     <p className="text-sm text-foreground/70 mb-4">
-                        This is a proprietary production system. The details above reflect my actual
-                        work. Additional evidence available upon request:
+                        This is a proprietary system in development. The details above reflect my
+                        actual design and implementation work. Additional evidence available upon
+                        request:
                     </p>
                     <ul className="space-y-2 text-sm text-foreground/70">
                         <li className="flex items-start gap-2">

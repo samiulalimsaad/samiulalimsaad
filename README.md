@@ -45,13 +45,17 @@ I build reliable backend platforms, distributed systems, and scalable product in
 
 ## GitHub Activity
 
-<p align="center">
-  <img src="https://github-stats-extended.vercel.app/api?username=samiulalimsaad&show_icons=true&hide_border=true&theme=transparent" alt="GitHub Stats" height="135" />
-  <img src="https://streak-stats.demolab.com/?user=samiulalimsaad&hide_border=true&theme=transparent" alt="GitHub Streak" height="135" />
-  <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=samiulalimsaad&layout=compact&hide_border=true&theme=transparent&langs_count=6" alt="Top Languages" height="135" />
-</p>
+<div align="center">
+
+![GitHub Stats](https://github-stats-extended.vercel.app/api?username=samiulalimsaad&show_icons=true&hide_border=true&theme=transparent)
+
+![GitHub Streak](https://streak-stats.demolab.com/?user=samiulalimsaad&hide_border=true&theme=transparent)
+
+![Top Languages](https://github-stats-extended.vercel.app/api/top-langs/?username=samiulalimsaad&layout=compact&hide_border=true&theme=transparent&langs_count=6)
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=samiulalimsaad&theme=github-compact&hide_border=true&area=true&custom_title=Contribution%20Activity" width="100%" alt="Contribution Graph">
+
+</div>
 
 ## Let's Connect
 

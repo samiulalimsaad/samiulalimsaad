@@ -40,12 +40,12 @@ export type ExperienceFact = {
 
 export const experienceFacts: ExperienceFact[] = [
     {
-        title: "Software Engineer",
+        title: "Web Developer L2",
         employer: "Programming Hero (Technology Team)",
         start: "Aug 2024",
         end: "Present",
         employmentType: "Full-time",
-        location: "Bangladesh",
+        location: "Dhaka, Bangladesh",
         workArrangement: "Remote",
         responsibilities: [
             "Backend services, REST APIs, authentication, payments, background workflows, architecture, deployment, and monitoring.",
@@ -71,7 +71,7 @@ export const experienceFacts: ExperienceFact[] = [
         start: "Feb 2023",
         end: "Aug 2024",
         employmentType: "Full-time",
-        location: "Bangladesh",
+        location: "Dhaka, Bangladesh",
         workArrangement: "Remote",
         responsibilities: [
             "Reviewed code and architecture for junior engineers working on React and JavaScript projects.",
@@ -135,7 +135,7 @@ export const experienceFacts: ExperienceFact[] = [
         start: "Jul 2021",
         end: "Jan 2022",
         employmentType: "Internship",
-        location: "Remote",
+        location: "Romania",
         workArrangement: "Remote",
         responsibilities: [
             "Worked on AI/ML model development, data preprocessing, model optimization, and scalability.",

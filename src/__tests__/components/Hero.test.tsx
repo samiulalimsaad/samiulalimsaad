@@ -13,7 +13,7 @@ describe("Hero", () => {
 
     it("renders CTA buttons", () => {
         render(<Hero />);
-        expect(screen.getByText("View Case Studies")).toBeInTheDocument();
+        expect(screen.getByText("View Selected Work")).toBeInTheDocument();
         expect(screen.getByText("Resume")).toBeInTheDocument();
     });
 

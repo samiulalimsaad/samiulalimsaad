@@ -61,6 +61,7 @@ export default function AIGamePlatformCaseStudy() {
             />
             <HeroSection />
             <ExecutiveSummary />
+            <OwnershipSection />
             <ArchitectureDiagram />
             <KeyFeatures />
             <TechnicalDecisions />
@@ -196,6 +197,56 @@ function SummaryCard({
             <div className="text-2xl font-bold text-foreground">{value}</div>
             <div className="text-xs text-foreground/60">{label}</div>
         </div>
+    );
+}
+
+function OwnershipSection() {
+    return (
+        <section className="w-full bg-white py-16 px-4">
+            <div className="mx-auto w-full max-w-4xl">
+                <h2 className="text-2xl font-bold text-foreground mb-8">What I Own</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Engine registry and schemas
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Designed the 6-seam engine registry, universal GameEnvelope, and shared
+                            Zod schema package consumed by both backend and frontend for validation
+                            at seed and render time.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">AI pipeline</h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Built the multi-provider AI content pipeline with validated-retry loop,
+                            supporting Anthropic, OpenAI, Gemini, and OpenRouter through a common
+                            provider interface.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Server-authoritative scoring
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Implemented server-side score derivation: clients submit raw results
+                            only, the server re-validates stored content and derives correctness,
+                            XP, badges, and leaderboard updates.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl border border-gray-100 bg-white/60 p-5">
+                        <h3 className="text-sm font-semibold text-foreground mb-1">
+                            Full-stack integration
+                        </h3>
+                        <p className="text-xs text-foreground/60 leading-relaxed">
+                            Built the Express API, React frontend with 19 game engine components,
+                            MongoDB storage, Redis leaderboard, and Docker/Turborepo monorepo
+                            configuration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }
 
@@ -720,7 +771,7 @@ function ReferencesSection() {
                 </h2>
                 <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-6 backdrop-blur-sm">
                     <p className="text-sm text-foreground/70 mb-4">
-                        This is a public open-source project. The details above reflect actual
+                        This is a public open-source hackathon MVP. The details above reflect actual
                         development work:
                     </p>
                     <ul className="space-y-2 text-sm text-foreground/70">

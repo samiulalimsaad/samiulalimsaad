@@ -17,8 +17,9 @@ export default function Projects() {
                     </span>
                 </h2>
                 <p className="mx-auto max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Production systems I build and maintain. Each entry describes the engineering
-                    problem, not just the technology.
+                    Platform services I build and operate across identity, payments, email delivery,
+                    and education products. Each entry explains the engineering problem, ownership,
+                    and outcome.
                 </p>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-8">
@@ -58,6 +59,9 @@ function ProjectCard({ project }: ProjectCardProps) {
             </div>
             <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-lg sm:text-xl font-semibold text-cyan-700">{project.name}</h3>
+                <p className="mb-1 text-[11px] font-medium uppercase tracking-wide text-foreground/50">
+                    {project.status}
+                </p>
                 <p className="mb-2 text-sm text-foreground/80">{project.shortDescription}</p>
                 {"metrics" in project && project.metrics && project.metrics.length > 0 && (
                     <div className="mb-3 flex flex-wrap gap-1.5">
@@ -72,7 +76,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                     </div>
                 )}
                 <div className="mb-4 flex flex-wrap gap-2">
-                    {project.tools.slice(0, 3).map((tool) => (
+                    {project.tools.slice(0, 2).map((tool) => (
                         <span
                             key={tool}
                             className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
@@ -80,9 +84,9 @@ function ProjectCard({ project }: ProjectCardProps) {
                             {tool}
                         </span>
                     ))}
-                    {project.tools.length > 3 && (
+                    {project.tools.length > 2 && (
                         <span className="inline-flex items-center rounded-full bg-cyan-50/60 px-3 py-1 text-xs font-medium text-cyan-600 ring-1 ring-cyan-100/60">
-                            +{project.tools.length - 3} more
+                            +{project.tools.length - 2} more
                         </span>
                     )}
                 </div>
