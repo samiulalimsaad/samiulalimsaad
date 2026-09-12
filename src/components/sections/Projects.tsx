@@ -3,10 +3,7 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 
 export default function Projects() {
-    const featuredIds = ["featured-1", "featured-2", "featured-3", "ph-skill-mapper"];
-    const featured = featuredIds
-        .map((id) => projects.find((project) => project._id === id))
-        .filter((project): project is (typeof projects)[number] => Boolean(project));
+    const featured = projects.filter((p) => p.tier === "featured").slice(0, 3);
 
     return (
         <section
@@ -79,7 +76,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                     </div>
                 )}
                 <div className="mb-4 flex flex-wrap gap-2">
-                    {project.tools.slice(0, 3).map((tool) => (
+                    {project.tools.slice(0, 2).map((tool) => (
                         <span
                             key={tool}
                             className="inline-flex items-center rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700 ring-1 ring-cyan-100"
@@ -87,9 +84,9 @@ function ProjectCard({ project }: ProjectCardProps) {
                             {tool}
                         </span>
                     ))}
-                    {project.tools.length > 3 && (
+                    {project.tools.length > 2 && (
                         <span className="inline-flex items-center rounded-full bg-cyan-50/60 px-3 py-1 text-xs font-medium text-cyan-600 ring-1 ring-cyan-100/60">
-                            +{project.tools.length - 3} more
+                            +{project.tools.length - 2} more
                         </span>
                     )}
                 </div>

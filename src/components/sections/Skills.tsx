@@ -1,6 +1,9 @@
 import { skills } from "@/lib/skills";
 
+const HOMEPAGE_MAX = 6;
+
 export default function Skills() {
+    const homepageSkills = skills.slice(0, HOMEPAGE_MAX);
     return (
         <section
             id="skills"
@@ -9,15 +12,14 @@ export default function Skills() {
             <div className="mx-auto w-full max-w-6xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                        Engineering Impact Areas
+                        Technical Focus
                     </span>
                 </h2>
                 <p className="mx-auto mb-10 max-w-2xl text-center text-sm sm:text-base text-foreground/70">
-                    Production experience organized by problem domain. Familiar items from learning
-                    and side projects are marked differently.
+                    Production experience organized by problem domain.
                 </p>
                 <div className="grid gap-8 md:grid-cols-2">
-                    {skills.map((group) => (
+                    {homepageSkills.map((group) => (
                         <SkillCard key={group.category} group={group} />
                     ))}
                 </div>

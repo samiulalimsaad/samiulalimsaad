@@ -1,3 +1,15 @@
+import { education } from "@/lib/knowledge";
+
+function educationLabel(degree: string) {
+    return degree.replace(/^Master of Science/, "MSc").replace(/^Bachelor of Science/, "BSc");
+}
+
+function graduationYear(entry: (typeof education)[number]) {
+    const end = entry.end ?? entry.start;
+    const match = end.match(/(\d{4})$/);
+    return match ? match[1] : end;
+}
+
 export default function About() {
     return (
         <section
@@ -74,20 +86,15 @@ export default function About() {
                                 Education
                             </p>
                             <div className="space-y-2 text-sm text-foreground/70">
-                                <p>
-                                    <span className="font-medium text-foreground/80">
-                                        MSc, Computer Science & Engineering
-                                    </span>
-                                    <br />
-                                    University of Rajshahi · 2024
-                                </p>
-                                <p>
-                                    <span className="font-medium text-foreground/80">
-                                        BSc, Computer Science & Engineering
-                                    </span>
-                                    <br />
-                                    North Bengal International University · 2021
-                                </p>
+                                {education.map((item) => (
+                                    <p key={item.institution}>
+                                        <span className="font-medium text-foreground/80">
+                                            {educationLabel(item.degree)}
+                                        </span>
+                                        <br />
+                                        {item.institution} · {graduationYear(item)}
+                                    </p>
+                                ))}
                             </div>
                         </div>
                     </aside>
