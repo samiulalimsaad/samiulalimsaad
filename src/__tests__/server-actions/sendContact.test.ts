@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-const cookieGetMock = vi.fn(() => undefined);
+const cookieGetMock = vi.fn<() => { value: string } | undefined>(() => undefined);
 
 // Mock next/headers
 vi.mock("next/headers", () => ({
