@@ -50,4 +50,27 @@ describe("markdown proxy", () => {
         expect(config.matcher[0]).toContain("_next/");
         expect(config.matcher[0]).toContain("\\.");
     });
+
+    it("adds a Link header on HTML pass-through responses", () => {
+        const response = proxy(requestFor("/", "text/html"));
+        const link = response.headers.get("link");
+        expect(link).toContain('rel="api-catalog"');
+        expect(link).toContain("/.well-known/api-catalog");
+    });
+
+    it("adds a Link header on Markdown rewrite responses", () => {
+        const response = proxy(requestFor("/projects", "text/markdown"));
+        const link = response.headers.get("link");
+        expect(link).toContain('rel="api-catalog"');
+        expect(link).toContain('rel="service-desc"');
+    });
+
+    it("Link header contains all four required relations", () => {
+        const response = proxy(requestFor("/", "text/html"));
+        const link = response.headers.get("link") ?? "";
+        expect(link).toContain('rel="api-catalog"');
+        expect(link).toContain('rel="service-desc"');
+        expect(link).toContain('rel="service-doc"');
+        expect(link).toContain('rel="describedby"');
+    });
 });
