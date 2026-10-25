@@ -17,10 +17,10 @@ const ContactForm = () => {
 
     return (
         <form
-            className="w-full rounded-3xl border border-gray-200 bg-white p-8 space-y-6 shadow-sm"
+            className="w-full rounded-3xl border border-gray-200 bg-white p-3 sm:p-8 space-y-6 shadow-sm"
             action={formAction}
         >
-            <div className="flex items-center justify-between gap-3 mb-2">
+            <div className="flex flex-col items-start gap-2 mb-2 sm:flex-row sm:items-center sm:justify-between">
                 <h3 className="text-lg font-semibold text-gray-900">Send me a message</h3>
                 <span className="rounded-full bg-indigo-50 px-2 py-1 text-xs font-medium uppercase tracking-wide text-indigo-500">
                     Replies within a day

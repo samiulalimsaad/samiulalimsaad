@@ -14,9 +14,9 @@ export default function About() {
     return (
         <section
             id="about"
-            className="w-full bg-linear-to-b from-white via-sky-50/60 to-indigo-50/40 py-20 px-4 animate-section-in"
+            className="w-full bg-linear-to-b from-white via-sky-50/60 to-indigo-50/40 py-20 px-1 sm:px-4 animate-section-in"
         >
-            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-gray-200 bg-white/80 p-6 sm:p-8 backdrop-blur-sm animate-soft-in">
+            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-gray-200 bg-white/80 p-2 sm:p-8 backdrop-blur-sm animate-soft-in">
                 <h2 className="text-center md:text-left text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">
                     <span className="bg-linear-to-r from-indigo-600 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
                         How I Work
@@ -59,7 +59,7 @@ export default function About() {
                         </p>
                     </div>
 
-                    <aside className="rounded-3xl border border-white/70 bg-white/80 p-5 sm:p-6 shadow-sm backdrop-blur-sm animate-card-in">
+                    <aside className="rounded-3xl border border-white/70 bg-white/80 p-3 sm:p-6 shadow-sm backdrop-blur-sm animate-card-in">
                         <div className="mb-4">
                             <p className="text-xs font-semibold uppercase tracking-wide text-cyan-700">
                                 Operating principles
@@ -72,7 +72,7 @@ export default function About() {
                             ].map((principle) => (
                                 <div
                                     key={principle}
-                                    className="rounded-2xl border border-cyan-100 bg-cyan-50/50 p-3"
+                                    className="rounded-2xl border border-cyan-100 bg-cyan-50/50 p-2.5 sm:p-3"
                                 >
                                     <p className="text-sm font-medium leading-relaxed text-foreground/80">
                                         {principle}

@@ -69,9 +69,9 @@ export default function Experience() {
     return (
         <section
             id="experience"
-            className="w-full bg-linear-to-b from-indigo-50/50 via-white to-sky-50/60 py-20 px-4 animate-section-in"
+            className="w-full bg-linear-to-b from-indigo-50/50 via-white to-sky-50/60 py-20 px-1 sm:px-4 animate-section-in"
         >
-            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-white/70 bg-white/80 p-6 sm:p-8 shadow-sm backdrop-blur-sm animate-soft-in">
+            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-white/70 bg-white/80 p-1.5 sm:p-8 shadow-sm backdrop-blur-sm animate-soft-in">
                 <h2 className="text-center text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     <span className="bg-linear-to-r from-cyan-600 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
                         Experience
@@ -82,14 +82,17 @@ export default function Experience() {
                     Remote · Bangladesh
                 </p>
 
-                <div className="rounded-3xl border border-white/70 bg-white/80 p-5 sm:p-6 backdrop-blur-sm">
-                    <ol className="relative ml-4 border-s border-indigo-200">
+                <div className="rounded-3xl border border-white/70 bg-white/80 p-1.5 sm:p-6 backdrop-blur-sm">
+                    <ol className="relative ml-2 sm:ml-4 border-s border-indigo-200">
                         {experiences.map((exp, index) => (
-                            <li key={exp.company + exp.designation} className="mb-8 ms-6 last:mb-0">
+                            <li
+                                key={exp.company + exp.designation}
+                                className="mb-8 ms-[18px] sm:ms-6 last:mb-0"
+                            >
                                 <span className="absolute -left-4 grid h-8 w-8 place-items-center rounded-full bg-linear-to-br from-cyan-500 to-indigo-500 text-xs font-semibold text-white shadow-sm">
                                     {experiences.length - index}
                                 </span>
-                                <div className="rounded-2xl border border-zinc-100 bg-linear-to-br from-white via-cyan-50/40 to-indigo-50/40 p-4 transition hover:-translate-y-0.5 hover:shadow-md">
+                                <div className="rounded-2xl border border-zinc-100 bg-linear-to-br from-white via-cyan-50/40 to-indigo-50/40 p-2 sm:p-4 transition hover:-translate-y-0.5 hover:shadow-md">
                                     <div className="space-y-1">
                                         <h3 className="text-base sm:text-lg font-semibold text-cyan-700 inline-flex items-center gap-2 flex-wrap">
                                             {exp.designation}
@@ -135,7 +138,7 @@ export default function Experience() {
                     </ol>
                 </div>
 
-                <div className="mt-6 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-5 backdrop-blur-sm">
+                <div className="mt-6 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-3 sm:p-5 backdrop-blur-sm">
                     <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600 mb-3">
                         Evidence: Code Review, Monitoring & Platform Metrics
                     </p>
