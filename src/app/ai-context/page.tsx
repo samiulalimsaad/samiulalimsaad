@@ -21,7 +21,7 @@ export default function AiContextPage() {
                         "@id": `${SITE_URL}/ai-context#profile`,
                         url: `${SITE_URL}/ai-context`,
                         name: "AI context for Samiul Alim",
-                        dateModified: "2026-08-24",
+                        dateModified: "2026-10-25",
                         mainEntity: { "@id": `${SITE_URL}/#person` },
                     }),
                 }}

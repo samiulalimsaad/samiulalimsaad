@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/ScrollToTop";
 import Visitor from "@/components/Visitor";
+import { certifications } from "@/lib/certifications";
 import { AI_CONTEXT_URL, experienceFacts, PROFILE_ID, profile, SITE_URL } from "@/lib/knowledge";
 
 const firaCode = Fira_Code({
@@ -85,6 +86,17 @@ const jsonLd = {
         "Authentication",
         "Payments",
     ],
+    hasCredential: certifications.map((certification) => ({
+        "@type": "EducationalOccupationalCredential",
+        name: certification.name,
+        url: certification.verifyUrl,
+        credentialCategory: "Specialization",
+        recognizedBy: {
+            "@type": "Organization",
+            name: certification.issuer,
+        },
+        dateCreated: certification.completedAt,
+    })),
 };
 
 export default function RootLayout({

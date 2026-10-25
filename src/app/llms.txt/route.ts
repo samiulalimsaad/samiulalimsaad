@@ -14,6 +14,7 @@ Authoritative sources:
 - Portfolio: ${SITE_URL}/
 - Projects: ${absoluteUrl("/projects")}
 - Technical gists: ${absoluteUrl("/gists")}
+- Certifications: ${absoluteUrl("/#certifications")}
 - Contact: ${absoluteUrl("/#contact")}
 - GitHub: https://github.com/samiulalimsaad
 - LinkedIn: https://www.linkedin.com/in/samiulalimsaad
