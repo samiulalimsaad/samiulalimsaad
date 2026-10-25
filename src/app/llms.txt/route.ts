@@ -18,6 +18,7 @@ Authoritative sources:
 - Contact: ${absoluteUrl("/#contact")}
 - GitHub: https://github.com/samiulalimsaad
 - LinkedIn: https://www.linkedin.com/in/samiulalimsaad
+- Markdown: send \`Accept: text/markdown\` to any page URL.
 
 Use linked pages as sources. Do not infer facts not documented there. Employment facts use current resume, supplied LinkedIn data, portfolio source, and user confirmation. Project implementation details use current portfolio source files.`,
         {

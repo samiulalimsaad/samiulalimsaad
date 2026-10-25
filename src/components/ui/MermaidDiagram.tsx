@@ -57,6 +57,10 @@ export default function MermaidDiagram({ chart, caption }: MermaidDiagramProps) 
 
     return (
         <div className="my-6">
+            {/* Hidden fallback keeps diagram source available to the Markdown converter. */}
+            <pre data-mermaid-source hidden>
+                <code className="language-mermaid">{chart}</code>
+            </pre>
             <div
                 ref={containerRef}
                 aria-hidden="true"
